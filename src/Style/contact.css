@@ -1,0 +1,106 @@
+@charset "UTF-8";
+.contact-main {
+  width: 100vw;
+  min-height: 100vh;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-rows: 1fr;
+}
+
+.cont-map {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+.cont-form {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
+#contact-form {
+  min-height: 400px;
+  color: #fff;
+  padding: 20px;
+}
+#contact-form input, #contact-form textarea {
+  width: 100%;
+  border: 0;
+  padding: 10px 5px;
+  box-sizing: border-box;
+  margin-bottom: 15px !important;
+  border-radius: 2px;
+  background: none;
+  border-bottom: groove;
+  transition: border-color 0.5s ease-out;
+}
+#contact-form input:focus-visible, #contact-form textarea:focus-visible {
+  outline: none;
+}
+#contact-form textarea {
+  height: 70px;
+  resize: vertical;
+}
+#contact-form button {
+  width: 100%;
+  color: #fff;
+  margin-bottom: 15px;
+}
+#contact-form span.not-visible {
+  display: none;
+  text-align: center;
+}
+#contact-form span.visible {
+  display: block;
+}
+
+.inp-field {
+  width: 100%;
+  /* & input:focus:invalid + span::before {
+        content: "✖";
+        color: rgb(255, 69, 69);
+      }
+
+     & input:focus:valid + span::before {
+        content: "✓";
+        color: green;
+      } */
+}
+.inp-field input + span {
+  position: relative;
+  display: block !important;
+}
+.inp-field input + span::before {
+  position: absolute;
+  right: -20px;
+  top: 5px;
+}
+.inp-field input:focus:invalid {
+  border-bottom: groove var(--invalidGlow);
+}
+.inp-field input:focus:valid {
+  border-bottom: groove var(--validGlow);
+}
+
+.contact-text {
+  margin-block: 5vh;
+  /* &::before {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 0;
+        translate: -50% 0;
+        width: 100%;
+        height: 100vh;
+        background:
+            radial-gradient(ellipse at 50% 100%, rgb(254 69 255 / 1) 0%, 40%, rgb(255 255 255 / 0) 100%) 45.5% 1.03% / 20% 80.6% no-repeat no-repeat;
+
+        z-index: -1;
+    } */
+}
+.contact-text h1 {
+  font-size: 12vw;
+  text-transform: capitalize;
+}/*# sourceMappingURL=contact.css.map */
