@@ -7,6 +7,10 @@
   font-family: 'MonumentRegular';
   src: url(./MonumentRegular.woff2) format('woff2');
 }
+@font-face {
+  font-family: 'Neue';
+  src: url(./neue.woff2) format('woff2');
+}
 
 :root {
   font-family: "MonumentRegular", 'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -58,6 +62,7 @@ section {
   width: 100%;
   min-height: 100vh;
   padding-inline: 3vw;
+  padding-block: 5vh;
 }
 
 /* body            { font-size: calc(0.96428571rem + 0.17857143vw); } */
@@ -76,6 +81,15 @@ h3 {
 h4 {
   font-size: 1.5rem;
   text-transform: uppercase;
+}
+
+p{
+  font-family: 'Neue', Inter, system-ui, Avenir ;
+  font-size: 14px;
+}
+
+ul li{
+  list-style: none;
 }
 
 /* @media (min-width: 90em) {
@@ -149,6 +163,10 @@ button:focus-visible {
     -webkit-text-stroke-color: var(--text-dark);
   }
 
+  svg{
+    fill:var(--text-dark) ;
+}
+
 }
 
 @media (prefers-color-scheme: dark) {
@@ -170,5 +188,7 @@ button:focus-visible {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
   }
-
+  svg{
+    fill:var(--text-color) ;
+}
 }
