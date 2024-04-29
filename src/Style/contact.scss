@@ -5,19 +5,23 @@
   justify-content: center;
   align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-    grid-template-rows: 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 3vw;
 }
 .cont-map {
   width: 100%;
-//   max-width: 350px;
+  //   max-width: 350px;
   height: fit-content;
   border-radius: 25px;
-    overflow: hidden;
+  overflow: hidden;
 }
 .cont-form {
-//   width: 50%;
+  //   width: 50%;
   // max-width: 350px;
-  height: fit-content;
+  height: 100%;
+  display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 // .contact {
@@ -61,30 +65,27 @@
 //     }
 // }
 #contact-form {
-//   min-width: 500px;
+  //   min-width: 500px;
   min-height: 400px;
   color: #fff;
-  padding: 20px;
+  padding-block: 20px;
 
   & input,
   & textarea {
     width: 100%;
     border: 0;
-    padding: 10px 5px;
-    box-sizing: border-box;
+    padding: 12px 16px;
     margin-bottom: 15px !important;
-    border-radius: 2px;
+    border-radius: 20px;
     background: none;
-    border-bottom: groove;
-    transition: border-color 0.5s ease-out;
-
+    border: 1px solid;
     &:focus-visible {
       outline: none;
     }
   }
 
   & textarea {
-    height: 70px;
+    height: 120px;
     resize: vertical;
   }
 

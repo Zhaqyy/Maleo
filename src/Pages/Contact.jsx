@@ -13,24 +13,36 @@ export default function Contact() {
 
       <div className="cont-form">
         <h1 className="hollow">Contactez -nous</h1>
+        <h4>laissez-nous un message</h4>
         <div id="contact-form">
           <div className="inp-field">
             <input
               name="name"
               autoComplete="name"
               type="text"
-              placeholder="Your Name"
+              placeholder="Nom Complet"
               //   value={name}
               //   onChange={(e) => setName(e.target.value)}
             />
             <span></span>
           </div>
           <div className="inp-field">
+          <input
+          name="tel"
+          autoComplete="tel"
+            type="tel"
+            placeholder="Téléphone"
+            required
+            // onChange={(e) => setPhone(e.target.value)}
+          />
+          <span></span>
+        </div>
+          <div className="inp-field">
             <input
               name="email"
               autoComplete="email"
               type="email"
-              placeholder="Your email address"
+              placeholder="E-mail"
               //   value={email}
               required
               //   onChange={(e) => setEmail(e.target.value)}
@@ -39,7 +51,7 @@ export default function Contact() {
           </div>
 
           <textarea
-            placeholder="Your message"
+            placeholder="Message"
             // value={message}
             // onChange={(e) => setMessage(e.target.value)}
           ></textarea>
