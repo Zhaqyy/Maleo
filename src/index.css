@@ -1,6 +1,15 @@
+@font-face {
+  font-family: 'MonumentUltrabold';
+  src: url(./MonumentExtended-Ultrabold.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'MonumentRegular';
+  src: url(./MonumentRegular.woff2) format('woff2');
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  font-family: "MonumentRegular",'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1;
   font-weight: 400;
 
   --bg-color: hsl(0, 0%, 91%);
@@ -22,6 +31,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "MonumentRegular",'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
 a {
@@ -45,13 +55,26 @@ section{
   min-height: 100vh;
   padding-inline: 3vw;
 }
+/* body            { font-size: calc(0.96428571rem + 0.17857143vw); } */
+h1              { font-size: 6.25rem}
+h2              { font-size: 4.4rem }
+h3              { font-size: 2.6rem }
+h4              { font-size: 1.5rem }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* @media (min-width: 90em) {
+    body            { font-size: 1.125rem; }
+    h1              { font-size: 3.375rem; }
+    h3              { font-size: 1.85472973rem; }
+    h4              { font-size: 1.36824324rem; }
+    h2              { font-size: 2.58445946rem; }
+} */
 
-button {
+/* h1 {
+  font-size: 5em;
+  line-height: 0.8;
+} */
+
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -68,7 +91,7 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 ::selection {
   background: #A61853;
@@ -91,7 +114,7 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: var(--text-color);
+    color: var(--text-dark);
   background-color: var(--bg-color);
   }
 
@@ -102,10 +125,17 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  .hollow{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--text-dark);
 }
+
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    color: var(--text-dark);
+    color: var(--text-color);
   background-color: var(--bg-dark);
   }
 
@@ -116,4 +146,10 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  .hollow{
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: var(--text-color);
+}
+
 }

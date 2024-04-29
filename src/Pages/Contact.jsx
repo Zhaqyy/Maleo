@@ -6,10 +6,13 @@ import "../Style/contact.css";
 export default function Contact() {
   return (
     <section className="contact-main">
+
       <div className="cont-map">
         <Map />
       </div>
+
       <div className="cont-form">
+        <h1 className="hollow">Contactez -nous</h1>
         <div id="contact-form">
           <div className="inp-field">
             <input
