@@ -1,0 +1,27 @@
+// For overlay comp
+
+.over-cont{
+    position: fixed;
+    right: 0;
+    top: 200px;
+    writing-mode: vertical-lr;
+    padding-block: 10px;
+}
+
+.over-scroll{
+    position: fixed;
+    left: 0;
+    bottom: 100px;
+    writing-mode: vertical-lr;
+    padding-block: 10px;
+}
+aside p{
+    transition: all .5s ease;
+}
+.over-cont:hover,.over-scroll:hover{
+    p{
+        color: var(--accent);
+        transform: translateY(10px);
+        cursor:help;
+    }
+}

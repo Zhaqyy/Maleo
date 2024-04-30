@@ -40,6 +40,10 @@
   font-family: "MonumentRegular", 'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
+#root{
+  position: relative;
+}
+
 a {
   font-weight: 500;
   color: #646cff;

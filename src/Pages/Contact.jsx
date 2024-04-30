@@ -1,10 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import Map from "../Components/Map";
-import "../Style/contact.css";
-import mail from "/mail.svg";
-import marker from "/marker.svg";
-import tel from "/tel.svg";
+import "../Style/Contact/contact.css";
+
 
 export default function Contact() {
   return (

@@ -1,13 +1,14 @@
-import './App.css'
-import Contact from './Pages/Contact'
+import "./App.css";
+import Overlay from "./Components/Overlay";
+import Contact from "./Pages/Contact";
 
 function App() {
-
   return (
     <>
-  <Contact/>
+      <Overlay />
+      <Contact />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
