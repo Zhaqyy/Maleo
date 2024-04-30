@@ -1,10 +1,11 @@
 // import React from 'react';
 import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
+// const isMobile = window.innerWidth < 1100;
 
 const libraries = ['places'];
 const mapContainerStyle = {
   width: '100%',
-  height: '700px',
+  // height: isMobile? "500px" : '700px'
 };
 const center = {
   lat: 48.85721169424876, 

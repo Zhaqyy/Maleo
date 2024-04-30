@@ -14,14 +14,20 @@
   height: fit-content;
   border-radius: 25px;
   overflow: hidden;
+
+  div {
+    div {
+      height: 700px;
+    }
+  }
 }
 .cont-form {
   //   width: 50%;
   // max-width: 350px;
   height: 100%;
   display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 
 // .contact {
@@ -160,48 +166,80 @@
     } */
 }
 
-
-.cont-info{
-    width: 100vw;
-    min-height: 90vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    padding-inline: 10vw;
+.cont-info {
+  width: 100vw;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding-inline: 10vw;
 }
 
-.cont-info-text{
-    display: flex;
-    flex-direction: column;
+.cont-info-text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
 
-    h1{
-        color: gray;
-        text-align: right;
-        margin-right: -9vw;
-    }
-    h3{
-        text-transform: uppercase;
-    }
+  h1 {
+    -webkit-text-stroke-color:hsl(0, 0%, 50%);
+    text-align: right;
+    font-size: clamp(4.25rem, 10vw, 10.25rem);
+    margin-right: -9vw;
+  }
+  h3 {
+    text-transform: uppercase;
+  }
 }
 
-.cont-detail{
-ul{
+.cont-detail {
+  ul {
     width: 100%;
-    height: 200px;
+    // height: 200px;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    // align-items: center;
     justify-content: space-between;
+    align-items: baseline;
+    margin-block: 5vh;
 
-    li{
-        h5{
-            font-size: 17px;
-            margin-block: 1em;
-            text-transform: uppercase;
-        }
-        svg{
-            margin-bottom: 1em;
-        }
+    li {
+      h5 {
+        font-size: 17px;
+        margin-block: 1em;
+        text-transform: uppercase;
+      }
+      svg {
+        margin-bottom: 1em;
+      }
     }
+  }
 }
+
+@media (max-width: 1100px) {
+  .contact-main {
+    row-gap: 5vh;
+  }
+  .cont-form {
+    padding-inline: 5%;
+    row-gap: 20px;
+  }
+  .cont-map {
+    order: 1;
+    width: 90%;
+    justify-self: center;
+
+    div {
+      div {
+        height: 500px;
+      }
+    }
+  }
+
+  .cont-detail ul {
+    flex-direction: column;
+    row-gap: 30px;
+    align-items: baseline;
+    margin-block: 5vh;
+    /* align-content: flex-start; */
+  }
 }
