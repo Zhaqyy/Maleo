@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import "../Style/Home/Home.css";
+import logo from '/logodark.png'
 
 export default function Home() {
   return (
@@ -27,6 +29,7 @@ export default function Home() {
           </h3>
           <button>QUOTE NOW</button>
         </div>
+        <img src={logo} />
       </section>
     </>
   );

@@ -3,15 +3,29 @@
   right: 0;
   top: 200px;
   writing-mode: vertical-lr;
-  padding-block: 10px;
+  padding-block: 20px;
+  z-index: 10;
 }
 
 .over-scroll {
   position: fixed;
   left: 0;
-  bottom: 100px;
+  bottom: 40px;
   writing-mode: vertical-lr;
-  padding-block: 10px;
+  padding-block: 20px;
+  z-index: 10;
+}
+.over-scroll p {
+  letter-spacing: 7px;
+  font-size: 7px;
+}
+.over-scroll p::before {
+  content: "";
+  position: absolute;
+  bottom: -45px;
+  height: 100px;
+  width: 15px;
+  border-right: 1px solid;
 }
 
 aside p {
@@ -21,7 +35,8 @@ aside p {
   font-size: 10px;
 }
 
-.over-cont:hover p, .over-scroll:hover p {
+.over-cont:hover p,
+.over-scroll:hover p {
   color: var(--accent);
   transform: translateY(10px);
   cursor: help;
