@@ -1,0 +1,25 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 15vw;
+}
+.hero-head {
+  position: relative;
+  align-self: start;
+
+  video {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    object-fit: cover;
+    border-radius: 30px;
+    filter: grayscale(1) brightness(0.7);
+    opacity: 0.4;
+  }
+}
+.hero-cta{
+    align-self: end;
+}

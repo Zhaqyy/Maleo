@@ -17,6 +17,9 @@
 }
 aside p{
     transition: all .5s ease;
+    font-family: "MonumentRegular";
+    letter-spacing: 5px;
+    font-size: 10px;
 }
 .over-cont:hover,.over-scroll:hover{
     p{
