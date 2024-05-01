@@ -43,6 +43,14 @@
   align-self: end;
 }
 
+#canvasWrapper {
+  width: calc(100vw - 5px);
+  height: 100vh;
+  position: absolute;
+  inset: 0;
+  padding: 0;
+}
+
 @media (max-width: 800px) {
   .hero {
     padding-inline: 10vw;

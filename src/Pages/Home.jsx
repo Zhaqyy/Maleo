@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import logo from '/logodark.png'
 
@@ -30,6 +31,9 @@ export default function Home() {
           <button>QUOTE NOW</button>
         </div>
         <img src={logo} />
+      </section>
+      <section id="canvasWrapper">
+        <Scene/>
       </section>
     </>
   );
