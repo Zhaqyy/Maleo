@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
-import logo from '/logodark.png'
+import logo from "/logodark.png";
 
 export default function Home() {
   return (
@@ -15,11 +15,11 @@ export default function Home() {
             <br />
             TO
           </h1>
-          <video autoPlay loop muted playsInline>
-            <source src="hero.webm" type="video/webm" />
-            <source src="hero.mp4" type="video/mp4" />
-          </video>
         </div>
+        <video autoPlay loop muted playsInline className="hero-vid">
+          <source src="hero.webm" type="video/webm" />
+          <source src="hero.mp4" type="video/mp4" />
+        </video>
         <div className="hero-cta">
           <h3>
             PROTECT
@@ -33,7 +33,7 @@ export default function Home() {
         <img src={logo} />
       </section>
       <section id="canvasWrapper">
-        <Scene/>
+        <Scene />
       </section>
     </>
   );
