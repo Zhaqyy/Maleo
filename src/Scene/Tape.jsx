@@ -10,14 +10,8 @@ export default function Tape(props) {
 
   const Taperef = useRef();
   useFrame((state, delta) => {
-    const time = state.clock.elapsedTime; // Get elapsed time for smooth rotation
-  
-    // Adjust the rotation values based on sine and cosine functions
-    Taperef.current.rotation.x = time ; // Change the multiplier for speed
-    // Taperef.current.rotation.z = time * 0.4; // Change the multiplier for speed
-
-    // Taperef.current.rotation.x = Math.sin(time) * 0.5; // Change the multiplier for speed
-  // Taperef.current.rotation.z = Math.cos(time) * 1; // Cha
+    const time = state.clock.elapsedTime;
+    Taperef.current.rotation.x = time ; 
   });
 
   return (

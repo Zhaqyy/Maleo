@@ -6,7 +6,7 @@ const Overlay = () => {
   return (
     <aside>
       <span className="over-cont">
-        <p>Contact X Instagram</p>
+        <p>Instagram X Contact</p>
       </span>
       <span className="over-scroll">
         <p>Scroll down</p>

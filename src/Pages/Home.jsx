@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import logo from "/logodark.png";
@@ -28,7 +29,8 @@ export default function Home() {
             <br />
             PRODUCTS
           </h3>
-          <button>QUOTE NOW</button>
+          <SpotBtn text={"QUOTE NOW"} />
+          {/* <button>QUOTE NOW</button> */}
         </div>
         <img src={logo} />
       </section>

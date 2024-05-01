@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-inline: 15vw;
+  padding-inline: 10vw;
   background-color: #000000e8;
 
   &::before {
@@ -24,11 +24,11 @@
   }
 }
 .hero-vid {
-  width: 200px;
+  width: 220px;
   height: 300px;
   position: absolute;
-  top: 20%;
-  left: 40%;
+  top: 10%;
+  left: 45%;
   object-fit: cover;
   border-radius: 30px;
   filter: grayscale(1) brightness(0.25);

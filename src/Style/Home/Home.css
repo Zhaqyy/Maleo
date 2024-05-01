@@ -2,7 +2,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding-inline: 15vw;
+  padding-inline: 10vw;
   background-color: rgba(0, 0, 0, 0.9098039216);
 }
 .hero::before {
@@ -23,11 +23,11 @@
 }
 
 .hero-vid {
-  width: 200px;
+  width: 220px;
   height: 300px;
   position: absolute;
-  top: 20%;
-  left: 40%;
+  top: 10%;
+  left: 45%;
   -o-object-fit: cover;
      object-fit: cover;
   border-radius: 30px;
