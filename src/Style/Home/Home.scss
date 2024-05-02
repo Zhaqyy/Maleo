@@ -73,6 +73,29 @@
     float: right;
     text-transform: uppercase;
   }
+
+  .paragraph {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+    flex-wrap: wrap;
+
+    .word {
+      position: relative;
+      margin-right: 12px;
+      margin-top: 12px;
+
+      .shadow {
+        position: absolute;
+        opacity: 20%;
+      }
+      span{
+        span{
+          transition: all 0.2s ease;
+        }
+      }
+    }
+  }
 }
 
 // Media query

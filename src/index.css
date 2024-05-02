@@ -44,6 +44,7 @@
 html {
   scroll-snap-type: y proximity;
   overflow-y: scroll;
+  scroll-behavior: smooth;
 }
 
 #root {
@@ -74,7 +75,7 @@ section {
 }
 
 section:not(.wrapper) {
-  scroll-snap-align: start;
+  scroll-snap-align: end;
 }
 
 h1 {
