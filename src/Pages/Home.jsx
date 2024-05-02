@@ -134,6 +134,7 @@ export default function Home() {
         </section>
       </motion.section>
       <ScaleSection />
+      <Vid/>
     </>
   );
 }
@@ -168,8 +169,31 @@ const ScaleSection = () => {
   );
 };
 
-import React from "react";
 
+const Vid = () => {
+  return (
+    <section className="videoSec">
+       <motion.video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="mainVid"
+            style={{
+              // top: MoveVidY,
+              // width: wide,
+              // height: tall,
+              // left: x,
+              // x: MoveVidX,
+              // position,
+            }}
+          >
+            <source src="hero.webm" type="video/webm" />
+            <source src="hero.mp4" type="video/mp4" />
+          </motion.video>
+    </section>
+  );
+};
 const RedText = () => {
   return (
     <section className="redText">

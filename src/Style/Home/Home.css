@@ -111,13 +111,26 @@
 
 .redText .text {
   position: relative;
+  width: 60%;
+  margin: auto;
+  padding: 1em;
+  text-transform: uppercase;
+  z-index: 2;
 }
 .redText .redOverlay {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(166, 24, 83, 0.9019607843);
+  background-color: rgba(159, 1, 66, 0.7);
+  mix-blend-mode: hard-light;
+}
+
+.videoSec .mainVid {
+  z-index: 2;
+  position: relative;
+  border-radius: 30px;
+  translate: 50% 0;
 }
 
 @media (max-width: 800px) {
