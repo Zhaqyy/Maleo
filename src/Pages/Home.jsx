@@ -55,18 +55,18 @@ export default function Home() {
     return bg === 1 ? "#ffffff" : "#000000";
   });
   const z = useTransform(scrollYProgress, (z) => {
-    return z === 1 ? 1 : 0;
+    return z === 1 ? 2 : 0;
   });
 
   const wide = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.6, 1],
-    ["15%", "100%", "100%", "40%"]
+    ["15%", "100%", "100%", "30%"]
   );
   const x = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.6, 1],
-    ["50%", "50%", "50%", "25%"]
+    ["50%", "50%", "50%", "20%"]
   );
   const tall = useTransform(
     scrollYProgress,
@@ -125,7 +125,7 @@ export default function Home() {
         </motion.section>
         <motion.section className="vid"></motion.section>
 
-        <motion.section id="canvasWrapper" style={{zIndex:z}}>
+        <motion.section id="canvasWrapper" style={{ zIndex: z }}>
           <Scene />
         </motion.section>
         <motion.section className="vid2"></motion.section>
@@ -133,12 +133,12 @@ export default function Home() {
           <Paragraph paragraph={paragraph} />
         </section>
       </motion.section>
-        <ScaleSection />
+      <ScaleSection />
     </>
   );
 }
 
-export const ScaleSection = () => {
+const ScaleSection = () => {
   const scaleRef = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -147,17 +147,41 @@ export const ScaleSection = () => {
   });
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-
+  const bgg = useTransform(scrollYProgress, [0.3, 0.7], ["#ffffff","#000000"]);
+  const position = useTransform(scrollYProgress, (pos) => {
+    return pos >= 0.3 ? "fixed" : "relative";
+  });
+  const bg = useTransform(scrollYProgress, (bg) => {
+    return bg >= 0.31 ? "#000000" : "#ffffff";
+  });
   return (
-    // <motion.section ref={scaleRef}>
-
-    <motion.section
-      className="scale"
-      // ref={scaleRef}
-      style={{ scale: scalee,  }}
-    >
-      <div></div>
+    <motion.section ref={scaleRef} className="scaleSec">
+      <motion.section
+        className="scale"
+        // ref={scaleRef}
+        style={{  position: position, background: bgg }}
+      ></motion.section>
+      {/* <motion.section></motion.section> */}
+      <motion.section></motion.section>
+      <RedText />
     </motion.section>
-    //  </motion.section>
+  );
+};
+
+import React from "react";
+
+const RedText = () => {
+  return (
+    <section className="redText">
+      <div className="text">
+        <h3>
+          MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
+          enfant. Notre mission est de fournir les meilleures solutions
+          d`apos`emballage pour l`apos`expédition et la protection des
+          marchandises à nos clients partout en France.
+        </h3>
+        <div className="redOverlay"></div>
+      </div>
+    </section>
   );
 };

@@ -80,7 +80,7 @@
   line-height: 1;
   flex-wrap: wrap;
   filter: invert(1);
-  z-index: 1;
+  z-index: 2;
 }
 .textline .paragraph .word {
   position: relative;
@@ -95,11 +95,29 @@
   transition: all 0.2s ease;
 }
 
+.scaleSec {
+  position: relative;
+  padding: 0;
+}
+
 .scale {
   background-color: white;
   height: 100vh;
   width: 100vw;
   scale: 1;
+  inset: 0;
+  z-index: 1;
+}
+
+.redText .text {
+  position: relative;
+}
+.redText .redOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(166, 24, 83, 0.9019607843);
 }
 
 @media (max-width: 800px) {
