@@ -51,6 +51,11 @@ aside p {
 
 
 //spotlight button
+.primary-btn {
+  padding: 10px 20px;
+  margin-block: 2.5vh;
+}
+
 .base-input {
   transition: border-color 0.5s;
   outline: none;
@@ -70,4 +75,101 @@ aside p {
   // padding: 0.875rem;
   opacity: 0;
   transition: opacity 0.5s;
+}
+
+& .mgBtn {
+  // position: absolute;
+  // bottom: calc(0% - 15vh);
+  // left: 50%;
+  // translate: -50% -50%;
+  // margin-top: 4vh;
+  pointer-events: all;
+  cursor: pointer;
+  animation: jump 10s ease infinite;
+  // button {
+  //   width: 200px;
+  //   height: 70px;
+  //   border-radius: 15px;
+  //   border: 1px solid #ffffff5f !important;
+  //   margin: 2.5vw;
+  //   display: flex;
+  //   flex-direction: column;
+  //   justify-content: space-evenly;
+  //   align-items: center;
+  //   text-transform: uppercase;
+  //   position: relative;
+  //   background: transparent;
+  //   transition: all 3s ease-in-out;
+
+  //   // -webkit-animation: grad 11s ease infinite;
+  //   // -moz-animation: grad 11s ease infinite;
+  //   // animation: grad 11s ease infinite;
+  //   lord-icon {
+  //     width: 50px;
+  //     height: 50px;
+  //     rotate: 90deg;
+  //     margin: 0;
+  //   }
+  //   &::before {
+  //     content: "";
+  //     position: absolute;
+  //     top: 0%;
+  //     left: 50%;
+  //     translate: -50%;
+  //     width: 100%;
+  //     height: 100%;
+  //     border: 1px solid hsla(0, 0%, 100%, 0.7);
+  //     border-radius: 15px;
+  //     z-index: -1;
+  //     transition: all 3s ease-in-out;
+  //   }
+  //   &:focus,
+  //   &:focus-visible {
+  //     outline: none;
+  //   }
+  //   &:hover {
+  //     border: 1px solid hsla(335, 90%, 60%, 0.7) !important;
+  //     animation: morph 5s ease-in-out infinite both;
+  //     &::before {
+  //       width: calc(100% + 10px);
+  //       height: calc(100% + 10px);
+  //       top: calc(0% - 5px);
+  //       animation: morph 10s ease-in-out infinite backwards;
+  //     }
+  //   }
+  // }
+  .primary-btn {
+    padding: 20px 40px;
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: var(--gradient-shadow);
+      background-size: 400%;
+      width: calc(100% - 15px);
+      height: calc(100% - 5px);
+      border-radius: inherit;
+      z-index: -1;
+    }
+    &::after {
+      transition: filter 0.9s ease-out;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+
+      &::before,
+      &::after {
+        animation: shadow 20s linear infinite;
+      }
+      &::after {
+        filter: blur(5px);
+      }
+    }
+  }
 }

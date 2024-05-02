@@ -16,7 +16,7 @@ export default function Scene() {
     >
       <Suspense fallback={null}>
     
-          <Tape rotation={[Math.PI / 2, 0, -Math.PI / 4]} position={[0.5,-1,-15]} />
+          <Tape rotation={[Math.PI / 2, 0, -Math.PI / 4]}  scale={[0.25, 0.5, 0.25]} />
       </Suspense>
       <ambientLight intensity={1} />
       <Environment files={"./city.hdr"} background={null} />

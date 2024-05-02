@@ -7,6 +7,7 @@
   font-family: 'MonumentRegular';
   src: url(./MonumentRegular.woff2) format('woff2');
 }
+
 @font-face {
   font-family: 'Neue';
   src: url(./neue.woff2) format('woff2');
@@ -40,7 +41,12 @@
   font-family: "MonumentRegular", 'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
 
-#root{
+html {
+  scroll-snap-type: y proximity;
+  overflow-y: scroll;
+}
+
+#root {
   position: relative;
 }
 
@@ -67,7 +73,10 @@ section {
   padding-block: 5vh;
 }
 
-/* body            { font-size: calc(0.96428571rem + 0.17857143vw); } */
+section:not(.wrapper) {
+  scroll-snap-align: start;
+}
+
 h1 {
   font-size: clamp(4.25rem, 10vw, 6.25rem);
 }
@@ -85,12 +94,12 @@ h4 {
   text-transform: uppercase;
 }
 
-p{
-  font-family: 'Neue', Inter, system-ui, Avenir ;
+p {
+  font-family: 'Neue', Inter, system-ui, Avenir;
   font-size: 14px;
 }
 
-ul li{
+ul li {
   list-style: none;
 }
 
@@ -161,9 +170,9 @@ button:focus-visible {
     -webkit-text-stroke-color: var(--text-dark);
   }
 
-  svg{
-    fill:var(--text-dark) ;
-}
+  svg {
+    fill: var(--text-dark);
+  }
 
 }
 
@@ -182,7 +191,8 @@ button:focus-visible {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: var(--text-color);
   }
-  svg{
-    fill:var(--text-color) ;
-}
+
+  svg {
+    fill: var(--text-color);
+  }
 }

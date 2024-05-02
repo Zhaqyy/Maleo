@@ -18,6 +18,7 @@ button {
     cursor: pointer;
     transition: border-color 0.25s;
     margin-block: 1.25em;
+    z-index: 2;
   }
   
   button:hover {
