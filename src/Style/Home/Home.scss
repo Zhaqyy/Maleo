@@ -77,8 +77,11 @@
   .paragraph {
     display: flex;
     flex-direction: column;
+    position: relative;
     line-height: 1;
     flex-wrap: wrap;
+    filter: invert(1);
+    z-index: 1;
 
     .word {
       position: relative;
@@ -96,6 +99,15 @@
       }
     }
   }
+}
+
+.scale{
+  background-color: white;
+  // position: relative;
+  height: 100vh;
+  width: 100vw;
+  scale: 1;
+    // z-index: 0;
 }
 
 // Media query

@@ -10,14 +10,19 @@ export default function Paragraph({paragraph}) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 0.65", "start 0.25"]
+    offset: ["start 0.5", "start 0.25"]
   })
+  const { scrollY } = useScroll();
+  const speed = 1 / 1.5;
+  const y = useTransform(scrollY, (value) => value * speed);
+  const MoveTextY = useTransform(scrollYProgress, [0.9, 1], ["0vh", "-100vh"]);
 
   const words = paragraph.split(" ")
   return (
-    <h2 
+    <motion.h2 
       ref={container}         
       className='paragraph'
+      // style={{y:y}}
     >
     {
       words.map( (word, i) => {
@@ -26,7 +31,7 @@ export default function Paragraph({paragraph}) {
         return <Word key={i} progress={scrollYProgress} range={[start, end]}>{word}</Word>
       })
     }
-    </h2>
+    </motion.h2>
   )
 }
 

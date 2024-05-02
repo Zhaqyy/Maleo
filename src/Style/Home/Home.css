@@ -76,8 +76,11 @@
 .textline .paragraph {
   display: flex;
   flex-direction: column;
+  position: relative;
   line-height: 1;
   flex-wrap: wrap;
+  filter: invert(1);
+  z-index: 1;
 }
 .textline .paragraph .word {
   position: relative;
@@ -90,6 +93,13 @@
 }
 .textline .paragraph .word span span {
   transition: all 0.2s ease;
+}
+
+.scale {
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  scale: 1;
 }
 
 @media (max-width: 800px) {

@@ -43,7 +43,6 @@
 
 html {
   scroll-snap-type: y proximity;
-  overflow-y: scroll;
   scroll-behavior: smooth;
 }
 
@@ -74,7 +73,7 @@ section {
   padding-block: 5vh;
 }
 
-section:not(.wrapper) {
+section:not(.wrapper, .textline) {
   scroll-snap-align: end;
 }
 

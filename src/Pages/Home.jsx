@@ -9,24 +9,39 @@ import useScrollSnap from "react-use-scroll-snap";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 
-
 const paragraph = `Fournir 
 les 
 solutions 
 d’emballage 
 les 
 plus 
-efficaces`
+efficaces`;
 
 export default function Home() {
   const scrollRef = useRef(null);
   // useScrollSnap({ ref: scrollRef, duration: 10, delay: 10 });
 
   const TargetRef = useRef();
+  const speed = 1 / 1.5;
   const { scrollYProgress } = useScroll({
     target: TargetRef,
     offset: ["end end", "end start"],
   });
+  // const MoveVidX = useTransform(scrollYProgress, (x) => {
+  //   return x === 1 ? "-100vw" : "-50vw";
+  // });
+  // const MoveVidX = useTransform(scrollYProgress, (x) => x * -100 + "vw");
+  // const lerp = (a, b, t) => a * (1 - t) + b * t;
+  // const threshold = 0.999;
+
+  // const MoveVidX = useTransform(scrollYProgress, (x) => {
+  //   if (x < threshold) {
+  //     return "0";
+  //   } else {
+  //     return `${lerp(0, -100, (x - threshold) / (1 - threshold))}vw`;
+  //   }
+  // });
+  // const MoveVidX = useTransform(scrollYProgress, [0.9, 1], ["0vw", "-100vw"]);
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
     scrollYProgress,
@@ -36,6 +51,13 @@ export default function Home() {
   const position = useTransform(scrollYProgress, (pos) => {
     return pos === 1 ? "relative" : "fixed";
   });
+  const bg = useTransform(scrollYProgress, (bg) => {
+    return bg === 1 ? "#ffffff" : "#000000";
+  });
+  const z = useTransform(scrollYProgress, (z) => {
+    return z === 1 ? 1 : 0;
+  });
+
   const wide = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.6, 1],
@@ -53,12 +75,13 @@ export default function Home() {
   );
   const bright = useTransform(scrollYProgress, [0.1, 0.2], ["0.25", "0.75"]);
   // const fil = filter=`brightness(${bright})`;
+
   return (
     <>
       <motion.section
         className="wrapper"
         ref={scrollRef}
-        style={{ padding: "0" }}
+        style={{ padding: "0", backgroundColor: bg }}
       >
         <motion.section className="hero" ref={TargetRef}>
           <motion.div className="hero-head" style={{ y: MoveY }}>
@@ -81,7 +104,8 @@ export default function Home() {
               width: wide,
               height: tall,
               left: x,
-            //   position,
+              // x: MoveVidX,
+              // position,
             }}
           >
             <source src="hero.webm" type="video/webm" />
@@ -99,23 +123,41 @@ export default function Home() {
           </motion.div>
           <motion.img src={logo} style={{ y: MoveY }} />
         </motion.section>
-        <section id="canvasWrapper">
-          <Scene />
-        </section>
         <motion.section className="vid"></motion.section>
+
+        <motion.section id="canvasWrapper" style={{zIndex:z}}>
+          <Scene />
+        </motion.section>
+        <motion.section className="vid2"></motion.section>
         <section className="textline">
-        <Paragraph paragraph={paragraph} />
-          {/* <h2>
-            Fournir <br />
-            les <br />
-            solutions <br />
-            d’emballage <br />
-            les <br />
-            plus <br />
-            efficaces
-          </h2> */}
+          <Paragraph paragraph={paragraph} />
         </section>
       </motion.section>
+        <ScaleSection />
     </>
   );
 }
+
+export const ScaleSection = () => {
+  const scaleRef = useRef();
+
+  const { scrollYProgress } = useScroll({
+    target: scaleRef,
+    offset: ["start end", "end end"],
+  });
+  const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+
+  return (
+    // <motion.section ref={scaleRef}>
+
+    <motion.section
+      className="scale"
+      // ref={scaleRef}
+      style={{ scale: scalee,  }}
+    >
+      <div></div>
+    </motion.section>
+    //  </motion.section>
+  );
+};
