@@ -4,6 +4,7 @@ import MagneticBtn, { SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import logo from "/logodark.png";
+import arrow from "/arrow.webp";
 import { useRef } from "react";
 import useScrollSnap from "react-use-scroll-snap";
 import Paragraph from "../Components/Character";
@@ -136,6 +137,7 @@ export default function Home() {
       </motion.section>
       <ScaleSection />
       <Vid />
+      <Product/>
     </>
   );
 }
@@ -255,3 +257,22 @@ const RedText = () => {
     </section>
   );
 };
+
+
+export const Product = () => {
+  return (
+<section className="product">
+  <div className="prodHead">
+    <div className="prodBtn">
+      <img src={arrow} />
+    <SpotBtn text={"QUOTE NOW"} />
+    </div>
+    <h1>NOS PRODUITS</h1>
+    <h2 className="hollow">sont les meilleurs</h2>
+    <p>Découvrez tous nos produits de qualité</p>
+  </div>
+  <div className="Prodlist"></div>
+</section>
+    )
+}
+
