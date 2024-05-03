@@ -106,6 +106,7 @@
   padding: 0;
 }
 .scale {
+  height: 200vh;
   background-color: white;
   // position: relative;
   height: 100vh;
@@ -139,8 +140,12 @@
   .mainVid{
     z-index: 2;
     position: relative;
-    border-radius: 30px;
-    translate: 50% 0;
+    border-radius: 50px;
+    inset: 0 50%;
+    translate: -50% 0;
+    transform-origin: bottom center;
+    // scale: 1;
+    // width: 90%;
   }
 }
 

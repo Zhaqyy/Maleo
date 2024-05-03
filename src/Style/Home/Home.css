@@ -101,6 +101,7 @@
 }
 
 .scale {
+  height: 200vh;
   background-color: white;
   height: 100vh;
   width: 100vw;
@@ -129,8 +130,10 @@
 .videoSec .mainVid {
   z-index: 2;
   position: relative;
-  border-radius: 30px;
-  translate: 50% 0;
+  border-radius: 50px;
+  inset: 0 50%;
+  translate: -50% 0;
+  transform-origin: bottom center;
 }
 
 @media (max-width: 800px) {

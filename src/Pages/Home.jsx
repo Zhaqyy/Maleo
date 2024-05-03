@@ -8,6 +8,7 @@ import { useRef } from "react";
 import useScrollSnap from "react-use-scroll-snap";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
+import { Section } from "../Components/inView";
 
 const paragraph = `Fournir 
 les 
@@ -134,7 +135,7 @@ export default function Home() {
         </section>
       </motion.section>
       <ScaleSection />
-      <Vid/>
+      <Vid />
     </>
   );
 }
@@ -148,7 +149,7 @@ const ScaleSection = () => {
   });
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const bgg = useTransform(scrollYProgress, [0.3, 0.7], ["#ffffff","#000000"]);
+  const bgg = useTransform(scrollYProgress, [0,0.2, 0.6, 0.95, 1], ["#ffffff","#ffffff", "#000000", "#000000","#ffffff"]);
   const position = useTransform(scrollYProgress, (pos) => {
     return pos >= 0.3 ? "fixed" : "relative";
   });
@@ -160,38 +161,83 @@ const ScaleSection = () => {
       <motion.section
         className="scale"
         // ref={scaleRef}
-        style={{  position: position, background: bgg }}
+        style={{ position: position, background: bgg }}
       ></motion.section>
-      {/* <motion.section></motion.section> */}
       <motion.section></motion.section>
       <RedText />
+      <motion.section></motion.section>
     </motion.section>
   );
 };
 
+const visible = {
+  // opacity: 1,
+  // x: 0,
+  // y: 0,
+  // scale: 1,
+  top: `100%`,
+  transition: { staggerChildren: 0.4, duration: 0.5 },
+};
+
+const vidVariants = {
+  hidden: {  top: `0%` },
+  visible,
+};
 
 const Vid = () => {
+  const vidRef = useRef();
+
+  const { scrollYProgress } = useScroll({
+    target: vidRef,
+    offset: ["start end", "end end"],
+  });
+
+  const scalee = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
+  const bdr = useTransform(scrollYProgress, [0, 0.9], [10, 50]);
+  const wide = useTransform(
+    scrollYProgress,
+    [0, 0.9],
+    ["20%", "80%"]
+  );
+  const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
   return (
-    <section className="videoSec">
-       <motion.video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="mainVid"
-            style={{
-              // top: MoveVidY,
-              // width: wide,
-              // height: tall,
-              // left: x,
-              // x: MoveVidX,
-              // position,
-            }}
-          >
-            <source src="hero.webm" type="video/webm" />
-            <source src="hero.mp4" type="video/mp4" />
-          </motion.video>
-    </section>
+    <motion.section
+      className="videoSec"
+      ref={vidRef}
+      // initial="hidden"
+      // animate="visible"
+      // exit={{ opacity: 0, transition: { duration: 1 } }}
+      // variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
+    >
+      {/* <motion.section> */}
+      <motion.video
+        // variants={vidVariants}
+        
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="mainVid"
+        style={
+          {
+            top: MoveY,
+            width: wide,
+            scale:scalee,
+            borderRadius:bdr
+            // height: tall,
+            // left: x,
+            // x: MoveVidX,
+            // position,
+          }
+        }
+      >
+        <source src="hero.webm" type="video/webm" />
+        <source src="hero.mp4" type="video/mp4" />
+      </motion.video>
+
+      {/* </motion.section> */}
+
+    </motion.section>
   );
 };
 const RedText = () => {
