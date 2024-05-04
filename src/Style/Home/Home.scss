@@ -157,7 +157,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: start;
+  justify-content: space-around;
   align-items: stretch;
   z-index: 2;
 
@@ -196,6 +196,7 @@
 
         &:hover {
           box-shadow: 0px 0px 5px #a61853;
+          rotate: 0deg;
         }
       }
     }

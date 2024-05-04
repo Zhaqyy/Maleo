@@ -45,6 +45,11 @@ aside p {
   opacity: 1;
 }
 
+.primary-btn {
+  padding: 10px 20px;
+  margin-block: 2.5vh;
+}
+
 .base-input {
   transition: border-color 0.5s;
   outline: none;
@@ -59,9 +64,117 @@ aside p {
   z-index: 10;
   width: 100%;
   height: 100%;
-  border: 1px solid rgb(193, 35, 146);
+  border: 2px solid var(--accent);
   border-radius: inherit;
   background-color: transparent;
   opacity: 0;
   transition: opacity 0.5s;
+}
+
+.mgBtn {
+  pointer-events: all;
+  cursor: pointer;
+  animation: jump 10s ease infinite;
+}
+.mgBtn .primary-btn {
+  padding: 20px 40px;
+  position: relative;
+}
+.mgBtn .primary-btn::before, .mgBtn .primary-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--gradient-shadow);
+  background-size: 400%;
+  width: calc(100% - 15px);
+  height: calc(100% - 5px);
+  border-radius: inherit;
+  z-index: -1;
+}
+.mgBtn .primary-btn::after {
+  transition: filter 0.9s ease-out;
+}
+.mgBtn .primary-btn:hover, .mgBtn .primary-btn:focus {
+  outline: none;
+}
+.mgBtn .primary-btn:hover::before, .mgBtn .primary-btn:hover::after, .mgBtn .primary-btn:focus::before, .mgBtn .primary-btn:focus::after {
+  animation: shadow 20s linear infinite;
+}
+.mgBtn .primary-btn:hover::after, .mgBtn .primary-btn:focus::after {
+  filter: blur(5px);
+}
+
+.paragraph {
+  display: flex;
+  font-size: 60px;
+  line-height: 1;
+  padding: 40px;
+  max-width: 1280px;
+  color: white;
+  flex-wrap: wrap;
+}
+.paragraph .word {
+  position: relative;
+  margin-right: 12px;
+  margin-top: 12px;
+}
+.paragraph .word .shadow {
+  position: absolute;
+  opacity: 20%;
+}
+
+@property --wipe-position {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+.wipe {
+  --wipe-position: 100%;
+  --gradient-length: 20%;
+  -webkit-mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
+  transition: --wipe-position 2000ms linear;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.list span {
+  position: absolute;
+  top: -400px;
+  left: 50%;
+  translate: -50%;
+  rotate: -90deg;
+  transform: scale(1.3);
+  z-index: -1;
+}
+.list .listItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 250px;
+  color: black;
+  text-transform: uppercase;
+  background: white;
+}
+.list .listItem:hover .imgWrap {
+  outline: 2px solid var(--accent);
+  box-shadow: 0px 0px 10px #a61853;
+  scale: 1.01;
+}
+.list .listItem .imgWrap {
+  border-radius: 50%;
+  outline: 2px solid black;
+  background-color: white;
+  transition: all 0.5s ease;
+}
+.list .listItem img {
+  width: 200px;
+  -o-object-fit: scale-down;
+  object-fit: scale-down;
+  aspect-ratio: 1/1;
 }/*# sourceMappingURL=Component.css.map */

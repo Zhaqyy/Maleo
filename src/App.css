@@ -22,7 +22,7 @@ button {
   }
   
   button:hover {
-    border-color: hsla(335, 90%, 60%, 0.35);
+    border-color: #a51853b4;
     cursor: pointer;
   }
   

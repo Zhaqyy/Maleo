@@ -10,6 +10,11 @@ import useScrollSnap from "react-use-scroll-snap";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
+import { ProductList } from "../Components/Common";
+import h1 from "/h1.png";
+import h2 from "/h2.png";
+import h3 from "/h3.png";
+import h4 from "/h4.png";
 
 const paragraph = `Fournir 
 les 
@@ -249,7 +254,7 @@ const RedText = () => {
         <h3>
           MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
           enfant. Notre mission est de fournir les meilleures solutions
-          d`apos`emballage pour l`apos`expédition et la protection des
+          d`emballage pour l`expédition et la protection des
           marchandises à nos clients partout en France.
         </h3>
         <div className="redOverlay"></div>
@@ -260,6 +265,13 @@ const RedText = () => {
 
 
 export const Product = () => {
+
+  const products = [
+    { imageSrc: h1, title: 'Ruban Adhésif' },
+    { imageSrc: h2, title: 'Film Etirable' },
+    { imageSrc: h3, title: 'Carton' },
+    { imageSrc: h4, title: 'Feuillard' },
+  ];
   return (
 <section className="product">
   <div className="prodHead">
@@ -271,7 +283,7 @@ export const Product = () => {
     <h2 className="hollow">sont les meilleurs</h2>
     <p>Découvrez tous nos produits de qualité</p>
   </div>
-  <div className="Prodlist"></div>
+  <ProductList products={products} />
 </section>
     )
 }
