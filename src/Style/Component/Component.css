@@ -159,7 +159,6 @@ aside p {
   height: 250px;
   color: black;
   text-transform: uppercase;
-  background: white;
 }
 .list .listItem:hover .imgWrap {
   outline: 2px solid var(--accent);

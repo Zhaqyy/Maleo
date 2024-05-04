@@ -3,11 +3,19 @@
 
 import React, { Suspense, useRef } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Environment, OrbitControls, Stage } from "@react-three/drei";
-import Tape from "./Tape";
+import {
+  Environment,
+  OrbitControls,
+  Preload,
+  Scroll,
+  ScrollControls,
+  Stage,
+} from "@react-three/drei";
+import Tape, { TapeScroll } from "./Tape";
+import { useScroll, useTransform } from "framer-motion";
 
 export default function Scene() {
-
+  const ref = useRef();
   return (
     <Canvas
       shadows
@@ -15,12 +23,12 @@ export default function Scene() {
       camera={{ near: 0.1, far: 50, position: [0, 0, 5], fov: 30 }}
     >
       <Suspense fallback={null}>
-    
-          <Tape rotation={[Math.PI / 2, 0, -Math.PI / 4]}  scale={[0.25, 0.5, 0.25]} />
+        <TapeScroll TRef={ref} />
       </Suspense>
       <ambientLight intensity={1} />
       <Environment files={"./city.hdr"} background={null} />
-      {/* <OrbitControls ref={ref} autoRotate /> */}
+      {/* <OrbitControls ref={ref}  /> */}
+      <Preload/>
     </Canvas>
   );
 }
