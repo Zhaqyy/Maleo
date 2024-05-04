@@ -47,10 +47,11 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const targetRotation = useRef([degreesToRadians(90), 0, degreesToRadians(0)]);
   const isRotating = useRef(true);
-
+  
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
-    if (scrollYProgress.get() < 0.3 && isRotating.current) {
+    if (scrollYProgress.get() < order.tapecenter) {
+      isRotating.current = true; // Reset isRotating when scrolling back up
       Tref.current.rotation.x = time;
     } else {
       if (isRotating.current) {
@@ -61,7 +62,7 @@ export const Tape = React.forwardRef((props, Tref) => {
       Tref.current.rotation.z = targetRotation.current[2];
     }
   });
-
+  
   const { scrollYProgress } = useScroll();
 
   const Ypos = useTransform(

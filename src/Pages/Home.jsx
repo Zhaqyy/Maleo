@@ -222,7 +222,7 @@ const Vid = () => {
         
         autoPlay
         loop
-        muted
+        // muted
         playsInline
         className="mainVid"
         style={
@@ -238,8 +238,8 @@ const Vid = () => {
           }
         }
       >
-        <source src="hero.webm" type="video/webm" />
-        <source src="hero.mp4" type="video/mp4" />
+        {/* <source src="maleo.webm" type="video/webm" /> */}
+        <source src="maleo.mp4" type="video/mp4" />
       </motion.video>
 
       {/* </motion.section> */}

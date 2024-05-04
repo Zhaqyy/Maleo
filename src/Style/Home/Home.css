@@ -116,7 +116,7 @@
   margin: auto;
   padding: 1em;
   text-transform: uppercase;
-  z-index: 2;
+  z-index: 1;
 }
 .redText .redOverlay {
   position: absolute;
