@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
-import * as THREE from 'three'
+import * as THREE from "three";
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useScroll, useTransform } from "framer-motion";
@@ -32,49 +32,133 @@ export default TapeScroll;
 const order = {
   init: 0,
   tapeup: 0.02,
-  tapeleft: 0.05,
-  tapecenter: 0.125,
-  tapescaleup: 0.15,
+  tapeleft: 0.1,
+  tapeleftend: 0.25,
+  tapecenter: 0.3,
+  tapecenterend: 0.4,
+  tapescaleup: 0.525,
+  tapescaleupend: 0.625,
   PartnerTextin: 1,
 };
 
 export const Tape = React.forwardRef((props, Tref) => {
   const { nodes, materials } = useGLTF("./cinta.glb");
+  const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
 
-  const Taperef = useRef();
-  // useFrame((state, delta) => {
-  //   const time = state.clock.elapsedTime;
-  //   Tref.current.rotation.x = time ;
-  // });
+  const targetRotation = useRef([degreesToRadians(90), 0, degreesToRadians(0)]);
+  const isRotating = useRef(true);
+
+  useFrame((state, delta) => {
+    const time = state.clock.elapsedTime;
+    if (scrollYProgress.get() < 0.3 && isRotating.current) {
+      Tref.current.rotation.x = time;
+    } else {
+      if (isRotating.current) {
+        isRotating.current = false;
+      }
+      Tref.current.rotation.x = targetRotation.current[0];
+      Tref.current.rotation.y = targetRotation.current[1];
+      Tref.current.rotation.z = targetRotation.current[2];
+    }
+  });
 
   const { scrollYProgress } = useScroll();
 
   const Ypos = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup],
-    [0, 0.5]
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapeleftend,
+      order.tapecenter,
+      order.tapecenterend,
+    ],
+    [0, 0.5, 0, 0, -0.75, -0.85]
   );
-  // const scalee = useTransform(scrollYProgress, [order.init, order.tapeup], [0.25, 1]);
+  const Xpos = useTransform(
+    scrollYProgress,
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapeleftend,
+      order.tapecenter,
+    ],
+    [0, 0, -0.35, -0.35, 0]
+  );
+  const rot = useTransform(
+    scrollYProgress,
+    [order.tapecenter, order.tapecenterend],
+    [degreesToRadians(45), 0]
+  );
+
   const scaleeX = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup],
-    [0.3, 0.4]
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapecenterend,
+      order.tapescaleup,
+      order.tapescaleupend,
+    ],
+    [0.3, 0.4, 0.3, 0.3, 0.9, 3.5]
   );
   const scaleeY = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup],
-    [0.3, 0.4]
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapecenterend,
+      order.tapescaleup,
+      order.tapescaleupend,
+    ],
+    [0.3, 0.4, 0.3, 0.3, 0.9, 3.5]
   );
 
   useFrame((state, delta) => {
     if (Tref && Tref.current) {
       // Tref.current.scale.set(scalee.get());
-      Tref.current.scale.x= THREE.MathUtils.damp(Tref.current.scale.x, scaleeX.get(), 2, delta);
-      Tref.current.scale.y= THREE.MathUtils.damp(Tref.current.scale.y, scaleeY.get(), 2, delta);
-      Tref.current.scale.z= THREE.MathUtils.damp(Tref.current.scale.z, scaleeY.get(), 2, delta);
+      Tref.current.scale.x = THREE.MathUtils.damp(
+        Tref.current.scale.x,
+        scaleeX.get(),
+        2,
+        delta
+      );
+      Tref.current.scale.y = THREE.MathUtils.damp(
+        Tref.current.scale.y,
+        scaleeY.get(),
+        2,
+        delta
+      );
+      Tref.current.scale.z = THREE.MathUtils.damp(
+        Tref.current.scale.z,
+        scaleeY.get(),
+        2,
+        delta
+      );
 
-      Tref.current.position.y = THREE.MathUtils.damp(Tref.current.position.y, Ypos.get(), 2, delta);
-      console.log(Tref.current.scale);
+      Tref.current.position.y = THREE.MathUtils.damp(
+        Tref.current.position.y,
+        Ypos.get(),
+        2,
+        delta
+      );
+      Tref.current.position.x = THREE.MathUtils.damp(
+        Tref.current.position.x,
+        Xpos.get(),
+        2,
+        delta
+      );
+      Tref.current.rotation.z = THREE.MathUtils.damp(
+        Tref.current.rotation.z,
+        rot.get(),
+        2,
+        delta
+      );
+
       console.log(scrollYProgress);
     }
   });
@@ -82,7 +166,7 @@ export const Tape = React.forwardRef((props, Tref) => {
   return (
     <group
       ref={Tref}
-      rotation={[Math.PI / 2, 0, -Math.PI / 4]}
+      rotation={[degreesToRadians(90), 0, degreesToRadians(45)]}
       scale={[0.25, 0.25, 0.25]}
       // scale={[1, 1, 1]}
       position={[0, -0.25, 0]}
