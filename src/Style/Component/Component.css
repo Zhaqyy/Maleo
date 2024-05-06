@@ -105,6 +105,10 @@ aside p {
   filter: blur(5px);
 }
 
+.arrow {
+  margin: 2em;
+}
+
 .paragraph {
   display: flex;
   font-size: 60px;

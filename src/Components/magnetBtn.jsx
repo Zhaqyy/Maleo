@@ -3,7 +3,7 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Style/Component/Component.css";
-
+import arrow from "/arrow.webp";
 
 export default function MagneticBtn({ children }) {
   const ref = useRef(null);
@@ -29,15 +29,15 @@ export default function MagneticBtn({ children }) {
       onMouseMove={handleMouse}
       onMouseLeave={reset}
       animate={{ x, y }}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
+      transition={{ type: "spring", stiffness: 150, damping: 10, mass: 0.01 }}
     >
       {children}
     </motion.div>
   );
 }
 
-export const SpotBtn = ({text, variant, submit}) => {
-   const divRef = useRef(null);
+export const SpotBtn = ({ text, variant, submit }) => {
+  const divRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
@@ -88,25 +88,33 @@ export const SpotBtn = ({text, variant, submit}) => {
 
   return (
     <motion.button
-            className="primary-btn base-input"
-            variants={variant}
-            onMouseMove={handleMouseMove}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onClick={submit}
-          >
-            <span
-              className="overlay-input"
-              ref={divRef}
-              style={{
-                opacity,
-                WebkitMaskImage: `radial-gradient(50% 30px at ${position.x}px ${position.y}px, black 45%, transparent)`,
-              }}
-              aria-hidden="true"
-            ></span>
-            {text}
-          </motion.button> 
-  )
-}
+      className="primary-btn base-input"
+      variants={variant}
+      onMouseMove={handleMouseMove}
+      onFocus={handleFocus}
+      onBlur={handleBlur}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      onClick={submit}
+    >
+      <span
+        className="overlay-input"
+        ref={divRef}
+        style={{
+          opacity,
+          WebkitMaskImage: `radial-gradient(50% 30px at ${position.x}px ${position.y}px, black 45%, transparent)`,
+        }}
+        aria-hidden="true"
+      ></span>
+      {text}
+    </motion.button>
+  );
+};
+
+export const ArrowBtn = () => {
+  return (
+    <MagneticBtn>
+      <img loading="lazy" src={arrow} className="arrow" />
+    </MagneticBtn>
+  );
+};

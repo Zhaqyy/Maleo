@@ -4,9 +4,10 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import "../Style/Component/Component.css";
 import { useEffect, useRef } from "react";
+import { Section } from "./inView";
+import MagneticBtn, { ArrowBtn } from "./magnetBtn";
 
 export const ProductList = ({ products }) => {
-
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   //   useEffect(() => {
@@ -59,5 +60,30 @@ export const ProductList = ({ products }) => {
         </li>
       ))}
     </ul>
+  );
+};
+
+export const BlogSec = ({ posts }) => {
+  return (
+    <Section className={"blog"}>
+      <h2>derniers articles</h2>
+      <ul className="blogList">
+        {posts.map((post, index) => (
+          <li key={index} className="post">
+            <div className="metaInfo">
+              <h5>{post.category}</h5>
+              <p>{post.date}</p>
+            </div>
+            <h3 className="blogTitle">{post.title}</h3>
+            <motion.div
+              className="prodBtn"
+              // variants={prodVariants}
+            >
+              <ArrowBtn />
+            </motion.div>
+          </li>
+        ))}
+      </ul>
+    </Section>
   );
 };

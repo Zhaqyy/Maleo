@@ -1,10 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
-import MagneticBtn, { SpotBtn } from "../Components/magnetBtn";
+import { ArrowBtn, SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import logo from "/logodark.png";
-import arrow from "/arrow.webp";
 import { useEffect, useRef } from "react";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
@@ -258,7 +257,7 @@ export const Product = () => {
     >
       <motion.div className="prodHead" variants={prodVariants}>
         <motion.div className="prodBtn" variants={prodVariants}>
-          <img loading="lazy" src={arrow} />
+          <ArrowBtn/>
           <SpotBtn text={"QUOTE NOW"} />
         </motion.div>
         <motion.h1 variants={prodVariants}>NOS PRODUITS</motion.h1>
@@ -269,3 +268,4 @@ export const Product = () => {
     </Section>
   );
 };
+
