@@ -74,7 +74,7 @@ export const BlogSec = ({ posts }) => {
               <h5>{post.category}</h5>
               <p>{post.date}</p>
             </div>
-            <h3 className="blogTitle">{post.title}</h3>
+            <h4 className="blogTitle">{post.title}</h4>
             <motion.div
               className="prodBtn"
               // variants={prodVariants}

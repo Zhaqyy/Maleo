@@ -8,7 +8,7 @@ import { useEffect, useRef } from "react";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
-import { ProductList } from "../Components/Common";
+import { BlogSec, ProductList } from "../Components/Common";
 import h1 from "/h1.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";
@@ -22,6 +22,20 @@ les
 plus 
 efficaces`;
 
+const blogPosts = [
+  {
+    date: 'April 1, 2024',
+    category: 'John Doe',
+    title: 'Lorem Ipsum Dolor Sit Amet',
+  },
+  {
+    date: 'April 5, 2024',
+    category: 'Jane Smith',
+    title: 'Consectetur Adipiscing Elit',
+  },
+  // Add more blog post objects as needed
+];
+
 export default function Home() {
   const scrollRef = useRef(null);
 
@@ -31,7 +45,7 @@ export default function Home() {
     target: TargetRef,
     offset: ["end end", "end start"],
   });
-
+console.log(scrollYProgress.get());
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
     scrollYProgress,
@@ -40,6 +54,9 @@ export default function Home() {
   );
   const position = useTransform(scrollYProgress, (pos) => {
     return pos === 1 ? "relative" : "fixed";
+  });
+  const canvasPosition = useTransform(scrollYProgress, (pos) => {
+    return pos >= 1 ? "relative" : "fixed";
   });
   const bg = useTransform(scrollYProgress, (bg) => {
     return bg === 1 ? "#ffffff" : "#000000";
@@ -125,6 +142,7 @@ export default function Home() {
       <ScaleSection />
       <Vid />
       <Product />
+      {/* <BlogSec posts={blogPosts} /> */}
     </>
   );
 }

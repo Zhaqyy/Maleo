@@ -196,4 +196,11 @@ aside p {
   object-fit: scale-down;
   aspect-ratio: 1/1;
   transition: all 0.8s ease;
+}
+
+.blog {
+  z-index: 3;
+  position: relative;
+  color: black;
+  text-transform: uppercase;
 }/*# sourceMappingURL=Component.css.map */
