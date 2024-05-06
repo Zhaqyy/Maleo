@@ -138,11 +138,12 @@ const ScaleSection = () => {
     target: scaleRef,
     offset: ["start end", "end end"],
   });
+  console.log(scrollYProgress.get());
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const bgg = useTransform(scrollYProgress, [0,0.2, 0.6, 0.95, 1], ["#ffffff","#ffffff", "#000000", "#000000","#ffffff"]);
   const position = useTransform(scrollYProgress, (pos) => {
-    return pos >= 0.3 ? "fixed" : "relative";
+    return pos >= 0.22 ? "fixed" : "relative";
   });
   const bg = useTransform(scrollYProgress, (bg) => {
     return bg >= 0.31 ? "#000000" : "#ffffff";
@@ -154,9 +155,9 @@ const ScaleSection = () => {
         // ref={scaleRef}
         style={{ position: position, background: bgg }}
       ></motion.section>
-      <motion.section></motion.section>
+      <section></section>
       <RedText />
-      <motion.section></motion.section>
+      <section style={{height:'50vh'}}></section>
     </motion.section>
   );
 };
@@ -194,10 +195,7 @@ const Vid = () => {
   const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
 
   const isInView = useInView(vRef);
-     useEffect(() => {
-      console.log("Element is in view: ", isInView);
-    }, [isInView]);
-
+  
     useEffect(() => {
       const video = vRef.current;
   
@@ -217,7 +215,6 @@ const Vid = () => {
       // exit={{ opacity: 0, transition: { duration: 1 } }}
       // variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
     >
-      {/* <motion.section> */}
       <motion.video
         // variants={vidVariants}
         ref={vRef}
@@ -242,7 +239,6 @@ const Vid = () => {
         <source src="maleo.mp4" type="video/mp4" />
       </motion.video>
 
-      {/* </motion.section> */}
 
     </motion.section>
   );
