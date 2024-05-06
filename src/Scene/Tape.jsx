@@ -17,15 +17,11 @@ export const TapeScroll = (props) => {
   const Tref = useRef();
 
   return (
-    // <ScrollControls pages={4} damping={0.1}>
-    //   <Scroll>
+ 
     <Tape ref={Tref} />
-    //   </Scroll>
-    // </ScrollControls>
+
   );
 };
-
-// TapeScroll.displayName = 'TapeScroll'; // Add a display name to your component
 
 export default TapeScroll;
 
@@ -47,7 +43,7 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const targetRotation = useRef([degreesToRadians(90), 0, degreesToRadians(0)]);
   const isRotating = useRef(true);
-  
+
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
     if (scrollYProgress.get() < order.tapecenter) {
@@ -62,7 +58,7 @@ export const Tape = React.forwardRef((props, Tref) => {
       Tref.current.rotation.z = targetRotation.current[2];
     }
   });
-  
+
   const { scrollYProgress } = useScroll();
 
   const Ypos = useTransform(
@@ -160,7 +156,7 @@ export const Tape = React.forwardRef((props, Tref) => {
         delta
       );
 
-      console.log(scrollYProgress);
+      // console.log(scrollYProgress);
     }
   });
 

@@ -11,6 +11,7 @@ import {
   ScrollControls,
   Stage,
 } from "@react-three/drei";
+import { Perf } from "r3f-perf";
 import Tape, { TapeScroll } from "./Tape";
 import { useScroll, useTransform } from "framer-motion";
 
@@ -22,13 +23,15 @@ export default function Scene() {
       dpr={[1, 2]}
       camera={{ near: 0.1, far: 50, position: [0, 0, 5], fov: 30 }}
     >
+      {/* <Perf position="top-left" /> */}
+
       <Suspense fallback={null}>
         <TapeScroll TRef={ref} />
       </Suspense>
       <ambientLight intensity={1} />
       <Environment files={"./city.hdr"} background={null} />
       {/* <OrbitControls ref={ref}  /> */}
-      <Preload/>
+      <Preload />
     </Canvas>
   );
 }

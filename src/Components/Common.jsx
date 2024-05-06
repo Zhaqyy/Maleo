@@ -52,7 +52,7 @@ export const ProductList = ({ products }) => {
       {products.map((product, index) => (
         <li className="listItem" key={index}>
           <div className="imgWrap">
-            <img src={product.imageSrc} alt={product.title} />
+            <img loading="lazy" src={product.imageSrc} alt={product.title} />
             <button>VIEW MORE</button>
           </div>
           <h5>{product.title}</h5>

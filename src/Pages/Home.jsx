@@ -1,12 +1,11 @@
 /* eslint-disable no-unused-vars */
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import MagneticBtn, { SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import logo from "/logodark.png";
 import arrow from "/arrow.webp";
-import { useRef } from "react";
-import useScrollSnap from "react-use-scroll-snap";
+import { useEffect, useRef } from "react";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
@@ -26,7 +25,6 @@ efficaces`;
 
 export default function Home() {
   const scrollRef = useRef(null);
-  // useScrollSnap({ ref: scrollRef, duration: 10, delay: 10 });
 
   const TargetRef = useRef();
   const speed = 1 / 1.5;
@@ -34,21 +32,7 @@ export default function Home() {
     target: TargetRef,
     offset: ["end end", "end start"],
   });
-  // const MoveVidX = useTransform(scrollYProgress, (x) => {
-  //   return x === 1 ? "-100vw" : "-50vw";
-  // });
-  // const MoveVidX = useTransform(scrollYProgress, (x) => x * -100 + "vw");
-  // const lerp = (a, b, t) => a * (1 - t) + b * t;
-  // const threshold = 0.999;
 
-  // const MoveVidX = useTransform(scrollYProgress, (x) => {
-  //   if (x < threshold) {
-  //     return "0";
-  //   } else {
-  //     return `${lerp(0, -100, (x - threshold) / (1 - threshold))}vw`;
-  //   }
-  // });
-  // const MoveVidX = useTransform(scrollYProgress, [0.9, 1], ["0vw", "-100vw"]);
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
     scrollYProgress,
@@ -128,7 +112,7 @@ export default function Home() {
             </h3>
             <SpotBtn text={"QUOTE NOW"} />
           </motion.div>
-          <motion.img src={logo} style={{ y: MoveY }} />
+          <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
         </motion.section>
         <motion.section className="vid"></motion.section>
 
@@ -193,6 +177,7 @@ const vidVariants = {
 
 const Vid = () => {
   const vidRef = useRef();
+  const vRef = useRef();
 
   const { scrollYProgress } = useScroll({
     target: vidRef,
@@ -207,6 +192,22 @@ const Vid = () => {
     ["20%", "80%"]
   );
   const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
+
+  const isInView = useInView(vRef);
+     useEffect(() => {
+      console.log("Element is in view: ", isInView);
+    }, [isInView]);
+
+    useEffect(() => {
+      const video = vRef.current;
+  
+      if (isInView) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    }, [isInView]);
+  
   return (
     <motion.section
       className="videoSec"
@@ -219,10 +220,9 @@ const Vid = () => {
       {/* <motion.section> */}
       <motion.video
         // variants={vidVariants}
-        
-        autoPlay
+        ref={vRef}
+        {...(!isInView && { muted: true })}
         loop
-        // muted
         playsInline
         className="mainVid"
         style={
@@ -276,7 +276,7 @@ export const Product = () => {
 <section className="product">
   <div className="prodHead">
     <div className="prodBtn">
-      <img src={arrow} />
+      <img loading="lazy" src={arrow} />
     <SpotBtn text={"QUOTE NOW"} />
     </div>
     <h1>NOS PRODUITS</h1>
