@@ -65,7 +65,6 @@ export default function Home() {
     ["300px", "500px", "500px", "700px"]
   );
   const bright = useTransform(scrollYProgress, [0.1, 0.2], ["0.25", "0.75"]);
-  // const fil = filter=`brightness(${bright})`;
 
   return (
     <>
@@ -126,7 +125,7 @@ export default function Home() {
       </motion.section>
       <ScaleSection />
       <Vid />
-      <Product/>
+      <Product />
     </>
   );
 }
@@ -141,7 +140,11 @@ const ScaleSection = () => {
   console.log(scrollYProgress.get());
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const bgg = useTransform(scrollYProgress, [0,0.2, 0.6, 0.95, 1], ["#ffffff","#ffffff", "#000000", "#000000","#ffffff"]);
+  const bgg = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.6, 0.95, 1],
+    ["#ffffff", "#ffffff", "#000000", "#000000", "#ffffff"]
+  );
   const position = useTransform(scrollYProgress, (pos) => {
     return pos >= 0.22 ? "fixed" : "relative";
   });
@@ -157,23 +160,9 @@ const ScaleSection = () => {
       ></motion.section>
       <section></section>
       <RedText />
-      <section style={{height:'50vh'}}></section>
+      <section style={{ height: "50vh" }}></section>
     </motion.section>
   );
-};
-
-const visible = {
-  // opacity: 1,
-  // x: 0,
-  // y: 0,
-  // scale: 1,
-  top: `100%`,
-  transition: { staggerChildren: 0.4, duration: 0.5 },
-};
-
-const vidVariants = {
-  hidden: {  top: `0%` },
-  visible,
 };
 
 const Vid = () => {
@@ -187,59 +176,39 @@ const Vid = () => {
 
   const scalee = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
   const bdr = useTransform(scrollYProgress, [0, 0.9], [10, 50]);
-  const wide = useTransform(
-    scrollYProgress,
-    [0, 0.9],
-    ["20%", "80%"]
-  );
+  const wide = useTransform(scrollYProgress, [0, 0.9], ["20%", "80%"]);
   const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
 
   const isInView = useInView(vRef);
-  
-    useEffect(() => {
-      const video = vRef.current;
-  
-      if (isInView) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    }, [isInView]);
-  
+
+  useEffect(() => {
+    const video = vRef.current;
+
+    if (isInView) {
+      video.play();
+    } else {
+      video.pause();
+    }
+  }, [isInView]);
+
   return (
-    <motion.section
-      className="videoSec"
-      ref={vidRef}
-      // initial="hidden"
-      // animate="visible"
-      // exit={{ opacity: 0, transition: { duration: 1 } }}
-      // variants={{ visible: { transition: { staggerChildren: 0.3 } } }}
-    >
+    <motion.section className="videoSec" ref={vidRef}>
       <motion.video
-        // variants={vidVariants}
         ref={vRef}
         {...(!isInView && { muted: true })}
         loop
         playsInline
         className="mainVid"
-        style={
-          {
-            top: MoveY,
-            width: wide,
-            scale:scalee,
-            borderRadius:bdr
-            // height: tall,
-            // left: x,
-            // x: MoveVidX,
-            // position,
-          }
-        }
+        style={{
+          top: MoveY,
+          width: wide,
+          scale: scalee,
+          borderRadius: bdr,
+        }}
       >
         {/* <source src="maleo.webm" type="video/webm" /> */}
         <source src="maleo.mp4" type="video/mp4" />
       </motion.video>
-
-
     </motion.section>
   );
 };
@@ -250,37 +219,53 @@ const RedText = () => {
         <h3>
           MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
           enfant. Notre mission est de fournir les meilleures solutions
-          d`emballage pour l`expédition et la protection des
-          marchandises à nos clients partout en France.
+          d`emballage pour l`expédition et la protection des marchandises à nos
+          clients partout en France.
         </h3>
         <div className="redOverlay"></div>
       </div>
     </section>
   );
 };
+const visible = {
+  opacity: 1,
+  x: 0,
+  y: 0,
+  scale: 1,
+  transition: { staggerChildren: 0.5, duration: 0.6 },
+};
 
+
+const prodVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible,
+};
 
 export const Product = () => {
-
   const products = [
-    { imageSrc: h1, title: 'Ruban Adhésif' },
-    { imageSrc: h2, title: 'Film Etirable' },
-    { imageSrc: h3, title: 'Carton' },
-    { imageSrc: h4, title: 'Feuillard' },
+    { imageSrc: h1, title: "Ruban Adhésif" },
+    { imageSrc: h2, title: "Film Etirable" },
+    { imageSrc: h3, title: "Carton" },
+    { imageSrc: h4, title: "Feuillard" },
   ];
   return (
-<section className="product">
-  <div className="prodHead">
-    <div className="prodBtn">
-      <img loading="lazy" src={arrow} />
-    <SpotBtn text={"QUOTE NOW"} />
-    </div>
-    <h1>NOS PRODUITS</h1>
-    <h2 className="hollow">sont les meilleurs</h2>
-    <p>Découvrez tous nos produits de qualité</p>
-  </div>
-  <ProductList products={products} />
-</section>
-    )
-}
-
+    <Section
+      className="product" 
+      initial="hidden"
+      animate="visible"
+      exit={{ opacity: 0, transition: { duration: 1 } }}
+      variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
+    >
+      <motion.div className="prodHead" variants={prodVariants}>
+        <motion.div className="prodBtn" variants={prodVariants}>
+          <img loading="lazy" src={arrow} />
+          <SpotBtn text={"QUOTE NOW"} />
+        </motion.div>
+        <motion.h1 variants={prodVariants}>NOS PRODUITS</motion.h1>
+        <motion.h2 className="hollow" variants={prodVariants}>sont les meilleurs</motion.h2>
+        <motion.p variants={prodVariants}>Découvrez tous nos produits de qualité</motion.p>
+      </motion.div>
+      <ProductList products={products} />
+    </Section>
+  );
+};

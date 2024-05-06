@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
-// import "./styles.css";
 
 export const Section = ({ children, className }) => {
 
@@ -11,7 +10,6 @@ export const Section = ({ children, className }) => {
 
       
   const ref = useRef(null);
-//   const vpRef = useRef(null);
   const isInView = useInView(ref, { amount:"some", margin: "0% 0px 0px 0px" });
 
     useEffect(() => {
