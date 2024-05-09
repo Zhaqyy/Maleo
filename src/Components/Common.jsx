@@ -12,14 +12,25 @@ import { useEffect, useRef } from "react";
 import { Section } from "./inView";
 import MagneticBtn, { ArrowBtn } from "./magnetBtn";
 
+
+const visible = {
+  opacity: 1,
+  x: 0,
+  y: 0,
+  scale: 1,
+  transition: { staggerChildren: 0.5, duration: 0.6 },
+};
+
 export const ProductList = ({ products }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  //   useEffect(() => {
-  //     console.log("Element is in view: ", isInView);
-  //   }, [isInView]);
+
+  const prodVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
   return (
-    <ul className="list">
+    <motion.ul className="list" variants={prodVariants}>
       <motion.span
         ref={ref}
         className="wipe"
@@ -56,15 +67,15 @@ export const ProductList = ({ products }) => {
         </svg>
       </motion.span>
       {products.map((product, index) => (
-        <li className="listItem" key={index}>
+        <motion.li className="listItem" key={index} variants={prodVariants}>
           <div className="imgWrap">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
             <button>VIEW MORE</button>
           </div>
           <h5>{product.title}</h5>
-        </li>
+        </motion.li>
       ))}
-    </ul>
+    </motion.ul>
   );
 };
 
@@ -96,13 +107,6 @@ export const BlogSec = ({ posts }) => {
     y.set(yPct);
   };
 
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 1, duration: 0.6 },
-  };
   const postVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
