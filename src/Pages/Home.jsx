@@ -27,17 +27,23 @@ const blogPosts = [
   {
     date: "April 1, 2024",
     category: "Category",
+    imgSrc: h1,
+    link:null,
     title:
       "Environmental impact of packaging: Strategies to reduce waste and promote sustainability",
   },
   {
     date: "April 5, 2024",
     category: "Category",
+    imgSrc: h2,
+    link:null,
     title: "10 tips for safe and efficient packaging",
   },
   {
     date: "April 7, 2024",
     category: "Category",
+    imgSrc: h3,
+    link:null,
     title:
       "How to Choose the Right Masking Tape for Your Packaging Needs",
   },
