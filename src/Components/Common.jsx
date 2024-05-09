@@ -69,16 +69,19 @@ export const BlogSec = ({ posts }) => {
     x: 0,
     y: 0,
     scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
+    transition: { staggerChildren: 1, duration: 0.6 },
   };
   const postVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
-  };  
+  };
   return (
-    <Section className={"blog"} variants={{ visible: { transition: { staggerChildren: 0.5 } } }}>
+    <Section
+      className="blog"
+      variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
+    >
       <motion.h3 variants={postVariants}>derniers articles</motion.h3>
-      <ul className="blogList">
+      <motion.ul className="blogList" variants={postVariants} >
         {posts.map((post, index) => (
           <motion.li key={index} className="post" variants={postVariants}>
             <div className="metaInfo">
@@ -94,7 +97,7 @@ export const BlogSec = ({ posts }) => {
             </motion.div>
           </motion.li>
         ))}
-      </ul>
+      </motion.ul>
     </Section>
   );
 };

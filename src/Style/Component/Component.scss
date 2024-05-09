@@ -325,10 +325,15 @@ aside p {
     &:hover {
       filter: opacity(1);
       cursor: pointer;
+
+      .arrow{
+        rotate: 0deg;
+      }
     }
     &:last-of-type {
       border-bottom: 1px solid rgba(128, 128, 128, 0);
     }
+    
   }
   .metaInfo {
     display: inline-flex;

@@ -9,7 +9,6 @@ import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
 import { BlogSec, ProductList } from "../Components/Common";
 import logo from "/logodark.png";
-// import flogo from "/fulllogo.png";
 import flogo from "/flogo.svg";
 import h1 from "/h1.png";
 import h2 from "/h2.png";
@@ -29,18 +28,18 @@ const blogPosts = [
     date: "April 1, 2024",
     category: "Category",
     title:
-      "Lorem Ipsum Dolor Sit Amet lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis minima dolor",
+      "Environmental impact of packaging: Strategies to reduce waste and promote sustainability",
   },
   {
     date: "April 5, 2024",
     category: "Category",
-    title: "Consectetur Adipiscing Elit",
+    title: "10 tips for safe and efficient packaging",
   },
   {
     date: "April 7, 2024",
     category: "Category",
     title:
-      "Consectetur Adipiscing Elit, Lorem Ipsum Dolor Sit Amet lorem Lorem",
+      "How to Choose the Right Masking Tape for Your Packaging Needs",
   },
   // Add more blog post objects as needed
 ];
@@ -54,7 +53,11 @@ export default function Home() {
     target: TargetRef,
     offset: ["end end", "end start"],
   });
-  console.log(scrollYProgress.get());
+
+
+  // console.log(scrollYProgress.get());
+
+
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
     scrollYProgress,
@@ -164,7 +167,7 @@ const ScaleSection = () => {
     target: scaleRef,
     offset: ["start end", "end end"],
   });
-  console.log(scrollYProgress.get());
+  // console.log(scrollYProgress.get());
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const bgg = useTransform(

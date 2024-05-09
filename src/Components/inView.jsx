@@ -10,11 +10,12 @@ export const Section = ({ children, className }) => {
 
       
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount:"some", margin: "0% 0px 0px 0px" });
+  const isInView = useInView(ref, { amount:"some" });
 
     useEffect(() => {
      if (isInView){
       mainControl.start("visible")
+      console.log("is in view");
      }
     }, [isInView, mainControl]);
   

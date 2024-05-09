@@ -229,6 +229,9 @@ aside p {
   filter: opacity(1);
   cursor: pointer;
 }
+.blog .post:hover .arrow {
+  rotate: 0deg;
+}
 .blog .post:last-of-type {
   border-bottom: 1px solid rgba(128, 128, 128, 0);
 }
