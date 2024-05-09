@@ -242,7 +242,7 @@ aside p {
   cursor: pointer;
   border-bottom: 2px solid rgb(50, 50, 50);
 }
-.blog .post .arrow {
+.blog .post:hover .arrow {
   rotate: 0deg;
 }
 .blog .postImg {
@@ -250,8 +250,8 @@ aside p {
   height: 300px;
   width: 400px;
   border-radius: 20px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 .blog .metaInfo {
   display: inline-flex;

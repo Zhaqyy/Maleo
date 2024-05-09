@@ -312,6 +312,7 @@ aside p {
   position: relative;
   color: black;
   text-transform: uppercase;
+
 .postItem{
   position: relative;
   color: inherit;
@@ -338,13 +339,13 @@ aside p {
       filter: opacity(1);
       cursor: pointer;
       border-bottom: 2px solid rgb(50, 50, 50);
-    }
-     
-
+      
       .arrow{
         rotate: 0deg;
       }
     
+    }
+     
     
   }
   .postImg{
@@ -352,7 +353,7 @@ aside p {
     height: 300px;
     width: 400px;
     border-radius: 20px;
-    object-fit: cover;
+    object-fit: scale-down;
   }
   .metaInfo {
     display: inline-flex;

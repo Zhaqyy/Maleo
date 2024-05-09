@@ -88,7 +88,7 @@ export const BlogSec = ({ posts }) => {
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const top = useTransform(mouseYSpring, [0.5, -0.5], ["40%", "60%"]);
+  const top = useTransform(mouseYSpring, [0.5, -0.5], ["49%", "51%"]);
   const left = useTransform(mouseXSpring, [0.5, -0.5], ["0%", "10%"]);
 
   const handleMouseMove = (e) => {

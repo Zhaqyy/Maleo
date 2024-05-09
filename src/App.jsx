@@ -6,6 +6,7 @@ import "./App.css";
 
 import Overlay from "./Components/Overlay";
 import { AnimatePresence } from "framer-motion";
+import Footer from "./Components/Footer";
 
 //PAGES
 const Home = lazy(() => import("./Pages/Home"));
@@ -24,6 +25,7 @@ function App() {
             <Route path="/contact" element={<Contact/>} />
           </Routes>
         </AnimatePresence>
+        <Footer/>
       </BrowserRouter>
       {/* <Route component={NotFound} /> */}
     </>
