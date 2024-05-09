@@ -64,15 +64,26 @@ export const ProductList = ({ products }) => {
 };
 
 export const BlogSec = ({ posts }) => {
+  const visible = {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { staggerChildren: 0.5, duration: 0.6 },
+  };
+  const postVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };  
   return (
-    <Section className={"blog"}>
-      <h2>derniers articles</h2>
+    <Section className={"blog"} variants={{ visible: { transition: { staggerChildren: 0.5 } } }}>
+      <motion.h3 variants={postVariants}>derniers articles</motion.h3>
       <ul className="blogList">
         {posts.map((post, index) => (
-          <li key={index} className="post">
+          <motion.li key={index} className="post" variants={postVariants}>
             <div className="metaInfo">
-              <h5>{post.category}</h5>
-              <p>{post.date}</p>
+              <h6>{post.category}</h6>
+              <p>- {post.date}</p>
             </div>
             <h4 className="blogTitle">{post.title}</h4>
             <motion.div
@@ -81,7 +92,7 @@ export const BlogSec = ({ posts }) => {
             >
               <ArrowBtn />
             </motion.div>
-          </li>
+          </motion.li>
         ))}
       </ul>
     </Section>

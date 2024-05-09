@@ -118,6 +118,13 @@ ul li {
     h2              { font-size: 2.58445946rem; }
 } */
 
+img{
+  -khtml-user-select: none;
+  -o-user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
 
 ::selection {
   background: var(--accent);

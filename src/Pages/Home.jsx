@@ -3,12 +3,14 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowBtn, SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
-import logo from "/logodark.png";
 import { useEffect, useRef } from "react";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
 import { BlogSec, ProductList } from "../Components/Common";
+import logo from "/logodark.png";
+// import flogo from "/fulllogo.png";
+import flogo from "/flogo.svg";
 import h1 from "/h1.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";
@@ -24,14 +26,21 @@ efficaces`;
 
 const blogPosts = [
   {
-    date: 'April 1, 2024',
-    category: 'John Doe',
-    title: 'Lorem Ipsum Dolor Sit Amet',
+    date: "April 1, 2024",
+    category: "Category",
+    title:
+      "Lorem Ipsum Dolor Sit Amet lorem Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis minima dolor",
   },
   {
-    date: 'April 5, 2024',
-    category: 'Jane Smith',
-    title: 'Consectetur Adipiscing Elit',
+    date: "April 5, 2024",
+    category: "Category",
+    title: "Consectetur Adipiscing Elit",
+  },
+  {
+    date: "April 7, 2024",
+    category: "Category",
+    title:
+      "Consectetur Adipiscing Elit, Lorem Ipsum Dolor Sit Amet lorem Lorem",
   },
   // Add more blog post objects as needed
 ];
@@ -45,7 +54,7 @@ export default function Home() {
     target: TargetRef,
     offset: ["end end", "end start"],
   });
-console.log(scrollYProgress.get());
+  console.log(scrollYProgress.get());
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
     scrollYProgress,
@@ -142,7 +151,8 @@ console.log(scrollYProgress.get());
       <ScaleSection />
       <Vid />
       <Product />
-      {/* <BlogSec posts={blogPosts} /> */}
+      <BlogSec posts={blogPosts} />
+      <LogoDisp />
     </>
   );
 }
@@ -252,13 +262,12 @@ const visible = {
   transition: { staggerChildren: 0.5, duration: 0.6 },
 };
 
-
-const prodVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible,
-};
-
 export const Product = () => {
+  const prodVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
+
   const products = [
     { imageSrc: h1, title: "Ruban Adhésif" },
     { imageSrc: h2, title: "Film Etirable" },
@@ -267,7 +276,7 @@ export const Product = () => {
   ];
   return (
     <Section
-      className="product" 
+      className="product"
       initial="hidden"
       animate="visible"
       exit={{ opacity: 0, transition: { duration: 1 } }}
@@ -275,15 +284,40 @@ export const Product = () => {
     >
       <motion.div className="prodHead" variants={prodVariants}>
         <motion.div className="prodBtn" variants={prodVariants}>
-          <ArrowBtn/>
+          <ArrowBtn />
           <SpotBtn text={"QUOTE NOW"} />
         </motion.div>
         <motion.h1 variants={prodVariants}>NOS PRODUITS</motion.h1>
-        <motion.h2 className="hollow" variants={prodVariants}>sont les meilleurs</motion.h2>
-        <motion.p variants={prodVariants}>Découvrez tous nos produits de qualité</motion.p>
+        <motion.h2 className="hollow" variants={prodVariants}>
+          sont les meilleurs
+        </motion.h2>
+        <motion.p variants={prodVariants}>
+          Découvrez tous nos produits de qualité
+        </motion.p>
       </motion.div>
       <ProductList products={products} />
     </Section>
   );
 };
 
+export const LogoDisp = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+    // useEffect(() => {
+    //   console.log("Element is in view: ", isInView);
+    // }, [isInView]);
+  return (
+    <Section className="LogoDisp">
+      <motion.img
+        ref={ref}
+        src={flogo}
+        alt="Maleo Emballage"
+        style={{
+          opacity: isInView ? 1 : 0,
+          scale: isInView ? 1 : 0.2,
+          y: isInView ? 0 : 200,
+        }}
+      />
+    </Section>
+  );
+};
