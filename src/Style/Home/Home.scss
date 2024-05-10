@@ -126,9 +126,11 @@
 }
 
 .redText {
+  scroll-snap-type: block;
   .text {
     position: relative;
     width: 60%;
+    color: white;
     margin: auto;
     padding: 1em;
     text-transform: uppercase;

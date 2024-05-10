@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowBtn, SpotBtn } from "../Components/magnetBtn";
@@ -173,9 +174,10 @@ const ScaleSection = () => {
     target: scaleRef,
     offset: ["start end", "end end"],
   });
-  // console.log(scrollYProgress.get());
+  console.log(scrollYProgress.get());
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200]);
   const bgg = useTransform(
     scrollYProgress,
     [0, 0.2, 0.6, 0.95, 1],
@@ -195,9 +197,26 @@ const ScaleSection = () => {
         style={{ position: position, background: bgg }}
       ></motion.section>
       <section></section>
-      <RedText />
+      <RedText shift={shift} />
       <section style={{ height: "50vh" }}></section>
     </motion.section>
+  );
+};
+
+
+const RedText = ({shift}) => {
+  return (
+    <section className="redText">
+      <div className="text">
+        <h3>
+          MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
+          enfant. Notre mission est de fournir les meilleures solutions
+          d`emballage pour l`expédition et la protection des marchandises à nos
+          clients partout en France.
+        </h3>
+        <motion.div className="redOverlay" style={{ translateX: shift }}></motion.div>
+      </div>
+    </section>
   );
 };
 
@@ -248,21 +267,7 @@ const Vid = () => {
     </motion.section>
   );
 };
-const RedText = () => {
-  return (
-    <section className="redText">
-      <div className="text">
-        <h3>
-          MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
-          enfant. Notre mission est de fournir les meilleures solutions
-          d`emballage pour l`expédition et la protection des marchandises à nos
-          clients partout en France.
-        </h3>
-        <div className="redOverlay"></div>
-      </div>
-    </section>
-  );
-};
+
 const visible = {
   opacity: 1,
   x: 0,

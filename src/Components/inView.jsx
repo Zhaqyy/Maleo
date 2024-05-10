@@ -15,7 +15,7 @@ export const Section = ({ children, className }) => {
     useEffect(() => {
      if (isInView){
       mainControl.start("visible")
-      console.log("is in view");
+      // console.log("is in view");
      }
     }, [isInView, mainControl]);
   

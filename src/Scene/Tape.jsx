@@ -28,13 +28,13 @@ export default TapeScroll;
 const order = {
   init: 0,
   tapeup: 0.02,
-  tapeleft: 0.1,
+  tapeleft: 0.08,
   tapeleftend: 0.25,
   tapecenter: 0.3,
-  tapecenterend: 0.4,
-  tapescaleup: 0.525,
-  tapescaleupend: 0.625,
-  PartnerTextin: 1,
+  tapecenterend: 0.36,
+  tapescaleup: 0.38,
+  tapescaleupend: 0.45,
+  end: 1,
 };
 
 export const Tape = React.forwardRef((props, Tref) => {
@@ -82,7 +82,7 @@ export const Tape = React.forwardRef((props, Tref) => {
       order.tapeleftend,
       order.tapecenter,
     ],
-    [0, 0, -0.35, -0.35, 0]
+    [0, 0, -0.75, -0.75, 0]
   );
   const rot = useTransform(
     scrollYProgress,
@@ -155,7 +155,7 @@ export const Tape = React.forwardRef((props, Tref) => {
         delta
       );
 
-      console.log(scrollYProgress);
+      // console.log(scrollYProgress);
     }
   });
 

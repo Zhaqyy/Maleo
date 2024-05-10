@@ -113,9 +113,13 @@
   z-index: 1;
 }
 
+.redText {
+  scroll-snap-type: block;
+}
 .redText .text {
   position: relative;
   width: 60%;
+  color: white;
   margin: auto;
   padding: 1em;
   text-transform: uppercase;
