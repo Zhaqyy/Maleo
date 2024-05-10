@@ -36,7 +36,10 @@
         stroke: var(--accent);
     }
 }
+.nav__menu{
+    backdrop-filter: blur(5px);
 
+}
 .nav__cta {
     position: relative;
     display: inline-flex;

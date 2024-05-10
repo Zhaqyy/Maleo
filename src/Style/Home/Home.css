@@ -55,6 +55,9 @@
 .hero-cta {
   align-self: end;
 }
+.hero-cta h3 {
+  color: var(--text-color);
+}
 
 #canvasWrapper {
   width: calc(100vw - 5px);

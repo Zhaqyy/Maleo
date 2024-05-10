@@ -2,7 +2,8 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 // import { IoClose, IoMenu } from "react-icons/io5";
 import "../Style/Header.css";
-import logoW from "/logowhite.png"
+// import logoW from "/logowhite.png"
+import logoB from "/logoB.png"
 import { ArrowBtn } from "./magnetBtn";
 
 const Header = () => {
@@ -21,7 +22,7 @@ const Header = () => {
     <header className="header">
       <nav className="nav container">
         <NavLink to="/" className="nav__logo">
-          <img src={logoW} alt="" />
+          <img src={logoB} alt="Logo" />
         </NavLink>
 
         <div

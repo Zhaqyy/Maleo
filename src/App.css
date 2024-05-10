@@ -1,8 +1,13 @@
 .hollow{
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--text-color);
+    -webkit-text-stroke-color: var(--text-dark);
     text-transform: uppercase;
+}
+.hollowdark {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--text-color);
 }
 
 button {
@@ -28,6 +33,6 @@ button {
   
   button:focus,
   button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
+    outline: 1px auto var(--accent);
   }
   

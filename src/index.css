@@ -49,6 +49,12 @@ html {
 
 #root {
   position: relative;
+  color: var(--text-dark);
+    background-color: var(--bg-color);
+
+  section:nth-of-type(1){
+    padding-top: 15vh;
+  }
 }
 
 a {
@@ -77,15 +83,15 @@ section:not(.wrapper, .textline) {
 }
 
 h1 {
-  font-size: clamp(4.25rem, 10vw, 6.25rem);
+  font-size: clamp(3.45rem, 10vw, 5.55rem);
 }
 
 h2 {
-  font-size: 4.4rem;
+  font-size: clamp(2.85rem, 10vw, 4.5rem);
 }
 
 h3 {
-  font-size: 3.6rem;
+  font-size: clamp(2.5rem, 10vw, 3.6rem);
 }
 
 h4 {
@@ -143,7 +149,7 @@ img{
 ::-webkit-scrollbar-track {
   background: inherit;
 }
-
+/* 
 @media (prefers-color-scheme: light) {
   :root {
     color: var(--text-dark);
@@ -185,4 +191,4 @@ img{
   svg {
     fill: var(--text-color);
   }
-}
+} */

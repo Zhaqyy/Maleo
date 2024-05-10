@@ -117,7 +117,6 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   useFrame((state, delta) => {
     if (Tref && Tref.current) {
-      // Tref.current.scale.set(scalee.get());
       Tref.current.scale.x = THREE.MathUtils.damp(
         Tref.current.scale.x,
         scaleeX.get(),
@@ -156,7 +155,7 @@ export const Tape = React.forwardRef((props, Tref) => {
         delta
       );
 
-      // console.log(scrollYProgress);
+      console.log(scrollYProgress);
     }
   });
 

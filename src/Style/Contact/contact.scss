@@ -71,9 +71,11 @@
 //     }
 // }
 #contact-form {
+  display: flex;
+    flex-direction: column;
   //   min-width: 500px;
   min-height: 400px;
-  color: #fff;
+  color: var(--text-dark);
   padding-block: 20px;
 
   & input,
@@ -84,7 +86,8 @@
     margin-bottom: 15px !important;
     border-radius: 20px;
     background: none;
-    border: 1px solid;
+    color: var(--text-dark);
+    border: 1px solid var(--text-dark);
     &:focus-visible {
       outline: none;
     }
@@ -96,9 +99,17 @@
   }
 
   & button {
-    width: 100%;
+    width: 70%;
     color: #fff;
     margin-bottom: 15px;
+    align-self: center;
+    background-color: var(--accent);
+    box-shadow: 0px 0px 5px #430a22;
+    transition: all 0.4s ease;
+
+    &:hover {
+      box-shadow: 0px 0px 10px #a61853;
+    }
   }
 
   & span.not-visible {
@@ -210,6 +221,7 @@
       }
       svg {
         margin-bottom: 1em;
+        fill: var(--text-dark);
       }
     }
   }
@@ -242,4 +254,10 @@
     margin-block: 5vh;
     /* align-content: flex-start; */
   }
+  .cont-info-text h1 {
+    text-align: center;
+    font-size: clamp(3.25rem, 10vw, 10.25rem);
+   margin-right: 0;
 }
+}
+

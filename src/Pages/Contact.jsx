@@ -2,6 +2,7 @@
 import React from "react";
 import Map from "../Components/Map";
 import "../Style/Contact/contact.css";
+import { SpotBtn } from "../Components/magnetBtn";
 
 
 export default function Contact() {
@@ -60,10 +61,10 @@ export default function Contact() {
             {/* <button onClick={submit}>
             Send Message
           </button> */}
-            {/* <SpotBtn
-            text={"Send Message"}
+            <SpotBtn
+            text={"ENVOYER"}
             // submit={submit}
-          /> */}
+          />
 
             {/* <span className={emailSent ? "visible" : "not-visible"}>
             <p>Thank you for your message, we will be in touch in no time!</p>

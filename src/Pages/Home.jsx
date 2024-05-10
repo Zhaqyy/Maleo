@@ -109,7 +109,7 @@ export default function Home() {
       >
         <motion.section className="hero" ref={TargetRef}>
           <motion.div className="hero-head" style={{ y: MoveY }}>
-            <h1 className="hollow">
+            <h1 className="hollowdark">
               QUALITY
               <br />
               PACKAGING
