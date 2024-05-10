@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { lazy } from "react";
+import React, { Suspense, lazy } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import "./App.css";
@@ -17,16 +17,18 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Header />
-        <Overlay />
-        <AnimatePresence mode="wait">
-          <Routes>
-            <Route index exact path="/" element={<Home />}/>
+        <Suspense>
+          <Header />
+          <Overlay />
+          <AnimatePresence mode="wait">
+            <Routes>
+              <Route index exact path="/" element={<Home />} />
 
-            <Route path="/contact" element={<Contact/>} />
-          </Routes>
-        </AnimatePresence>
-        <Footer/>
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </AnimatePresence>
+          <Footer />
+        </Suspense>
       </BrowserRouter>
       {/* <Route component={NotFound} /> */}
     </>
