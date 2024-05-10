@@ -8,7 +8,7 @@ import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
 import { BlogSec, ProductList } from "../Components/Common";
-import logo from "/logodark.png";
+import logo from "/logobig.png";
 import flogo from "/flogo.svg";
 import h1 from "/h1.png";
 import h2 from "/h2.png";

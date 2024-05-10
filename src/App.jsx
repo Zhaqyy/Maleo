@@ -7,6 +7,7 @@ import "./App.css";
 import Overlay from "./Components/Overlay";
 import { AnimatePresence } from "framer-motion";
 import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 //PAGES
 const Home = lazy(() => import("./Pages/Home"));
@@ -16,7 +17,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        {/* <Header /> */}
+        <Header />
         <Overlay />
         <AnimatePresence mode="wait">
           <Routes>

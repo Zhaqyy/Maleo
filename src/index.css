@@ -23,6 +23,7 @@
   --accent: hsl(335, 75%, 37%);
   --text-color: hsl(0, 0%, 95%);
   --text-dark: hsl(0, 0%, 3%);
+  --header-height: 10vh;
 
   color-scheme: light dark;
   color: var(--text-color);
