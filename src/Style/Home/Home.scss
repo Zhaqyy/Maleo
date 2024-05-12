@@ -53,7 +53,7 @@
 .hero-cta {
   align-self: end;
 
-  h3{
+  h3 {
     color: var(--text-color);
   }
 }
@@ -127,6 +127,7 @@
 
 .redText {
   scroll-snap-type: block;
+  overflow-x: hidden;
   .text {
     position: relative;
     width: 60%;
@@ -147,6 +148,7 @@
 }
 
 .videoSec {
+  padding-bottom: 15vh;
   .mainVid {
     z-index: 2;
     position: relative;
@@ -199,15 +201,15 @@
   }
 }
 
-.LogoDisp{
+.LogoDisp {
   position: relative;
-    z-index: 1;
-    text-align: -webkit-center;
+  z-index: 1;
+  text-align: -webkit-center;
 
-    img{
-      width: 60%;
-      transition: all 2s ease;
-    }
+  img {
+    width: 60%;
+    transition: all 2s ease;
+  }
 }
 
 // Media query
@@ -230,11 +232,67 @@
 }
 @media (max-width: 450px) {
   .hero {
+    min-height: 100vh;
     padding-inline: 5vw;
     & > img {
       width: 250px;
       position: absolute;
-      bottom: -300px;
+      bottom: -150px;
     }
+  }
+  .hero-vid {
+    top: 15% !important;
+    width: 45% !important;
+    height: 200px !important;
+    left: 70% !important;
+  }
+  .redText {
+    .text {
+      width: 80%;
+      padding: 0;
+
+      h3 {
+        font-size: 25px;
+      }
+    }
+  }
+
+  .videoSec {
+    .mainVid {
+      border-radius: 20px !important;
+      width: 90% !important;
+    }
+  }
+  .product {
+    height: 260vh;
+
+    .prodHead {
+      display: flex;
+      flex-direction: column;
+      .prodBtn {
+        order: 2;
+      }
+    }
+
+    .list {
+      flex-direction: column;
+      gap: 20px;
+
+      h5 {
+        background: white;
+      }
+      span {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        translate: -50%;
+        rotate: 180deg;
+        transform: scale(1.15);
+        z-index: -1;
+      }
+    }
+  }
+  .LogoDisp{
+    padding-top: 20vh;
   }
 }

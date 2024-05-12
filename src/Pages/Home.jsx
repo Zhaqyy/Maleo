@@ -29,7 +29,7 @@ const blogPosts = [
     date: "April 1, 2024",
     category: "Category",
     imgSrc: h1,
-    link:null,
+    link: null,
     title:
       "Environmental impact of packaging: Strategies to reduce waste and promote sustainability",
   },
@@ -37,16 +37,15 @@ const blogPosts = [
     date: "April 5, 2024",
     category: "Category",
     imgSrc: h2,
-    link:null,
+    link: null,
     title: "10 tips for safe and efficient packaging",
   },
   {
     date: "April 7, 2024",
     category: "Category",
     imgSrc: h3,
-    link:null,
-    title:
-      "How to Choose the Right Masking Tape for Your Packaging Needs",
+    link: null,
+    title: "How to Choose the Right Masking Tape for Your Packaging Needs",
   },
   // Add more blog post objects as needed
 ];
@@ -61,9 +60,7 @@ export default function Home() {
     offset: ["end end", "end start"],
   });
 
-
   // console.log(scrollYProgress.get());
-
 
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
   const MoveVidY = useTransform(
@@ -174,7 +171,7 @@ const ScaleSection = () => {
     target: scaleRef,
     offset: ["start end", "end end"],
   });
-  console.log(scrollYProgress.get());
+  // console.log(scrollYProgress.get());
   const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200]);
@@ -203,18 +200,23 @@ const ScaleSection = () => {
   );
 };
 
-
-const RedText = ({shift}) => {
+const RedText = ({ shift }) => {
   return (
     <section className="redText">
       <div className="text">
         <h3>
           MALEO est né en 2019, de la contraction de Marine & Léon, mon premier
-          enfant. Notre mission est de fournir les meilleures solutions
-          d`emballage pour l`expédition et la protection des marchandises à nos
-          clients partout en France.
+          enfant.
+          <br />
+          <br />
+          Notre mission est de fournir les meilleures solutions d`emballage pour
+          l`expédition et la protection des marchandises à nos clients partout
+          en France.
         </h3>
-        <motion.div className="redOverlay" style={{ translateX: shift }}></motion.div>
+        <motion.div
+          className="redOverlay"
+          style={{ translateX: shift }}
+        ></motion.div>
       </div>
     </section>
   );
@@ -317,9 +319,9 @@ export const Product = () => {
 export const LogoDisp = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-    // useEffect(() => {
-    //   console.log("Element is in view: ", isInView);
-    // }, [isInView]);
+  // useEffect(() => {
+  //   console.log("Element is in view: ", isInView);
+  // }, [isInView]);
   return (
     <Section className="LogoDisp">
       <motion.img

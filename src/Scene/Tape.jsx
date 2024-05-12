@@ -159,12 +159,14 @@ export const Tape = React.forwardRef((props, Tref) => {
     }
   });
 
+  const isMobile = window.innerWidth < 768;
+
   return (
     <group
       ref={Tref}
       rotation={[degreesToRadians(90), 0, degreesToRadians(45)]}
-      scale={[0.25, 0.25, 0.25]}
-      // scale={[1, 1, 1]}
+      // scale={[0.25, 0.25, 0.25]}
+       scale={isMobile ? 0.05 : 0.25}
       position={[0, -0.25, 0]}
       {...props}
       dispose={null}

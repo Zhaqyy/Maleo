@@ -313,17 +313,17 @@ aside p {
   color: black;
   text-transform: uppercase;
 
-.postItem{
-  position: relative;
-  color: inherit;
-  text-decoration: none;
-  &:hover{
+  .postItem {
+    position: relative;
     color: inherit;
+    text-decoration: none;
+    &:hover {
+      color: inherit;
+    }
+    &:last-of-type .post {
+      border-bottom: 2px solid rgba(128, 128, 128, 0);
+    }
   }
-  &:last-of-type .post {
-    border-bottom: 2px solid rgba(128, 128, 128, 0);
-  }
-}
   .post {
     position: relative;
     display: flex;
@@ -339,16 +339,13 @@ aside p {
       filter: opacity(1);
       cursor: pointer;
       border-bottom: 2px solid rgb(50, 50, 50);
-      
-      .arrow{
+
+      .arrow {
         rotate: 0deg;
       }
-    
     }
-     
-    
   }
-  .postImg{
+  .postImg {
     position: absolute;
     height: 300px;
     width: 400px;
@@ -366,5 +363,40 @@ aside p {
     max-width: 45ch;
     text-align: left;
     width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .paragraph {
+    font-size: 30px;
+  }
+  .blog {
+    gap: 30px;
+
+    .blogList {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      h6,
+      p {
+        font-size: 13px;
+      }
+
+      h4 {
+        font-size: 1.1rem;
+      }
+
+      .metaInfo {
+        order: -1;
+      }
+      .prodBtn {
+        order: -1;
+        .arrow {
+          margin: 1em;
+          width: 40px;
+        }
+      }
+    }
   }
 }

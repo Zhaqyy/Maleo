@@ -264,4 +264,35 @@ aside p {
   max-width: 45ch;
   text-align: left;
   width: 100%;
+}
+
+@media (max-width: 450px) {
+  .paragraph {
+    font-size: 30px;
+  }
+  .blog {
+    gap: 30px;
+  }
+  .blog .blogList {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  .blog .blogList h6,
+  .blog .blogList p {
+    font-size: 13px;
+  }
+  .blog .blogList h4 {
+    font-size: 1.1rem;
+  }
+  .blog .blogList .metaInfo {
+    order: -1;
+  }
+  .blog .blogList .prodBtn {
+    order: -1;
+  }
+  .blog .blogList .prodBtn .arrow {
+    margin: 1em;
+    width: 40px;
+  }
 }/*# sourceMappingURL=Component.css.map */

@@ -22,14 +22,16 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    
+
 }
-.rowMain{
+
+.rowMain {
     justify-content: start;
     border-block: 2px solid rgba(128, 128, 128, 0.35);
     padding-block: 10vh;
 }
-.lowerFoot{
+
+.lowerFoot {
     align-items: center;
     justify-content: space-between;
     flex-direction: row;
@@ -40,11 +42,13 @@
         color: grey;
         font-size: 12px;
     }
-    a{
+
+    a {
         text-decoration: underline;
         text-underline-position: under;
     }
 }
+
 .logoInfo {
     width: 30ch;
 }
@@ -57,11 +61,13 @@
 .footer-logo img {
     height: 30px;
 }
-.linkItem{
+
+.linkItem {
     display: flex;
     margin: auto;
     column-gap: 150px;
 }
+
 .footer-text {
     margin-top: 1rem;
     width: 75%;
@@ -133,7 +139,7 @@
         border: none;
         color: black;
 
-        &::placeholder{
+        &::placeholder {
             font-family: 'Neue', Inter, system-ui, Avenir;
         }
     }
@@ -150,5 +156,31 @@
             width: 40px;
             margin: 0;
         }
+    }
+}
+
+@media (max-width: 450px) {
+    .footer {
+        min-height: 100vh;
+    }
+
+    .rowMain {
+        flex-direction: column;
+        gap: 30px;
+
+        .linkItem {
+            column-gap: 0;
+            margin: 0;
+            gap: 40px;
+            flex-direction: column;
+        }
+
+        .footer-column {
+            padding: 0;
+        }
+    }
+
+    .logoInfo {
+        width: unset;
     }
 }

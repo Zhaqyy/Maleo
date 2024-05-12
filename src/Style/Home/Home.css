@@ -115,6 +115,7 @@
 
 .redText {
   scroll-snap-type: block;
+  overflow-x: hidden;
 }
 .redText .text {
   position: relative;
@@ -134,6 +135,9 @@
   mix-blend-mode: hard-light;
 }
 
+.videoSec {
+  padding-bottom: 15vh;
+}
 .videoSec .mainVid {
   z-index: 2;
   position: relative;
@@ -207,11 +211,58 @@
 }
 @media (max-width: 450px) {
   .hero {
+    min-height: 100vh;
     padding-inline: 5vw;
   }
   .hero > img {
     width: 250px;
     position: absolute;
-    bottom: -300px;
+    bottom: -150px;
+  }
+  .hero-vid {
+    top: 15% !important;
+    width: 45% !important;
+    height: 200px !important;
+    left: 70% !important;
+  }
+  .redText .text {
+    width: 80%;
+    padding: 0;
+  }
+  .redText .text h3 {
+    font-size: 25px;
+  }
+  .videoSec .mainVid {
+    border-radius: 20px !important;
+    width: 90% !important;
+  }
+  .product {
+    height: 260vh;
+  }
+  .product .prodHead {
+    display: flex;
+    flex-direction: column;
+  }
+  .product .prodHead .prodBtn {
+    order: 2;
+  }
+  .product .list {
+    flex-direction: column;
+    gap: 20px;
+  }
+  .product .list h5 {
+    background: white;
+  }
+  .product .list span {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    translate: -50%;
+    rotate: 180deg;
+    transform: scale(1.15);
+    z-index: -1;
+  }
+  .LogoDisp {
+    padding-top: 20vh;
   }
 }/*# sourceMappingURL=Home.css.map */
