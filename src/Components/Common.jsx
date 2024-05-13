@@ -85,11 +85,11 @@ export const BlogSec = ({ posts }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
+  const mouseXSpring = useSpring(x, {damping: 10});
+  const mouseYSpring = useSpring(y, {damping: 10});
 
   const top = useTransform(mouseYSpring, [0.5, -0.5], ["49%", "51%"]);
-  const left = useTransform(mouseXSpring, [0.5, -0.5], ["0%", "10%"]);
+  const left = useTransform(mouseXSpring, [0.5, -0.5], ["9%", "11%"]);
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();

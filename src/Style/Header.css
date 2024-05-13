@@ -5,7 +5,8 @@
     width: 100%;
     top: 0;
     left: 0;
-    background-color: transparent;
+    background-color: black;
+    mix-blend-mode: difference;
     z-index: 10;
 }
 
@@ -20,26 +21,31 @@
     padding-inline: 5vw;
 }
 
-/* .nav__logo {
-    color: var(--first-color);
-    transition: color 0.4s;
-    font-size: var(--h2-font-size);
-    font-family: var(--second-font);
-  } */
+.nav__logo {
+
+    img {
+        transition: all 0.4s ease;
+        filter: contrast(0) brightness(10) grayscale(1);
+    }
+}
 
 .nav__toggle,
 .nav__close {
     cursor: pointer;
-    svg, svg *{
+
+    svg,
+    svg * {
 
         fill: var(--accent);
         stroke: var(--accent);
     }
 }
-.nav__menu{
+
+.nav__menu {
     backdrop-filter: blur(5px);
 
 }
+
 .nav__cta {
     position: relative;
     display: inline-flex;
@@ -53,7 +59,7 @@
     transition: all 0.6s ease-in-out !important;
     padding: 0.35rem 1rem;
 
-    &:hover{
+    &:hover {
         box-shadow: 0px 0px 10px 1px var(--accent);
     }
 
@@ -109,26 +115,29 @@
     align-items: stretch;
     row-gap: 2.5rem;
 }
-.nav__item{
+
+.nav__item {
     align-content: center;
 
-    &:hover{
+    &:hover {
         .nav__link {
             color: var(--accent);
         }
-        svg{
+
+        svg {
             translate: 0 1px;
         }
     }
 }
+
 .nav__link {
-    /* color: var(--title-color); */
-    /* font-weight: var(--font-semi-bold); */
+    color: white;
     font-size: 13px;
     text-transform: uppercase;
     transition: all 0.4s ease;
 
-    svg, svg *{
+    svg,
+    svg * {
 
         fill: transparent;
         /* stroke: var(--accent); */
@@ -137,7 +146,7 @@
         vertical-align: middle;
         transition: translate 0.2s ease;
     }
-    
+
 }
 
 /* .nav__link:hover {

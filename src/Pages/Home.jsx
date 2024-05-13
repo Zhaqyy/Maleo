@@ -177,7 +177,7 @@ const ScaleSection = () => {
   const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200]);
   const bgg = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.6, 0.95, 1],
+    [0, 0.2, 0.4, 0.95, 1],
     ["#ffffff", "#ffffff", "#000000", "#000000", "#ffffff"]
   );
   const position = useTransform(scrollYProgress, (pos) => {
