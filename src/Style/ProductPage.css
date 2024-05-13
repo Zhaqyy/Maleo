@@ -1,0 +1,67 @@
+.prodHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-inline: 10vw;
+
+    h1 {
+        font-size: clamp(3.25rem, 10vw, 7.55rem);
+    }
+}
+
+.pInfo {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    justify-items: stretch;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+    img {
+        inline-size: -webkit-fill-available;
+        animation: rot 10s linear infinite both;
+    }
+}
+
+.pFeature {
+    height: -webkit-fill-available;
+    display: flex;
+    font-size: 13px;
+    align-content: flex-end;
+    text-transform: uppercase;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    h6 {
+        color: gray;
+        margin-block: 1em;
+        font-size: 12px;
+    }
+
+    h3 {
+        margin-top: 0.5em;
+    }
+ul{
+    max-width: 400px;
+}
+    li {
+        list-style: square;
+
+        &::marker {
+            color: var(--accent);
+            font-size: 25px;
+        }
+    }
+
+}
+
+@keyframes rot {
+    0% {
+        rotate: 0deg;
+    }
+
+    100% {
+        rotate: 360deg;
+    }
+}

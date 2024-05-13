@@ -12,6 +12,7 @@ import Header from "./Components/Header";
 //PAGES
 const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
+const Feuillard = lazy(() => import("./Pages/Feuillard"));
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
               <Route index exact path="/" element={<Home />} />
 
               <Route path="/contact" element={<Contact />} />
+              <Route path="/feuillard" element={<Feuillard />} />
             </Routes>
           </AnimatePresence>
           <Footer />

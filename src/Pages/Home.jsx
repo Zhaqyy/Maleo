@@ -51,6 +51,19 @@ const blogPosts = [
 ];
 
 export default function Home() {
+  return (
+    <>
+      <Hero />
+      <ScaleSection />
+      <Vid />
+      <Product />
+      <BlogSec posts={blogPosts} />
+      <LogoDisp />
+    </>
+  );
+}
+
+export const Hero = () => {
   const scrollRef = useRef(null);
 
   const TargetRef = useRef();
@@ -96,73 +109,65 @@ export default function Home() {
     [0.1, 0.2, 0.59, 0.6],
     ["300px", "500px", "500px", "700px"]
   );
-  const bright = useTransform(scrollYProgress, [0.1, 0.2], ["0.25", "0.75"]);
 
   return (
-    <>
-      <motion.section
-        className="wrapper"
-        ref={scrollRef}
-        style={{ padding: "0", backgroundColor: bg }}
-      >
-        <motion.section className="hero" ref={TargetRef}>
-          <motion.div className="hero-head" style={{ y: MoveY }}>
-            <h1 className="hollowdark">
-              QUALITY
-              <br />
-              PACKAGING
-              <br />
-              TO
-            </h1>
-          </motion.div>
-          <motion.video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="hero-vid"
-            style={{
-              top: MoveVidY,
-              width: wide,
-              height: tall,
-              left: x,
-              // x: MoveVidX,
-              // position,
-            }}
-          >
-            <source src="hero.webm" type="video/webm" />
-            <source src="hero.mp4" type="video/mp4" />
-          </motion.video>
-          <motion.div className="hero-cta" style={{ y: MoveY }}>
-            <h3>
-              PROTECT
-              <br />
-              YOUR
-              <br />
-              PRODUCTS
-            </h3>
-            <SpotBtn text={"QUOTE NOW"} />
-          </motion.div>
-          <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
-        </motion.section>
-        <motion.section className="vid"></motion.section>
-
-        <motion.section id="canvasWrapper" style={{ zIndex: z }}>
-          <Scene />
-        </motion.section>
-        <motion.section className="vid2"></motion.section>
-        <section className="textline">
-          <Paragraph paragraph={paragraph} />
-        </section>
+    <motion.section
+      className="wrapper"
+      ref={scrollRef}
+      style={{ padding: "0", backgroundColor: bg }}
+    >
+      <motion.section className="hero" ref={TargetRef}>
+        <motion.div className="hero-head" style={{ y: MoveY }}>
+          <h1 className="hollowdark">
+            QUALITY
+            <br />
+            PACKAGING
+            <br />
+            TO
+          </h1>
+        </motion.div>
+        <motion.video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="hero-vid"
+          style={{
+            top: MoveVidY,
+            width: wide,
+            height: tall,
+            left: x,
+            // x: MoveVidX,
+            // position,
+          }}
+        >
+          <source src="hero.webm" type="video/webm" />
+          <source src="hero.mp4" type="video/mp4" />
+        </motion.video>
+        <motion.div className="hero-cta" style={{ y: MoveY }}>
+          <h3>
+            PROTECT
+            <br />
+            YOUR
+            <br />
+            PRODUCTS
+          </h3>
+          <SpotBtn text={"QUOTE NOW"} />
+        </motion.div>
+        <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
       </motion.section>
-      <ScaleSection />
-      <Vid />
-      <Product />
-      <BlogSec posts={blogPosts} />
-      <LogoDisp />
-    </>
+      <motion.section className="vid"></motion.section>
+
+      <motion.section id="canvasWrapper" style={{ zIndex: z }}>
+        <Scene />
+      </motion.section>
+      <motion.section className="vid2"></motion.section>
+      <section className="textline">
+        <Paragraph paragraph={paragraph} />
+      </section>
+    </motion.section>
   );
-}
+};
 
 const ScaleSection = () => {
   const scaleRef = useRef();
