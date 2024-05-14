@@ -309,6 +309,10 @@
     .pFeature {
         flex-direction: column-reverse;
         gap: 2em;
+
+        ul{
+            padding-left: 30px;
+        }
     }
     .pModel{
         .list {
