@@ -177,7 +177,7 @@ aside p {
   box-shadow: 0px 0px 10px #a61853;
   scale: 1.01;
 }
-.list .listItem:hover .imgWrap button {
+.list .listItem:hover .imgWrap .button {
   scale: 1;
 }
 .list .listItem:hover .imgWrap img {
@@ -190,7 +190,7 @@ aside p {
   background-color: white;
   transition: all 0.5s ease;
 }
-.list .listItem .imgWrap button {
+.list .listItem .imgWrap .button {
   position: absolute;
   top: 35%;
   left: 50%;

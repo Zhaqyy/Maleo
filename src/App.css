@@ -1,9 +1,10 @@
-.hollow{
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--text-dark);
-    text-transform: uppercase;
+.hollow {
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--text-dark);
+  text-transform: uppercase;
 }
+
 .hollowdark {
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke-width: 1px;
@@ -11,28 +12,55 @@
 }
 
 button {
-    width: 80%;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    padding: 1.25em;
-    color: var(--accent);
-    font-size: 0.7em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: var(--bg-light);
-    cursor: pointer;
-    transition: border-color 0.25s;
-    margin-block: 1.25em;
-    z-index: 5;
-  }
-  
-  button:hover {
-    border-color: #a51853b4;
-    cursor: pointer;
-  }
-  
-  button:focus,
-  button:focus-visible {
-    outline: 1px auto var(--accent);
-  }
-  
+  width: 80%;
+  border-radius: 20px;
+  border: 2px solid var(--accent);
+  padding: 1.25em;
+  color: var(--accent);
+  font-size: 0.7em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--bg-light);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-block: 1.25em;
+  z-index: 5;
+}
+
+button:hover {
+  border-color: #a51853b4;
+  cursor: pointer;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 1px auto var(--accent);
+}
+
+a.button {
+  display: block;
+  width: 80%;
+  border-radius: 20px;
+  border: 2px solid var(--accent);
+  padding: 1.25em;
+  text-align: center;
+  color: var(--accent);
+  font-size: 0.7em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--bg-light);
+  cursor: pointer;
+  transition: border-color 0.25s;
+  margin-block: 1.25em;
+  z-index: 5;
+}
+
+a.button:hover {
+  border-color: #a51853b4;
+  cursor: pointer;
+}
+
+a.button:focus,
+a.button:focus-visible {
+  outline: 1px auto var(--accent);
+}

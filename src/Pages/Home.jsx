@@ -290,10 +290,10 @@ export const Product = () => {
   };
 
   const products = [
-    { imageSrc: h1, title: "Ruban Adhésif" },
-    { imageSrc: h2, title: "Film Etirable" },
-    { imageSrc: h3, title: "Carton" },
-    { imageSrc: h4, title: "Feuillard" },
+    { imageSrc: h1, title: "Ruban Adhésif", link: "#", linktext: "View More" },
+    { imageSrc: h2, title: "Film Etirable", link: "#", linktext: "View More" },
+    { imageSrc: h3, title: "Carton", link: "#", linktext: "View More" },
+    { imageSrc: h4, title: "Feuillard", link: "#", linktext: "View More" },
   ];
   return (
     <Section

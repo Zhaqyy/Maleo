@@ -70,7 +70,7 @@ export const ProductList = ({ products }) => {
         <motion.li className="listItem" key={index} variants={prodVariants}>
           <div className="imgWrap">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
-            <button>VIEW MORE</button>
+            <a href={product.link} className="button">{product.linktext}</a>
           </div>
           <h5>{product.title}</h5>
         </motion.li>
