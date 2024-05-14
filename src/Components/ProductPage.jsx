@@ -1,8 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import "../Style/ProductPage.css";
+import { motion } from "framer-motion";
 import { ProductList } from "./Common";
+import { Section } from "./inView";
+import logo from "/logobig.png";
+import { SpotBtn } from "./magnetBtn";
 
+import "../Style/ProductPage.css";
+import "../Style/Contact/contact.css";
 
 // const ProductsPage = ({ product, products }) => {
 //   const { title, imageUrl, features, subtitle } = product;
@@ -28,12 +34,13 @@ export const PHero = ({ product }) => {
         </div>
         <div className="pFeature">
           <ul>
-            {features && features.map((feature, index) => (
-              <li key={index}>
-                <h5>{feature.title}</h5>
-                <h6>{feature.detail}</h6>
-              </li>
-            ))}
+            {features &&
+              features.map((feature, index) => (
+                <li key={index}>
+                  <h5>{feature.title}</h5>
+                  <h6>{feature.detail}</h6>
+                </li>
+              ))}
           </ul>
           <h3>{subtitle}</h3>
         </div>
@@ -51,6 +58,113 @@ export const PModel = ({ modelTitle, products }) => {
       <div className="pModelContent">
         <ProductList products={products} />
       </div>
+      <motion.img loading="lazy" src={logo} />
     </section>
+  );
+};
+
+export const PTable = () => {
+  return (
+    <Section className="pTable">
+      <h3>Sheet about feuillard</h3>
+      <div className="table">
+
+      </div>
+    </Section>
+  );
+};
+
+export const PContact = ({ products }) => {
+  return (
+    <Section className="pCont">
+      <h1 className="hollow">Let's Talk</h1>
+      <div className="cont-form">
+        <div id="contact-form">
+          <div className="inp-field">
+            <input
+              name="name"
+              autoComplete="name"
+              type="text"
+              placeholder="Nom Complet"
+              //   value={name}
+              //   onChange={(e) => setName(e.target.value)}
+            />
+            <span></span>
+          </div>
+
+          <div className="inp-field">
+            <input
+              name="email"
+              autoComplete="email"
+              type="email"
+              placeholder="E-mail"
+              //   value={email}
+              required
+              //   onChange={(e) => setEmail(e.target.value)}
+            />
+            <span></span>
+          </div>
+          <div className="inp-field choice">
+            <label htmlFor="Choice">choisir une option</label>
+            <select name="Choice" id="Choice">
+              {products &&
+                products.map((product, index) => (
+                  <option key={index} value={product.title}>
+                    {product.title}
+                  </option>
+                ))}
+            </select>
+
+            {/* <div className="select animated zoomIn">
+              <input type="radio" name="option" />
+              <i className="toggle icon icon-arrow-down"></i>
+              <i className="toggle icon icon-arrow-up"></i>
+              <span className="placeholder">Choose...</span>
+              <label className="option">
+                <input type="radio" name="option" />
+                <span className="title animated fadeIn">
+                  <i className="icon icon-speedometer"></i>Speedometer
+                </span>
+              </label>
+              <label className="option">
+                <input type="radio" name="option" />
+                <span className="title animated fadeIn">
+                  <i className="icon icon-fire"></i>Fire
+                </span>
+              </label>
+
+              <label className="option">
+                <input type="radio" name="option" />
+                <span className="title animated fadeIn">
+                  <i className="icon icon-badge"></i>Badge
+                </span>
+              </label>
+            </div> */}
+            {/* onChange={(e) => setPhone(e.target.value)} */}
+            <span></span>
+          </div>
+          <textarea
+            placeholder="Montant"
+            // value={message}
+            // onChange={(e) => setMessage(e.target.value)}
+          ></textarea>
+
+          {/* <button onClick={submit}>
+            Send Message
+          </button> */}
+          <SpotBtn
+            text={"Quote Now"}
+            // submit={submit}
+          />
+
+          {/* <span className={emailSent ? "visible" : "not-visible"}>
+            <p>Thank you for your message, we will be in touch in no time!</p>
+          </span>
+          <span className={emailSent ? "not-visible" : "visible"}>
+            <p>Please Fill in all Fields</p>
+          </span> */}
+        </div>
+      </div>
+    </Section>
   );
 };
