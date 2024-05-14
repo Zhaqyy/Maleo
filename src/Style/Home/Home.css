@@ -243,16 +243,16 @@
   .product .prodHead .prodBtn {
     order: 2;
   }
-  .list {
+  .product .list {
     flex-direction: column;
     gap: 20px;
     margin-block: 5em;
   }
-  .list h5 {
+  .product .list h5 {
     background: white;
     z-index: 1;
   }
-  .list span {
+  .product .list span {
     position: absolute;
     top: 15px;
     left: 50%;

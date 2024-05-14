@@ -9,6 +9,8 @@ import { SpotBtn } from "./magnetBtn";
 
 import "../Style/ProductPage.css";
 import "../Style/Contact/contact.css";
+import "../Style/Component/Component.css";
+
 
 // const ProductsPage = ({ product, products }) => {
 //   const { title, imageUrl, features, subtitle } = product;
@@ -115,31 +117,6 @@ export const PContact = ({ products }) => {
                 ))}
             </select>
 
-            {/* <div className="select animated zoomIn">
-              <input type="radio" name="option" />
-              <i className="toggle icon icon-arrow-down"></i>
-              <i className="toggle icon icon-arrow-up"></i>
-              <span className="placeholder">Choose...</span>
-              <label className="option">
-                <input type="radio" name="option" />
-                <span className="title animated fadeIn">
-                  <i className="icon icon-speedometer"></i>Speedometer
-                </span>
-              </label>
-              <label className="option">
-                <input type="radio" name="option" />
-                <span className="title animated fadeIn">
-                  <i className="icon icon-fire"></i>Fire
-                </span>
-              </label>
-
-              <label className="option">
-                <input type="radio" name="option" />
-                <span className="title animated fadeIn">
-                  <i className="icon icon-badge"></i>Badge
-                </span>
-              </label>
-            </div> */}
             {/* onChange={(e) => setPhone(e.target.value)} */}
             <span></span>
           </div>
