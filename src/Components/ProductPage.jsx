@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import { motion } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ProductList } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
@@ -10,68 +10,92 @@ import { SpotBtn } from "./magnetBtn";
 import "../Style/ProductPage.css";
 import "../Style/Contact/contact.css";
 import "../Style/Component/Component.css";
+import { useEffect, useRef } from "react";
 
+const visible = {
+  opacity: 1,
+  x: 0,
+  y: 0,
+  scale: 1,
+  transition: { staggerChildren: 0.6, duration: 0.7 },
+};
 
-// const ProductsPage = ({ product, products }) => {
-//   const { title, imageUrl, features, subtitle } = product;
-
-//   return (
-//     <>
-//       <PHero title={title} imageUrl={imageUrl} features={features} subtitle={subtitle} />
-//       <PModel modelTitle={title} products={products} />
-//     </>
-//   );
-// };
-
-// export default ProductsPage;
+const prodVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible,
+};
 
 export const PHero = ({ product }) => {
   const { title, imageUrl, features, subtitle } = product;
   return (
-    <section className="prodHero">
-      <h1 className="hollow">{title}</h1>
+    <Section className="prodHero">
+      <motion.h1 className="hollow" variants={prodVariants}>
+        {title}
+      </motion.h1>
       <div className="pInfo">
-        <div>
+        <motion.div variants={prodVariants}>
           <img src={imageUrl} alt={title} />
-        </div>
+        </motion.div>
         <div className="pFeature">
-          <ul>
+          <motion.ul variants={prodVariants}>
             {features &&
               features.map((feature, index) => (
-                <li key={index}>
+                <motion.li key={index} variants={prodVariants}>
                   <h5>{feature.title}</h5>
                   <h6>{feature.detail}</h6>
-                </li>
+                </motion.li>
               ))}
-          </ul>
-          <h3>{subtitle}</h3>
+          </motion.ul>
+          <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
         </div>
       </div>
-    </section>
+    </Section>
   );
 };
 
 export const PModel = ({ modelTitle, products }) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end 0.15"],
+  });
+  const bg = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.5, 0.9, 1],
+    [`var(--bg-color)`, `var(--bg-color)`, `var(--bg-dark)`, `var(--bg-dark)`, `var(--bg-color)`]
+  );
+  // const isInView = useInView(ref, { once: false });
+
+//  useEffect(() => {
+//     console.log("Element is in view: ", isInView);
+//   }, [isInView]);
   return (
-    <section className="pModel">
+    <motion.section
+    ref={ref}
+      className="pModel"
+      style={{
+        backgroundColor: bg,
+      }}
+    >
       <div className="pModelHeader">
-        <h1 className="pModelTitle hollow">{modelTitle}</h1>
+        <motion.h1 className="pModelTitle hollowdark" variants={prodVariants}>
+          {modelTitle}
+        </motion.h1>
       </div>
-      <div className="pModelContent">
+      <motion.div className="pModelContent" variants={prodVariants}>
         <ProductList products={products} />
-      </div>
+      </motion.div>
       <motion.img loading="lazy" src={logo} />
-    </section>
+    </motion.section>
   );
 };
 
 export const PTable = () => {
   return (
     <Section className="pTable">
-      <h3>Sheet about feuillard</h3>
-      <div className="table">
-
-      </div>
+      <motion.h3 variants={prodVariants}>Sheet about feuillard</motion.h3>
+      <div className="table"></div>
     </Section>
   );
 };
@@ -79,10 +103,12 @@ export const PTable = () => {
 export const PContact = ({ products }) => {
   return (
     <Section className="pCont">
-      <h1 className="hollow">Let's Talk</h1>
+      <motion.h1 className="hollow" variants={prodVariants}>
+        Let's Talk
+      </motion.h1>
       <div className="cont-form">
-        <div id="contact-form">
-          <div className="inp-field">
+        <motion.div id="contact-form">
+          <motion.div className="inp-field" variants={prodVariants}>
             <input
               name="name"
               autoComplete="name"
@@ -92,9 +118,9 @@ export const PContact = ({ products }) => {
               //   onChange={(e) => setName(e.target.value)}
             />
             <span></span>
-          </div>
+          </motion.div>
 
-          <div className="inp-field">
+          <motion.div className="inp-field" variants={prodVariants}>
             <input
               name="email"
               autoComplete="email"
@@ -105,8 +131,8 @@ export const PContact = ({ products }) => {
               //   onChange={(e) => setEmail(e.target.value)}
             />
             <span></span>
-          </div>
-          <div className="inp-field choice">
+          </motion.div>
+          <motion.div className="inp-field choice" variants={prodVariants}>
             <label htmlFor="Choice">choisir une option</label>
             <select name="Choice" id="Choice">
               {products &&
@@ -119,20 +145,23 @@ export const PContact = ({ products }) => {
 
             {/* onChange={(e) => setPhone(e.target.value)} */}
             <span></span>
-          </div>
-          <textarea
+          </motion.div>
+          <motion.textarea
             placeholder="Montant"
+            variants={prodVariants}
             // value={message}
             // onChange={(e) => setMessage(e.target.value)}
-          ></textarea>
+          ></motion.textarea>
 
           {/* <button onClick={submit}>
             Send Message
           </button> */}
-          <SpotBtn
-            text={"Quote Now"}
-            // submit={submit}
-          />
+          <motion.div variants={prodVariants}>
+            <SpotBtn
+              text={"Quote Now"}
+              // submit={submit}
+            />
+          </motion.div>
 
           {/* <span className={emailSent ? "visible" : "not-visible"}>
             <p>Thank you for your message, we will be in touch in no time!</p>
@@ -140,7 +169,7 @@ export const PContact = ({ products }) => {
           <span className={emailSent ? "not-visible" : "visible"}>
             <p>Please Fill in all Fields</p>
           </span> */}
-        </div>
+        </motion.div>
       </div>
     </Section>
   );

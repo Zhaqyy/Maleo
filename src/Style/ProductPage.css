@@ -53,17 +53,40 @@
 }
 
 .pModel {
+  height: 130vh;
+  padding-block: 30vh;
+  margin-block: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  gap: 7vh;
+  gap: 10vh;
+  transition: all 0.5s ease;
 }
 .pModel .list span {
   z-index: 0;
+  top: -380px;
+  transform: scale(1.4);
+}
+.pModel .list span svg * {
+  fill: white;
+}
+.pModel .list .listItem {
+  height: 300px;
+}
+.pModel .list .listItem .imgWrap {
+  position: relative;
+  border-radius: 50%;
+  outline: 2px solid rgb(255, 255, 255);
+  background-color: rgb(0, 0, 0);
+  transition: all 0.5s ease;
+}
+.pModel .list .listItem .imgWrap img {
+  width: 250px;
 }
 .pModel .list h5 {
-  background: var(--bg-color);
+  background: black;
+  color: white;
   z-index: 1;
 }
 .pModel > img {
@@ -265,13 +288,19 @@
   .pFeature ul {
     padding-left: 30px;
   }
+  .pModel {
+    height: unset;
+    padding-block: 5vh;
+    margin-block: 5vh;
+  }
   .pModel .list {
     flex-direction: column;
     gap: 20px;
     margin-block: 5em;
   }
   .pModel .list h5 {
-    /* background: white; */
+    background: black;
+    color: white;
     z-index: 1;
   }
   .pModel .list span {

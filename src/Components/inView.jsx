@@ -10,7 +10,7 @@ export const Section = ({ children, className }) => {
 
       
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount:"some" });
+  const isInView = useInView(ref, { amount: 0.5 });
 
     useEffect(() => {
      if (isInView){
@@ -23,7 +23,7 @@ export const Section = ({ children, className }) => {
       opacity: 1,
       x: 0,
       y: 0,
-      transition: { staggerChildren: 0.15, duration: 0.25 },
+      transition: { staggerChildren: 0.5, duration: 0.4 },
     };
   
   return (
@@ -34,7 +34,7 @@ export const Section = ({ children, className }) => {
         initial="hidden"
         animate= {mainControl}
         exit={{ opacity: 0, transition: { duration: 0.15 } }}
-        variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+        variants={{ visible }}
       >
        {children}
       </motion.section>
