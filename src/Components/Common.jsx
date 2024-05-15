@@ -39,7 +39,6 @@ export const ProductList = ({ products }) => {
             ? "100%"
             : "calc(-1 * var(--gradient-length))",
         }}
-        transition={{ duration: 5, ease: "linear" }}
       >
         <svg
           width="16"

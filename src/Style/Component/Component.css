@@ -151,7 +151,7 @@ aside p {
   --gradient-length: 20%;
   mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
   -webkit-mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
-  transition: --wipe-position 2000ms linear;
+  transition: --wipe-position 4000ms linear;
 }
 
 .list {
