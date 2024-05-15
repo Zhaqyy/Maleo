@@ -71,14 +71,17 @@
 }
 
 @media screen and (max-width: 1150px) {
+    .header{
+        mix-blend-mode: normal;
+    }
     .nav__menu {
         position: fixed;
         top: 0;
         right: -100%;
-        background-color: hsl(335deg 100% 20.07% / 15%);
+        background-color: hsla(0, 0%, 0%, 0.8);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
-        width: 60%;
+        width: 70%;
         height: 100%;
         padding: 6rem 3rem 0;
         transition: right 0.6s ease;
@@ -173,10 +176,10 @@
     position: fixed;
     top: 0;
     right: -100%;
-    background-color: hsl(335deg 100% 20.07% / 15%);
+    background-color: hsla(0, 0%, 0%, 0.8);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    width: 60%;
+    width: 70%;
     height: 100%;
     padding: 6rem 3rem 0;
     transition: right 0.6s ease;

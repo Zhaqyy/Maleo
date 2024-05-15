@@ -44,7 +44,7 @@ aside p {
 
 .over-cont:hover p,
 .over-scroll:hover p {
-  color: var(--accent);
+  color: black;
   transform: translateY(10px);
   cursor: help;
   opacity: 1;
