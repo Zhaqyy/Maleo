@@ -24,14 +24,7 @@ const visible = {
 export const ProductList = ({ products }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
-  };
-  
+
   const prodVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
@@ -113,24 +106,18 @@ export const BlogSec = ({ posts }) => {
     x.set(xPct);
     y.set(yPct);
   };
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
-  };
-  
+
   const postVariants = {
-    hidden: {  opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 50 },
     visible,
   };
 
   return (
     <Section
       className="blog"
+      variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
     >
-      <motion.h3 >derniers articles</motion.h3>
+      <motion.h3 variants={postVariants}>derniers articles</motion.h3>
       <motion.ul className="blogList" variants={postVariants}>
         {posts.map((post, index) => (
           <motion.a

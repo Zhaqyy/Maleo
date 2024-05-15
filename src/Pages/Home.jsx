@@ -284,7 +284,7 @@ const visible = {
 };
 
 export const Product = () => {
-  const prodVariants = {
+  const hprodVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
   };
@@ -298,17 +298,21 @@ export const Product = () => {
   return (
     <Section
       className="product"
-   >
-      <motion.div className="prodHead" >
-        <motion.div className="prodBtn" variants={prodVariants}>
+      initial="hidden"
+      animate="visible"
+      exit={{ opacity: 0, transition: { duration: 0.4 } }}
+      variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
+    >
+      <motion.div className="prodHead" variants={hprodVariants}>
+        <motion.div className="prodBtn" variants={hprodVariants}>
           <ArrowBtn />
           <SpotBtn text={"QUOTE NOW"} />
         </motion.div>
-        <motion.h1 variants={prodVariants}>NOS PRODUITS</motion.h1>
-        <motion.h2 className="hollow" variants={prodVariants}>
+        <motion.h1 variants={hprodVariants}>NOS PRODUITS</motion.h1>
+        <motion.h2 className="hollow" variants={hprodVariants}>
           sont les meilleurs
         </motion.h2>
-        <motion.p variants={prodVariants}>
+        <motion.p variants={hprodVariants}>
           Découvrez tous nos produits de qualité
         </motion.p>
       </motion.div>
