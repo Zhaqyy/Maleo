@@ -198,7 +198,7 @@ img{
   html {
     scroll-snap-type: none;
   }
-  section{
+  /* section{
     min-height: unset;
-  }
+  } */
 }

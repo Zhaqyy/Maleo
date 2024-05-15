@@ -209,7 +209,7 @@
     top: 15%;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   .hero {
     min-height: 100vh;
     padding-inline: 5vw;
@@ -231,6 +231,9 @@
   }
   .redText .text h3 {
     font-size: 25px;
+  }
+  .videoSec {
+    min-height: unset;
   }
   .videoSec .mainVid {
     border-radius: 20px !important;
@@ -262,6 +265,7 @@
     z-index: -1;
   }
   .LogoDisp {
+    min-height: unset;
     padding-top: 20vh;
   }
 }/*# sourceMappingURL=Home.css.map */

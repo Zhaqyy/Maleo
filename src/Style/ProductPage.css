@@ -16,6 +16,7 @@
   justify-items: stretch;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  overflow: hidden;
 }
 .pInfo img {
   inline-size: -webkit-fill-available;
@@ -256,7 +257,7 @@
     rotate: 360deg;
   }
 }
-@media (max-width: 450px) {
+@media (max-width: 650px) {
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;

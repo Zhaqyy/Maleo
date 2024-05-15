@@ -258,6 +258,7 @@
   }
 
   .videoSec {
+    min-height: unset;
     .mainVid {
       border-radius: 20px !important;
       width: 90% !important;
@@ -295,6 +296,7 @@
     }
   }
   .LogoDisp{
+    min-height: unset;
     padding-top: 20vh;
   }
 }

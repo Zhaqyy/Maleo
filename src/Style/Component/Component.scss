@@ -214,6 +214,12 @@ aside p {
 .wipe {
   --wipe-position: 100%;
   --gradient-length: 20%;
+  mask-image: linear-gradient(
+    to bottom,
+    black var(--wipe-position),
+    transparent calc(var(--wipe-position) + var(--gradient-length)),
+    transparent
+  );
   -webkit-mask-image: linear-gradient(
     to bottom,
     black var(--wipe-position),
@@ -236,6 +242,12 @@ aside p {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  gap: 30px;
+  // min-height: 300px;
+  // overflow-x: scroll;
+  // overscroll-behavior-x: contain;
+  // scrollbar-width: none;
+  
 
   span {
     position: absolute;
@@ -371,6 +383,7 @@ aside p {
     flex-direction: column;
     gap: 20px;
     margin-block: 5em;
+    overflow-x: visible;
 
     h5 {
       background: white;
