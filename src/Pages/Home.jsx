@@ -298,12 +298,8 @@ export const Product = () => {
   return (
     <Section
       className="product"
-      initial="hidden"
-      animate="visible"
-      exit={{ opacity: 0, transition: { duration: 1 } }}
-      variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
-    >
-      <motion.div className="prodHead" variants={prodVariants}>
+   >
+      <motion.div className="prodHead" >
         <motion.div className="prodBtn" variants={prodVariants}>
           <ArrowBtn />
           <SpotBtn text={"QUOTE NOW"} />

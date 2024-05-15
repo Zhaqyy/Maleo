@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ProductList } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
@@ -10,7 +10,7 @@ import { SpotBtn } from "./magnetBtn";
 import "../Style/ProductPage.css";
 import "../Style/Contact/contact.css";
 import "../Style/Component/Component.css";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 const visible = {
   opacity: 1,
@@ -65,11 +65,7 @@ export const PModel = ({ modelTitle, products }) => {
     [0, 0.2, 0.5, 0.9, 1],
     [`var(--bg-color)`, `var(--bg-color)`, `var(--bg-dark)`, `var(--bg-dark)`, `var(--bg-color)`]
   );
-  // const isInView = useInView(ref, { once: false });
 
-//  useEffect(() => {
-//     console.log("Element is in view: ", isInView);
-//   }, [isInView]);
   return (
     <motion.section
     ref={ref}

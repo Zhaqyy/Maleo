@@ -28,6 +28,11 @@
   border-right: 1px solid;
 }
 
+aside span {
+  mix-blend-mode: difference;
+  filter: grayscale(1) invert(1);
+}
+
 aside p {
   transition: all 0.5s ease;
   font-family: "MonumentRegular";

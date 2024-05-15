@@ -23,6 +23,7 @@ export const Section = ({ children, className }) => {
       opacity: 1,
       x: 0,
       y: 0,
+      scale: 1,
       transition: { staggerChildren: 0.5, duration: 0.4 },
     };
   

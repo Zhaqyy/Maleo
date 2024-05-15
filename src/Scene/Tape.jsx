@@ -90,6 +90,12 @@ export const Tape = React.forwardRef((props, Tref) => {
     [degreesToRadians(45), 0]
   );
 
+  const isMobile = window.innerWidth < 768;
+
+  const scaleValues = isMobile
+    ? [0.2, 0.3, 0.2, 0.2, 0.8, 2.5] // Mobile scale values
+    : [0.3, 0.4, 0.3, 0.3, 0.9, 3.5];
+  
   const scaleeX = useTransform(
     scrollYProgress,
     [
@@ -100,7 +106,7 @@ export const Tape = React.forwardRef((props, Tref) => {
       order.tapescaleup,
       order.tapescaleupend,
     ],
-    [0.3, 0.4, 0.3, 0.3, 0.9, 3.5]
+    scaleValues
   );
   const scaleeY = useTransform(
     scrollYProgress,
@@ -112,9 +118,9 @@ export const Tape = React.forwardRef((props, Tref) => {
       order.tapescaleup,
       order.tapescaleupend,
     ],
-    [0.3, 0.4, 0.3, 0.3, 0.9, 3.5]
+    scaleValues
   );
-
+  
   useFrame((state, delta) => {
     if (Tref && Tref.current) {
       Tref.current.scale.x = THREE.MathUtils.damp(
@@ -159,14 +165,13 @@ export const Tape = React.forwardRef((props, Tref) => {
     }
   });
 
-  const isMobile = window.innerWidth < 768;
 
   return (
     <group
       ref={Tref}
       rotation={[degreesToRadians(90), 0, degreesToRadians(45)]}
       // scale={[0.25, 0.25, 0.25]}
-       scale={isMobile ? 0.05 : 0.25}
+      //  scale={[isMobile ? 1 : 0.25]}
       position={[0, -0.25, 0]}
       {...props}
       dispose={null}
