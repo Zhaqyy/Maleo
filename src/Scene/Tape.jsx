@@ -61,6 +61,16 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const { scrollYProgress } = useScroll();
 
+  const isMobile = window.innerWidth < 770;
+
+  const scaleValues = isMobile
+    ? [0.2, 0.3, 0.2, 0.2, 0.8, 2.5] // Mobile scale values
+    : [0.3, 0.4, 0.3, 0.3, 0.9, 3.5];
+
+  const XposValues = isMobile
+    ? [0, 0, 0, 0, 0] // Mobile scale values
+    : [0, 0, -0.75, -0.75, 0];
+  
   const Ypos = useTransform(
     scrollYProgress,
     [
@@ -82,7 +92,7 @@ export const Tape = React.forwardRef((props, Tref) => {
       order.tapeleftend,
       order.tapecenter,
     ],
-    [0, 0, -0.75, -0.75, 0]
+    XposValues
   );
   const rot = useTransform(
     scrollYProgress,
@@ -90,12 +100,6 @@ export const Tape = React.forwardRef((props, Tref) => {
     [degreesToRadians(45), 0]
   );
 
-  const isMobile = window.innerWidth < 768;
-
-  const scaleValues = isMobile
-    ? [0.2, 0.3, 0.2, 0.2, 0.8, 2.5] // Mobile scale values
-    : [0.3, 0.4, 0.3, 0.3, 0.9, 3.5];
-  
   const scaleeX = useTransform(
     scrollYProgress,
     [

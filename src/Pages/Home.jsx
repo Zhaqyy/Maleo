@@ -76,11 +76,7 @@ export const Hero = () => {
   // console.log(scrollYProgress.get());
 
   const MoveY = useTransform(scrollYProgress, [0, 0.1], ["0vh", "-100vh"]);
-  const MoveVidY = useTransform(
-    scrollYProgress,
-    [0.1, 0.2, 0.99, 1],
-    ["10%", "0%", "0%", "5%"]
-  );
+
   const position = useTransform(scrollYProgress, (pos) => {
     return pos === 1 ? "relative" : "fixed";
   });
@@ -94,21 +90,61 @@ export const Hero = () => {
     return z === 1 ? 2 : 0;
   });
 
-  const wide = useTransform(
+
+   // Define transformations for desktop
+   const MoveVidYDesktop = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.99, 1],
+    ["10%", "0%", "0%", "5%"]
+  );
+
+  const wideDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.6, 1],
     ["15%", "100%", "100%", "30%"]
   );
-  const x = useTransform(
+
+  const xDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.6, 1],
     ["50%", "50%", "50%", "20%"]
   );
-  const tall = useTransform(
+
+  const tallDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.59, 0.6],
     ["300px", "500px", "500px", "700px"]
   );
+
+
+  // Define transformations for mobile
+  const MoveVidYMobile = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.99, 1],
+    ["15%", "15%", "15%", "15%"]
+  );
+
+  const wideMobile = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.6, 1],
+    ["45%", "80%", "80%", "80%"]
+  );
+
+  const xMobile = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.6, 1],
+    ["70%", "60%", "50%", "50%"]
+  );
+
+  const tallMobile = useTransform(
+    scrollYProgress,
+    [0.1, 0.2, 0.59, 0.6],
+    ["200px", "250px", "250px", "250px"]
+  );
+
+  // Choose transforms based on viewport width
+  const isMobile = window.innerWidth < 770;
+
 
   return (
     <motion.section
@@ -133,12 +169,10 @@ export const Hero = () => {
           playsInline
           className="hero-vid"
           style={{
-            top: MoveVidY,
-            width: wide,
-            height: tall,
-            left: x,
-            // x: MoveVidX,
-            // position,
+            top: isMobile ? MoveVidYMobile : MoveVidYDesktop,
+            width: isMobile ? wideMobile : wideDesktop,
+            height: isMobile ? tallMobile : tallDesktop,
+            left: isMobile ? xMobile : xDesktop,
           }}
         >
           <source src="hero.webm" type="video/webm" />

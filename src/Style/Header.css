@@ -6,7 +6,7 @@
   left: 0;
   background-color: black;
   mix-blend-mode: difference;
-  z-index: 10;
+  z-index: 15;
 }
 
 .nav {
@@ -20,6 +20,9 @@
   padding-inline: 5vw;
 }
 
+.nav__logo {
+  z-index: 16;
+}
 .nav__logo img {
   transition: all 0.4s ease;
   filter: contrast(0) brightness(10) grayscale(1);
@@ -81,9 +84,9 @@
     box-shadow: -2px 0px 10px rgba(0, 0, 0, 0.3803921569);
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 770px) {
   .nav__menu {
-    padding: 4rem 1rem 2rem;
+    padding: 7rem 1rem 2rem;
   }
   .nav__list {
     row-gap: 1rem;

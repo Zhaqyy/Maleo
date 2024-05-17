@@ -280,7 +280,7 @@
     rotate: 360deg;
   }
 }
-@media (max-width: 650px) {
+@media (max-width: 770px) {
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;

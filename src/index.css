@@ -194,7 +194,7 @@ img{
   }
 } */
 
-@media (max-width: 650px) {
+@media (max-width: 770px) {
   html {
     scroll-snap-type: none;
   }

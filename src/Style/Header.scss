@@ -7,7 +7,7 @@
     left: 0;
     background-color: black;
     mix-blend-mode: difference;
-    z-index: 10;
+    z-index: 15;
 }
 
 .nav {
@@ -22,7 +22,7 @@
 }
 
 .nav__logo {
-
+    z-index: 16;
     img {
         transition: all 0.4s ease;
         filter: contrast(0) brightness(10) grayscale(1);
@@ -89,9 +89,9 @@
     }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 770px) {
     .nav__menu {
-        padding: 4rem 1rem 2rem;
+        padding: 7rem 1rem 2rem;
     }
 
     .nav__list {

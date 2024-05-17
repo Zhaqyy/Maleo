@@ -159,9 +159,10 @@
     }
 }
 
-@media (max-width: 650px) {
+@media (max-width: 770px) {
     .footer {
-        min-height: 100vh;
+        min-height: unset;
+        height: fit-content;
     }
 
     .rowMain {

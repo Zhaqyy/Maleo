@@ -273,7 +273,7 @@ aside p {
   width: 100%;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 770px) {
   .list {
     flex-direction: column;
     gap: 20px;

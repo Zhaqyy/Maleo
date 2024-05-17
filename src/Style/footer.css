@@ -153,9 +153,11 @@
   margin: 0;
 }
 
-@media (max-width: 650px) {
+@media (max-width: 770px) {
   .footer {
-    min-height: 100vh;
+    min-height: unset;
+    height: -moz-fit-content;
+    height: fit-content;
   }
   .rowMain {
     flex-direction: column;
