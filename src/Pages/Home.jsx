@@ -64,14 +64,12 @@ export default function Home() {
   }, []);
   return (
     <>
-      <Suspense>
         <Hero />
         <ScaleSection />
         <Vid />
         <Product />
         <BlogSec posts={blogPosts} />
         <LogoDisp />
-      </Suspense>
     </>
   );
 }
