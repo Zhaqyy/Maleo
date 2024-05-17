@@ -6,10 +6,11 @@ import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import logo from "/flogo.svg";
+import Home from "./Pages/Home.jsx";
 import "./App.css";
 
 //PAGES
-const Home = lazy(() => import("./Pages/Home"));
+// const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 
