@@ -14,54 +14,9 @@ import "./App.css";
 const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 
-const isMobile = window.innerWidth < 770;
 function App() {
   const location = useLocation();
 
-  return (
-    <>
-      <Suspense
-        fallback={
-          !isMobile && (
-            <div
-              style={{
-                position: "fixed",
-                top: 0,
-                left: 0,
-                width: "100vw",
-                height: "100vh",
-                backgroundColor: "black",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                zIndex: 9999,
-              }}
-            >
-              <img src={logo} alt="Loading..." />
-            </div>
-          )
-        }
-      >
-        <Header key="head" />
-        <Overlay key="over" />
-        <AnimatePresence mode="wait">
-          <Transition />
-
-          <Routes location={location} key={location.pathname}>
-            <Route index exact path="/" element={<Home key="home" />} />
-            <Route path="/contact" element={<Contact key="contact" />} />
-            <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
-          </Routes>
-        </AnimatePresence>
-        <Footer key="foot" />
-      </Suspense>
-    </>
-  );
-}
-
-export default App;
-
-export const Transition = () => {
   const transitionSpringPhysics = {
     type: "spring",
     mass: 0.2,
@@ -77,28 +32,61 @@ export const Transition = () => {
     damping: 20,
     duration: 0.5,
   };
-
+  const isMobile = window.innerWidth < 770;
+  // fallback={
+  //   !isMobile && (
+  //     <div
+  //       style={{
+  //         position: "fixed",
+  //         top: 0,
+  //         left: 0,
+  //         width: "100vw",
+  //         height: "100vh",
+  //         backgroundColor: "black",
+  //         display: "flex",
+  //         justifyContent: "center",
+  //         alignItems: "center",
+  //         zIndex: 9999,
+  //       }}
+  //     >
+  //       <img src={logo} loading="eager" alt="Loading..." />
+  //     </div>
+  //   )
+  // }
   return (
     <>
-      <motion.div
-        key="slideIn"
-        className="slideIn"
-        initial={{ scaleX: 1 }}
-        animate={{ scaleX: 0 }}
-        exit={{ scaleX: 0 }}
-        transition={transitionSpringPhysics}
-      >
-        {/* <img src={logo} alt="Logo" /> */}
-      </motion.div>
+      <Suspense>
+        <Header key="head" />
+        <Overlay key="over" />
+        <AnimatePresence mode="wait">
+          <motion.div
+            key="slideIn"
+            className="slideIn"
+            initial={{ scaleX: 1 }}
+            animate={{ scaleX: 0 }}
+            exit={{ scaleX: 0 }}
+            transition={transitionSpringPhysics}
+          ></motion.div>
 
-      <motion.div
-        key="slideout"
-        className="slideOut"
-        initial={{ scaleX: 1 }}
-        animate={{ scaleX: 0 }}
-        exit={{ scaleX: 1 }}
-        transition={transitionSpringPhysics2}
-      />
+          <motion.div
+            key="slideout"
+            className="slideOut"
+            initial={{ scaleX: 1 }}
+            animate={{ scaleX: 0 }}
+            exit={{ scaleX: 1 }}
+            transition={transitionSpringPhysics2}
+          />
+
+          <Routes location={location} key={location.pathname}>
+            <Route index exact path="/" element={<Home key="home" />} />
+            <Route path="/contact" element={<Contact key="contact" />} />
+            <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
+          </Routes>
+        </AnimatePresence>
+        <Footer key="foot" />
+      </Suspense>
     </>
   );
-};
+}
+
+export default App;
