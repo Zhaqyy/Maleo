@@ -51,10 +51,9 @@ html {
   position: relative;
   color: var(--text-dark);
     background-color: var(--bg-color);
-
-  section:nth-of-type(1){
-    padding-top: 15vh;
-  }
+}
+#root section:nth-of-type(1){
+  padding-top: 15vh;
 }
 
 a {
@@ -198,6 +197,18 @@ img{
   html {
     scroll-snap-type: none;
   }
+  h1 {
+    font-size: clamp(2.25rem, 10vw, 5.55rem);
+  }
+  
+  h2 {
+    font-size: clamp(2rem, 10vw, 4.5rem);
+  }
+  
+  h3 {
+    font-size: clamp(2rem, 10vw, 3.6rem);
+  }
+  
   /* section{
     min-height: unset;
   } */

@@ -62,7 +62,7 @@ export const PModel = ({ modelTitle, products }) => {
   });
   const bg = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.5, 0.9, 1],
+    [0, 0.2, 0.5, 0.97, 1],
     [`var(--bg-color)`, `var(--bg-color)`, `var(--bg-dark)`, `var(--bg-dark)`, `var(--bg-color)`]
   );
 

@@ -111,6 +111,7 @@
 }
 
 .pCont {
+  min-height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -281,9 +282,15 @@
   }
 }
 @media (max-width: 770px) {
+  .prodHero h1 {
+    font-size: clamp(2rem, 10vw, 7.55rem);
+    overflow-wrap: anywhere;
+  }
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;
+    width: -moz-fit-content;
+    width: fit-content;
   }
   .pFeature ul {
     padding-left: 30px;
@@ -319,5 +326,20 @@
   }
   .pInfo {
     grid-template-columns: auto;
+    justify-content: unset;
+  }
+  .pCont .cont-form {
+    width: 100%;
+  }
+}
+@media (max-width: 500px) {
+  .pInfo {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+  .pInfo h3 {
+    font-size: clamp(1.9rem, 10vw, 3.6rem);
+  }
+  .pModel .list .listItem .imgWrap img {
+    width: 200px;
   }
 }/*# sourceMappingURL=ProductPage.css.map */
