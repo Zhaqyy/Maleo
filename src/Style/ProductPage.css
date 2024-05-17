@@ -52,6 +52,12 @@
   font-size: 25px;
 }
 
+:root {
+  --bg-white: hsla(0, 0%, 100%, 0.85); /* Default background color */
+  --bg-black: hsla(0, 0%, 0%, 0.85); /* Dark background color */
+  --bg-variable:var(--bg-variable) ;
+}
+
 .pModel {
   height: 130vh;
   padding-block: 30vh;
@@ -62,6 +68,27 @@
   position: relative;
   gap: 10vh;
   transition: all 0.5s ease;
+  isolation: isolate;
+}
+.pModel::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: url(/bg.webp);
+  background-size: cover;
+  z-index: -2;
+}
+.pModel::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background-color: var(--bg-variable);
+  transition: all 0.5s ease;
+  z-index: -1;
 }
 .pModel .list span {
   z-index: 0;

@@ -12,7 +12,6 @@ import { useEffect, useRef } from "react";
 import { Section } from "./inView";
 import MagneticBtn, { ArrowBtn } from "./magnetBtn";
 
-
 const visible = {
   opacity: 1,
   x: 0,
@@ -69,7 +68,9 @@ export const ProductList = ({ products }) => {
         <motion.li className="listItem" key={index} variants={prodVariants}>
           <div className="imgWrap">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
-            <a href={product.link} className="button">{product.linktext}</a>
+            <a href={product.link} className="button">
+              {product.linktext}
+            </a>
           </div>
           <h5>{product.title}</h5>
         </motion.li>
@@ -84,8 +85,8 @@ export const BlogSec = ({ posts }) => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
 
-  const mouseXSpring = useSpring(x, {damping: 10});
-  const mouseYSpring = useSpring(y, {damping: 10});
+  const mouseXSpring = useSpring(x, { damping: 10 });
+  const mouseYSpring = useSpring(y, { damping: 10 });
 
   const top = useTransform(mouseYSpring, [0.5, -0.5], ["49%", "51%"]);
   const left = useTransform(mouseXSpring, [0.5, -0.5], ["9%", "11%"]);
@@ -153,6 +154,7 @@ export const BlogSec = ({ posts }) => {
                 }}
                 transition={{ type: "spring" }}
                 src={post.imgSrc}
+                loading="lazy"
                 className="postImg"
                 alt={`Featured Image for blog post ${post.index}`}
               />

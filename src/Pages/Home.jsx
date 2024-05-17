@@ -388,6 +388,7 @@ export const LogoDisp = () => {
       <motion.img
         ref={ref}
         src={flogo}
+        loading="lazy"
         alt="Maleo Emballage"
         style={{
           opacity: isInView ? 1 : 0,

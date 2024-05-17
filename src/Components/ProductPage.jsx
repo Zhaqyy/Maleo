@@ -34,7 +34,7 @@ export const PHero = ({ product }) => {
       </motion.h1>
       <div className="pInfo">
         <motion.div variants={prodVariants}>
-          <img src={imageUrl} alt={title} />
+          <img src={imageUrl} alt={title} loading="lazy" />
         </motion.div>
         <div className="pFeature">
           <motion.ul variants={prodVariants}>
@@ -63,7 +63,7 @@ export const PModel = ({ modelTitle, products }) => {
   const bg = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.97, 1],
-    [`var(--bg-color)`, `var(--bg-color)`, `var(--bg-dark)`, `var(--bg-dark)`, `var(--bg-color)`]
+    [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
   );
 
   return (
@@ -72,6 +72,7 @@ export const PModel = ({ modelTitle, products }) => {
       className="pModel"
       style={{
         backgroundColor: bg,
+        '--bg-variable': bg,
       }}
     >
       <div className="pModelHeader">
