@@ -53,13 +53,14 @@ function App() {
   //     </div>
   //   )
   // }
+  
   return (
     <>
       <Suspense>
         <Header key="head" />
         <Overlay key="over" />
         <AnimatePresence mode="wait">
-          <motion.div
+          {/* <motion.div
             key="slideIn"
             className="slideIn"
             initial={{ scaleX: 1 }}
@@ -75,7 +76,7 @@ function App() {
             animate={{ scaleX: 0 }}
             exit={{ scaleX: 1 }}
             transition={transitionSpringPhysics2}
-          />
+          /> */}
 
           <Routes location={location} key={location.pathname}>
             <Route index exact path="/" element={<Home key="home" />} />
