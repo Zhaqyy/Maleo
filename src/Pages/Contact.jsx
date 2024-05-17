@@ -1,11 +1,10 @@
 /* eslint-disable no-unused-vars */
-import React from "react";
+import React, { useLayoutEffect } from "react";
 import Map from "../Components/Map";
 import "../Style/Contact/contact.css";
 import { SpotBtn } from "../Components/magnetBtn";
 import { Section } from "../Components/inView";
 import { motion } from "framer-motion";
-
 
 export default function Contact() {
   const visible = {
@@ -15,24 +14,31 @@ export default function Contact() {
     scale: 1,
     transition: { staggerChildren: 0.5, duration: 0.6 },
   };
-  
-    const contVariants = {
-      hidden: { opacity: 0, y: 50 },
-      visible,
-    };
-  
+
+  const contVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Section className="contact-main">
-        <motion.div className="cont-map" variants={{
-              hidden: { opacity: 0, scale: 0.7 },
-              visible,
-            }}>
+        <motion.div
+          className="cont-map"
+          variants={{
+            hidden: { opacity: 0, scale: 0.7 },
+            visible,
+          }}
+        >
           <Map />
         </motion.div>
 
         <motion.div className="cont-form">
-          <motion.h1 className="hollow" variants={contVariants}>Contactez -nous</motion.h1>
+          <motion.h1 className="hollow" variants={contVariants}>
+            Contactez -nous
+          </motion.h1>
           <motion.h4 variants={contVariants}>laissez-nous un message</motion.h4>
           <motion.div id="contact-form">
             <motion.div className="inp-field" variants={contVariants}>
@@ -71,7 +77,7 @@ export default function Contact() {
             </motion.div>
 
             <motion.textarea
-            variants={contVariants}
+              variants={contVariants}
               placeholder="Message"
               // value={message}
               // onChange={(e) => setMessage(e.target.value)}
@@ -80,13 +86,12 @@ export default function Contact() {
             {/* <button onClick={submit}>
             Send Message
           </button> */}
-          <motion.div variants={contVariants} style={{textAlign: "center"}}>
-            <SpotBtn
-            text={"ENVOYER"}
-            // submit={submit}
-          />
-          </motion.div>
-            
+            <motion.div variants={contVariants} style={{ textAlign: "center" }}>
+              <SpotBtn
+                text={"ENVOYER"}
+                // submit={submit}
+              />
+            </motion.div>
 
             {/* <span className={emailSent ? "visible" : "not-visible"}>
             <p>Thank you for your message, we will be in touch in no time!</p>
@@ -102,12 +107,15 @@ export default function Contact() {
           <motion.h3 variants={contVariants}>
             assistance <br /> rapide
           </motion.h3>
-          <motion.h1 className="hollow" variants={contVariants}>CONTACT</motion.h1>
+          <motion.h1 className="hollow" variants={contVariants}>
+            CONTACT
+          </motion.h1>
         </motion.div>
         <div className="cont-detail">
           <ul>
             <motion.li>
-              <motion.svg variants={contVariants}
+              <motion.svg
+                variants={contVariants}
                 width="60"
                 height="69"
                 viewBox="0 0 60 69"
@@ -118,10 +126,13 @@ export default function Contact() {
               </motion.svg>
 
               <motion.h5 variants={contVariants}>Rendez nous visite</motion.h5>
-              <motion.p variants={contVariants}>12 avenue de la Motte Picquet 75007 Paris</motion.p>
+              <motion.p variants={contVariants}>
+                12 avenue de la Motte Picquet 75007 Paris
+              </motion.p>
             </motion.li>
             <motion.li>
-              <motion.svg variants={contVariants}
+              <motion.svg
+                variants={contVariants}
                 width="64"
                 height="64"
                 viewBox="0 0 64 64"
@@ -135,7 +146,8 @@ export default function Contact() {
               <motion.p variants={contVariants}>01 88 33 85 82</motion.p>
             </motion.li>
             <motion.li>
-              <motion.svg variants={contVariants}
+              <motion.svg
+                variants={contVariants}
                 width="80"
                 height="80"
                 viewBox="0 0 80 80"
@@ -153,8 +165,12 @@ export default function Contact() {
                 </defs>
               </motion.svg>
 
-              <motion.h5 variants={contVariants}>Envoyez-nous un e-mail</motion.h5>
-              <motion.p variants={contVariants}>contact@maleo-emballage.fr</motion.p>
+              <motion.h5 variants={contVariants}>
+                Envoyez-nous un e-mail
+              </motion.h5>
+              <motion.p variants={contVariants}>
+                contact@maleo-emballage.fr
+              </motion.p>
             </motion.li>
           </ul>
         </div>

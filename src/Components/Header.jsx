@@ -31,7 +31,7 @@ const Header = () => {
         >
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink to="/" className="nav__link" onClick={closeMenuOnMobile}>
+              <NavLink to="#" className="nav__link" onClick={closeMenuOnMobile}>
                 Tape
                 <Caret/>
               </NavLink>
@@ -42,13 +42,13 @@ const Header = () => {
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
-                Cardboard
+                Feuillard
                 <Caret/>
               </NavLink>
             </li>
             <li className="nav__item">
               <NavLink
-                to="/about-us"
+                to="#"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >
@@ -58,7 +58,7 @@ const Header = () => {
             </li>
             <li className="nav__item">
               <NavLink
-                to="/favorite"
+                to="#"
                 className="nav__link"
                 onClick={closeMenuOnMobile}
               >

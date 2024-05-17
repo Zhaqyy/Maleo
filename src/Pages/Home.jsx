@@ -4,7 +4,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowBtn, SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useLayoutEffect, useRef } from "react";
 import Paragraph from "../Components/Character";
 import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
@@ -51,6 +51,9 @@ const blogPosts = [
 ];
 
 export default function Home() {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Hero />
@@ -90,9 +93,8 @@ export const Hero = () => {
     return z === 1 ? 2 : 0;
   });
 
-
-   // Define transformations for desktop
-   const MoveVidYDesktop = useTransform(
+  // Define transformations for desktop
+  const MoveVidYDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.99, 1],
     ["10%", "0%", "0%", "5%"]
@@ -115,7 +117,6 @@ export const Hero = () => {
     [0.1, 0.2, 0.59, 0.6],
     ["300px", "500px", "500px", "700px"]
   );
-
 
   // Define transformations for mobile
   const MoveVidYMobile = useTransform(
@@ -144,7 +145,6 @@ export const Hero = () => {
 
   // Choose transforms based on viewport width
   const isMobile = window.innerWidth < 770;
-
 
   return (
     <motion.section

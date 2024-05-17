@@ -32,33 +32,33 @@ function App() {
     duration: 0.5,
   };
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0); // Reset scroll position on route change
-  // }, [location.pathname]);
-
   return (
     <>
-      <Suspense fallback={
-        <div style={{
-          position: 'fixed',
-          top: 0,
-          left: 0,
-          width: '100vw',
-          height: '100vh',
-          backgroundColor: 'black',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          zIndex: 9999
-        }}>
-          <img src={logo} alt="Loading..." />
-        </div>
-      }>
-        <Header />
-        <Overlay />
+      <Suspense
+        fallback={
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              backgroundColor: "black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 9999,
+            }}
+          >
+            <img src={logo} alt="Loading..." />
+          </div>
+        }
+      >
+        <Header key="head" />
+        <Overlay key="over" />
         <AnimatePresence mode="wait">
           <motion.div
-            key={location.pathname} // Ensure uniqueness
+            key="slideIn"
             className="slideIn"
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
@@ -69,6 +69,7 @@ function App() {
           </motion.div>
 
           <motion.div
+            key="slideout"
             className="slideOut"
             initial={{ scaleX: 1 }}
             animate={{ scaleX: 0 }}
@@ -77,12 +78,12 @@ function App() {
           />
 
           <Routes location={location} key={location.pathname}>
-            <Route index exact path="/" element={<Home />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/feuillard" element={<Feuillard />} />
+            <Route index exact path="/" element={<Home key="home" />} />
+            <Route path="/contact" element={<Contact key="contact" />} />
+            <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
           </Routes>
         </AnimatePresence>
-        <Footer />
+        <Footer key="foot" />
       </Suspense>
     </>
   );

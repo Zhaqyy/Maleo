@@ -1,3 +1,4 @@
+import { useLayoutEffect } from "react";
 import { PContact, PHero, PModel, PTable } from "../Components/ProductPage";
 import h1 from "/product/Fh1.png";
 import h2 from "/product/Fh2.png";
@@ -26,7 +27,9 @@ const products = [
 ];
 
 const Feuillard = () => {
-  // return <ProductsPage product={productData} />;
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <PHero product={productData} />
@@ -39,7 +42,7 @@ const Feuillard = () => {
           subtitle: null,
         }}
       />
-      <PContact products={products}/>
+      <PContact products={products} />
     </>
   );
 };
