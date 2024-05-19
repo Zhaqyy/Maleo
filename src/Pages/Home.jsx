@@ -4,7 +4,7 @@
 import "../Style/Home/Home.css";
 import React, { lazy, useLayoutEffect } from "react";
 import "../Style/Component/Component.css";
-import { BlogSec } from "../Components/Common";
+import { BlogSec } from "../Components/Blog.jsx";
 import h1 from "/h1.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";

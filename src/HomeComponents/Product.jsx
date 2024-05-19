@@ -85,9 +85,7 @@ const visible = {
   export const LogoDisp = () => {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
-    // useEffect(() => {
-    //   console.log("Element is in view: ", isInView);
-    // }, [isInView]);
+  
     return (
       <Section className="LogoDisp">
         <motion.img

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import { easeInOut, motion, useInView, useScroll, useTransform } from "framer-motion";
 
 import "../Style/Home/Home.css";
 import { useEffect, useRef } from "react";
@@ -10,6 +10,7 @@ import "../Style/Component/Component.css";
 
 export const ScaleSection = () => {
     const scaleRef = useRef();
+    const smooth = easeInOut;
   
     const { scrollYProgress } = useScroll({
       target: scaleRef,
@@ -18,7 +19,8 @@ export const ScaleSection = () => {
     // console.log(scrollYProgress.get());
     const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
     const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-    const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200]);
+    const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200],
+      {ease: smooth});
     const bgg = useTransform(
       scrollYProgress,
       [0, 0.2, 0.4, 0.95, 1],
