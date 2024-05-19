@@ -260,7 +260,7 @@
       padding: 0;
 
       h3 {
-        font-size: 2em;
+        font-size: Clamp(1.1em,2vh,2.5em);
       }
     }
   }

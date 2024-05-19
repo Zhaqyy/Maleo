@@ -136,6 +136,9 @@ aside p {
   margin-right: 12px;
   margin-top: 12px;
 }
+.paragraph .word > span {
+  display: inline-block;
+}
 .paragraph .word .shadow {
   position: absolute;
   opacity: 20%;
@@ -294,7 +297,7 @@ aside p {
     z-index: -1;
   }
   .paragraph {
-    font-size: 2.5em;
+    font-size: clamp(1.5em, 2vh, 2.5em);
   }
   .blog {
     gap: 30px;

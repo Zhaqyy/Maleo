@@ -54,7 +54,7 @@ export const BlogSec = ({ posts }) => {
     };
   
     return (
-      <Section
+      <motion.section
         className="blog"
       >
         <motion.h3 variants={postVariants}>derniers articles</motion.h3>
@@ -77,7 +77,6 @@ export const BlogSec = ({ posts }) => {
                 <h4 className="blogTitle">{post.title}</h4>
                 <motion.div
                   className="prodBtn"
-                  // variants={prodVariants}
                 >
                   <ArrowBtn />
                 </motion.div>
@@ -102,7 +101,7 @@ export const BlogSec = ({ posts }) => {
             </motion.a>
           ))}
         </motion.ul>
-      </Section>
+      </motion.section>
     );
   };
   

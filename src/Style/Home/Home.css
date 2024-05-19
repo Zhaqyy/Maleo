@@ -231,7 +231,7 @@
     padding: 0;
   }
   .redText .text h3 {
-    font-size: 2em;
+    font-size: clamp(1.1em, 2vh, 2.5em);
   }
   .videoSec {
     min-height: unset;

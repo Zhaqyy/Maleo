@@ -30,7 +30,7 @@
     }
   }
 }
-aside span{
+aside span {
   mix-blend-mode: difference;
   filter: grayscale(1) invert(1);
 }
@@ -201,6 +201,11 @@ aside p {
     position: relative;
     margin-right: 12px;
     margin-top: 12px;
+
+    & > span {
+      display: inline-block;
+    }
+    
     .shadow {
       position: absolute;
       opacity: 20%;
@@ -251,7 +256,6 @@ aside p {
   // overflow-x: scroll;
   // overscroll-behavior-x: contain;
   // scrollbar-width: none;
-  
 
   span {
     position: absolute;
@@ -403,9 +407,9 @@ aside p {
       z-index: -1;
     }
   }
-  
+
   .paragraph {
-    font-size: 2.5em;
+    font-size: Clamp(1.5em, 2vh, 2.5em);
   }
   .blog {
     gap: 30px;
