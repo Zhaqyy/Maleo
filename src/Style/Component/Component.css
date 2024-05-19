@@ -300,6 +300,7 @@ aside p {
     font-size: clamp(1.5em, 2vh, 2.5em);
   }
   .blog {
+    z-index: 4;
     gap: 30px;
   }
   .blog .blogList {

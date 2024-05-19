@@ -37,30 +37,9 @@ const visible = {
     const isMobile = window.innerWidth < 768;
     return (
       <>
-        {isMobile ? (
-          <motion.section className="product">
-            <motion.div className="prodHead" variants={hprodVariants}>
-              <motion.div className="prodBtn" variants={hprodVariants}>
-                <ArrowBtn />
-                <SpotBtn text={"QUOTE NOW"} />
-              </motion.div>
-              <motion.h1 variants={hprodVariants}>NOS PRODUITS</motion.h1>
-              <motion.h2 className="hollow" variants={hprodVariants}>
-                sont les meilleurs
-              </motion.h2>
-              <motion.p variants={hprodVariants}>
-                Découvrez tous nos produits de qualité
-              </motion.p>
-            </motion.div>
-            <ProductList products={products} />
-          </motion.section>
-        ) : (
-          <Section
+        (
+          <motion.section
             className="product"
-            initial="hidden"
-            animate="visible"
-            exit={{ opacity: 0, transition: { duration: 0.4 } }}
-            variants={{ visible: { transition: { staggerChildren: 0.5 } } }}
           >
             <motion.div className="prodHead" variants={hprodVariants}>
               <motion.div className="prodBtn" variants={hprodVariants}>
@@ -76,8 +55,8 @@ const visible = {
               </motion.p>
             </motion.div>
             <ProductList products={products} />
-          </Section>
-        )}
+          </motion.section>
+        )
       </>
     );
   };

@@ -154,7 +154,7 @@
   justify-content: space-around;
   align-items: stretch;
   margin-bottom: 10vh;
-  z-index: 2;
+  z-index: 3;
 }
 .product .prodHead {
   text-transform: uppercase;
@@ -239,6 +239,9 @@
   .videoSec .mainVid {
     border-radius: 20px !important;
     width: 90% !important;
+  }
+  .product {
+    z-index: 3;
   }
   .product .prodHead {
     display: flex;

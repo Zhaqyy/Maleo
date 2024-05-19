@@ -168,7 +168,7 @@
   justify-content: space-around;
   align-items: stretch;
   margin-bottom: 10vh;
-  z-index: 2;
+  z-index: 3;
 
   .prodHead {
     text-transform: uppercase;
@@ -248,12 +248,7 @@
     font-size: clamp(2rem, 10vw, 3.6rem);
 }
   }
-  // .hero-vid {
-  //   // top: 15% !important;
-  //   // width: 45% !important;
-  //   // height: 200px !important;
-  //   // left: 70% !important;
-  // }
+
   .redText {
     .text {
       width: 80%;
@@ -273,8 +268,7 @@
     }
   }
   .product {
-    // height: 260vh;
-
+z-index: 3;
     .prodHead {
       display: flex;
       flex-direction: column;

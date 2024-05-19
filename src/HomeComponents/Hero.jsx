@@ -4,25 +4,21 @@ import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
-import { useRef } from "react";
-import Paragraph from "../Components/Character";
+import { lazy, useRef } from "react";
 import "../Style/Component/Component.css";
 
 import logo from "/logobig.png";
 
-const paragraph = `Fournir 
-les 
-solutions 
-d’emballage 
-les 
-plus 
-efficaces`;
+const HeroText = lazy(() =>
+  import("../HomeComponents/Scale.jsx").then((module) => ({
+    default: module.HeroText,
+  }))
+);
 
 export default function Hero() {
   const scrollRef = useRef(null);
 
   const TargetRef = useRef();
-  const speed = 1 / 1.5;
   const { scrollYProgress } = useScroll({
     target: TargetRef,
     offset: ["end end", "end start"],
@@ -152,10 +148,8 @@ export default function Hero() {
       <motion.section id="canvasWrapper" style={{ zIndex: z }}>
         <Scene />
       </motion.section>
-      <motion.section className="vid2"></motion.section>
-      <section className="textline">
-        <Paragraph paragraph={paragraph} />
-      </section>
+      <HeroText/>
     </motion.section>
   );
 }
+

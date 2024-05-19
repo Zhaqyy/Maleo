@@ -5,6 +5,16 @@ import { easeInOut, motion, useInView, useScroll, useTransform } from "framer-mo
 import "../Style/Home/Home.css";
 import { useEffect, useRef } from "react";
 import "../Style/Component/Component.css";
+import Paragraph from "../Components/Character";
+
+
+const paragraph = `Fournir 
+les 
+solutions 
+d’emballage 
+les 
+plus 
+efficaces`;
 
 
 
@@ -68,6 +78,17 @@ export const ScaleSection = () => {
     );
   };
   
+  export const HeroText = () => {
+    return (
+      <>
+      <motion.section className="vid2"></motion.section>
+      <section className="textline">
+        <Paragraph paragraph={paragraph} />
+      </section>
+      </>
+    )
+  }
+
   export const Vid = () => {
     const vidRef = useRef();
     const vRef = useRef();

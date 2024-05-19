@@ -205,7 +205,7 @@ aside p {
     & > span {
       display: inline-block;
     }
-    
+
     .shadow {
       position: absolute;
       opacity: 20%;
@@ -412,6 +412,7 @@ aside p {
     font-size: Clamp(1.5em, 2vh, 2.5em);
   }
   .blog {
+    z-index: 4;
     gap: 30px;
 
     .blogList {

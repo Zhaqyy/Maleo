@@ -53,10 +53,29 @@ function App() {
   //     </div>
   //   )
   // }
-  
+
   return (
     <>
-      <Suspense>
+      <Suspense
+        fallback={
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              width: "100vw",
+              height: "100vh",
+              backgroundColor: "black",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              zIndex: 9999,
+            }}
+          >
+            <img src={logo} loading="eager" alt="Loading..." />
+          </div>
+        }
+      >
         <Header key="head" />
         <Overlay key="over" />
         <AnimatePresence mode="wait">
