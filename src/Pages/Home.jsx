@@ -2,32 +2,32 @@
 /* eslint-disable no-unused-vars */
 
 import "../Style/Home/Home.css";
-import React, { Suspense, lazy, useLayoutEffect } from "react";
+import React, { lazy, useLayoutEffect } from "react";
 import "../Style/Component/Component.css";
 import { BlogSec } from "../Components/Common";
 import h1 from "/h1.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";
 
-const Hero = lazy(() => import("../Components/HomeComponent.jsx"));
+const Hero = lazy(() => import("../HomeComponents/Hero.jsx"));
 
 const ScaleSection = lazy(() =>
-  import("../Components/HomeComponent.jsx").then((module) => ({
+  import("../HomeComponents/Scale.jsx").then((module) => ({
     default: module.ScaleSection,
   }))
 );
 const Vid = lazy(() =>
-  import("../Components/HomeComponent.jsx").then((module) => ({
+  import("../HomeComponents/Scale.jsx").then((module) => ({
     default: module.Vid,
   }))
 );
 const Product = lazy(() =>
-  import("../Components/HomeComponent.jsx").then((module) => ({
+  import("../HomeComponents/Product.jsx").then((module) => ({
     default: module.Product,
   }))
 );
 const LogoDisp = lazy(() =>
-  import("../Components/HomeComponent.jsx").then((module) => ({
+  import("../HomeComponents/Product.jsx").then((module) => ({
     default: module.LogoDisp,
   }))
 );
