@@ -13,6 +13,7 @@ import "./App.css";
 // const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
+const Cardboard = lazy(() => import("./Pages/Cardboard"));
 
 function App() {
   const location = useLocation();
@@ -101,6 +102,7 @@ function App() {
             <Route index exact path="/" element={<Home key="home" />} />
             <Route path="/contact" element={<Contact key="contact" />} />
             <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
+            <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />
