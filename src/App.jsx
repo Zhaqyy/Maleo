@@ -104,7 +104,7 @@ function App() {
             <Route path="/contact" element={<Contact key="contact" />} />
             <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
             <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
-            <Route path="/sfilm" element={<Sfilm key="strech film" />} />
+            <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />
