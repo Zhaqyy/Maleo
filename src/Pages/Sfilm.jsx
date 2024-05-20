@@ -1,12 +1,15 @@
 import { useLayoutEffect } from "react";
-import { PContact, PHero, PModel } from "../Components/ProductPage";
-import h1 from "/product/cb1.png";
-import h2 from "/product/cb2.png";
-import h3 from "/product/cb3.png";
+import { PContact, PHero, PModel2 } from "../Components/ProductPage";
+import h1 from "/product/sf1.png";
+import h2 from "/product/sf2.png";
+import h3 from "/product/sf3.png";
+
+import p1 from "/product/sfilm.png";
+import p2 from "/product/sm2.png";
 
 const productData = {
   title: "STRECH FILM",
-  imageUrl: "/product/cardb.png",
+  imageUrl: "/product/sfilm.png",
   features: [
     {
       title: "composition",
@@ -37,11 +40,16 @@ const productData = {
   subtitle: "Film Étirable MANUEL",
 };
 
-const pageTitle = "Model of the sTRECH FILM";
+const pageTitle = "Color of the STRECH FILM";
+const pageTitle2 = "Model of the STRECH FILM";
 const products = [
-  { imageSrc: h1, title: "simple cannelures", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "double cannelures", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "triple cannelures", link: "#", linktext: "Citation" }
+  { imageSrc: h1, title: "transparent", link: "#", linktext: "Citation" },
+  { imageSrc: h2, title: "noir", link: "#", linktext: "Citation" },
+  { imageSrc: h3, title: "blanc", link: "#", linktext: "Citation" }
+];
+const products2 = [
+  { imageSrc: p1, title: "MANUEL", link: "#", linktext: "Citation" },
+  { imageSrc: p2, title: "machine", link: "#", linktext: "Citation" },
 ];
 
 const Sfilm = () => {
@@ -51,15 +59,17 @@ const Sfilm = () => {
   return (
     <>
       <PHero product={productData} />
-      <PModel modelTitle={pageTitle} products={products} />
+      <PModel2 modelTitle={pageTitle} products={products} />
+      <PModel2 modelTitle={pageTitle2} products={products2} />
       <PHero
         product={{
           ...productData,
           title: "personnalize STRECH FILM",
           subtitle: null,
+          imageUrl: "/product/sfilm2.png",
         }}
       />
-      <PContact products={products} />
+      <PContact products={products2} products2={products} />
     </>
   );
 };

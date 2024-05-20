@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ProductList } from "./Common";
+import { ProductList, ProductList2 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
 import { SpotBtn } from "./magnetBtn";
@@ -87,6 +87,40 @@ export const PModel = ({ modelTitle, products }) => {
     </motion.section>
   );
 };
+export const PModel2 = ({ modelTitle, products }) => {
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end 0.15"],
+  });
+  const bg = useTransform(
+    scrollYProgress,
+    [0, 0.2, 0.5, 0.97, 1],
+    [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
+  );
+
+  return (
+    <motion.section
+    ref={ref}
+      className="pModel"
+      style={{
+        backgroundColor: bg,
+        '--bg-variable': bg,
+      }}
+    >
+      <div className="pModelHeader">
+        <motion.h1 className="pModelTitle hollowdark" variants={prodVariants}>
+          {modelTitle}
+        </motion.h1>
+      </div>
+      <motion.div className="pModelContent" variants={prodVariants}>
+        <ProductList2 products={products} />
+      </motion.div>
+      <motion.img loading="lazy" src={logo} />
+    </motion.section>
+  );
+};
 
 export const PTable = () => {
   return (
@@ -97,7 +131,7 @@ export const PTable = () => {
   );
 };
 
-export const PContact = ({ products }) => {
+export const PContact = ({ products,products2 }) => {
   return (
     <Section className="pCont">
       <motion.h1 className="hollow" variants={prodVariants}>
@@ -143,6 +177,22 @@ export const PContact = ({ products }) => {
             {/* onChange={(e) => setPhone(e.target.value)} */}
             <span></span>
           </motion.div>
+
+
+          {products2 && products2.length > 0 && (
+        <motion.div className="inp-field choice" variants={prodVariants}>
+          <label htmlFor="Choice2">Impression</label>
+          <select name="Choice2" id="Choice2">
+            {products2.map((product2, index) => (
+              <option key={index} value={product2.title}>
+                {product2.title}
+              </option>
+            ))}
+          </select>
+          <span></span>
+        </motion.div>
+      )}
+
           <motion.textarea
             placeholder="Montant"
             variants={prodVariants}

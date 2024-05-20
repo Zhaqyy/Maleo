@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   padding-inline: 10vw;
+  padding-block: 10vh;
 }
 .prodHero h1 {
   font-size: clamp(3.25rem, 10vw, 7.55rem);
@@ -17,6 +18,7 @@
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   overflow: hidden;
+  padding-block: 10vh;
 }
 .pInfo img {
   inline-size: -webkit-fill-available;
@@ -35,6 +37,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  padding-block: 10vh;
 }
 .pFeature h6 {
   color: gray;
@@ -64,7 +67,6 @@
 .pModel {
   height: 130vh;
   padding-block: 30vh;
-  margin-block: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -105,7 +107,8 @@
   fill: white;
 }
 .pModel .list .listItem {
-  height: 300px;
+  height: unset;
+  gap: 30px;
 }
 .pModel .list .listItem .imgWrap {
   position: relative;
@@ -116,6 +119,19 @@
 }
 .pModel .list .listItem .imgWrap img {
   width: 250px;
+}
+.pModel .list .listItem .imgWrap2 {
+  position: relative;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.pModel .list .listItem .imgWrap2 img {
+  width: 300px;
+}
+.pModel .list h4 {
+  background: transparent;
+  color: white;
+  z-index: 1;
 }
 .pModel .list h5 {
   background: transparent;
@@ -151,6 +167,7 @@
   justify-content: space-around;
   text-align: center;
   gap: 5vh;
+  padding-block: 10vh;
 }
 .pCont .cont-form {
   min-width: 35vw;
@@ -175,13 +192,13 @@
   text-transform: uppercase;
   background: var(--bg-color);
 }
-.pCont .choice #Choice {
+.pCont .choice select {
   background: none;
   border: none;
   color: var(--text-dark);
   text-transform: uppercase;
 }
-.pCont .choice #Choice:focus, .pCont .choice #Choice:focus-within {
+.pCont .choice select:focus, .pCont .choice select:focus-within {
   border: none;
   outline: none;
 }
@@ -322,8 +339,11 @@
   }
   .pModel {
     height: unset;
-    padding-block: 5vh;
-    margin-block: 5vh;
+    padding-block: 10vh;
+  }
+  .pModel .list:has(.imgWrap2) {
+    gap: 50px;
+    margin-top: unset;
   }
   .pModel .list {
     flex-direction: column;

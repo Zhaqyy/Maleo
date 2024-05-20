@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   padding-inline: 10vw;
+  padding-block: 10vh;
 
   h1 {
     font-size: clamp(3.25rem, 10vw, 7.55rem);
@@ -18,6 +19,7 @@
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   overflow: hidden;
+  padding-block: 10vh;
 
   img {
     inline-size: -webkit-fill-available;
@@ -36,6 +38,7 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
+  padding-block: 10vh;
 
   h6 {
     color: gray;
@@ -68,7 +71,7 @@
 .pModel {
   height: 130vh;
   padding-block: 30vh;
-  margin-block: 10vh;
+  // margin-block: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -112,7 +115,8 @@
     }
   }
   .list .listItem {
-    height: 300px;
+    height: unset;
+    gap: 30px;
 }
 
   .list .listItem .imgWrap {
@@ -126,7 +130,23 @@
         width: 250px;
     }
 }
+  .list .listItem .imgWrap2 {
+    position: relative;
+    border-radius: 50%;
+    // outline: 2px solid rgb(255, 255, 255);
+    // background-color: rgb(0, 0, 0);
+    transition: all 0.5s ease;
 
+    img{
+        width: 300px;
+    }
+}
+
+  .list h4 {
+    background: transparent;
+    color: white;
+    z-index: 1;
+  }
   .list h5 {
     background: transparent;
     color: white;
@@ -164,6 +184,7 @@
   justify-content: space-around;
   text-align: center;
   gap: 5vh;
+  padding-block: 10vh;
 
   .cont-form {
     min-width: 35vw;
@@ -190,7 +211,7 @@
       background: var(--bg-color);
     }
 
-    #Choice {
+    select {
       background: none;
       border: none;
       color: var(--text-dark);
@@ -368,8 +389,12 @@
   }
   .pModel {
     height: unset;
-    padding-block: 5vh;
-    margin-block: 5vh;
+    padding-block: 10vh;
+
+    .list:has(.imgWrap2) {
+      gap: 50px;
+      margin-top: unset;
+    }
     .list {
       flex-direction: column;
       gap: 20px;

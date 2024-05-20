@@ -75,3 +75,32 @@ export const ProductList = ({ products }) => {
     </motion.ul>
   );
 };
+export const ProductList2 = ({ products }) => {
+  const visible = {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { staggerChildren: 0.5, duration: 0.6 },
+  };
+  
+  const prodVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
+  return (
+    <motion.ul className="list" variants={prodVariants}>
+      {products.map((product, index) => (
+        <motion.li className="listItem" key={index} variants={prodVariants}>
+          <div className="imgWrap2">
+            <img loading="lazy" src={product.imageSrc} alt={product.title} />
+            {/* <a href={product.link} className="button">
+              {product.linktext}
+            </a> */}
+          </div>
+          <h4>{product.title}</h4>
+        </motion.li>
+      ))}
+    </motion.ul>
+  );
+};
