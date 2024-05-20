@@ -14,6 +14,7 @@ import "./App.css";
 const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 const Cardboard = lazy(() => import("./Pages/Cardboard"));
+const Sfilm = lazy(() => import("./Pages/Sfilm"));
 
 function App() {
   const location = useLocation();
@@ -103,6 +104,7 @@ function App() {
             <Route path="/contact" element={<Contact key="contact" />} />
             <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
             <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
+            <Route path="/sfilm" element={<Sfilm key="strech film" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />
