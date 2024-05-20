@@ -22,6 +22,8 @@
   img {
     inline-size: -webkit-fill-available;
     animation: rot 10s linear infinite both;
+    max-width: 80%;
+    object-fit: scale-down;
   }
 }
 
@@ -97,7 +99,9 @@
     transition: all 0.5s ease;
     z-index: -1;
   }
-
+  .list .listItem:hover .imgWrap {
+    outline: 2px solid var(--accent); 
+}
   .list span {
     z-index: 0;
     top: -380px;
@@ -345,16 +349,6 @@
         }
       }
     }
-  }
-}
-
-@keyframes rot {
-  0% {
-    rotate: 0deg;
-  }
-
-  100% {
-    rotate: 360deg;
   }
 }
 

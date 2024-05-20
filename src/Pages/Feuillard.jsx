@@ -7,7 +7,7 @@ import h4 from "/product/Fh4.png";
 
 const productData = {
   title: "Feuillard",
-  imageUrl: "/feui.png",
+  imageUrl: "/product/feui.png",
   features: [
     {
       title: "déclinaisons",

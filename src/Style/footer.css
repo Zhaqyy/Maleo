@@ -1,13 +1,12 @@
 /* Footer Styles */
 .footer {
-  /* height: 50vh; */
   min-height: 40vh;
   padding-top: 3rem;
   padding-bottom: 2rem;
-  /* background: linear-gradient(to bottom, #4e73df, #224abe); */
   color: #000000;
   position: relative;
   z-index: 2;
+  scroll-snap-align: none;
 }
 
 .container {
@@ -68,7 +67,6 @@
 .footer-text {
   margin-top: 1rem;
   width: 75%;
-  /* color: #ffffff; */
 }
 
 .footer-column {
@@ -81,7 +79,6 @@
   font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
-  /* color: #ffffff; */
 }
 
 .footer-list {
@@ -106,9 +103,6 @@
   text-decoration: none;
 }
 
-/* .footer-bottom a {
-    color: #ffffff;
-} */
 .footer-bottom a:hover {
   text-decoration: underline;
 }

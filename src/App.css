@@ -90,3 +90,13 @@ a.button:focus-visible {
   transform-origin: right;
   z-index: 10001;
 }
+
+@keyframes rot {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}

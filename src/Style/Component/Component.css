@@ -192,6 +192,7 @@ aside p {
 }
 .list .listItem:hover .imgWrap img {
   filter: blur(2px) opacity(0.4);
+  animation: rot 10s linear infinite 0.5s both;
 }
 .list .listItem .imgWrap {
   position: relative;

@@ -293,6 +293,7 @@ aside p {
     }
     &:hover .imgWrap img {
       filter: blur(2px) opacity(0.4);
+      animation: rot 10s linear infinite 0.5s both;
     }
 
     // &:hover:not(:hover) .imgWrap {

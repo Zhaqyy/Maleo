@@ -21,6 +21,9 @@
 .pInfo img {
   inline-size: -webkit-fill-available;
   animation: rot 10s linear infinite both;
+  max-width: 80%;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
 }
 
 .pFeature {
@@ -89,6 +92,9 @@
   background-color: var(--bg-variable);
   transition: all 0.5s ease;
   z-index: -1;
+}
+.pModel .list .listItem:hover .imgWrap {
+  outline: 2px solid var(--accent);
 }
 .pModel .list span {
   z-index: 0;
@@ -300,14 +306,6 @@
   cursor: no-drop;
 }
 
-@keyframes rot {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
-  }
-}
 @media (max-width: 770px) {
   .prodHero h1 {
     font-size: clamp(2rem, 10vw, 7.55rem);

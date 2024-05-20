@@ -1,13 +1,12 @@
 import { useLayoutEffect } from "react";
-import { PContact, PHero, PModel, PTable } from "../Components/ProductPage";
-import h1 from "/product/Fh1.png";
-import h2 from "/product/Fh2.png";
-import h3 from "/product/Fh3.png";
-import h4 from "/product/Fh4.png";
+import { PContact, PHero, PModel } from "../Components/ProductPage";
+import h1 from "/product/cb1.png";
+import h2 from "/product/cb2.png";
+import h3 from "/product/cb3.png";
 
 const productData = {
   title: "Cardboard",
-  imageUrl: "/feui.png",
+  imageUrl: "/product/cardb.png",
   features: [
     {
       title: "déclinaisons",
@@ -20,10 +19,9 @@ const productData = {
 
 const pageTitle = "Model of the cardboard";
 const products = [
-  { imageSrc: h1, title: "acier", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "polypropylene", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "textile", link: "#", linktext: "Citation" },
-  { imageSrc: h4, title: "Polyester", link: "#", linktext: "Citation" },
+  { imageSrc: h1, title: "simple cannelures", link: "#", linktext: "Citation" },
+  { imageSrc: h2, title: "double cannelures", link: "#", linktext: "Citation" },
+  { imageSrc: h3, title: "triple cannelures", link: "#", linktext: "Citation" }
 ];
 
 const Cardboard = () => {
@@ -34,7 +32,6 @@ const Cardboard = () => {
     <>
       <PHero product={productData} />
       <PModel modelTitle={pageTitle} products={products} />
-      <PTable />
       <PHero
         product={{
           ...productData,
