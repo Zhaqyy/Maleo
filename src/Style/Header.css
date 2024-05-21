@@ -4,8 +4,9 @@
   width: 100%;
   top: 0;
   left: 0;
-  background-color: black;
-  mix-blend-mode: difference;
+  background-color: hsla(0, 0%, 91%, 0.85);
+  -webkit-backdrop-filter: blur(7px);
+          backdrop-filter: blur(7px);
   z-index: 15;
 }
 
@@ -25,7 +26,6 @@
 }
 .nav__logo img {
   transition: all 0.4s ease;
-  filter: contrast(0) brightness(10) grayscale(1);
 }
 
 .nav__toggle,
@@ -38,11 +38,6 @@
 .nav__close svg * {
   fill: var(--accent);
   stroke: var(--accent);
-}
-
-.nav__menu {
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
 }
 
 .nav__cta {
@@ -121,7 +116,7 @@
 }
 
 .nav__link {
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 13px;
   text-transform: uppercase;
   transition: all 0.4s ease;

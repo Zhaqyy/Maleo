@@ -33,7 +33,7 @@ const Header = () => {
             <li className="nav__item">
               <NavLink to="#" className="nav__link" onClick={closeMenuOnMobile}>
                 Tape
-                <Caret/>
+                {/* <Caret/> */}
               </NavLink>
             </li>
 
@@ -44,7 +44,7 @@ const Header = () => {
                 onClick={closeMenuOnMobile}
               >
                 Cardboard
-                <Caret/>
+                {/* <Caret/> */}
               </NavLink>
             </li>
             
@@ -55,7 +55,7 @@ const Header = () => {
                 onClick={closeMenuOnMobile}
               >
                 Stretch Film
-                <Caret/>
+                {/* <Caret/> */}
               </NavLink>
             </li>
          
@@ -66,7 +66,7 @@ const Header = () => {
                 onClick={closeMenuOnMobile}
               >
                 Feuillard
-                <Caret/>
+                {/* <Caret/> */}
               </NavLink>
             </li>
 

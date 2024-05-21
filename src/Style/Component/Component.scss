@@ -1,7 +1,7 @@
 // For overlay comp
 
 .over-cont {
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 200px;
   writing-mode: vertical-lr;
@@ -10,9 +10,9 @@
 }
 
 .over-scroll {
-  position: fixed;
+  position: absolute;
   left: 0;
-  bottom: 40px;
+  top: 80vh;
   writing-mode: vertical-lr;
   padding-block: 20px;
   z-index: 10;
