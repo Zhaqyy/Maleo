@@ -18,8 +18,7 @@
   justify-items: stretch;
   grid-gap: 10px;
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  overflow: hidden;
-  padding-block: 10vh;
+  overflow: visible;
 
   img {
     inline-size: -webkit-fill-available;
@@ -38,7 +37,6 @@
   flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  padding-block: 10vh;
 
   h6 {
     color: gray;

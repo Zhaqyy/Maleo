@@ -53,9 +53,10 @@ export const PHero = ({ product }) => {
   );
 };
 
-export const PModel = ({ modelTitle, products }) => {
+export const PModel = ({ modelTitle, products, theme }) => {
   const ref = useRef(null);
-
+const dark = [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
+const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`]
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end 0.15"],
@@ -63,7 +64,7 @@ export const PModel = ({ modelTitle, products }) => {
   const bg = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.97, 1],
-    [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
+    theme === 'dark' ? dark : light
   );
 
   return (

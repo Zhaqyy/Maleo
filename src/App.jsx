@@ -15,6 +15,7 @@ const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 const Cardboard = lazy(() => import("./Pages/Cardboard"));
 const Sfilm = lazy(() => import("./Pages/Sfilm"));
+const Tape = lazy(() => import("./Pages/Tape"));
 
 function App() {
   const location = useLocation();
@@ -105,6 +106,7 @@ function App() {
             <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
             <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
             <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
+            <Route path="/tape" element={<Tape key="Tape" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />

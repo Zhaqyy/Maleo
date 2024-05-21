@@ -1,77 +1,81 @@
 import { useLayoutEffect } from "react";
-import { PContact, PHero, PModel2 } from "../Components/ProductPage";
-import h1 from "/product/sf1.png";
-import h2 from "/product/sf2.png";
-import h3 from "/product/sf3.png";
+import { PContact, PHero, PModel, PModel2 } from "../Components/ProductPage";
+import h1 from "/product/ts1.png";
+import h2 from "/product/ts2.png";
+import h3 from "/product/ts3.png";
+import h4 from "/product/ts4.png";
 
-import p1 from "/product/sfilm.png";
-import p2 from "/product/sm2.png";
+import p1 from "/product/tc1.png";
+import p2 from "/product/tc2.png";
+import p3 from "/product/tc3.png";
 
 const productData = {
   title: "Tape",
-  imageUrl: "/product/sfilm.png",
+  imageUrl: "/product/tape.png",
   features: [
     {
-      title: "composition",
+      title: "déclinaisons",
       detail:
-        "film polyéthylène",
+        "PVC, Polypropylène Acrylique, hot melt, solvant, solvant, papier kraft, masking",
     },
     {
       title: "couleur",
       detail:
-        "transparent - noir - blanc - autres - couleurs opaque",
+        "transparent - havane - blanc - autres couleurs",
     },
     {
       title: "DIMENSIONS",
       detail:
-        "largeur 125 - 450MM / longueur 150m - 270M - 300M",
-    },
-    {
-      title: "epaisseur",
-      detail:
-        "13-15-17-20-23-30",
+        "largeur 48 - 75mm / longueur 66 - 100 - 1000m",
     },
     {
       title: "conditionnement",
       detail:
-        "6 bobines / carton - palette de 180 bobines",
+        "36 rouleaux / carton - palette de 2160 rouleaux",
+    },
+    {
+      title: "dévidoirs",
+      detail:
+        "plastique - acier",
     },
   ],
-  subtitle: "Film Étirable MANUEL",
+  subtitle: "Ruban adhésif neutre & imprimé",
 };
 
-const pageTitle = "Color of the Tape";
+const pageTitle = "Size of the Tape";
 const pageTitle2 = "Model of the Tape";
 const products = [
-  { imageSrc: h1, title: "transparent", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "noir", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "blanc", link: "#", linktext: "Citation" }
+  { imageSrc: h1, title: "12 mm", link: "#", linktext: "Citation" },
+  { imageSrc: h2, title: "19 mm", link: "#", linktext: "Citation" },
+  { imageSrc: h3, title: "50 mm", link: "#", linktext: "Citation" },
+  { imageSrc: h4, title: "75 mm", link: "#", linktext: "Citation" }
 ];
 const products2 = [
-  { imageSrc: p1, title: "MANUEL", link: "#", linktext: "Citation" },
-  { imageSrc: p2, title: "machine", link: "#", linktext: "Citation" },
+  { imageSrc: p1, title: "transparent", link: "#", linktext: "Citation" },
+  { imageSrc: p2, title: "Havane", link: "#", linktext: "Citation" },
+  { imageSrc: p3, title: "white", link: "#", linktext: "Citation" },
 ];
 
-const Sfilm = () => {
+const Tape = () => {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
       <PHero product={productData} />
-      <PModel2 modelTitle={pageTitle} products={products} />
+      <PModel modelTitle={pageTitle} products={products} />
       <PModel2 modelTitle={pageTitle2} products={products2} />
       <PHero
         product={{
           ...productData,
           title: "personnalize Tape",
           subtitle: null,
-          imageUrl: "/product/sfilm2.png",
+          imageUrl: "/product/tape2.png",
         }}
       />
-      <PContact products={products2} products2={products} />
+      <PContact products={products} products2={products2} />
     </>
   );
 };
 
-export default Sfilm;
+export default Tape;
