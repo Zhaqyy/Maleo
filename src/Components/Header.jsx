@@ -31,7 +31,7 @@ const Header = () => {
         >
           <ul className="nav__list">
             <li className="nav__item">
-              <NavLink to="#" className="nav__link" onClick={closeMenuOnMobile}>
+              <NavLink to="/tape" className="nav__link" onClick={closeMenuOnMobile}>
                 Tape
                 {/* <Caret/> */}
               </NavLink>

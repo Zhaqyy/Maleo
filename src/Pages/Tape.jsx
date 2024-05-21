@@ -64,7 +64,7 @@ const Tape = () => {
     <>
       <PHero product={productData} />
       <PModel modelTitle={pageTitle} products={products} />
-      <PModel2 modelTitle={pageTitle2} products={products2} />
+      <PModel2 modelTitle={pageTitle2} products={products2} theme={"light"} />
       <PHero
         product={{
           ...productData,

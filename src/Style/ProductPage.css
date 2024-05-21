@@ -73,6 +73,24 @@
   transition: all 0.5s ease;
   isolation: isolate;
 }
+.pModel .pModelContent.light .list h4 {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+}
+.pModel .pModelContent.light .list h5 {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+}
+.pModel .pModelContent.light .list .listItem .imgWrap, .pModel .pModelContent.light .list .listItem .imgWrap2 {
+  position: relative;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.pModel .pModelContent.light .list .listItem .imgWrap img, .pModel .pModelContent.light .list .listItem .imgWrap2 img {
+  width: 300px;
+}
 .pModel::before {
   content: "";
   width: 100%;

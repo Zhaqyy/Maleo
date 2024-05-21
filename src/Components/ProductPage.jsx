@@ -53,10 +53,12 @@ export const PHero = ({ product }) => {
   );
 };
 
-export const PModel = ({ modelTitle, products, theme }) => {
+export const PModel = ({ modelTitle, products, theme = 'dark' }) => {
   const ref = useRef(null);
+
 const dark = [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
 const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`]
+
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end 0.15"],
@@ -77,28 +79,32 @@ const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--b
       }}
     >
       <div className="pModelHeader">
-        <motion.h1 className="pModelTitle hollowdark" variants={prodVariants}>
+        <motion.h1 className={`pModelTitle ${theme === 'dark' ? 'hollowdark' : 'hollow'}`} variants={prodVariants}>
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div className="pModelContent" variants={prodVariants}>
+      <motion.div className={`pModelContent ${theme === 'light' ? 'light' : ''}`} variants={prodVariants}>
         <ProductList products={products} />
       </motion.div>
       <motion.img loading="lazy" src={logo} />
     </motion.section>
   );
 };
-export const PModel2 = ({ modelTitle, products }) => {
+export const PModel2 = ({ modelTitle, products, theme = 'dark' }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end 0.15"],
   });
+
+  const dark = [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
+const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`]
+
   const bg = useTransform(
     scrollYProgress,
     [0, 0.2, 0.5, 0.97, 1],
-    [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
+    theme === 'dark' ? dark : light
   );
 
   return (
@@ -111,11 +117,11 @@ export const PModel2 = ({ modelTitle, products }) => {
       }}
     >
       <div className="pModelHeader">
-        <motion.h1 className="pModelTitle hollowdark" variants={prodVariants}>
+        <motion.h1 className={`pModelTitle ${theme === 'dark' ? 'hollowdark' : 'hollow'}`} variants={prodVariants}>
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div className="pModelContent" variants={prodVariants}>
+      <motion.div className={`pModelContent ${theme === 'light' ? 'light' : ''}`} variants={prodVariants}>
         <ProductList2 products={products} />
       </motion.div>
       <motion.img loading="lazy" src={logo} />
