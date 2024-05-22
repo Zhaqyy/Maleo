@@ -274,6 +274,24 @@ aside p {
   //   transform: scale(1); /* Reset the scale for non-hovered items */
   // }
 
+  .listItem2 {
+    width: 250px;
+    text-align: center;
+    text-transform: uppercase;
+    text-wrap: pretty;
+    white-space-collapse: preserve;
+    border: 2px solid var(--accent);
+    border-radius: 50px 0;
+    padding: 1em;
+    background: radial-gradient(#a5185366, transparent);
+
+    img{
+      width: 200px;
+    }
+    h5 {
+      background: transparent !important;
+    }
+  }
   .listItem {
     display: flex;
     flex-direction: column;

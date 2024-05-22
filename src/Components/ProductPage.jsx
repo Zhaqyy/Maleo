@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ProductList, ProductList2 } from "./Common";
+import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
 import { SpotBtn } from "./magnetBtn";
@@ -90,7 +90,7 @@ const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--b
     </motion.section>
   );
 };
-export const PModel2 = ({ modelTitle, products, theme = 'dark' }) => {
+export const PModel2 = ({ modelTitle, products, theme = 'dark', model = true }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -122,17 +122,17 @@ const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--b
         </motion.h1>
       </div>
       <motion.div className={`pModelContent ${theme === 'light' ? 'light' : ''}`} variants={prodVariants}>
-        <ProductList2 products={products} />
+      {model ? <ProductList2 products={products} /> : <ProductList3 products={products} />}
       </motion.div>
       <motion.img loading="lazy" src={logo} />
     </motion.section>
   );
 };
 
-export const PTable = () => {
+export const PTable = ({product}) => {
   return (
     <Section className="pTable">
-      <motion.h3 variants={prodVariants}>Sheet about feuillard</motion.h3>
+      <motion.h3 variants={prodVariants}>Sheet about {product.title}</motion.h3>
       <div className="table"></div>
     </Section>
   );

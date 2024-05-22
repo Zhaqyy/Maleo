@@ -173,6 +173,23 @@ aside p {
   transform: scale(1.3);
   z-index: -1;
 }
+.list .listItem2 {
+  width: 250px;
+  text-align: center;
+  text-transform: uppercase;
+  text-wrap: pretty;
+  white-space-collapse: preserve;
+  border: 2px solid var(--accent);
+  border-radius: 50px 0;
+  padding: 1em;
+  background: radial-gradient(rgba(165, 24, 83, 0.4), transparent);
+}
+.list .listItem2 img {
+  width: 200px;
+}
+.list .listItem2 h5 {
+  background: transparent !important;
+}
 .list .listItem {
   display: flex;
   flex-direction: column;

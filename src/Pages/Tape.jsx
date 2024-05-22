@@ -1,5 +1,5 @@
 import { useLayoutEffect } from "react";
-import { PContact, PHero, PModel, PModel2 } from "../Components/ProductPage";
+import { PContact, PHero, PModel, PModel2, PTable } from "../Components/ProductPage";
 import h1 from "/product/ts1.png";
 import h2 from "/product/ts2.png";
 import h3 from "/product/ts3.png";
@@ -8,6 +8,10 @@ import h4 from "/product/ts4.png";
 import p1 from "/product/tc1.png";
 import p2 from "/product/tc2.png";
 import p3 from "/product/tc3.png";
+
+import m1 from "/product/tm1.png";
+// import m2 from "/product/tm2.png";
+import m3 from "/product/tm3.png";
 
 const productData = {
   title: "Tape",
@@ -55,6 +59,13 @@ const products2 = [
   { imageSrc: p2, title: "Havane", link: "#", linktext: "Citation" },
   { imageSrc: p3, title: "white", link: "#", linktext: "Citation" },
 ];
+const products3 = [
+  { imageSrc: m1, title: "PP solvant    25-28-32m", link: "#", linktext: "Citation" },
+  { imageSrc: m1, title: "PP acrylique 25-28-32-35m", link: "#", linktext: "Citation" },
+  { imageSrc: m3, title: "PP hot melt 25-28m", link: "#", linktext: "Citation" },
+  { imageSrc: m3, title: "Pvc 33m", link: "#", linktext: "Citation" },
+  { imageSrc: m3, title: "papier kraft", link: "#", linktext: "Citation" },
+];
 
 const Tape = () => {
   useLayoutEffect(() => {
@@ -65,6 +76,7 @@ const Tape = () => {
       <PHero product={productData} />
       <PModel modelTitle={pageTitle} products={products} />
       <PModel2 modelTitle={pageTitle2} products={products2} theme={"light"} />
+      <PModel2 modelTitle={pageTitle2} products={products3} model={false} theme={"dark"} />
       <PHero
         product={{
           ...productData,
@@ -73,7 +85,8 @@ const Tape = () => {
           imageUrl: "/product/tape2.png",
         }}
       />
-      <PContact products={products} products2={products2} />
+      <PContact products={products3} products2={products2} />
+      <PTable product={productData}/>
     </>
   );
 };
