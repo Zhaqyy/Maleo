@@ -6,16 +6,17 @@ import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import logo from "/flogo.svg";
-import Home from "./Pages/Home.jsx";
+// import Home from "./Pages/Home.jsx";
 import "./App.css";
 
 //PAGES
-// const Home = lazy(() => import("./Pages/Home"));
+const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 const Cardboard = lazy(() => import("./Pages/Cardboard"));
 const Sfilm = lazy(() => import("./Pages/Sfilm"));
 const Tape = lazy(() => import("./Pages/Tape"));
+const Privacy = lazy(() => import("./Pages/Privacy"));
 
 function App() {
   const location = useLocation();
@@ -107,6 +108,7 @@ function App() {
             <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
             <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
             <Route path="/tape" element={<Tape key="Tape" />} />
+            <Route path="/privacy" element={<Privacy key="Privacy" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />
