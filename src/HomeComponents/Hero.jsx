@@ -108,11 +108,11 @@ export default function Hero() {
       <motion.section className="hero" ref={TargetRef}>
         <motion.div className="hero-head" style={{ y: MoveY }}>
           <h1 className="hollowdark">
-            QUALITY
+            QUALITÉ
             <br />
-            PACKAGING
+            EMBALLAGE
             <br />
-            TO
+            POUR
           </h1>
         </motion.div>
         <motion.video
@@ -133,11 +133,11 @@ export default function Hero() {
         </motion.video>
         <motion.div className="hero-cta" style={{ y: MoveY }}>
           <h3>
-            PROTECT
+            PROTÉGER
             <br />
-            YOUR
+            VOS
             <br />
-            PRODUCTS
+            PRODUITS
           </h3>
           <SpotBtn text={"QUOTE NOW"} />
         </motion.div>
@@ -148,8 +148,7 @@ export default function Hero() {
       <motion.section id="canvasWrapper" style={{ zIndex: z }}>
         <Scene />
       </motion.section>
-      <HeroText/>
+      <HeroText />
     </motion.section>
   );
 }
-

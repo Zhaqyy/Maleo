@@ -9,7 +9,7 @@ const Overlay = () => {
         <p>Instagram X Contact</p>
       </span>
       <span className="over-scroll">
-        <p>Scroll down</p>
+        <p>descendre</p>
       </span>
     </aside>
   );

@@ -19,73 +19,72 @@ const Footer = () => {
               Découvrez nos dernières actualités en matière d'emballage
             </p>
             <form action="submit" className="newsletter">
-                <input type="text" placeholder="Email Address" />
-                <button className="footerBtn" type="submit">
-                    <ArrowBtn/>
-                </button>
+              <input type="text" placeholder="Email Address" />
+              <button className="footerBtn" type="submit">
+                <ArrowBtn />
+              </button>
             </form>
           </Col>
           <div className="linkItem">
-
-          <Col xl="auto" lg={3} xs={6} className="footer-column">
-            <div>
-              <h6 className="footer-heading">Company</h6>
-              <ul className="footer-list">
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Products
-                  </Link>
-                </li>
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    About Us
-                  </Link>
-                </li>
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Blogs
-                  </Link>
-                </li>
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Request a Quote
-                  </Link>
-                </li>
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Contact
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </Col>
-          <Col xl="auto" lg={3} xs={6} className="footer-column">
-            <div>
-              <h6 className="footer-heading">Legal</h6>
-              <ul className="footer-list">
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Conditions générales
-                  </Link>
-                </li>
-                <li className="footer-list-item">
-                  <Link to="#" className="footer-link">
-                    Politique de confidentialité
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </Col>
+            <Col xl="auto" lg={3} xs={6} className="footer-column">
+              <div>
+                <h6 className="footer-heading">SOCIÉTÉ</h6>
+                <ul className="footer-list">
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Produits
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      A propos de nous
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Blogs
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Demande de devis
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xl="auto" lg={3} xs={6} className="footer-column">
+              <div>
+                <h6 className="footer-heading">JURIDIQUE</h6>
+                <ul className="footer-list">
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Conditions générales
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="#" className="footer-link">
+                      Politique de confidentialité
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </Col>
           </div>
         </Row>
         {/* <hr /> */}
         <Row className="lowerFoot">
-            <p className="footer-bottom">© Maleo Emballage  
-          {" "}{new Date().getFullYear()} 
-            </p>
-            <p>
+          <p className="footer-bottom">
+            © Maleo Emballage {new Date().getFullYear()}
+          </p>
+          <p>
             Site web développé par <a href="/">MdX</a>
-            </p>
+          </p>
         </Row>
       </Container>
     </section>

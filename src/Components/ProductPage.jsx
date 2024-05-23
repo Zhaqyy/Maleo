@@ -132,7 +132,7 @@ const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--b
 export const PTable = ({product}) => {
   return (
     <Section className="pTable">
-      <motion.h3 variants={prodVariants}>Sheet about {product.title}</motion.h3>
+      <motion.h3 variants={prodVariants}>FEUILLE À PROPOS DE {product.title}</motion.h3>
       <div className="table"></div>
     </Section>
   );
@@ -142,7 +142,7 @@ export const PContact = ({ products,products2 }) => {
   return (
     <Section className="pCont">
       <motion.h1 className="hollow" variants={prodVariants}>
-        Let's Talk
+      PARLONS-EN
       </motion.h1>
       <div className="cont-form">
         <motion.div id="contact-form">
@@ -212,7 +212,7 @@ export const PContact = ({ products,products2 }) => {
           </button> */}
           <motion.div variants={prodVariants}>
             <SpotBtn
-              text={"Quote Now"}
+              text={"DEVISER MAINTENANT"}
               // submit={submit}
             />
           </motion.div>

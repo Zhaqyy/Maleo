@@ -18,7 +18,7 @@ const productData = {
   subtitle: "Feuillard",
 };
 
-const pageTitle = "Model of the feuillard";
+const pageTitle = "MODÈLE DE FEUILLARD";
 const products = [
   { imageSrc: h1, title: "acier", link: "#", linktext: "Citation" },
   { imageSrc: h2, title: "polypropylene", link: "#", linktext: "Citation" },

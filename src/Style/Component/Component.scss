@@ -387,6 +387,7 @@ aside p {
     width: 400px;
     border-radius: 20px;
     object-fit: scale-down;
+    pointer-events: none;
   }
   .metaInfo {
     display: inline-flex;

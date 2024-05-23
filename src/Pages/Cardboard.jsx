@@ -5,7 +5,7 @@ import h2 from "/product/cb2.png";
 import h3 from "/product/cb3.png";
 
 const productData = {
-  title: "Cardboard",
+  title: "CARTON",
   imageUrl: "/product/cardb.png",
   features: [
     {
@@ -17,7 +17,7 @@ const productData = {
   subtitle: "caisses américaines",
 };
 
-const pageTitle = "Model of the cardboard";
+const pageTitle = "MODÈLE DE CARTON";
 const products = [
   { imageSrc: h1, title: "simple cannelures", link: "#", linktext: "Citation" },
   { imageSrc: h2, title: "double cannelures", link: "#", linktext: "Citation" },
@@ -35,7 +35,7 @@ const Cardboard = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize Cardboard",
+          title: "personnalize CARTON",
           subtitle: null,
         }}
       />

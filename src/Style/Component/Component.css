@@ -280,6 +280,7 @@ aside p {
   border-radius: 20px;
   -o-object-fit: scale-down;
      object-fit: scale-down;
+  pointer-events: none;
 }
 .blog .metaInfo {
   display: inline-flex;

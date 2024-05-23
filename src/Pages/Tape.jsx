@@ -14,7 +14,7 @@ import m1 from "/product/tm1.png";
 import m3 from "/product/tm3.png";
 
 const productData = {
-  title: "Tape",
+  title: "BANDE",
   imageUrl: "/product/tape.png",
   features: [
     {
@@ -46,8 +46,8 @@ const productData = {
   subtitle: "Ruban adhésif neutre & imprimé",
 };
 
-const pageTitle = "Size of the Tape";
-const pageTitle2 = "Model of the Tape";
+const pageTitle = "TAILLE DE LA BANDE";
+const pageTitle2 = "MODÈLE DE BANDE";
 const products = [
   { imageSrc: h1, title: "12 mm", link: "#", linktext: "Citation" },
   { imageSrc: h2, title: "19 mm", link: "#", linktext: "Citation" },
@@ -80,7 +80,7 @@ const Tape = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize Tape",
+          title: "personnalize BANDE",
           subtitle: null,
           imageUrl: "/product/tape2.png",
         }}

@@ -8,7 +8,7 @@ import p1 from "/product/sfilm.png";
 import p2 from "/product/sm2.png";
 
 const productData = {
-  title: "STRECH FILM",
+  title: "Film étirable",
   imageUrl: "/product/sfilm.png",
   features: [
     {
@@ -40,8 +40,8 @@ const productData = {
   subtitle: "Film Étirable MANUEL",
 };
 
-const pageTitle = "Color of the STRECH FILM";
-const pageTitle2 = "Model of the STRECH FILM";
+const pageTitle = "COULEUR DE LA Film étirable";
+const pageTitle2 = "MODÈLE DE Film étirable";
 const products = [
   { imageSrc: h1, title: "transparent", link: "#", linktext: "Citation" },
   { imageSrc: h2, title: "noir", link: "#", linktext: "Citation" },
@@ -64,7 +64,7 @@ const Sfilm = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize STRECH FILM",
+          title: "personnalize Film étirable",
           subtitle: null,
           imageUrl: "/product/sfilm2.png",
         }}

@@ -44,7 +44,7 @@ const visible = {
             <motion.div className="prodHead" variants={hprodVariants}>
               <motion.div className="prodBtn" variants={hprodVariants}>
                 <ArrowBtn />
-                <SpotBtn text={"QUOTE NOW"} />
+                <SpotBtn text={"DEVISER MAINTENANT"} />
               </motion.div>
               <motion.h1 variants={hprodVariants}>NOS PRODUITS</motion.h1>
               <motion.h2 className="hollow" variants={hprodVariants}>

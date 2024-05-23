@@ -34,26 +34,26 @@ const LogoDisp = lazy(() =>
 
 const blogPosts = [
   {
-    date: "April 1, 2024",
-    category: "Category",
+    date: "AVRIL 1, 2024",
+    category: "CATÉGORIE",
     imgSrc: h1,
     link: null,
     title:
-      "Environmental impact of packaging: Strategies to reduce waste and promote sustainability",
+      "L'IMPACT ENVIRONNEMENTAL DES EMBALLAGES : STRATÉGIES DE RÉDUCTION DES DÉCHETS ET DE PROMOTION DE LA DURABILITÉ",
   },
   {
-    date: "April 5, 2024",
-    category: "Category",
+    date: "AVRIL 5, 2024",
+    category: "CATÉGORIE",
     imgSrc: h2,
     link: null,
-    title: "10 tips for safe and efficient packaging",
+    title: "10 CONSEILS POUR UN EMBALLAGE SÛR ET EFFICACE",
   },
   {
-    date: "April 7, 2024",
-    category: "Category",
+    date: "AVRIL 7, 2024",
+    category: "CATÉGORIE",
     imgSrc: h3,
     link: null,
-    title: "How to Choose the Right Masking Tape for Your Packaging Needs",
+    title: "COMMENT CHOISIR LE BON RUBAN DE MASQUAGE POUR VOS BESOINS D'EMBALLAGE",
   },
   // Add more blog post objects as needed
 ];
