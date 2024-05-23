@@ -4,6 +4,7 @@
 import { motion } from "framer-motion";
 import { Section } from "./inView";
 
+import logo from "/logobig.png";
 import "../Style/Contact/contact.css";
 import "../Style/Component/Component.css";
 
@@ -24,15 +25,14 @@ const Legal = ({content}) => {
     const { title, titleText, subtitleText, subtitle,listTitle,listSubTitle, Linfo } = content;
   return (
     <>
-      <Section>
-        <motion.h1>{title}</motion.h1>
+      <Section className={'legalHead'}>
+        <motion.h1 className="hollowdark">{title}</motion.h1>
         <motion.p>{titleText}</motion.p>
+        <motion.img loading="lazy" src={logo} />
       </Section>
-      <Section>
-        <motion.h2>{subtitle}</motion.h2>
+      <Section className={'flexy'}>
+        <motion.h3>{subtitle}</motion.h3>
         <motion.p>{subtitleText}</motion.p>
-      </Section>
-      <Section>
         <div className="cont-detail">
           <ul>
             <motion.li>
@@ -65,6 +65,7 @@ const Legal = ({content}) => {
                 <g clipPath="url(#clip0_1282_3248)">
                   <path
                     d="M37.5 20C39.0525 21.1643 40.3125 22.6741 41.1803 24.4098C42.0482 26.1455 42.5 28.0594 42.5 30C42.5 31.9406 42.0482 33.8545 41.1803 35.5902C40.3125 37.3259 39.0525 38.8357 37.5 40"
+                    fill="none"
                     stroke="black"
                     strokeWidth="2.75"
                     strokeLinecap="round"
@@ -72,6 +73,7 @@ const Legal = ({content}) => {
                   />
                   <path
                     d="M44.25 12.5C46.8599 14.6091 48.965 17.2753 50.4112 20.3033C51.8573 23.3313 52.6079 26.6444 52.6079 30C52.6079 33.3556 51.8573 36.6687 50.4112 39.6967C48.965 42.7247 46.8599 45.3909 44.25 47.5"
+                    fill="none"
                     stroke="black"
                     strokeWidth="2.75"
                     strokeLinecap="round"
@@ -119,6 +121,9 @@ const Legal = ({content}) => {
         </div>
         <motion.p>{Linfo}</motion.p>
       </Section>
+      {/* <Section className={'flexy'}>
+        
+      </Section> */}
     </>
   );
 };

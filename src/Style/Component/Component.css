@@ -295,6 +295,65 @@ aside p {
   width: 100%;
 }
 
+.legalHead {
+  z-index: 1;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  color: white;
+  padding-inline: 10vw;
+  z-index: 1;
+}
+.legalHead > img {
+  width: 450px;
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  pointer-events: none;
+}
+.legalHead::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background: url(/bg.webp);
+  background-size: cover;
+  z-index: -2;
+}
+.legalHead::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+.legalHead p {
+  width: 60%;
+  line-height: 1.25;
+  white-space-collapse: preserve-breaks;
+}
+
+.flexy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-inline: 10vw;
+  gap: 3em;
+  margin-block: 5vh;
+}
+.flexy h3 {
+  text-transform: uppercase;
+}
+.flexy p {
+  line-height: 1.25;
+  white-space-collapse: preserve-breaks;
+}
+
 @media (max-width: 770px) {
   .list {
     flex-direction: column;
@@ -343,5 +402,23 @@ aside p {
   .blog .blogList .prodBtn .arrow {
     margin: 1em;
     width: 40px;
+  }
+  .legalHead {
+    padding-inline: 5vw;
+  }
+  .legalHead h1 {
+    font-size: clamp(2.25rem, 5vw, 5.55rem);
+  }
+  .legalHead p {
+    width: 100%;
+  }
+  .flexy {
+    padding-inline: 5vw;
+  }
+  .flexy h3 {
+    font-size: clamp(2rem, 5vw, 3.6rem);
+  }
+  .flexy p {
+    width: 100%;
   }
 }/*# sourceMappingURL=Component.css.map */
