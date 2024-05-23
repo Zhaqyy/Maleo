@@ -17,6 +17,7 @@ const Cardboard = lazy(() => import("./Pages/Cardboard"));
 const Sfilm = lazy(() => import("./Pages/Sfilm"));
 const Tape = lazy(() => import("./Pages/Tape"));
 const Privacy = lazy(() => import("./Pages/Privacy"));
+const Terms = lazy(() => import("./Pages/Terms"));
 
 function App() {
   const location = useLocation();
@@ -109,6 +110,7 @@ function App() {
             <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
             <Route path="/tape" element={<Tape key="Tape" />} />
             <Route path="/privacy" element={<Privacy key="Privacy" />} />
+            <Route path="/terms" element={<Terms key="Terms" />} />
           </Routes>
         </AnimatePresence>
         <Footer key="foot" />

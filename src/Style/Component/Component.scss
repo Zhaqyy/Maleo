@@ -455,6 +455,7 @@ aside p {
   padding-inline: 10vw;
   gap: 3em;
   margin-block: 5vh;
+  scroll-snap-align: none !important;
 
   h3{
     text-transform: uppercase;
@@ -524,7 +525,7 @@ aside p {
   .legalHead{
     padding-inline: 5vw;
   h1{
-    font-size: clamp(2.25rem, 5vw, 5.55rem);
+    font-size: clamp(1.4rem, 5vw, 5.55rem);
   }
     p{
       width: 100%;
@@ -533,7 +534,7 @@ aside p {
   .flexy{
     padding-inline: 5vw;
     h3 {
-      font-size: clamp(2rem, 5vw, 3.6rem);
+      font-size: clamp(1.4rem, 5vw, 3.6rem);
   }
     p{
       width: 100%;

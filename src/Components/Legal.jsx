@@ -13,7 +13,7 @@ const visible = {
   x: 0,
   y: 0,
   scale: 1,
-  transition: { staggerChildren: 0.6, duration: 0.7 },
+  transition: { staggerChildren: 0.25, duration: 0.5 },
 };
 
 const LVariants = {
@@ -25,14 +25,14 @@ const Legal = ({content}) => {
     const { title, titleText, subtitleText, subtitle,listTitle,listSubTitle, Linfo } = content;
   return (
     <>
-      <Section className={'legalHead'}>
-        <motion.h1 className="hollowdark">{title}</motion.h1>
-        <motion.p>{titleText}</motion.p>
+      <Section className='legalHead'>
+        <motion.h1 className="hollowdark" variants={LVariants}>{title}</motion.h1>
+        <motion.p variants={LVariants}>{titleText}</motion.p>
         <motion.img loading="lazy" src={logo} />
       </Section>
-      <Section className={'flexy'}>
-        <motion.h3>{subtitle}</motion.h3>
-        <motion.p>{subtitleText}</motion.p>
+      <motion.section className='flexy' variants={LVariants}>
+        <motion.h3 variants={LVariants}>{subtitle}</motion.h3>
+        <motion.p variants={LVariants}>{subtitleText}</motion.p>
         <div className="cont-detail">
           <ul>
             <motion.li>
@@ -119,8 +119,8 @@ const Legal = ({content}) => {
             </motion.li>
           </ul>
         </div>
-        <motion.p>{Linfo}</motion.p>
-      </Section>
+        <motion.p variants={LVariants}>{Linfo}</motion.p>
+      </motion.section>
       {/* <Section className={'flexy'}>
         
       </Section> */}

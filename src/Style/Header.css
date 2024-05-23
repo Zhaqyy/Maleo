@@ -178,4 +178,9 @@
     -moz-column-gap: 2.5rem;
          column-gap: 2.5rem;
   }
+}
+@media screen and (max-width: 400px) {
+  .nav__menu {
+    width: 90%;
+  }
 }/*# sourceMappingURL=Header.css.map */

@@ -63,7 +63,7 @@ const Footer = () => {
                 <h6 className="footer-heading">JURIDIQUE</h6>
                 <ul className="footer-list">
                   <li className="footer-list-item">
-                    <Link to="#" className="footer-link">
+                    <Link to="/Terms" className="footer-link">
                       Conditions générales
                     </Link>
                   </li>
