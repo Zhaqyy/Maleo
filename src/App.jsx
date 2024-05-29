@@ -2,11 +2,11 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
+import Lenis from "lenis";
 import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import logo from "/flogo.svg";
-// import Home from "./Pages/Home.jsx";
 import "./App.css";
 
 //PAGES
@@ -58,6 +58,19 @@ function App() {
   //     </div>
   //   )
   // }
+
+
+  useEffect(() => {
+    const lenis = new Lenis()
+
+  function raf(time) {
+    lenis.raf(time)
+    requestAnimationFrame(raf)
+  }
+
+  requestAnimationFrame(raf)
+
+  }, [])
 
   return (
     <>
