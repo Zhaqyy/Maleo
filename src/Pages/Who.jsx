@@ -2,6 +2,8 @@ import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Section } from "../Components/inView";
 import "../Style/who.css";
+import who from '/who.webp'
+
 
 const Who = () => {
   const scrollRef = useRef(null);
@@ -31,7 +33,8 @@ const Who = () => {
         </motion.h1>
         <div className="whoImg">
           <motion.img
-            src="/who.webp"
+          loading="lazy"
+            src={who}
             alt="who we are"
             // style={{ scaleX: scalee }}
           />
@@ -48,7 +51,7 @@ const Who = () => {
       </motion.section>
       <Section className="value">
         <h3>Nos valeurs</h3>
-        <h2 className="hollow">EXPERTISE</h2>
+        <h1 className="hollow">EXPERTISE</h1>
         <ul>
           <li>
             <p>
@@ -57,17 +60,19 @@ const Who = () => {
               avec soin nos produits et nous apportons une solution
               personnalisée à chaque client.
             </p>
-            <img src="" alt="" />
+            <img
+            loading="lazy" src="/expert.webp" alt="expert" />
           </li>
-          <li>
+          <li className="care">
             <div>
-              <h2 className="hollow">CARE</h2>
+              <h1 className="hollow">CARE</h1>
               <p>
                 Nous prenons soin de chaque collaboration. Nos partenaires
                 comptent pour nous et nous les accompagnons au quotidien.
               </p>
             </div>
-            <img src="" alt="" />
+            <img
+            loading="lazy" src="/care.webp" alt="care" />
           </li>
         </ul>
       </Section>
@@ -80,9 +85,11 @@ const Who = () => {
             produits et nous apportons une solution personnalisée à chaque
             client.
           </p>
-          <img src="" alt="" />
+          <img
+          loading="lazy" src="/expert.webp" alt="" />
         </div>
-        <img src="" alt="" />
+        <img
+        loading="lazy" src="/expert.webp" alt="" />
       </Section>
       <Section className="surpass">
         <h2 className="hollow">surpass</h2>
@@ -93,7 +100,8 @@ const Who = () => {
           résultats. Nous faisons ce kilomètre supplémentaire
           qui nous permet d’être un partenaire indispensable.
         </p>
-        <img src="" alt="" />
+        <img
+        loading="lazy" src={who} alt="" />
       </Section>
     </>
   );

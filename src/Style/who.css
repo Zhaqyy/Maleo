@@ -19,6 +19,7 @@
 .who img {
     max-width: 100%;
     height: 500px;
+    border-radius: 30px;
 }
 
 .who h5 {
@@ -41,4 +42,54 @@
     max-width: 300px;
     float: right;
     order: 2;
+}
+
+.value{
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+.value h3{
+    text-transform: uppercase;
+}
+.value>h1{
+    align-self: center;
+}
+.value img{
+    max-width: 100%;
+    border-radius: 20px;
+    max-height: 300px;
+}
+.value ul{
+    display: flex;
+    gap: 10vh;
+    flex-direction: column;
+}
+.value li{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+}
+.value p{
+max-width: 400px;
+justify-self: right;
+}
+.value li.care img{
+    order: -1;
+}
+.value li.care>div{
+    justify-self: flex-start;
+}
+.value p{
+max-width: 400px;
+justify-self: flex-end;
+}
+.value h3{
+
+}
+.value h3{
+
 }
