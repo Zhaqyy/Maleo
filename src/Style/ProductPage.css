@@ -56,12 +56,6 @@
   font-size: 25px;
 }
 
-:root {
-  --bg-white: hsla(0, 0%, 100%, 0.85); /* Default background color */
-  --bg-black: hsla(0, 0%, 0%, 0.85); /* Dark background color */
-  --bg-variable:var(--bg-variable);
-}
-
 .pModel {
   height: 130vh;
   padding-block: 30vh;

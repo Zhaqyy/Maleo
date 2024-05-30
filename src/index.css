@@ -25,6 +25,10 @@
   --text-dark: hsl(0, 0%, 3%);
   --header-height: 10vh;
 
+  --bg-white: hsla(0, 0%, 100%, 0.85); /* Default background color */
+    --bg-black: hsla(0, 0%, 0%, 0.85);  /* Dark background color */
+    --bg-variable:var(--bg-variable);
+
   color-scheme: light dark;
   color: var(--text-color);
   background-color: var(--bg-color);
