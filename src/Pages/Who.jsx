@@ -77,7 +77,9 @@ const Who = () => {
         </ul>
       </Section>
       <Section className="collab">
-        <h2 className="hollow">COLLABORATION</h2>
+        <h1 className="hollow">COLLABORATION</h1>
+        <div className="collabInfo">
+
         <div>
           <p>
             nous investissons pleinement dans notre mission: être le partenaire
@@ -86,10 +88,11 @@ const Who = () => {
             client.
           </p>
           <img
-          loading="lazy" src="/expert.webp" alt="" />
+          loading="lazy" src="/collab2.webp" alt="collab" />
         </div>
         <img
-        loading="lazy" src="/expert.webp" alt="" />
+        loading="lazy" src="/collab.webp" alt="collab2" />
+        </div>
       </Section>
       <Section className="surpass">
         <h2 className="hollow">surpass</h2>

@@ -5,12 +5,14 @@
     align-items: center;
     position: relative;
 }
-.whoImg{
+
+.whoImg {
     position: relative;
     display: grid;
     justify-items: end;
     justify-content: end;
 }
+
 .who h1 {
     text-align: center;
     margin-bottom: 5vh;
@@ -35,7 +37,8 @@
     border-radius: 15px;
 
 }
-.who p{
+
+.who p {
     position: absolute;
     bottom: -100px;
     right: 0;
@@ -44,52 +47,92 @@
     order: 2;
 }
 
-.value{
+.value {
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: space-evenly;
 }
-.value h3{
+
+.value h3 {
     text-transform: uppercase;
 }
-.value>h1{
+
+.value>h1 {
     align-self: center;
 }
-.value img{
+
+.value img {
     max-width: 100%;
     border-radius: 20px;
     max-height: 300px;
 }
-.value ul{
+
+.value ul {
     display: flex;
     gap: 10vh;
     flex-direction: column;
 }
-.value li{
+
+.value li {
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     justify-items: center;
 }
-.value p{
-max-width: 400px;
-justify-self: right;
-}
-.value li.care img{
+
+.value li.care img {
     order: -1;
 }
-.value li.care>div{
+
+.value li.care>div {
     justify-self: flex-start;
 }
-.value p{
-max-width: 400px;
-justify-self: flex-end;
-}
-.value h3{
 
+.value p {
+    max-width: 400px;
+    justify-self: flex-end;
 }
-.value h3{
 
+.value h3 {}
+
+.value h3 {}
+
+.collab {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-evenly;
+}
+
+.collab img {
+    max-width: 100%;
+    border-radius: 20px;
+    max-height: 330px;
+    justify-self: left;
+}
+
+.collab p {
+    max-width: 500px;
+}
+
+.collab h1 {
+    text-align: center;
+}
+
+.collabInfo {
+    display: grid;
+    justify-content: center;
+    align-items: start;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-items: center;
+}
+
+.collabInfo>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    max-width: 500px;
+    min-height: 60vh;
 }
