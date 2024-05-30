@@ -31,12 +31,12 @@ const Footer = () => {
                 <h6 className="footer-heading">SOCIÉTÉ</h6>
                 <ul className="footer-list">
                   <li className="footer-list-item">
-                    <Link to="#" className="footer-link">
+                    <Link to="/Tape" className="footer-link">
                       Produits
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="#" className="footer-link">
+                    <Link to="/Who" className="footer-link">
                       A propos de nous
                     </Link>
                   </li>

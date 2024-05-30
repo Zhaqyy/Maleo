@@ -1,5 +1,5 @@
 import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 import { Section } from "../Components/inView";
 import "../Style/who.css";
 import who from "/who.webp";
@@ -19,6 +19,11 @@ const whoVariants = {
 const isMobile = window.innerWidth < 770;
 
 const Who = () => {
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const TargetRef = useRef();
   const { scrollYProgress } = useScroll({
     target: TargetRef,
