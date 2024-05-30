@@ -24,7 +24,6 @@ export default function Hero() {
     offset: ["end end", "end start"],
   });
 
-  console.log(scrollYProgress.get());
 
   const smooth = easeInOut;
 
