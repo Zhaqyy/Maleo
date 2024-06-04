@@ -43,13 +43,13 @@ const productData = {
 const pageTitle = "COULEUR DE LA Film étirable";
 const pageTitle2 = "MODÈLE DE Film étirable";
 const products = [
-  { imageSrc: h1, title: "transparent", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "noir", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "blanc", link: "#", linktext: "Citation" }
+  { imageSrc: h1, title: "transparent", linktext: "Citation" },
+  { imageSrc: h2, title: "noir", linktext: "Citation" },
+  { imageSrc: h3, title: "blanc", linktext: "Citation" }
 ];
 const products2 = [
-  { imageSrc: p1, title: "MANUEL", link: "#", linktext: "Citation" },
-  { imageSrc: p2, title: "machine", link: "#", linktext: "Citation" },
+  { imageSrc: p1, title: "MANUEL", linktext: "Citation" },
+  { imageSrc: p2, title: "machine", linktext: "Citation" },
 ];
 
 const Sfilm = () => {

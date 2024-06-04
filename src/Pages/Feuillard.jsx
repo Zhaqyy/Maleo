@@ -20,10 +20,10 @@ const productData = {
 
 const pageTitle = "MODÈLE DE FEUILLARD";
 const products = [
-  { imageSrc: h1, title: "acier", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "polypropylene", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "textile", link: "#", linktext: "Citation" },
-  { imageSrc: h4, title: "Polyester", link: "#", linktext: "Citation" },
+  { imageSrc: h1, title: "acier", linktext: "Citation" },
+  { imageSrc: h2, title: "polypropylene", linktext: "Citation" },
+  { imageSrc: h3, title: "textile", linktext: "Citation" },
+  { imageSrc: h4, title: "Polyester", linktext: "Citation" },
 ];
 
 const Feuillard = () => {

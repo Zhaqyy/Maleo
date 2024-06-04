@@ -19,9 +19,9 @@ const productData = {
 
 const pageTitle = "MODÈLE DE CARTON";
 const products = [
-  { imageSrc: h1, title: "simple cannelures", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "double cannelures", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "triple cannelures", link: "#", linktext: "Citation" }
+  { imageSrc: h1, title: "simple cannelures", linktext: "Citation" },
+  { imageSrc: h2, title: "double cannelures", linktext: "Citation" },
+  { imageSrc: h3, title: "triple cannelures", linktext: "Citation" }
 ];
 
 const Cardboard = () => {

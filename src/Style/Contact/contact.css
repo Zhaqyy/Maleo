@@ -38,6 +38,7 @@
   min-height: 400px;
   color: var(--text-dark);
   padding-block: 20px;
+  scroll-margin-top: 40vh;
 }
 #contact-form input, #contact-form textarea {
   width: 100%;

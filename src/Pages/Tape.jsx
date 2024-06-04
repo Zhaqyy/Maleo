@@ -49,22 +49,22 @@ const productData = {
 const pageTitle = "TAILLE DE LA BANDE";
 const pageTitle2 = "MODÈLE DE BANDE";
 const products = [
-  { imageSrc: h1, title: "12 mm", link: "#", linktext: "Citation" },
-  { imageSrc: h2, title: "19 mm", link: "#", linktext: "Citation" },
-  { imageSrc: h3, title: "50 mm", link: "#", linktext: "Citation" },
-  { imageSrc: h4, title: "75 mm", link: "#", linktext: "Citation" }
+  { imageSrc: h1, title: "12 mm", linktext: "Citation" },
+  { imageSrc: h2, title: "19 mm", linktext: "Citation" },
+  { imageSrc: h3, title: "50 mm", linktext: "Citation" },
+  { imageSrc: h4, title: "75 mm", linktext: "Citation" }
 ];
 const products2 = [
-  { imageSrc: p1, title: "transparent", link: "#", linktext: "Citation" },
-  { imageSrc: p2, title: "Havane", link: "#", linktext: "Citation" },
-  { imageSrc: p3, title: "white", link: "#", linktext: "Citation" },
+  { imageSrc: p1, title: "transparent", linktext: "Citation" },
+  { imageSrc: p2, title: "Havane", linktext: "Citation" },
+  { imageSrc: p3, title: "white", linktext: "Citation" },
 ];
 const products3 = [
-  { imageSrc: m1, title: "PP solvant    25-28-32m", link: "#", linktext: "Citation" },
-  { imageSrc: m1, title: "PP acrylique 25-28-32-35m", link: "#", linktext: "Citation" },
-  { imageSrc: m3, title: "PP hot melt 25-28m", link: "#", linktext: "Citation" },
-  { imageSrc: m3, title: "Pvc 33m", link: "#", linktext: "Citation" },
-  { imageSrc: m3, title: "papier kraft", link: "#", linktext: "Citation" },
+  { imageSrc: m1, title: "PP solvant    25-28-32m", linktext: "Citation" },
+  { imageSrc: m1, title: "PP acrylique 25-28-32-35m", linktext: "Citation" },
+  { imageSrc: m3, title: "PP hot melt 25-28m", linktext: "Citation" },
+  { imageSrc: m3, title: "Pvc 33m", linktext: "Citation" },
+  { imageSrc: m3, title: "papier kraft", linktext: "Citation" },
 ];
 
 const Tape = () => {
