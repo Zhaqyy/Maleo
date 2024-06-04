@@ -1,16 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
 import { SpotBtn } from "./magnetBtn";
+import Table from "./Table";
+import data from './data.json';
 
 import "../Style/ProductPage.css";
 import "../Style/Contact/contact.css";
 import "../Style/Component/Component.css";
-import { useRef } from "react";
 
 const visible = {
   opacity: 1,
@@ -130,10 +132,19 @@ const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--b
 };
 
 export const PTable = ({product}) => {
+
+  const [tableData, setTableData] = useState([]);
+
+  useEffect(() => {
+    setTableData(data);
+  }, []);
+
   return (
     <Section className="pTable">
       <motion.h3 variants={prodVariants}>FEUILLE À PROPOS DE {product.title}</motion.h3>
-      <div className="table"></div>
+      <div className="table">
+        <Table data={tableData}/>
+      </div>
     </Section>
   );
 };
