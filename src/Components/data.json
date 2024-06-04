@@ -1,21 +1,106 @@
 [
-    {
-      "type": "Example Type",
-      "pvc": "Value for PVC",
-      "acrylique": "Value for Acrylic",
-      "silencieux": "Value for Silencieux",
-      "solvant": "Value for Solvant",
-      "hotmelt": "Value for Hot Melt",
-      "papier": "Value for Papier"
-    },
-    {
-      "type": "Another Type",
-      "pvc": "Another Value for PVC",
-      "acrylique": "Another Value for Acrylic",
-      "silencieux": "Another Value for Silencieux",
-      "solvant": "Another Value for Solvant",
-      "hotmelt": "Another Value for Hot Melt",
-      "papier": "Another Value for Papier"
-    }
-  ]
-  
+  {
+    "type": "pouvoir adhésif",
+    "pvc": "❌",
+    "acrylique": "",
+    "solvant": "❌",
+    "hotmelt": "❌",
+    "papier": ""
+  },
+  {
+    "type": "colis lourd",
+    "pvc": "",
+    "acrylique": "",
+    "solvant": "❌",
+    "hotmelt": "❌",
+    "papier": ""
+  },
+  {
+    "type": "déroulement silencieux",
+    "pvc": "❌❌",
+    "acrylique": "❌❌",
+    "solvant": "",
+    "hotmelt": "",
+    "papier": "❌"
+  },
+  {
+    "type": "déchirable à la main",
+    "pvc": "❌",
+    "acrylique": "",
+    "solvant": "",
+    "hotmelt": "",
+    "papier": "❌"
+  },
+  {
+    "type": "brillance",
+    "pvc": "",
+    "acrylique": "❌",
+    "solvant": "❌",
+    "hotmelt": "❌",
+    "papier": ""
+  },
+  {
+    "type": "basse température",
+    "pvc": "",
+    "acrylique": "❌",
+    "solvant": "❌❌",
+    "hotmelt": "❌",
+    "papier": ""
+  },
+  {
+    "type": "haute température",
+    "pvc": "❌",
+    "acrylique": "",
+    "solvant": "",
+    "hotmelt": "",
+    "papier": ""
+  },
+  {
+    "type": "uv",
+    "pvc": "❌",
+    "acrylique": "❌",
+    "solvant": "",
+    "hotmelt": "",
+    "papier": ""
+  },
+  {
+    "type": "ecologique",
+    "pvc": "",
+    "acrylique": "❌",
+    "solvant": "",
+    "hotmelt": "❌",
+    "papier": "❌❌"
+  },
+  {
+    "type": "humidité",
+    "pvc": "❌",
+    "acrylique": "",
+    "solvant": "",
+    "hotmelt": "❌",
+    "papier": ""
+  },
+  {
+    "type": "Longue durée",
+    "pvc": "",
+    "acrylique": "❌",
+    "solvant": "❌",
+    "hotmelt": "",
+    "papier": ""
+  },
+  {
+    "type": "déroulement manuel",
+    "pvc": "❌",
+    "acrylique": "❌",
+    "solvant": "❌",
+    "hotmelt": "❌",
+    "papier": "❌"
+  },
+  {
+    "type": "machine (déroulement accéléré)",
+    "pvc": "❌",
+    "acrylique": "❌",
+    "solvant": "❌",
+    "hotmelt": "❌",
+    "papier": ""
+  }
+]

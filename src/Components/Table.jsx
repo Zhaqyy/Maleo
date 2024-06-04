@@ -3,7 +3,7 @@
 import { useMemo } from "react";
 // import { useTable } from "react-table";
 import {
-  createColumnHelper,
+  // createColumnHelper,
   flexRender,
   getCoreRowModel,
   useReactTable,
@@ -15,13 +15,12 @@ import "../Style/Component/Component.css";
 const Table = ({ data }) => {
   const columns = useMemo(
     () => [
-      { Header: "TYPE D’ADHÉSIF / UTILISATION", accessorKey: "type" },
-      { Header: "pvc", accessorKey: "pvc" },
-      { Header: "pp acrylique", accessorKey: "acrylique" },
-      { Header: "Silencieux", accessorKey: "silencieux" },
-      { Header: "Pp solvant", accessorKey: "solvant" },
-      { Header: "Pp hot melt", accessorKey: "hotmelt" },
-      { Header: "papier kraft", accessorKey: "papier" }
+      { header: "TYPE D’ADHÉSIF / UTILISATION", accessorKey: "type" },
+      { header: "pvc", accessorKey: "pvc" },
+      { header: "pp acrylique Silencieux", accessorKey: "acrylique" },
+      { header: "Pp solvant", accessorKey: "solvant" },
+      { header: "Pp hot melt", accessorKey: "hotmelt" },
+      { header: "papier kraft", accessorKey: "papier" }
     ],
     []
   );
@@ -62,50 +61,7 @@ const Table = ({ data }) => {
             </tr>
           ))}
         </tbody>
-        <tfoot>
-          {table.getFooterGroups().map(footerGroup => (
-            <tr key={footerGroup.id}>
-              {footerGroup.headers.map(header => (
-                <th key={header.id}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.footer,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </tfoot>
       </table>
-      {/* <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map((headerGroup, index) => (
-          <tr key={index} {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map((column, colIndex) => (
-              <th key={colIndex} {...column.getHeaderProps()}>
-                {column.render("Header")}
-              </th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map((row, rowIndex) => {
-          prepareRow(row);
-          return (
-            <tr key={rowIndex} {...row.getRowProps()}>
-              {row.cells.map((cell, cellIndex) => (
-                <td key={cellIndex} {...cell.getCellProps()}>
-                  {cell.render("Cell")}
-                </td>
-              ))}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table> */}
     </div>
   );
 };

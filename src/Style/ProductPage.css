@@ -164,7 +164,6 @@
 }
 .pTable .table {
   width: 100%;
-  min-height: 90vh;
   background-color: white;
   border-radius: 15px;
 }
