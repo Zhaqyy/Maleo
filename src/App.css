@@ -13,23 +13,24 @@
 }
 
 button {
-  width: 80%;
+  width: 100%;
   border-radius: 20px;
   border: 2px solid var(--accent);
   padding: 1.25em;
   color: var(--accent);
-  font-size: 0.7em;
+  font-size: 15px;
   font-weight: 500;
   font-family: inherit;
   background-color: var(--bg-light);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: border-color 0.25s, all 0.75s ease;
   margin-block: 1.25em;
   z-index: 5;
 }
 
 button:hover {
   border-color: #a51853b4;
+  box-shadow: 0px 0px 10px -4px var(--accent);
   cursor: pointer;
 }
 
@@ -90,6 +91,31 @@ a.button:focus-visible {
   transform-origin: right;
   z-index: 10001;
 }
+
+.wrapbg{
+  position: relative;
+  z-index: 1;
+}
+.wrapbg::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background: url(/bg.webp);
+    background-size: cover;
+    z-index: -2;
+  }
+  .wrapbg::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+ background-color: rgba(0, 0, 0, 0.9098039216);
+    background-color: var(--bg-variable);
+    z-index: -1;
+  }
 
 @keyframes rot {
   0% {

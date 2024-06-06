@@ -34,6 +34,9 @@ export default function Hero() {
   const bg = useTransform(scrollYProgress, (bg) => {
     return bg === 1 ? "#ffffff" : "#000000";
   });
+  // const bg = useTransform(scrollYProgress, (bg) => {
+  //   return bg === 1 ? `var(--bg-white)` : `var(--bg-black)`;
+  // });
   const z = useTransform(scrollYProgress, (z) => {
     return z === 1 ? 2 : 0;
   });
@@ -102,7 +105,10 @@ export default function Hero() {
     <motion.section
       className="wrapper"
       ref={scrollRef}
-      style={{ padding: "0", backgroundColor: bg }}
+      style={{ padding: "0", 
+      backgroundColor: bg, 
+      // '--bg-variable': bg
+     }}
     >
       <motion.section className="hero" ref={TargetRef}>
         <motion.div className="hero-head" style={{ y: MoveY }}>

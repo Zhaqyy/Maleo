@@ -26,14 +26,14 @@ export const ScaleSection = () => {
       target: scaleRef,
       offset: ["start end", "end end"],
     });
-    // console.log(scrollYProgress.get());
+    console.log(scrollYProgress.get());
     const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
     const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
     const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200],
       {ease: smooth});
     const bgg = useTransform(
       scrollYProgress,
-      [0, 0.2, 0.4, 0.95, 1],
+      [0, 0.2, 0.4, 0.99, 1],
       ["#ffffff", "#ffffff", "#000000", "#000000", "#ffffff"]
     );
     const position = useTransform(scrollYProgress, (pos) => {
@@ -51,7 +51,7 @@ export const ScaleSection = () => {
         ></motion.section>
         <section></section>
         <RedText shift={shift} />
-        <section style={{ height: "50vh" }}></section>
+        <section style={{ height: "10vh" }}></section>
       </motion.section>
     );
   };
@@ -81,7 +81,7 @@ export const ScaleSection = () => {
   export const HeroText = () => {
     return (
       <>
-      <motion.section className="vid2"></motion.section>
+      <motion.section className="vid2 "></motion.section>
       <section className="textline">
         <Paragraph paragraph={paragraph} />
       </section>
@@ -97,10 +97,11 @@ export const ScaleSection = () => {
       target: vidRef,
       offset: ["start end", "end end"],
     });
+    // console.log(scrollYProgress.get());
   
-    const scalee = useTransform(scrollYProgress, [0, 0.9], [0, 1]);
-    const bdr = useTransform(scrollYProgress, [0, 0.9], [10, 50]);
-    const wide = useTransform(scrollYProgress, [0, 0.9], ["20%", "80%"]);
+    const scalee = useTransform(scrollYProgress, [0, 0.1], [0.7, 1]);
+    const bdr = useTransform(scrollYProgress, [0, 0.1], [10, 50]);
+    const wide = useTransform(scrollYProgress, [0, 0.1], ["20%", "80%"]);
     const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
   
     const isInView = useInView(vRef);
@@ -124,7 +125,7 @@ export const ScaleSection = () => {
           playsInline
           className="mainVid"
           style={{
-            top: MoveY,
+            // top: MoveY,
             width: wide,
             scale: scalee,
             borderRadius: bdr,

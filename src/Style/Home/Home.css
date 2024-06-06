@@ -1,28 +1,13 @@
+.wrapper {
+  position: relative;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   padding-inline: 10vw;
   position: relative;
-}
-.hero::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  inset: 0;
-  background: url(/bg.webp);
-  background-size: cover;
-  z-index: -2;
-}
-.hero::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.9098039216);
-  z-index: -1;
 }
 .hero > img {
   width: 500px;
@@ -39,8 +24,8 @@
   left: 50%;
   -o-object-fit: cover;
      object-fit: cover;
-  border-radius: 30px;
-  filter: grayscale(1) brightness(0.25);
+  border-radius: 40px;
+  filter: grayscale(0.9) brightness(0.5);
   transition: all 0.3s ease-out;
   transform: translate(-50%, 0);
   z-index: 0;
@@ -58,6 +43,9 @@
 .hero-cta h3 {
   color: var(--text-color);
 }
+.hero-cta .primary-btn {
+  padding: 1.25em;
+}
 
 #canvasWrapper {
   width: calc(100vw - 5px);
@@ -72,6 +60,9 @@
   height: 100vh;
 }
 
+.textline {
+  background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.8509803922) 0%, #efefef 19%, #efefef 86%, rgba(255, 255, 255, 0.8509803922) 100%);
+}
 .textline h2 {
   float: right;
   text-transform: uppercase;
@@ -122,14 +113,14 @@
   width: 60%;
   color: white;
   margin: auto;
-  padding: 1em;
+  padding-block: 1em;
   text-transform: uppercase;
   z-index: 1;
 }
 .redText .redOverlay {
   position: absolute;
   inset: 0;
-  width: 100%;
+  width: 97%;
   height: 100%;
   background-color: rgba(159, 1, 66, 0.7);
   mix-blend-mode: hard-light;
@@ -179,10 +170,6 @@
   gap: 30px;
   float: right;
 }
-.product .prodHead .prodBtn button {
-  width: 250px;
-}
-
 .LogoDisp {
   position: relative;
   z-index: 1;
