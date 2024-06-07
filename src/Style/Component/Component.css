@@ -288,6 +288,7 @@ aside p {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  min-height: unset;
   z-index: 3;
   position: relative;
   color: black;

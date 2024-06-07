@@ -64,7 +64,7 @@ const visible = {
   
   export const LogoDisp = () => {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
+    const isInView = useInView(ref, { once: false });
   
     return (
       <Section className="LogoDisp">
@@ -75,8 +75,9 @@ const visible = {
           alt="Maleo Emballage"
           style={{
             opacity: isInView ? 1 : 0,
-            scale: isInView ? 1 : 0.2,
+            scale: isInView ? 1 : 0.5,
             y: isInView ? 0 : 200,
+            transitionDuration:'0.5s'
           }}
         />
       </Section>

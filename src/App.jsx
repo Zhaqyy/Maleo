@@ -63,7 +63,9 @@ function App() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.8
+      duration: 1.8,
+      syncTouch: true,
+
     })
 
   function raf(time) {

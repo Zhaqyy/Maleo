@@ -171,7 +171,10 @@
         min-height: unset;
         height: fit-content;
     }
-
+    .toTop{
+        top: 70%;
+        right: 15%;
+    }    
     .rowMain {
         flex-direction: column;
         gap: 30px;
