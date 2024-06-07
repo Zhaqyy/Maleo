@@ -87,11 +87,11 @@ section:not(.wrapper, .textline) {
 }
 
 h1 {
-  font-size: clamp(3.25rem, 10vw, 5.55rem);
+  font-size: clamp(3.44rem, 10vw, 6.25rem);
 }
 
 h2 {
-  font-size: clamp(2.85rem, 10vw, 4.5rem);
+  font-size: clamp(2rem, 10vw, 4.19rem);
 }
 
 h3 {
@@ -227,7 +227,7 @@ html.lenis {
   }
 
   h1 {
-    font-size: clamp(2.25rem, 10vw, 5.55rem);
+    font-size: clamp(2.25rem, 10vw, 5.5rem);
   }
 
   h2 {

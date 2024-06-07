@@ -40,6 +40,7 @@ const visible = {
         (
           <motion.section
             className="product"
+            id="product"
           >
             <motion.div className="prodHead" variants={hprodVariants}>
               <motion.div className="prodBtn" variants={hprodVariants}>

@@ -92,8 +92,11 @@
     font-family: 'Neue', Inter, system-ui, Avenir;
     font-size: 14px;
     margin-top: 1rem;
+    transition: all 0.3s ease;
 }
-
+.footer-list-item:hover {
+    translate: 5px 0;
+}
 .footer-link {
     color: #5d5d5d;
     font-family: 'Neue', Inter, system-ui, Avenir;
@@ -104,13 +107,24 @@
 
 .footer-link:hover {
     text-decoration: none;
+    color: var(--accent);
 }
 
 
 .footer-bottom a:hover {
     text-decoration: underline;
 }
+.toTop{
+    position: absolute;
+    translate: 50%;
+    top: 50%;
+    right: 5%;
 
+    .arrow{
+        rotate: 270deg;
+    }
+
+}
 .newsletter {
     overflow: hidden;
     height: 50px;

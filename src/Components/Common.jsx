@@ -60,6 +60,8 @@ export const ProductList = ({ products }) => {
             fill="black"
           />
         </svg>
+        {/* <img src="/line.png"/> */}
+
       </motion.span>
       {products.map((product, index) => (
         <motion.li className="listItem" key={index} variants={prodVariants}>

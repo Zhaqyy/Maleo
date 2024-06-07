@@ -110,7 +110,7 @@ export default function Hero() {
       // '--bg-variable': bg
      }}
     >
-      <motion.section className="hero" ref={TargetRef}>
+      <motion.section id="hero" className="hero" ref={TargetRef}>
         <motion.div className="hero-head" style={{ y: MoveY }}>
           <h1 className="hollowdark">
             QUALITÉ

@@ -1,7 +1,11 @@
 // For overlay comp
-
-.over-cont {
+aside {
+  width: 100%;
+  height: 100vh;
   position: absolute;
+}
+.over-cont {
+  position: fixed;
   right: 0;
   top: 200px;
   writing-mode: vertical-lr;
@@ -10,16 +14,20 @@
 }
 
 .over-scroll {
-  position: absolute;
+  position: fixed;
   left: 0;
   top: 80vh;
   writing-mode: vertical-lr;
   padding-block: 20px;
   z-index: 10;
 
+  a {
+    color: unset;
+  }
+  
   p {
     letter-spacing: 7px;
-    font-size: 7px;
+    font-size: 8px;
     &::before {
       content: "";
       position: absolute;
@@ -33,6 +41,10 @@
 aside span {
   mix-blend-mode: difference;
   filter: grayscale(1) invert(1);
+}
+aside a {
+  font-weight: revert;
+  color: revert;
 }
 aside p {
   transition: all 0.5s ease;
@@ -51,6 +63,43 @@ aside p {
     opacity: 1;
   }
 }
+@supports (animation-timeline: view()) {
+  @keyframes fade-out-left {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateX(-30vw);
+    }
+  }
+
+  @keyframes fade-out-right {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      transform: translateX(30vw);
+    }
+  }
+
+  @keyframes shadow-in {
+    to {
+      box-shadow: 0 10px 10px #0003;
+    }
+  }
+  .over-scroll {
+    animation: fade-out-left auto ease-in both;
+    animation-timeline: scroll();
+    animation-range: 0% 2%;
+  }
+  .over-cont {
+    animation: fade-out-right auto ease-in both;
+    animation-timeline: scroll();
+    animation-range: 0% 2%;
+  }
+}
 
 //spotlight button
 .primary-btn {
@@ -59,7 +108,7 @@ aside p {
 }
 
 .base-input {
-  transition: border-color 0.5s , all 0.5s ease;
+  transition: border-color 0.5s, all 0.5s ease;
   outline: none;
   position: relative;
 }
@@ -185,13 +234,14 @@ aside p {
   &:hover {
     box-shadow: 0px 0px 5px #a61853;
     rotate: 0deg;
+    cursor: pointer;
   }
 }
 
 // SCroll paragraph
 .paragraph {
   display: flex;
-  font-size: 80px;
+  font-size: clamp(2rem, 10vw, 6.25rem);
   line-height: 1;
   padding: 40px;
   max-width: 1280px;
@@ -517,6 +567,12 @@ th {
 // }
 
 @media (max-width: 770px) {
+  .over-scroll {
+    padding-block: 12px;
+  }
+  .over-cont {
+    padding-block: 12px;
+  }
   .list {
     flex-direction: column;
     gap: 20px;
@@ -539,7 +595,7 @@ th {
   }
 
   .paragraph {
-    font-size: Clamp(1.5em, 2vh, 2.5em);
+    padding: 15px;
   }
   .blog {
     z-index: 4;

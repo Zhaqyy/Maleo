@@ -26,7 +26,7 @@ export const ScaleSection = () => {
       target: scaleRef,
       offset: ["start end", "end end"],
     });
-    console.log(scrollYProgress.get());
+    // console.log(scrollYProgress.get());
     const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
     const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
     const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200],

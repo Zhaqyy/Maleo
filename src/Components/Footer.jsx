@@ -77,6 +77,12 @@ const Footer = () => {
             </Col>
           </div>
         </Row>
+        <div className="toTop">
+          <a href="#hero">
+
+          <ArrowBtn />
+          </a>
+        </div>
         {/* <hr /> */}
         <Row className="lowerFoot">
           <p className="footer-bottom">
