@@ -29,9 +29,10 @@
 
 .pFeature {
   height: -webkit-fill-available;
+  position: relative;
   display: flex;
   font-size: 13px;
-  align-content: flex-end;
+  align-content: flex-start;
   text-transform: uppercase;
   flex-direction: column;
   flex-wrap: wrap;
@@ -43,7 +44,13 @@
   font-size: 12px;
 }
 .pFeature h3 {
+  position: absolute;
+  bottom: -10%;
+  left: 0%;
+  width: 15ch;
+  z-index: 2;
   margin-top: 0.5em;
+  transform: translateX(-10vw) !important;
 }
 .pFeature ul {
   max-width: 400px;
@@ -83,7 +90,7 @@
   transition: all 0.5s ease;
 }
 .pModel .pModelContent.light .list .listItem .imgWrap img, .pModel .pModelContent.light .list .listItem .imgWrap2 img {
-  width: 300px;
+  width: 400px;
 }
 .pModel::before {
   content: "";
@@ -110,8 +117,8 @@
 }
 .pModel .list span {
   z-index: 0;
-  top: -380px;
-  transform: scale(1.4);
+  top: -350px;
+  transform: scale(1.5);
 }
 .pModel .list span svg * {
   fill: white;
@@ -128,7 +135,7 @@
   transition: all 0.5s ease;
 }
 .pModel .list .listItem .imgWrap img {
-  width: 250px;
+  width: 300px;
 }
 .pModel .list .listItem .imgWrap2 {
   position: relative;
@@ -136,7 +143,7 @@
   transition: all 0.5s ease;
 }
 .pModel .list .listItem .imgWrap2 img {
-  width: 300px;
+  width: 400px;
 }
 .pModel .list h4 {
   background: transparent;

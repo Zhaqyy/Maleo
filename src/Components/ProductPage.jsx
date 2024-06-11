@@ -48,7 +48,7 @@ export const PHero = ({ product }) => {
                 </motion.li>
               ))}
           </motion.ul>
-          <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
+          <motion.h3 variants={prodVariants} >{subtitle}</motion.h3>
         </div>
       </div>
     </Section>

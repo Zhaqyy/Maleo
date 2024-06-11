@@ -211,7 +211,7 @@ aside p {
   position: relative;
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
+  align-items: stretch;
   gap: 30px;
 }
 .list span {
@@ -224,6 +224,7 @@ aside p {
   z-index: -1;
 }
 .list .listItem2 {
+  height: auto;
   width: 250px;
   text-align: center;
   text-transform: uppercase;
@@ -235,7 +236,7 @@ aside p {
   background: radial-gradient(rgba(165, 24, 83, 0.4), transparent);
 }
 .list .listItem2 img {
-  width: 300px;
+  width: 250px;
 }
 .list .listItem2 h5 {
   background: transparent !important;
@@ -468,7 +469,8 @@ th {
     margin-block: 5em;
     overflow-x: visible;
   }
-  .list .listItem img, .list .listItem2 img {
+  .list .listItem img,
+  .list .listItem2 img {
     width: 200px;
   }
   .list h5 {
@@ -537,5 +539,262 @@ th {
     -webkit-user-select: none;
        -moz-user-select: none;
             user-select: none;
+  }
+}
+@media (min-width: 1650px) {
+  .over-scroll {
+    top: 70vh;
+  }
+  .over-scroll p::before {
+    width: 2rem;
+  }
+  p,
+  a,
+  button {
+    font-size: clamp(1rem, 0.886rem + 0.57vw, 1.35rem) !important;
+  }
+  button,
+  .nav__cta {
+    min-height: 70px;
+  }
+  .list span,
+  .pModel .pModelContent .list span {
+    transform: scale(1.7);
+  }
+  .hero {
+    padding-inline: clamp(5%, 5vw, 10%);
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .hero h3 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .hero .hero-cta .primary-btn {
+    padding: 1.5em;
+  }
+  .paragraph {
+    font-size: clamp(4rem, 10vw, 8.25rem);
+  }
+  .redText h3 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+  }
+  .product {
+    min-height: 70vh;
+    gap: 10vh;
+    padding-inline: clamp(5%, 5vw, 10%);
+  }
+  .product h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .product h2 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .blog {
+    min-height: 70vh;
+    gap: 10vh;
+    padding-inline: clamp(5%, 5vw, 10%);
+  }
+  .blog h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .blog h3 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .blog h6 {
+    font-size: 1.4rem;
+  }
+  .blog h4 {
+    font-size: 1.6rem;
+  }
+  .footer {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .footer .logoInfo {
+    width: 40%;
+  }
+  .footer h4 {
+    font-size: 1.6rem;
+  }
+  .footer h6 {
+    font-size: 1.4rem;
+  }
+  .footer .toTop {
+    top: 40%;
+    right: 10%;
+  }
+  .footer .toTop .arrow {
+    width: 70px;
+  }
+  .pTable table * {
+    font-size: 14px;
+  }
+  .pModel,
+  .prodHero,
+  .pCont,
+  .pTable {
+    padding-inline: clamp(5%, 5vw, 10%) !important;
+  }
+  .pModel h1,
+  .prodHero h1,
+  .pCont h1,
+  .pTable h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem) !important;
+  }
+  .pModel h2,
+  .prodHero h2,
+  .pCont h2,
+  .pTable h2 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem) !important;
+  }
+  .pModel h3,
+  .prodHero h3,
+  .pCont h3,
+  .pTable h3 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem) !important;
+  }
+  .pModel h5,
+  .prodHero h5,
+  .pCont h5,
+  .pTable h5 {
+    font-size: 1.1rem !important;
+  }
+  .pModel h6,
+  .prodHero h6,
+  .pCont h6,
+  .pTable h6 {
+    font-size: 1rem !important;
+  }
+  .pModel h4,
+  .prodHero h4,
+  .pCont h4,
+  .pTable h4 {
+    font-size: 1.6rem !important;
+  }
+  .pModel .listItem2 {
+    width: 350px;
+  }
+  .pModel img {
+    width: 300px;
+  }
+  .prodHero {
+    justify-content: space-around !important;
+  }
+  .prodHero .pInfo {
+    padding-inline: 20%;
+    align-items: start;
+  }
+  .prodHero .pFeature h3 {
+    font-size: clamp(3.5rem, 10vw, 4.3rem) !important;
+    bottom: -35%;
+  }
+  .nav__cta .arrow {
+    width: 30px;
+  }
+}
+@media (min-width: 2000px) {
+  .list span {
+    top: -300px;
+    transform: scale(2.1);
+  }
+  .list .listItem img {
+    width: 400px;
+  }
+  .list .listItem .imgWrap .button {
+    top: 35%;
+  }
+  .list .listItem h5 {
+    font-size: 1.8em;
+  }
+  .pModel .pModelContent .list span {
+    top: -300px;
+    transform: scale(2.1);
+  }
+  .pModel .pModelContent .list .listItem .imgWrap img {
+    width: 400px;
+  }
+  .pModel .pModelContent .list .listItem .imgWrap .button {
+    top: 35%;
+  }
+  .pModel .pModelContent .list .listItem h5 {
+    font-size: 1.8em;
+  }
+  .pModel .pModelContent.light .list .listItem .imgWrap img, .pModel .pModelContent.light .list .listItem .imgWrap2 img {
+    width: 500px !important;
+  }
+  .hero {
+    padding-inline: clamp(12%, 5vw, 18%);
+    justify-content: center;
+  }
+  .hero h3 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem);
+  }
+  .hero .hero-cta .primary-btn {
+    padding: 1.75em;
+  }
+  .paragraph {
+    font-size: clamp(4rem, 10vw, 9.25rem);
+  }
+  .product {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .product h1 {
+    font-size: clamp(5.44rem, 10vw, 8.25rem);
+  }
+  .product h2 {
+    font-size: clamp(3.5rem, 10vw, 6.6rem);
+  }
+  .blog {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .blog h3 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem);
+  }
+  .blog h6 {
+    font-size: 1.7rem;
+  }
+  .blog h4 {
+    font-size: 2rem;
+  }
+  .pModel,
+  .prodHero,
+  .pCont,
+  .pTable {
+    padding-inline: clamp(10%, 5vw, 18%) !important;
+  }
+  .pModel h1,
+  .prodHero h1,
+  .pCont h1,
+  .pTable h1 {
+    font-size: clamp(5.44rem, 10vw, 8.25rem) !important;
+  }
+  .pModel h2,
+  .prodHero h2,
+  .pCont h2,
+  .pTable h2 {
+    font-size: clamp(3.5rem, 10vw, 6.6rem) !important;
+  }
+  .pModel h3,
+  .prodHero h3,
+  .pCont h3,
+  .pTable h3 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem) !important;
+  }
+  .pModel h6,
+  .prodHero h6,
+  .pCont h6,
+  .pTable h6 {
+    font-size: 1rem !important;
+  }
+  .pModel h4,
+  .prodHero h4,
+  .pCont h4,
+  .pTable h4 {
+    font-size: 2rem !important;
+  }
+  .prodHero .pFeature h3 {
+    font-size: clamp(3.5rem, 10vw, 4.5rem) !important;
+    bottom: -25%;
   }
 }/*# sourceMappingURL=Component.css.map */
