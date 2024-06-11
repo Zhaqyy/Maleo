@@ -264,4 +264,124 @@
     min-height: unset;
     padding-top: 20vh;
   }
+}
+@media (min-width: 1650px) {
+  .over-scroll p::before {
+    width: 2rem;
+  }
+  p, a, button {
+    font-size: clamp(1rem, 0.886rem + 0.57vw, 1.35rem) !important;
+  }
+  button, .nav__cta {
+    min-height: 70px;
+  }
+  .list span {
+    transform: scale(1.7);
+  }
+  .hero {
+    padding-inline: clamp(5%, 5vw, 10%);
+    justify-content: center;
+  }
+  .hero h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .hero h3 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .hero .hero-cta .primary-btn {
+    padding: 1.5em;
+  }
+  .paragraph {
+    font-size: clamp(4rem, 10vw, 8.25rem);
+  }
+  .redText h3 {
+    font-size: clamp(2.5rem, 10vw, 6rem);
+  }
+  .product {
+    min-height: 70vh;
+    padding-inline: clamp(5%, 5vw, 10%);
+  }
+  .product h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .product h2 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .blog {
+    min-height: 70vh;
+    padding-inline: clamp(5%, 5vw, 10%);
+  }
+  .blog h1 {
+    font-size: clamp(4.44rem, 10vw, 7rem);
+  }
+  .blog h3 {
+    font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .blog h6 {
+    font-size: 1.4rem;
+  }
+  .blog h4 {
+    font-size: 1.6rem;
+  }
+  .footer {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .footer .logoInfo {
+    width: 40%;
+  }
+  .footer h4 {
+    font-size: 1.6rem;
+  }
+  .footer h6 {
+    font-size: 1.4rem;
+  }
+}
+@media (min-width: 2000px) {
+  .list span {
+    top: -300px;
+    transform: scale(2.1);
+  }
+  .list .listItem img {
+    width: 400px;
+  }
+  .list .listItem .imgWrap .button {
+    top: 35%;
+  }
+  .list .listItem h5 {
+    font-size: 1.8em;
+  }
+  .hero {
+    padding-inline: clamp(12%, 5vw, 18%);
+    justify-content: center;
+  }
+  .hero h3 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem);
+  }
+  .hero .hero-cta .primary-btn {
+    padding: 1.75em;
+  }
+  .paragraph {
+    font-size: clamp(4rem, 10vw, 9.25rem);
+  }
+  .product {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .product h1 {
+    font-size: clamp(5.44rem, 10vw, 8.25rem);
+  }
+  .product h2 {
+    font-size: clamp(3.5rem, 10vw, 6.6rem);
+  }
+  .blog {
+    padding-inline: clamp(10%, 5vw, 18%);
+  }
+  .blog h3 {
+    font-size: clamp(3.5rem, 10vw, 5.6rem);
+  }
+  .blog h6 {
+    font-size: 1.7rem;
+  }
+  .blog h4 {
+    font-size: 2rem;
+  }
 }/*# sourceMappingURL=Home.css.map */

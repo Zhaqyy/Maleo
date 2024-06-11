@@ -34,14 +34,14 @@ export const ScaleSection = () => {
     const bgg = useTransform(
       scrollYProgress,
       [0, 0.2, 0.4, 0.99, 1],
-      ["#ffffff", "#ffffff", "#000000", "#000000", "#ffffff"]
+      ["#dcdcdc", "#dcdcdc", "#000000", "#000000", "#ffffff"]
     );
     const position = useTransform(scrollYProgress, (pos) => {
       return pos >= 0.22 ? "fixed" : "relative";
     });
-    const bg = useTransform(scrollYProgress, (bg) => {
-      return bg >= 0.31 ? "#000000" : "#ffffff";
-    });
+    // const bg = useTransform(scrollYProgress, (bg) => {
+    //   return bg >= 0.31 ? "#000000" : "#ffffff";
+    // });
     return (
       <motion.section ref={scaleRef} className="scaleSec">
         <motion.section
@@ -81,10 +81,14 @@ export const ScaleSection = () => {
   export const HeroText = () => {
     return (
       <>
-      <motion.section className="vid2 "></motion.section>
-      <section className="textline">
+      <motion.section className="vid2" style={{
+      backgroundColor: '#dcdcdc'
+     }}></motion.section>
+      <motion.section className="textline" style={{
+      background: '#dcdcdc'
+     }}>
         <Paragraph paragraph={paragraph} />
-      </section>
+      </motion.section>
       </>
     )
   }

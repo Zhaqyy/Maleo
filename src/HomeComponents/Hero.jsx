@@ -34,6 +34,14 @@ export default function Hero() {
   const bg = useTransform(scrollYProgress, (bg) => {
     return bg === 1 ? "#ffffff" : "#000000";
   });
+  // const bg1 = useTransform(scrollYProgress, (bg) => {
+  //   return bg === 0.9 ? "#dcdcdc" : "#000000";
+  // });
+  const bg1 = useTransform(
+    scrollYProgress,
+    [0, 0.8, 1],
+    ["#000000", "#000000", "#dcdcdc"]
+  );
   // const bg = useTransform(scrollYProgress, (bg) => {
   //   return bg === 1 ? `var(--bg-white)` : `var(--bg-black)`;
   // });
@@ -51,21 +59,21 @@ export default function Hero() {
   const wideDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.11, 0.9, 1],
-    ["15%", "100%", "100%", "30%"],
+    ["20%", "100%", "100%", "40%"],
     { ease: smooth }
   );
 
   const xDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.2, 0.9, 1],
-    ["50%", "50%", "50%", "20%"],
+    ["50%", "50%", "50%", "25%"],
     { ease: smooth }
   );
 
   const tallDesktop = useTransform(
     scrollYProgress,
     [0.1, 0.11, 0.9, 1],
-    ["300px", "500px", "500px", "700px"],
+    ["40vh", "70vh", "70vh", "90vh"],
     { ease: smooth }
   );
 
@@ -148,7 +156,9 @@ export default function Hero() {
         </motion.div>
         <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
       </motion.section>
-      <motion.section className="vid"></motion.section>
+      <motion.section className="vid" style={{
+      backgroundColor: bg1
+     }}></motion.section>
 
       <motion.section id="canvasWrapper" style={{ zIndex: z }}>
         <Scene />

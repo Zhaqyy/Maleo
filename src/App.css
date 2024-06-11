@@ -42,7 +42,7 @@ button:focus-visible {
 a.button {
   display: block;
   width: 80%;
-  border-radius: 20px;
+  border-radius: 50px;
   border: 2px solid var(--accent);
   padding: 1.25em;
   text-align: center;
@@ -59,6 +59,7 @@ a.button {
 
 a.button:hover {
   border-color: #a51853b4;
+  box-shadow: 0px 0px 10px -4px var(--accent);
   cursor: pointer;
 }
 
