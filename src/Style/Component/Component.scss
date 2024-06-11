@@ -121,7 +121,7 @@ aside p {
   width: 100%;
   height: 100%;
   border: 2px solid var(--accent);
-  border-radius: 17px;
+  border-radius: inherit;
   background-color: transparent;
   // padding: 0.875rem;
   opacity: 0;

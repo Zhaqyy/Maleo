@@ -266,6 +266,9 @@
   }
 }
 @media (min-width: 1650px) {
+  .over-scroll {
+    top: 70vh;
+  }
   .over-scroll p::before {
     width: 2rem;
   }
@@ -299,6 +302,7 @@
   }
   .product {
     min-height: 70vh;
+    gap: 10vh;
     padding-inline: clamp(5%, 5vw, 10%);
   }
   .product h1 {
@@ -309,6 +313,7 @@
   }
   .blog {
     min-height: 70vh;
+    gap: 10vh;
     padding-inline: clamp(5%, 5vw, 10%);
   }
   .blog h1 {

@@ -65,7 +65,7 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const scaleValues = isMobile
     ? [0.2, 0.3, 0.2, 0.2, 0.8, 2.5] // Mobile scale values
-    : [0.3, 0.4, 0.3, 0.3, 0.9, 3.5];
+    : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5];
 
   const XposValues = isMobile
     ? [0, 0, 0, 0, 0] // Mobile scale values
