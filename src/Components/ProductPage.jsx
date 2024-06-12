@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
@@ -61,41 +61,10 @@ export const PHero = ({ product, theme='light' }) => {
 export const PModel = ({ modelTitle, products, 
   theme = "dark"
 }) => {
-  // const ref = useRef(null);
-
-  // const dark = [
-  //   `var(--bg-white)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-white)`,
-  // ];
-  // const light = [
-  //   `var(--bg-black)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-black)`,
-  // ];
-
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start end", "end 0.15"],
-  // });
-  // const bg = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.2, 0.5, 0.97, 1],
-  //   theme === "dark" ? dark : light
-  // );
 
   return (
     <motion.section
-      // ref={ref}
       className="pModel"
-      // style={{
-      //   backgroundColor: bg,
-      //   "--bg-variable": bg,
-      // }}
     >
       <div className="pModelHeader">
         <motion.h1
@@ -123,42 +92,9 @@ export const PModel2 = ({
   theme = "dark",
   model = true,
 }) => {
-  // const ref = useRef(null);
-
-  // const { scrollYProgress } = useScroll({
-  //   target: ref,
-  //   offset: ["start end", "end 0.15"],
-  // });
-
-  // const dark = [
-  //   `var(--bg-white)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-white)`,
-  // ];
-  // const light = [
-  //   `var(--bg-black)`,
-  //   `var(--bg-black)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-white)`,
-  //   `var(--bg-black)`,
-  // ];
-
-  // const bg = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.2, 0.5, 0.97, 1],
-  //   theme === "dark" ? dark : light
-  // );
-
   return (
     <motion.section
-      // ref={ref}
       className="pModel"
-      // style={{
-      //   backgroundColor: bg,
-      //   "--bg-variable": bg,
-      // }}
     >
       <div className="pModelHeader">
         <motion.h1
@@ -190,8 +126,17 @@ export const PTable = ({ product }) => {
   useEffect(() => {
     setTableData(data);
   }, []);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { margin: '0% 0px -50% 0px' });
 
   return (
+    <motion.div
+    ref={ref}
+    style={{
+      opacity: isInView ? 1 : 0, // Adjust the opacity as needed
+      transition: "opacity 0.5s ease",
+    }}
+  >
     <Section className="pTable">
       <motion.h3 variants={prodVariants}>
         FEUILLE À PROPOS DE {product.title}
@@ -200,6 +145,7 @@ export const PTable = ({ product }) => {
         <Table data={tableData} />
       </div>
     </Section>
+    </motion.div>
   );
 };
 
@@ -306,7 +252,6 @@ export const Pwrap = ({  children
     target: ref,
     offset: ["start start", "end start"],
   });
-    // console.log(scrollYProgress.get());
 
     useEffect(() => {
       // Function to log the rounded scroll progress
@@ -336,8 +281,34 @@ export const Pwrap = ({  children
         "--bg-variable": bg,
       }}
     >
-      {React.Children.map(children, (child) => {
-        return React.cloneElement(child);
+
+       {React.Children.map(children, (child) => {
+        const ChildWrapper = (props) => {
+          const childRef = useRef(null);
+          const isInView = useInView(childRef, { margin: '-50% 0px -50% 0px' });
+
+          // // const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
+
+          // useEffect(() => {
+          //   if (isInView) {
+          //     console.log("Component in view:", child.type.name);
+          //   }
+          // }, [isInView, child.type.name]);
+
+          return (
+            <motion.div
+              ref={childRef}
+              style={{
+                opacity: isInView ? 1 : 0, // Adjust the opacity as needed
+                transition: "opacity 0.5s ease",
+              }}
+            >
+              {React.cloneElement(child, { ...props })}
+            </motion.div>
+          );
+        };
+
+        return <ChildWrapper />;
       })}
     </motion.section>
   );

@@ -46,10 +46,11 @@
   }
 
   h3 {
-    position: absolute;
-    bottom: -10%;
-    left: 0%;
-    width: 15ch;
+    // position: absolute;
+    // bottom: -10%;
+    // left: 0%;
+    width: calc(100% + 10vw);
+    line-break: anywhere;
     z-index: 2;
     margin-top: 0.5em;
     transform: translateX(-10vw) !important;
@@ -446,7 +447,14 @@
     flex-direction: column-reverse;
     gap: 2em;
     width: fit-content;
-
+h3{
+  position: relative;
+      bottom: 0;
+    left: 0;
+    width: 100%;
+    line-break: normal;
+    transform: none !important;
+}
     ul {
       padding-left: 30px;
     }
@@ -458,6 +466,7 @@
     .list:has(.imgWrap2) {
       gap: 50px;
       margin-top: unset;
+      align-items: center;
     }
     .list {
       flex-direction: column;

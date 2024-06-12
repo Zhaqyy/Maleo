@@ -741,13 +741,22 @@ th {
       right: 10%;
       .arrow {
         width: 70px;
-    }
+      }
     }
   }
-  .pTable{
+  .pTable {
     table * {
       font-size: 14px;
+    }
   }
+  .Pwrap {
+    section:nth-of-type(1) {
+      padding-top: 0;
+    }
+    .pModel {
+      height: 100vh;
+      // padding-block: 0;
+    }
   }
 
   .pModel,
@@ -796,8 +805,7 @@ th {
   }
   .nav__cta .arrow {
     width: 30px;
-}
-
+  }
 }
 
 @media (min-width: 2000px) {

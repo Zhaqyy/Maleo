@@ -72,17 +72,17 @@ const products3 = [
 
 const order = {
   PHeros: 0,
-  PHeroe: 0.15,
+  PHeroe: 0.1,
 
-  PModel1s: 0.16,
-  PModel1e: 0.3,
+  PModel1s: 0.11,
+  PModel1e: 0.27,
 
-  PModel2s: 0.31,
-  PModel2e: 0.5,
+  PModel2s: 0.28,
+  PModel2e: 0.45,
 
-  PModel3s: 0.51,
+  PModel3s: 0.46,
 
-  PContacte: 0.9,
+  PContacte: 0.946,
 
   end: 1,
 };
