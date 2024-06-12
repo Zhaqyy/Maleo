@@ -6,10 +6,12 @@ const Overlay = () => {
   return (
     <aside>
       <span className="over-cont">
-        <p><span><a href="/Contact"  onClick="lenis.scrollTo('/Contact')">Instagram</a></span> X <span><a href="/Contact"  onClick="lenis.scrollTo('/Contact')">Contact</a></span></p>
+        <p><span><a href="/Contact">Instagram</a></span> X <span><a href="/Contact">Contact</a></span></p>
       </span>
       <span className="over-scroll">
-        <p><a href="#product"  onClick='scrollTo(#product)'>descendre</a></p>
+        <p><a href="#product" 
+        //  onClick={Lenis.scrollTo("#product")}
+         >descendre</a></p>
       </span>
     </aside>
   );

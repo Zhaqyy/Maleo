@@ -286,16 +286,9 @@ aside p {
     transparent
   );
 
-  transition: --wipe-position 4000ms linear;
+  transition: --wipe-position 4250ms linear;
 }
 
-// .wipe:hover {
-//   --wipe-position: calc(-1 * var(--gradient-length));
-// }
-
-// .listItem:has(> :hover):not(:hover) .imgWrap{
-//   opacity: 0.25;
-// }
 .list {
   position: relative;
   display: flex;

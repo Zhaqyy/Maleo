@@ -1,14 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
 import { SpotBtn } from "./magnetBtn";
 import Table from "./Table";
-import data from './data.json';
+import data from "./data.json";
 
 import "../Style/ProductPage.css";
 import "../Style/Contact/contact.css";
@@ -27,18 +27,21 @@ const prodVariants = {
   visible,
 };
 
-export const PHero = ({ product }) => {
+export const PHero = ({ product, theme='light' }) => {
   const { title, imageUrl, features, subtitle } = product;
   return (
     <Section className="prodHero">
-      <motion.h1 className="hollow" variants={prodVariants}>
+      <motion.h1
+        className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
+        variants={prodVariants}
+      >
         {title}
       </motion.h1>
       <div className="pInfo">
         <motion.div variants={prodVariants}>
           <img src={imageUrl} alt={title} loading="lazy" />
         </motion.div>
-        <div className="pFeature">
+        <div className={`pFeature ${theme === "dark" ? "dark" : ""}`}>
           <motion.ul variants={prodVariants}>
             {features &&
               features.map((feature, index) => (
@@ -48,91 +51,140 @@ export const PHero = ({ product }) => {
                 </motion.li>
               ))}
           </motion.ul>
-          <motion.h3 variants={prodVariants} >{subtitle}</motion.h3>
+          <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
         </div>
       </div>
     </Section>
   );
 };
 
-export const PModel = ({ modelTitle, products, theme = 'dark' }) => {
-  const ref = useRef(null);
+export const PModel = ({ modelTitle, products, 
+  theme = "dark"
+}) => {
+  // const ref = useRef(null);
 
-const dark = [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
-const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`]
+  // const dark = [
+  //   `var(--bg-white)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-white)`,
+  // ];
+  // const light = [
+  //   `var(--bg-black)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-black)`,
+  // ];
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end 0.15"],
-  });
-  const bg = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.5, 0.97, 1],
-    theme === 'dark' ? dark : light
-  );
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start end", "end 0.15"],
+  // });
+  // const bg = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.2, 0.5, 0.97, 1],
+  //   theme === "dark" ? dark : light
+  // );
 
   return (
     <motion.section
-    ref={ref}
+      // ref={ref}
       className="pModel"
-      style={{
-        backgroundColor: bg,
-        '--bg-variable': bg,
-      }}
+      // style={{
+      //   backgroundColor: bg,
+      //   "--bg-variable": bg,
+      // }}
     >
       <div className="pModelHeader">
-        <motion.h1 className={`pModelTitle ${theme === 'dark' ? 'hollowdark' : 'hollow'}`} variants={prodVariants}>
+        <motion.h1
+          className={`pModelTitle ${
+            theme === "dark" ? "hollowdark" : "hollow"
+          }`}
+          variants={prodVariants}
+        >
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div className={`pModelContent ${theme === 'light' ? 'light' : ''}`} variants={prodVariants}>
+      <motion.div
+        className={`pModelContent ${theme === "light" ? "light" : ""}`}
+        variants={prodVariants}
+      >
         <ProductList products={products} />
       </motion.div>
       <motion.img loading="lazy" src={logo} />
     </motion.section>
   );
 };
-export const PModel2 = ({ modelTitle, products, theme = 'dark', model = true }) => {
-  const ref = useRef(null);
+export const PModel2 = ({
+  modelTitle,
+  products,
+  theme = "dark",
+  model = true,
+}) => {
+  // const ref = useRef(null);
 
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end 0.15"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: ref,
+  //   offset: ["start end", "end 0.15"],
+  // });
 
-  const dark = [`var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`]
-const light = [`var(--bg-black)`, `var(--bg-black)`, `var(--bg-white)`, `var(--bg-white)`, `var(--bg-black)`]
+  // const dark = [
+  //   `var(--bg-white)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-white)`,
+  // ];
+  // const light = [
+  //   `var(--bg-black)`,
+  //   `var(--bg-black)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-white)`,
+  //   `var(--bg-black)`,
+  // ];
 
-  const bg = useTransform(
-    scrollYProgress,
-    [0, 0.2, 0.5, 0.97, 1],
-    theme === 'dark' ? dark : light
-  );
+  // const bg = useTransform(
+  //   scrollYProgress,
+  //   [0, 0.2, 0.5, 0.97, 1],
+  //   theme === "dark" ? dark : light
+  // );
 
   return (
     <motion.section
-    ref={ref}
+      // ref={ref}
       className="pModel"
-      style={{
-        backgroundColor: bg,
-        '--bg-variable': bg,
-      }}
+      // style={{
+      //   backgroundColor: bg,
+      //   "--bg-variable": bg,
+      // }}
     >
       <div className="pModelHeader">
-        <motion.h1 className={`pModelTitle ${theme === 'dark' ? 'hollowdark' : 'hollow'}`} variants={prodVariants}>
+        <motion.h1
+          className={`pModelTitle ${
+            theme === "dark" ? "hollowdark" : "hollow"
+          }`}
+          variants={prodVariants}
+        >
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div className={`pModelContent ${theme === 'light' ? 'light' : ''}`} variants={prodVariants}>
-      {model ? <ProductList2 products={products} /> : <ProductList3 products={products} />}
+      <motion.div
+        className={`pModelContent ${theme === "light" ? "light" : ""}`}
+        variants={prodVariants}
+      >
+        {model ? (
+          <ProductList2 products={products} />
+        ) : (
+          <ProductList3 products={products} />
+        )}
       </motion.div>
-      <motion.img loading="lazy" src={logo} />
     </motion.section>
   );
 };
 
-export const PTable = ({product}) => {
-
+export const PTable = ({ product }) => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -141,21 +193,26 @@ export const PTable = ({product}) => {
 
   return (
     <Section className="pTable">
-      <motion.h3 variants={prodVariants}>FEUILLE À PROPOS DE {product.title}</motion.h3>
+      <motion.h3 variants={prodVariants}>
+        FEUILLE À PROPOS DE {product.title}
+      </motion.h3>
       <div className="table">
-        <Table data={tableData}/>
+        <Table data={tableData} />
       </div>
     </Section>
   );
 };
 
-export const PContact = ({ products,products2 }) => {
+export const PContact = ({ products, products2, theme }) => {
   return (
     <Section className="pCont">
-      <motion.h1 className="hollow" variants={prodVariants}>
-      PARLONS-EN
+      <motion.h1
+        className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
+        variants={prodVariants}
+      >
+        PARLONS-EN
       </motion.h1>
-      <div className="cont-form">
+      <div className={`cont-form ${theme === "dark" ? "dark" : ""}`}>
         <motion.div id="contact-form">
           <motion.div className="inp-field" variants={prodVariants}>
             <input
@@ -196,20 +253,19 @@ export const PContact = ({ products,products2 }) => {
             <span></span>
           </motion.div>
 
-
           {products2 && products2.length > 0 && (
-        <motion.div className="inp-field choice" variants={prodVariants}>
-          <label htmlFor="Choice2">Impression</label>
-          <select name="Choice2" id="Choice2">
-            {products2.map((product2, index) => (
-              <option key={index} value={product2.title}>
-                {product2.title}
-              </option>
-            ))}
-          </select>
-          <span></span>
-        </motion.div>
-      )}
+            <motion.div className="inp-field choice" variants={prodVariants}>
+              <label htmlFor="Choice2">Impression</label>
+              <select name="Choice2" id="Choice2">
+                {products2.map((product2, index) => (
+                  <option key={index} value={product2.title}>
+                    {product2.title}
+                  </option>
+                ))}
+              </select>
+              <span></span>
+            </motion.div>
+          )}
 
           <motion.textarea
             placeholder="Montant"
@@ -237,5 +293,52 @@ export const PContact = ({ products,products2 }) => {
         </motion.div>
       </div>
     </Section>
+  );
+};
+
+export const Pwrap = ({  children
+, bgSequence, timeline 
+}) => {
+
+  const ref = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+    // console.log(scrollYProgress.get());
+
+    useEffect(() => {
+      // Function to log the rounded scroll progress
+      const unsubscribe = scrollYProgress.onChange((latest) => {
+        const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+        console.log(rounded);
+      });
+  
+      // Clean up the subscription on unmount
+      return () => unsubscribe();
+    }, [scrollYProgress]);
+  
+  
+
+  const bg = useTransform(
+    scrollYProgress,
+    timeline,
+    bgSequence
+    );
+    
+  return (
+    <motion.section
+      ref={ref}
+      className="Pwrap"
+      style={{
+        backgroundColor: bg,
+        "--bg-variable": bg,
+      }}
+    >
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child);
+      })}
+    </motion.section>
   );
 };

@@ -1,13 +1,8 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import {
-  useInView,
-  motion
-} from "framer-motion";
+import { useInView, motion } from "framer-motion";
 import "../Style/Component/Component.css";
 import { useRef } from "react";
-
-
 
 export const ProductList = ({ products }) => {
   const visible = {
@@ -17,7 +12,7 @@ export const ProductList = ({ products }) => {
     scale: 1,
     transition: { staggerChildren: 0.5, duration: 0.6 },
   };
-  
+
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -61,10 +56,24 @@ export const ProductList = ({ products }) => {
           />
         </svg>
         {/* <img src="/line.png"/> */}
-
       </motion.span>
       {products.map((product, index) => (
-        <motion.li className="listItem" key={index} variants={prodVariants}>
+        <motion.li className="listItem" 
+        initial={{
+          opacity: 0.25,
+         
+        }}
+        whileInView={{
+          opacity: 1,
+          transition: {
+            duration: 0.5,
+            delay: index / 1.1,
+            easings:"easeIn",
+          }
+        }}
+        viewport={{ once: true }}
+        key={index} 
+        >
           <div className="imgWrap">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
             <a href={product.link || "#contact-form"} className="button">
@@ -85,7 +94,7 @@ export const ProductList2 = ({ products }) => {
     scale: 1,
     transition: { staggerChildren: 0.5, duration: 0.6 },
   };
-  
+
   const prodVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
@@ -93,7 +102,23 @@ export const ProductList2 = ({ products }) => {
   return (
     <motion.ul className="list" variants={prodVariants}>
       {products.map((product, index) => (
-        <motion.li className="listItem" key={index} variants={prodVariants}>
+        <motion.li className="listItem"
+        initial={{
+          opacity: 0,
+         y:150
+        }}
+        whileInView={{
+          opacity: 1,
+          y:0,
+          transition: {
+            duration: 1,
+            delay: index / 1.1,
+            easings:"easeIn",
+          }
+        }}
+        viewport={{ once: true }}
+        key={index} 
+        >
           <div className="imgWrap2">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
             {/* <a href={product.link} className="button">
@@ -114,7 +139,7 @@ export const ProductList3 = ({ products }) => {
     scale: 1,
     transition: { staggerChildren: 0.5, duration: 0.6 },
   };
-  
+
   const prodVariants = {
     hidden: { opacity: 0, y: 50 },
     visible,
@@ -122,10 +147,25 @@ export const ProductList3 = ({ products }) => {
   return (
     <motion.ul className="list" variants={prodVariants}>
       {products.map((product, index) => (
-        <motion.li className="listItem2" key={index} variants={prodVariants}>
+        <motion.li className="listItem2"
+        initial={{
+          opacity: 0,
+         y:50
+        }}
+        whileInView={{
+          opacity: 1,
+          y:0,
+          transition: {
+            duration: 0.5,
+            delay: index / 10,
+            easings:"easeIn",
+          }
+        }}
+        viewport={{ once: false }}
+        key={index} 
+        >
           <div className="imgWrap2">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
-
           </div>
           <h5>{product.title}</h5>
         </motion.li>

@@ -70,7 +70,7 @@
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  gap: 10vh;
+  gap: 5vh;
   transition: all 0.5s ease;
   isolation: isolate;
 }
@@ -84,33 +84,15 @@
   color: rgb(0, 0, 0);
   z-index: 1;
 }
-.pModel .pModelContent.light .list .listItem .imgWrap, .pModel .pModelContent.light .list .listItem .imgWrap2 {
+.pModel .pModelContent.light .list .listItem .imgWrap,
+.pModel .pModelContent.light .list .listItem .imgWrap2 {
   position: relative;
   border-radius: 50%;
   transition: all 0.5s ease;
 }
-.pModel .pModelContent.light .list .listItem .imgWrap img, .pModel .pModelContent.light .list .listItem .imgWrap2 img {
+.pModel .pModelContent.light .list .listItem .imgWrap img,
+.pModel .pModelContent.light .list .listItem .imgWrap2 img {
   width: 400px;
-}
-.pModel::before {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  background: url(/bg.webp);
-  background-size: cover;
-  z-index: -2;
-}
-.pModel::after {
-  content: "";
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  inset: 0;
-  background-color: var(--bg-variable);
-  transition: all 0.5s ease;
-  z-index: -1;
 }
 .pModel .list .listItem:hover .imgWrap {
   outline: 2px solid var(--accent);
@@ -164,15 +146,50 @@
 }
 
 .pTable {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 5vh;
   text-transform: uppercase;
+  z-index: 1;
 }
 .pTable .table {
   width: 100%;
   background-color: white;
   border-radius: 15px;
+}
+
+.Pwrap {
+  position: relative;
+  z-index: 1;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.Pwrap::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  background: url(/bg.webp);
+  background-size: cover;
+  z-index: -2;
+}
+.Pwrap::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  inset: 0;
+  background-color: var(--bg-variable);
+  transition: all 0.5s ease;
+  z-index: -1;
+}
+.Pwrap .pFeature.dark * {
+  color: rgb(241, 241, 241);
+}
+.Pwrap .pFeature.dark h6 {
+  color: rgb(223, 223, 223);
 }
 
 .pCont {
@@ -187,6 +204,22 @@
 }
 .pCont .cont-form {
   min-width: 35vw;
+}
+.pCont .cont-form.dark * {
+  /* position: relative; */
+  /* z-index: 1; */
+  color: var(--bg-color) !important;
+}
+.pCont .cont-form.dark input,
+.pCont .cont-form.dark textarea,
+.pCont .cont-form.dark .choice {
+  border-color: var(--bg-color) !important;
+}
+.pCont .cont-form.dark select {
+  background: var(--bg-dark) !important;
+}
+.pCont .cont-form.dark label {
+  background: var(--bg-dark);
 }
 .pCont .choice {
   position: relative;

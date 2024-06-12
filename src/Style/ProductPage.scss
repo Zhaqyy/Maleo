@@ -77,74 +77,53 @@
   flex-direction: column;
   justify-content: space-around;
   position: relative;
-  gap: 10vh;
+  gap: 5vh;
   transition: all 0.5s ease;
   isolation: isolate;
 
-.pModelContent.light{
-  .list{ 
+  .pModelContent.light {
+    .list {
+      h4 {
+        background: transparent;
+        color: rgb(0, 0, 0);
+        z-index: 1;
+      }
+      h5 {
+        background: transparent;
+        color: rgb(0, 0, 0);
+        z-index: 1;
+      }
+      .listItem .imgWrap,
+      .listItem .imgWrap2 {
+        position: relative;
+        border-radius: 50%;
+        // outline: 2px solid rgb(255, 255, 255);
+        // background-color: rgb(255, 255, 255);
+        transition: all 0.5s ease;
 
-    h4 {
-      background: transparent;
-      color: rgb(0, 0, 0);
-      z-index: 1;
+        img {
+          width: 400px;
+        }
+      }
     }
-    h5 {
-      background: transparent;
-      color: rgb(0, 0, 0);
-      z-index: 1;
-    }
-  .listItem .imgWrap,.listItem .imgWrap2 {
-    position: relative;
-    border-radius: 50%;
-    // outline: 2px solid rgb(255, 255, 255);
-    // background-color: rgb(255, 255, 255);
-    transition: all 0.5s ease;
+  }
 
-    img{
-        width: 400px;
-    }
-}
-  }
-}
-  
-  &::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-    background: url(/bg.webp);
-    background-size: cover;
-    z-index: -2;
-  }
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    inset: 0;
-    // background-color: rgba(0, 0, 0, 0.9098039216);
-    background-color: var(--bg-variable);
-    transition: all 0.5s ease;
-    z-index: -1;
-  }
   .list .listItem:hover .imgWrap {
-    outline: 2px solid var(--accent); 
-}
+    outline: 2px solid var(--accent);
+  }
   .list span {
     z-index: 0;
     top: -350px;
     transform: scale(1.5);
 
-    svg *{
-        fill: white;
+    svg * {
+      fill: white;
     }
   }
   .list .listItem {
     height: unset;
     gap: 30px;
-}
+  }
 
   .list .listItem .imgWrap {
     position: relative;
@@ -153,10 +132,10 @@
     background-color: rgb(0, 0, 0);
     transition: all 0.5s ease;
 
-    img{
-        width: 300px;
+    img {
+      width: 300px;
     }
-}
+  }
   .list .listItem .imgWrap2 {
     position: relative;
     border-radius: 50%;
@@ -164,10 +143,10 @@
     // background-color: rgb(0, 0, 0);
     transition: all 0.5s ease;
 
-    img{
-        width: 400px;
+    img {
+      width: 400px;
     }
-}
+  }
 
   .list h4 {
     background: transparent;
@@ -190,16 +169,57 @@
 }
 
 .pTable {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 5vh;
   text-transform: uppercase;
+  z-index: 1;
 
   .table {
     width: 100%;
     // min-height: 90vh;
     background-color: white;
     border-radius: 15px;
+  }
+}
+
+.Pwrap {
+  position: relative;
+  z-index: 1;
+  padding: 0 !important;
+  margin: 0 !important;
+
+
+  &::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    background: url(/bg.webp);
+    background-size: cover;
+    // opacity: 0.7;
+    z-index: -2;
+  }
+  &::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    inset: 0;
+    // background-color: rgba(0, 0, 0, 0.9098039216);
+    background-color: var(--bg-variable);
+    transition: all 0.5s ease;
+    z-index: -1;
+  }
+  .pFeature.dark {
+    * {
+      color: rgb(241, 241, 241);
+    }
+    h6 {
+      color: rgb(223, 223, 223);
+    }
   }
 }
 
@@ -216,7 +236,24 @@
   .cont-form {
     min-width: 35vw;
   }
-
+  .cont-form.dark {
+    * {
+      /* position: relative; */
+      /* z-index: 1; */
+      color: var(--bg-color) !important;
+    }
+    input,
+    textarea,
+    .choice {
+      border-color: var(--bg-color) !important;
+    }
+    select {
+      background: var(--bg-dark) !important;
+    }
+    label {
+      background: var(--bg-dark);
+    }
+  }
   .choice {
     position: relative;
     display: flex;
@@ -404,7 +441,7 @@
   .prodHero h1 {
     font-size: clamp(2rem, 10vw, 7.55rem);
     overflow-wrap: anywhere;
-}
+  }
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;
@@ -456,7 +493,7 @@
   }
   .pCont .cont-form {
     width: 100%;
-}
+  }
 }
 @media (max-width: 500px) {
   .pInfo {
@@ -464,10 +501,9 @@
 
     h3 {
       font-size: clamp(1.9rem, 10vw, 3.6rem);
-  }
+    }
   }
   .pModel .list .listItem .imgWrap img {
     width: 200px;
-}
-
+  }
 }
