@@ -126,17 +126,8 @@ export const PTable = ({ product }) => {
   useEffect(() => {
     setTableData(data);
   }, []);
-  const ref = useRef(null);
-  const isInView = useInView(ref, { margin: '0% 0px -50% 0px' });
 
   return (
-    <motion.div
-    ref={ref}
-    style={{
-      opacity: isInView ? 1 : 0, // Adjust the opacity as needed
-      transition: "opacity 0.5s ease",
-    }}
-  >
     <Section className="pTable">
       <motion.h3 variants={prodVariants}>
         FEUILLE À PROPOS DE {product.title}
@@ -145,7 +136,6 @@ export const PTable = ({ product }) => {
         <Table data={tableData} />
       </div>
     </Section>
-    </motion.div>
   );
 };
 
@@ -253,16 +243,19 @@ export const Pwrap = ({  children
     offset: ["start start", "end start"],
   });
 
-    useEffect(() => {
-      // Function to log the rounded scroll progress
-      const unsubscribe = scrollYProgress.onChange((latest) => {
-        const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-        console.log(rounded);
-      });
+  // Log for timeline Sequence
+
+
+    // useEffect(() => {
+    //   // Function to log the rounded scroll progress
+    //   const unsubscribe = scrollYProgress.onChange((latest) => {
+    //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+    //     console.log(rounded);
+    //   });
   
-      // Clean up the subscription on unmount
-      return () => unsubscribe();
-    }, [scrollYProgress]);
+    //   // Clean up the subscription on unmount
+    //   return () => unsubscribe();
+    // }, [scrollYProgress]);
   
   
 
@@ -281,27 +274,6 @@ export const Pwrap = ({  children
         "--bg-variable": bg,
       }}
     >
-{/* 
-       {React.Children.map(children, (child) => {
-        const ChildWrapper = (props) => {
-          const childRef = useRef(null);
-          const isInView = useInView(childRef, { margin: '-50% 0px -50% 0px' });
-
-          return (
-            <motion.div
-              ref={childRef}
-              style={{
-                opacity: isInView ? 1 : 0, // Adjust the opacity as needed
-                transition: "opacity 0.5s ease",
-              }}
-            >
-              {React.cloneElement(child, { ...props })}
-            </motion.div>
-          );
-        };
-
-        return <ChildWrapper />;
-      })} */}
             {React.Children.map(children, (child, index) => {
         const isLastChild = index === React.Children.count(children) - 1;
 
@@ -309,11 +281,12 @@ export const Pwrap = ({  children
           const childRef = useRef(null);
           const isInView = useInView(childRef, { margin: isLastChild ? '0% 0px -50% 0px' : '-50% 0px -50% 0px' });
 
-          useEffect(() => {
-            if (isInView) {
-              console.log(`Child ${index} is in view`);
-            }
-          }, [isInView, index]);
+          // Log for timeline Sequence
+          // useEffect(() => {
+          //   if (isInView) {
+          //     console.log(`Child ${index} is in view`);
+          //   }
+          // }, [isInView, index]);
 
           return (
             <motion.div
