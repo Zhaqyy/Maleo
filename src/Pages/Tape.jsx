@@ -69,6 +69,7 @@ const products3 = [
   { imageSrc: m3, title: "Pvc 33m", linktext: "Citation" },
   { imageSrc: m3, title: "papier kraft", linktext: "Citation" },
 ];
+const isMobile = window.innerWidth < 770;
 
 const order = {
   PHeros: 0,
@@ -99,6 +100,37 @@ const timeline = [
   order.PContacte,
   order.end,
 ];
+
+const Morder = {
+  PHeros: 0,
+  PHeroe: 0.1,
+
+  PModel1s: 0.11,
+  PModel1e: 0.3,
+
+  PModel2s: 0.31,
+  PModel2e: 0.5,
+
+  PModel3s: 0.51,
+
+  PContacte: 0.946,
+
+  end: 1,
+};
+
+const Mtimeline = [
+  Morder.PHeros,
+  Morder.PHeroe,
+  Morder.PModel1s,
+  Morder.PModel1e,
+  Morder.PModel2s,
+  Morder.PModel2e,
+
+  Morder.PModel3s,
+  Morder.PContacte,
+  Morder.end,
+];
+
 const bgSequence = [
   `var(--bg-white)`,
   `var(--bg-white)`,
@@ -122,7 +154,7 @@ const Tape = () => {
   }, []);
   return (
     <>
-      <Pwrap bgSequence={bgSequence} timeline={timeline}>
+      <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
         <PHero product={productData} theme={"light"}/>
           
         <PModel modelTitle={pageTitle} products={products} theme={"dark"}/>

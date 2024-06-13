@@ -4,6 +4,8 @@ import { useInView, motion } from "framer-motion";
 import "../Style/Component/Component.css";
 import { useRef } from "react";
 
+const isMobile = window.innerWidth < 770;
+
 export const ProductList = ({ products }) => {
   const visible = {
     opacity: 1,
@@ -58,21 +60,21 @@ export const ProductList = ({ products }) => {
         {/* <img src="/line.png"/> */}
       </motion.span>
       {products.map((product, index) => (
-        <motion.li className="listItem" 
-        initial={{
-          opacity: 0.25,
-         
-        }}
-        whileInView={{
-          opacity: 1,
-          transition: {
-            duration: 0.5,
-            delay: index / 1.1,
-            easings:"easeIn",
-          }
-        }}
-        viewport={{ once: true }}
-        key={index} 
+        <motion.li
+          className="listItem"
+          initial={{
+            opacity: 0.25,
+          }}
+          whileInView={{
+            opacity: 1,
+            transition: {
+              duration: 0.5,
+              delay: isMobile ? index / 6 : index / 1.1,
+              easings: "easeIn",
+            },
+          }}
+          viewport={{ once: true }}
+          key={index}
         >
           <div className="imgWrap">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
@@ -102,22 +104,23 @@ export const ProductList2 = ({ products }) => {
   return (
     <motion.ul className="list" variants={prodVariants}>
       {products.map((product, index) => (
-        <motion.li className="listItem"
-        initial={{
-          opacity: 0,
-         y:150
-        }}
-        whileInView={{
-          opacity: 1,
-          y:0,
-          transition: {
-            duration: 1,
-            delay: index / 1.1,
-            easings:"easeIn",
-          }
-        }}
-        viewport={{ once: true }}
-        key={index} 
+        <motion.li
+          className="listItem"
+          initial={{
+            opacity: 0,
+            y: isMobile ? 50 : 150,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1,
+              delay: isMobile ? index / 6 : index / 1.1,
+              easings: "easeIn",
+            },
+          }}
+          viewport={{ once: true }}
+          key={index}
         >
           <div className="imgWrap2">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
@@ -147,22 +150,23 @@ export const ProductList3 = ({ products }) => {
   return (
     <motion.ul className="list" variants={prodVariants}>
       {products.map((product, index) => (
-        <motion.li className="listItem2"
-        initial={{
-          opacity: 0,
-         y:50
-        }}
-        whileInView={{
-          opacity: 1,
-          y:0,
-          transition: {
-            duration: 0.5,
-            delay: index / 10,
-            easings:"easeIn",
-          }
-        }}
-        viewport={{ once: false }}
-        key={index} 
+        <motion.li
+          className="listItem2"
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 0.5,
+              delay: index / 10,
+              easings: "easeIn",
+            },
+          }}
+          viewport={{ once: true }}
+          key={index}
         >
           <div className="imgWrap2">
             <img loading="lazy" src={product.imageSrc} alt={product.title} />
