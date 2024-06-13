@@ -88,11 +88,13 @@
         background: transparent;
         color: rgb(0, 0, 0);
         z-index: 1;
+        text-align: center;
       }
       h5 {
         background: transparent;
         color: rgb(0, 0, 0);
         z-index: 1;
+        text-align: center;
       }
       .listItem .imgWrap,
       .listItem .imgWrap2 {
@@ -153,11 +155,13 @@
     background: transparent;
     color: white;
     z-index: 1;
+    text-align: center;
   }
   .list h5 {
     background: transparent;
     color: white;
     z-index: 1;
+    text-align: center;
   }
 
   & > img {
@@ -225,6 +229,7 @@
 }
 
 .pCont {
+  position: relative;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -233,6 +238,7 @@
   text-align: center;
   gap: 5vh;
   padding-block: 10vh;
+  z-index: 2;
 
   .cont-form {
     min-width: 35vw;
@@ -273,7 +279,7 @@
       padding: 0.2em;
       font-size: 11px;
       text-transform: uppercase;
-      background: var(--bg-color);
+      background: gainsboro;
     }
 
     select {

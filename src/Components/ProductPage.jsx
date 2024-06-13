@@ -281,19 +281,11 @@ export const Pwrap = ({  children
         "--bg-variable": bg,
       }}
     >
-
+{/* 
        {React.Children.map(children, (child) => {
         const ChildWrapper = (props) => {
           const childRef = useRef(null);
           const isInView = useInView(childRef, { margin: '-50% 0px -50% 0px' });
-
-          // // const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-
-          // useEffect(() => {
-          //   if (isInView) {
-          //     console.log("Component in view:", child.type.name);
-          //   }
-          // }, [isInView, child.type.name]);
 
           return (
             <motion.div
@@ -309,7 +301,36 @@ export const Pwrap = ({  children
         };
 
         return <ChildWrapper />;
+      })} */}
+            {React.Children.map(children, (child, index) => {
+        const isLastChild = index === React.Children.count(children) - 1;
+
+        const ChildWrapper = (props) => {
+          const childRef = useRef(null);
+          const isInView = useInView(childRef, { margin: isLastChild ? '0% 0px -50% 0px' : '-50% 0px -50% 0px' });
+
+          useEffect(() => {
+            if (isInView) {
+              console.log(`Child ${index} is in view`);
+            }
+          }, [isInView, index]);
+
+          return (
+            <motion.div
+              ref={childRef}
+              style={{
+                opacity: isInView ? 1 : 0,
+                transition: "opacity 0.5s ease",
+              }}
+            >
+              {React.cloneElement(child, { ...props })}
+            </motion.div>
+          );
+        };
+
+        return <ChildWrapper />;
       })}
+
     </motion.section>
   );
 };

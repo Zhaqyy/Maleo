@@ -69,21 +69,22 @@ const products3 = [
   { imageSrc: m3, title: "Pvc 33m", linktext: "Citation" },
   { imageSrc: m3, title: "papier kraft", linktext: "Citation" },
 ];
+
 const isMobile = window.innerWidth < 770;
 
 const order = {
   PHeros: 0,
-  PHeroe: 0.1,
+  PHeroe: 0.065,
 
-  PModel1s: 0.11,
-  PModel1e: 0.27,
+  PModel1s: 0.07,
+  PModel1e: 0.23,
 
-  PModel2s: 0.28,
-  PModel2e: 0.45,
+  PModel2s: 0.24,
+  PModel2e: 0.39,
 
   PModel3s: 0.46,
 
-  PContacte: 0.946,
+  PContacte: 0.79,
 
   end: 1,
 };
@@ -103,17 +104,17 @@ const timeline = [
 
 const Morder = {
   PHeros: 0,
-  PHeroe: 0.1,
+  PHeroe: 0.09,
 
-  PModel1s: 0.11,
-  PModel1e: 0.3,
+  PModel1s: 0.1,
+  PModel1e: 0.24,
 
-  PModel2s: 0.31,
-  PModel2e: 0.5,
+  PModel2s: 0.25,
+  PModel2e: 0.445,
 
   PModel3s: 0.51,
 
-  PContacte: 0.946,
+  PContacte: 0.84,
 
   end: 1,
 };
@@ -155,9 +156,9 @@ const Tape = () => {
   return (
     <>
       <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
-        <PHero product={productData} theme={"light"}/>
-          
-        <PModel modelTitle={pageTitle} products={products} theme={"dark"}/>
+        <PHero product={productData} theme={"light"} />
+
+        <PModel modelTitle={pageTitle} products={products} theme={"dark"} />
         <PModel2 modelTitle={pageTitle2} products={products2} theme={"light"} />
         <PModel2
           modelTitle={pageTitle2}
@@ -175,9 +176,8 @@ const Tape = () => {
           theme="dark"
         />
         <PContact products={products3} products2={products2} theme="dark" />
+        <PTable product={productData} />
       </Pwrap>
-
-      <PTable product={productData} />
     </>
   );
 };

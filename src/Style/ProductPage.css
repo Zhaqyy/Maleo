@@ -76,11 +76,13 @@
   background: transparent;
   color: rgb(0, 0, 0);
   z-index: 1;
+  text-align: center;
 }
 .pModel .pModelContent.light .list h5 {
   background: transparent;
   color: rgb(0, 0, 0);
   z-index: 1;
+  text-align: center;
 }
 .pModel .pModelContent.light .list .listItem .imgWrap,
 .pModel .pModelContent.light .list .listItem .imgWrap2 {
@@ -129,11 +131,13 @@
   background: transparent;
   color: white;
   z-index: 1;
+  text-align: center;
 }
 .pModel .list h5 {
   background: transparent;
   color: white;
   z-index: 1;
+  text-align: center;
 }
 .pModel > img {
   width: 450px;
@@ -191,6 +195,7 @@
 }
 
 .pCont {
+  position: relative;
   min-height: auto;
   display: flex;
   flex-direction: column;
@@ -199,6 +204,7 @@
   text-align: center;
   gap: 5vh;
   padding-block: 10vh;
+  z-index: 2;
 }
 .pCont .cont-form {
   min-width: 35vw;
@@ -237,7 +243,7 @@
   padding: 0.2em;
   font-size: 11px;
   text-transform: uppercase;
-  background: var(--bg-color);
+  background: gainsboro;
 }
 .pCont .choice select {
   background: none;
