@@ -143,16 +143,24 @@
 }
 
 .videoSec {
-  padding-bottom: 15vh;
+  padding-top: 15vh;
+  // padding-bottom: 30vh;
+  height: 200vh;
+  text-align: -webkit-center;
+  text-align: center;
   .mainVid {
+    position: sticky;
+    // left: 50%;
+    top: 5%;
+
     z-index: 2;
-    position: relative;
+    // position: relative;
     border-radius: 50px;
-    inset: 0 50%;
-    translate: -50% 0;
-    transform-origin: bottom center;
+    // inset: 0 50%;
+    // translate: -50% 0;
+    // transform-origin: bottom center;
     // scale: 1;
-    // width: 90%;
+    width: 85%;
   }
 }
 
@@ -162,7 +170,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
-  margin-bottom: 10vh;
+  margin-block: 10vh;
   z-index: 3;
 
   .prodHead {
@@ -257,6 +265,8 @@
 
   .videoSec {
     min-height: unset;
+    height: fit-content;
+    padding-top: 5vh;
     .mainVid {
       border-radius: 20px !important;
       width: 90% !important;

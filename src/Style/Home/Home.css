@@ -132,15 +132,17 @@
 }
 
 .videoSec {
-  padding-bottom: 15vh;
+  padding-top: 15vh;
+  height: 200vh;
+  text-align: -webkit-center;
+  text-align: center;
 }
 .videoSec .mainVid {
+  position: sticky;
+  top: 5%;
   z-index: 2;
-  position: relative;
   border-radius: 50px;
-  inset: 0 50%;
-  translate: -50% 0;
-  transform-origin: bottom center;
+  width: 85%;
 }
 
 .product {
@@ -149,7 +151,7 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: stretch;
-  margin-bottom: 10vh;
+  margin-block: 10vh;
   z-index: 3;
 }
 .product .prodHead {
@@ -227,6 +229,9 @@
   }
   .videoSec {
     min-height: unset;
+    height: -moz-fit-content;
+    height: fit-content;
+    padding-top: 5vh;
   }
   .videoSec .mainVid {
     border-radius: 20px !important;

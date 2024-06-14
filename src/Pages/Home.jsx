@@ -66,7 +66,7 @@ export default function Home() {
     <>
         <Hero />
         <ScaleSection />
-        <Vid />
+        {/* <Vid /> */}
         <Product />
         <BlogSec posts={blogPosts} />
         <LogoDisp />
