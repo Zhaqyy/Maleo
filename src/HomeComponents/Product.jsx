@@ -27,6 +27,10 @@ const visible = {
       hidden: { opacity: 0, y: 50 },
       visible,
     };
+    const imgVariants = {
+      hidden: { opacity: 0, x: -200 },
+      visible,
+    };
   
     const products = [
       { imageSrc: h1, title: "Ruban Adhésif", link: "/Tape", linktext: "View More" },
@@ -47,7 +51,9 @@ const visible = {
                 <ArrowBtn />
                 <SpotBtn text={"DEVISER MAINTENANT"} />
               </motion.div>
-              <motion.h1 variants={hprodVariants}>NOS PRODUITS</motion.h1>
+              <motion.h1 variants={hprodVariants}>NOS PRODUITS
+              <motion.img variants={imgVariants} src="/mal.svg" />
+              </motion.h1>
               <motion.h2 className="hollow" variants={hprodVariants}>
                 sont les meilleurs
               </motion.h2>

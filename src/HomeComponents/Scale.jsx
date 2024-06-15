@@ -55,7 +55,7 @@ export const ScaleSection = () => {
     ["#dcdcdc", "#dcdcdc", "#000000", "#000000", "#ffffff"]
   );
   const position = useTransform(scrollYProgress, (pos) => {
-    return pos >= 0.22 ? "fixed" : "relative";
+    return pos >= 0.18 ? "fixed" : "relative";
   });
   // const bg = useTransform(scrollYProgress, (bg) => {
   //   return bg >= 0.31 ? "#000000" : "#ffffff";

@@ -5,6 +5,7 @@ import "../Style/Header.css";
 // import logoW from "/logowhite.png"
 import logoB from "/logoB.png";
 import { ArrowBtn } from "./magnetBtn";
+import { useMotionValueEvent, motion, useScroll } from "framer-motion";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -18,9 +19,45 @@ const Header = () => {
       setShowMenu(false);
     }
   };
+
+  const parentVariants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: "-100%" },
+  };
+
+  const { scrollY } = useScroll();
+
+  const [hidden, setHidden] = useState(false);
+const [prevScroll, setPrevScroll] = useState(0);
+
+
+function update(latest, prev) {
+  if (latest < prev) {
+    setHidden(false);
+    console.log("visible");
+  } else if (latest > 100 && latest > prev) {
+    setHidden(true);
+    console.log("hidden");
+  }
+}
+
+useMotionValueEvent(scrollY, "change", (latest) => {
+  update(latest, prevScroll);
+  setPrevScroll(latest);
+});
+
   return (
-    <header className="header">
-      <nav className="nav container">
+    <motion.header className="header"
+    variants={parentVariants}
+        animate={hidden ? "hidden" : "visible"}
+        transition={{
+          ease: [0.1, 0.25, 0.3, 1],
+          duration: 0.3,
+        }}
+    >
+      <motion.nav
+        className="nav container"
+      >
         <NavLink to="/" className="nav__logo">
           <img src={logoB} alt="Logo" />
         </NavLink>
@@ -115,8 +152,8 @@ const Header = () => {
             />
           </svg>
         </div>
-      </nav>
-    </header>
+      </motion.nav>
+    </motion.header>
   );
 };
 
