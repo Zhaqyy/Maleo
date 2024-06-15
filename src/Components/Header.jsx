@@ -34,10 +34,8 @@ const [prevScroll, setPrevScroll] = useState(0);
 function update(latest, prev) {
   if (latest < prev) {
     setHidden(false);
-    console.log("visible");
   } else if (latest > 100 && latest > prev) {
     setHidden(true);
-    console.log("hidden");
   }
 }
 
