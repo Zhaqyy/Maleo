@@ -28,16 +28,30 @@ const Header = () => {
   const { scrollY } = useScroll();
 
   const [hidden, setHidden] = useState(false);
+  const [isWhite, setisWhite] = useState(false);
 const [prevScroll, setPrevScroll] = useState(0);
+const [bgColor, setBgColor] = useState("transparent");
 
-
+// let isWhite;
 function update(latest, prev) {
   if (latest < prev) {
     setHidden(false);
   } else if (latest > 100 && latest > prev) {
     setHidden(true);
   }
-}
+
+     // Update the background color based on scroll position
+     if (latest > 150) { // Adjust the scroll position threshold as needed
+      setBgColor("hsla(0, 0%, 91%, 0.85)");
+      setisWhite(true)
+      // Replace with your desired background color
+    } else {
+      setBgColor("transparent");
+      setisWhite(false)
+
+    }
+  }
+
 
 useMotionValueEvent(scrollY, "change", (latest) => {
   update(latest, prevScroll);
@@ -45,12 +59,15 @@ useMotionValueEvent(scrollY, "change", (latest) => {
 });
 
   return (
-    <motion.header className="header"
+    <motion.header className={`header ${isWhite === true ? '' : "headerWhite"}`}
     variants={parentVariants}
         animate={hidden ? "hidden" : "visible"}
         transition={{
           ease: [0.1, 0.25, 0.3, 1],
           duration: 0.3,
+        }}
+        style={{
+          backgroundColor: bgColor,
         }}
     >
       <motion.nav
