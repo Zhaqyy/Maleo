@@ -6,6 +6,8 @@ import "../Style/footer.css"; // Import the CSS file
 import { ArrowBtn } from "./magnetBtn";
 
 const Footer = () => {
+  const handleScrollToTop = window.scrollTo({ top: 0, behavior: "smooth" });
+
   return (
     <section className="footer">
       <Container>
@@ -78,9 +80,8 @@ const Footer = () => {
           </div>
         </Row>
         <div className="toTop">
-          <a href="#hero">
-
-          <ArrowBtn />
+          <a href="" onClick={handleScrollToTop}>
+            <ArrowBtn />
           </a>
         </div>
         {/* <hr /> */}

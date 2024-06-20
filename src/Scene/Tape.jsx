@@ -16,11 +16,7 @@ import {
 export const TapeScroll = (props) => {
   const Tref = useRef();
 
-  return (
- 
-    <Tape ref={Tref} />
-
-  );
+  return <Tape ref={Tref} />;
 };
 
 export default TapeScroll;
@@ -41,8 +37,32 @@ export const Tape = React.forwardRef((props, Tref) => {
   const { nodes, materials } = useGLTF("./cinta.glb");
   const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
 
-  const targetRotation = useRef([degreesToRadians(90), 0, degreesToRadians(0)]);
+  const targetRotation = useRef([
+    degreesToRadians(75),
+    degreesToRadians(0),
+    degreesToRadians(0),
+  ]);
   const isRotating = useRef(true);
+
+  // useFrame((state, delta) => {
+  //   const time = state.clock.elapsedTime;
+  //   if (scrollYProgress.get() < order.tapecenter) {
+  //     isRotating.current = true; // Reset isRotating when scrolling back up
+  //     Tref.current.rotation.x = time;
+  //   } else {
+  //     if (isRotating.current) {
+  //       isRotating.current = false;
+  //     }
+  //     Tref.current.rotation.x = targetRotation.current[0];
+  //     Tref.current.rotation.y = targetRotation.current[1];
+  //     Tref.current.rotation.z = targetRotation.current[2];
+  //   }
+  // });
+
+  const shortestAngle = (from, to) => {
+    const delta = (to - from) % (2 * Math.PI);
+    return delta - Math.floor(delta / Math.PI + 0.5) * 2 * Math.PI;
+  };
 
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
@@ -53,9 +73,25 @@ export const Tape = React.forwardRef((props, Tref) => {
       if (isRotating.current) {
         isRotating.current = false;
       }
-      Tref.current.rotation.x = targetRotation.current[0];
-      Tref.current.rotation.y = targetRotation.current[1];
-      Tref.current.rotation.z = targetRotation.current[2];
+      // Smoothly interpolate to the nearest equivalent target rotation
+      Tref.current.rotation.x = THREE.MathUtils.lerp(
+        Tref.current.rotation.x,
+        Tref.current.rotation.x +
+          shortestAngle(Tref.current.rotation.x, targetRotation.current[0]),
+        0.08
+      );
+      Tref.current.rotation.y = THREE.MathUtils.lerp(
+        Tref.current.rotation.y,
+        Tref.current.rotation.y +
+          shortestAngle(Tref.current.rotation.y, targetRotation.current[1]),
+        0.08
+      );
+      Tref.current.rotation.z = THREE.MathUtils.lerp(
+        Tref.current.rotation.z,
+        Tref.current.rotation.z +
+          shortestAngle(Tref.current.rotation.z, targetRotation.current[2]),
+        0.08
+      );
     }
   });
 
@@ -70,7 +106,7 @@ export const Tape = React.forwardRef((props, Tref) => {
   const XposValues = isMobile
     ? [0, 0, 0, 0, 0] // Mobile scale values
     : [0, 0, -0.75, -0.75, 0];
-  
+
   const Ypos = useTransform(
     scrollYProgress,
     [
@@ -97,7 +133,7 @@ export const Tape = React.forwardRef((props, Tref) => {
   const rot = useTransform(
     scrollYProgress,
     [order.tapecenter, order.tapecenterend],
-    [degreesToRadians(45), 0]
+    [degreesToRadians(45), degreesToRadians(0)]
   );
 
   const scaleeX = useTransform(
@@ -124,7 +160,7 @@ export const Tape = React.forwardRef((props, Tref) => {
     ],
     scaleValues
   );
-  
+
   useFrame((state, delta) => {
     if (Tref && Tref.current) {
       Tref.current.scale.x = THREE.MathUtils.damp(
@@ -168,7 +204,6 @@ export const Tape = React.forwardRef((props, Tref) => {
       // console.log(scrollYProgress);
     }
   });
-
 
   return (
     <group
