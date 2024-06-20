@@ -21,6 +21,14 @@
         filter: invert(1);
     }
 }
+.headerBlack{
+    backdrop-filter: blur(0px);
+
+    .nav__link{
+        color: rgb(0, 0, 0);
+    }
+   
+}
 .nav {
     display: flex;
     flex-direction: row;

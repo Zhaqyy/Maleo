@@ -9,7 +9,7 @@ const Footer = () => {
   const handleScrollToTop = window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <section className="footer">
+    <section className="footer" id="footer">
       <Container>
         <Row className="rowMain">
           <Col xl={4} className="logoInfo">
@@ -80,7 +80,7 @@ const Footer = () => {
           </div>
         </Row>
         <div className="toTop">
-          <a href="" onClick={handleScrollToTop}>
+          <a href="#" onClick={handleScrollToTop}>
             <ArrowBtn />
           </a>
         </div>

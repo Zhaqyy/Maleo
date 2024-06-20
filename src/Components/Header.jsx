@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 // import { IoClose, IoMenu } from "react-icons/io5";
 import "../Style/Header.css";
 // import logoW from "/logowhite.png"
@@ -29,50 +29,55 @@ const Header = () => {
 
   const [hidden, setHidden] = useState(false);
   const [isWhite, setisWhite] = useState(false);
-const [prevScroll, setPrevScroll] = useState(0);
-const [bgColor, setBgColor] = useState("transparent");
+  const [prevScroll, setPrevScroll] = useState(0);
+  const [bgColor, setBgColor] = useState("transparent");
 
-// let isWhite;
-function update(latest, prev) {
-  if (latest < prev) {
-    setHidden(false);
-  } else if (latest > 100 && latest > prev) {
-    setHidden(true);
-  }
+  // let isWhite;
+  function update(latest, prev) {
+    if (latest < prev) {
+      setHidden(false);
+    } else if (latest > 100 && latest > prev) {
+      setHidden(true);
+    }
 
-     // Update the background color based on scroll position
-     if (latest > 150) { // Adjust the scroll position threshold as needed
+    // Update the background color based on scroll position
+    if (latest > 150) {
+      // Adjust the scroll position threshold as needed
       setBgColor("hsla(0, 0%, 91%, 0.85)");
-      setisWhite(true)
+      setisWhite(true);
       // Replace with your desired background color
     } else {
       setBgColor("transparent");
-      setisWhite(false)
-
+      setisWhite(false);
     }
   }
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    update(latest, prevScroll);
+    setPrevScroll(latest);
+  });
 
-useMotionValueEvent(scrollY, "change", (latest) => {
-  update(latest, prevScroll);
-  setPrevScroll(latest);
-});
+  const { pathname } = useLocation();
+
+  const isBlackHeader =
+    pathname === "/" || pathname === "/Privacy" || pathname === "/Terms";
 
   return (
-    <motion.header className={`header ${isWhite === true ? '' : "headerWhite"}`}
-    variants={parentVariants}
-        animate={hidden ? "hidden" : "visible"}
-        transition={{
-          ease: [0.1, 0.25, 0.3, 1],
-          duration: 0.3,
-        }}
-        style={{
-          backgroundColor: bgColor,
-        }}
+    <motion.header
+      className={`header ${
+        isWhite ? "" : isBlackHeader ? "headerWhite" : "headerBlack"
+      }`}
+      variants={parentVariants}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{
+        ease: [0.1, 0.25, 0.3, 1],
+        duration: 0.3,
+      }}
+      style={{
+        backgroundColor: bgColor,
+      }}
     >
-      <motion.nav
-        className="nav container"
-      >
+      <motion.nav className="nav container">
         <NavLink to="/" className="nav__logo">
           <img src={logoB} alt="Logo" />
         </NavLink>
