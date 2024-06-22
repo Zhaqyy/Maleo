@@ -5,6 +5,15 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Maleo Emballage</title>
+    <script>
+      window.onUsersnapLoad = function(api) {
+        api.init();
+      };
+      var script = document.createElement('script');
+      script.defer = 1;
+      script.src = 'https://widget.usersnap.com/global/load/1d718cef-f8f4-4a4e-b2bb-94e43ce01c0f?onload=onUsersnapLoad';
+      document.getElementsByTagName('head')[0].appendChild(script);
+    </script>
   </head>
   <body>
     <div id="root"></div>

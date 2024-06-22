@@ -17,8 +17,10 @@ import p2 from "/product/tc2.png";
 import p3 from "/product/tc3.png";
 
 import m1 from "/product/tm1.png";
-// import m2 from "/product/tm2.png";
+import m2 from "/product/tm2.png";
 import m3 from "/product/tm3.png";
+import m4 from "/product/tm4.png";
+import m5 from "/product/tm5.png";
 
 const productData = {
   title: "BANDE",
@@ -64,10 +66,10 @@ const products2 = [
 ];
 const products3 = [
   { imageSrc: m1, title: "PP solvant    25-28-32m", linktext: "Citation" },
-  { imageSrc: m1, title: "PP acrylique 25-28-32-35m", linktext: "Citation" },
+  { imageSrc: m2, title: "PP acrylique 25-28-32-35m", linktext: "Citation" },
   { imageSrc: m3, title: "PP hot melt 25-28m", linktext: "Citation" },
-  { imageSrc: m3, title: "Pvc 33m", linktext: "Citation" },
-  { imageSrc: m3, title: "papier kraft", linktext: "Citation" },
+  { imageSrc: m4, title: "Pvc 33m", linktext: "Citation" },
+  { imageSrc: m5, title: "papier kraft", linktext: "Citation" },
 ];
 
 const isMobile = window.innerWidth < 770;
