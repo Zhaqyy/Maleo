@@ -130,6 +130,9 @@
         width: auto;
         white-space: nowrap;
     }
+   .headerWhite .nav__link {
+        color: rgb(0, 0, 0);
+    }
 }
 
 .nav__list {
@@ -154,7 +157,7 @@
 }
 
 .nav__link {
-    color: rgb(0, 0, 0) !important;
+    color: rgb(0, 0, 0);
     font-size: 14px;
     text-transform: uppercase;
     transition: all 0.4s ease;
