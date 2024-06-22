@@ -143,8 +143,8 @@ const Header = () => {
           <div className="nav__close" id="nav-close" onClick={toggleMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
+              width="45"
+              height="45"
               viewBox="0 0 24 24"
             >
               <path
@@ -159,8 +159,8 @@ const Header = () => {
         <div className="nav__toggle" id="nav-toggle" onClick={toggleMenu}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            width="32"
-            height="32"
+            width="45"
+            height="45"
             viewBox="0 0 24 24"
           >
             <path
