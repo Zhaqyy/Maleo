@@ -20,6 +20,19 @@ const Tape = lazy(() => import("./Pages/Tape"));
 const Privacy = lazy(() => import("./Pages/Privacy"));
 const Terms = lazy(() => import("./Pages/Terms"));
 
+
+function debounce(fn, ms) {
+  let timer;
+  return function() {
+    clearTimeout(timer);
+    timer = setTimeout(() => {
+      timer = null;
+      fn.apply(this, arguments);
+    }, ms);
+  };
+}
+
+
 function App() {
   const location = useLocation();
 
@@ -38,6 +51,18 @@ function App() {
     damping: 20,
     duration: 0.5,
   };
+  useEffect(() => {
+    const debouncedHandleResize = debounce(function handleResize() {
+      window.location.reload();
+    }, 1000);
+
+    window.addEventListener('resize', debouncedHandleResize);
+
+    return () => {
+      window.removeEventListener('resize', debouncedHandleResize);
+    };
+  }, []);
+
   const isMobile = window.innerWidth < 770;
   // fallback={
   //   !isMobile && (
