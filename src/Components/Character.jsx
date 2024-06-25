@@ -10,7 +10,7 @@ export default function Paragraph({paragraph}) {
   const container = useRef(null);
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 0.5", "start 0.05"]
+    offset: ["start 0.75", "start 0.05"]
   })
   const { scrollY } = useScroll();
   const speed = 1 / 1.5;

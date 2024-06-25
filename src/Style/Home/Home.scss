@@ -176,6 +176,7 @@
   align-items: stretch;
   margin-block: 10vh;
   z-index: 3;
+  gap: 5vh;
 
   .prodHead {
     text-transform: uppercase;
@@ -320,6 +321,6 @@
   }
   .LogoDisp {
     min-height: unset;
-    padding-top: 20vh;
+    padding-top: 10vh;
   }
 }
