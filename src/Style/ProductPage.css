@@ -42,6 +42,7 @@
   color: gray;
   margin-block: 1em;
   font-size: 12px;
+  line-height: 1.2;
 }
 .pFeature h3 {
   width: calc(100% + 10vw);
@@ -406,9 +407,18 @@
 }
 
 @media (max-width: 770px) {
+  .prodHero {
+    gap: 5vh;
+  }
   .prodHero h1 {
-    font-size: clamp(2rem, 10vw, 7.55rem);
+    font-size: clamp(4rem, 10vw, 7.55rem);
     overflow-wrap: anywhere;
+  }
+  .prodHero .pInfo img {
+    max-width: 100%;
+    -o-object-fit: unset;
+       object-fit: unset;
+    aspect-ratio: 1;
   }
   .pFeature {
     flex-direction: column-reverse;
@@ -418,10 +428,8 @@
   }
   .pFeature h3 {
     position: relative;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    line-break: normal;
+    overflow-wrap: anywhere;
     transform: none !important;
   }
   .pFeature ul {

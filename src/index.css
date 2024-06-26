@@ -25,9 +25,11 @@
   --text-dark: hsl(0, 0%, 3%);
   --header-height: 8vh;
 
-  --bg-white: hsla(0, 0%, 100%, 0.85); /* Default background color */
-    --bg-black: hsla(0, 0%, 0%, 0.85);  /* Dark background color */
-    --bg-variable:var(--bg-variable);
+  --bg-white: hsla(0, 0%, 100%, 0.85);
+  /* Default background color */
+  --bg-black: hsla(0, 0%, 0%, 0.85);
+  /* Dark background color */
+  --bg-variable: var(--bg-variable);
 
   color-scheme: light dark;
   color: var(--text-color);
@@ -227,7 +229,7 @@ html.lenis {
   }
 
   h1 {
-    font-size: clamp(2.25rem, 10vw, 5.5rem);
+    font-size: clamp(3.25rem, 10vw, 5.5rem);
   }
 
   h2 {
@@ -236,6 +238,14 @@ html.lenis {
 
   h3 {
     font-size: clamp(2rem, 10vw, 3.6rem);
+  }
+
+  .hollowdark {
+    -webkit-text-stroke-width: 1px;
+  }
+
+  .hollow {
+    -webkit-text-stroke-width: 1px;
   }
 
   /* section{

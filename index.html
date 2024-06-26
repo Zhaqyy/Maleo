@@ -26,7 +26,6 @@
   <script>
 
     Pace.on('progress', function(progress) {
-      console.log('Current progress:', progress);
       const paceProgressInner = document.querySelector('.pace-progress-inner');
       if (paceProgressInner) {
         paceProgressInner.style.width = `${progress}%`;

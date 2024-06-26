@@ -43,6 +43,7 @@
     color: gray;
     margin-block: 1em;
     font-size: 12px;
+    line-height: 1.2;
   }
 
   h3 {
@@ -67,23 +68,23 @@
     &::before {
       background-color: var(--accent);
       width: 1px;
-      content: '';
+      content: "";
       position: absolute;
       top: 13px;
       // bottom: -25px;
       left: -17px;
       transition: bottom 0.7s ease;
       // animation: xtend 0.7s forwards;
-  }
-  &.animate::before {
-    animation: xtend 0.7s forwards; /* Trigger animation */
-  }
-
-  &:last-child{
-    &::before{
-      display: none;
     }
-  }
+    &.animate::before {
+      animation: xtend 0.7s forwards; /* Trigger animation */
+    }
+
+    &:last-child {
+      &::before {
+        display: none;
+      }
+    }
 
     &::marker {
       color: var(--accent);
@@ -92,10 +93,10 @@
   }
 }
 @keyframes xtend {
-  0%{
+  0% {
     bottom: 45px;
   }
-  100%{
+  100% {
     bottom: -25px;
   }
 }
@@ -224,7 +225,6 @@
   z-index: 1;
   padding: 0 !important;
   margin: 0 !important;
-
 
   &::before {
     content: "";
@@ -480,22 +480,32 @@
 }
 
 @media (max-width: 770px) {
-  .prodHero h1 {
-    font-size: clamp(2rem, 10vw, 7.55rem);
+  .prodHero{
+    gap: 5vh;
+
+  h1 {
+    font-size: clamp(4rem, 10vw, 7.55rem);
     overflow-wrap: anywhere;
+    // line-break: anywhere;
   }
+  .pInfo{
+    img {
+      max-width: 100%;
+      object-fit: unset;
+      aspect-ratio: 1;
+    }
+  }
+}
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;
     width: fit-content;
-h3{
-  position: relative;
-      bottom: 0;
-    left: 0;
-    width: 100%;
-    line-break: normal;
-    transform: none !important;
-}
+    h3 {
+      position: relative;
+      width: 100%;
+      overflow-wrap: anywhere;
+      transform: none !important;
+    }
     ul {
       padding-left: 30px;
     }

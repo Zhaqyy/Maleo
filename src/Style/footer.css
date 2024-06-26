@@ -77,7 +77,7 @@
 
 .footer-heading {
   margin-bottom: 1.25rem;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   text-transform: uppercase;
 }
@@ -122,6 +122,7 @@
   right: 5%;
 }
 .toTop .arrow {
+  width: 60px;
   rotate: 270deg;
 }
 
