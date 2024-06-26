@@ -8,6 +8,8 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import logo from "/flogo.svg";
 import "./App.css";
+import Preloader from "./Components/Preloader";
+import LoadingBar from "./Components/Preloader";
 
 //PAGES
 const Home = lazy(() => import("./Pages/Home"));
@@ -104,26 +106,30 @@ function App() {
 
   return (
     <>
+    {/* <LoadingBar /> */}
       <Suspense
-        fallback={
-          <div
-            style={{
-              position: "fixed",
-              top: 0,
-              left: 0,
-              width: "100vw",
-              height: "100vh",
-              backgroundColor: "black",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              zIndex: 9999,
-            }}
-          >
-            <img src={logo} loading="eager" alt="Loading..." />
-          </div>
-        }
+        // fallback={
+        //   <div
+        //     style={{
+        //       position: "fixed",
+        //       top: 0,
+        //       left: 0,
+        //       width: "100vw",
+        //       height: "100vh",
+        //       backgroundColor: "black",
+        //       display: "flex",
+        //       justifyContent: "center",
+        //       alignItems: "center",
+        //       zIndex: 9999,
+        //     }}
+        //   >
+        //     <img src={logo} loading="eager" alt="Loading..." />
+        //   </div>
+        // }
+        
+        // fallback={<LoadingBar />}
       >
+        {/* <Preloader/> */}
         <Header key="head" />
         <Overlay key="over" />
         <AnimatePresence mode="wait">

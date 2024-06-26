@@ -1,0 +1,99 @@
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+
+.pace.pace-inactive .pace-progress {
+	display: none;
+}
+
+.pace .pace-progress {
+	background: #101010;
+	height: 100vh;
+    width: 100%;
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 0;
+
+	-webkit-transform: translate3d(0, 0, 0) !important;
+	-ms-transform: translate3d(0, 0, 0) !important;
+	transform: translate3d(0, 0, 0) !important;
+}
+
+.pace .pace-progress:after {
+	top: 50%;
+    right: 50%;
+    transform: translate(50%, 0);
+	display: block;
+	position: absolute;
+	content: attr(data-progress-text);
+	/* font-family: "Helvetica Neue", sans-serif; */
+	font-weight: 100;
+	font-size: 1rem;
+	line-height: 1;
+	text-align: center;
+	color: rgb(255, 255, 255);
+}
+
+.pace-progress-inner {
+	height: 2px;
+    background: white;
+}
+
+  /* .pace .pace-progress {
+	background: #000000;
+	position: fixed;
+	z-index: 2000;
+	top: 0;
+	right: 100%;
+	width: 100%;
+	height: 2px;
+  }  */
+
+#preloader {
+	width: 100%;
+	height: 100vh;
+	background: #101010;
+	overflow: hidden;
+	position: fixed;
+	transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+} 
+
+/* LoadingBar.css */
+/* 
+#overlay {
+	width: 100%;
+	height: 100vh;
+	position: fixed;
+	z-index: 99999;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	background: rgba(0, 0, 0, 0.9);
+	transition: 1s 0.4s;
+  }
+  #progress {
+	height: 1px;
+	background: #fff;
+	position: absolute;
+	width: 0;
+	top: 50%;
+	transition: 1s;
+  }
+  #progstat {
+	font-size: 0.7em;
+	letter-spacing: 3px;
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	width: 100%;
+	text-align: center;
+	color: #fff;
+  }
+   */
