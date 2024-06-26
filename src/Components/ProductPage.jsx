@@ -27,8 +27,15 @@ const prodVariants = {
   visible,
 };
 
-export const PHero = ({ product, theme='light' }) => {
+export const PHero = ({ product, theme = "light" }) => {
   const { title, imageUrl, features, subtitle } = product;
+
+  const [visibleIndexes, setVisibleIndexes] = React.useState([]);
+
+  const handleAnimationComplete = (index) => {
+    setVisibleIndexes((prev) => [...prev, index]);
+  };
+
   return (
     <Section className="prodHero">
       <motion.h1
@@ -45,7 +52,14 @@ export const PHero = ({ product, theme='light' }) => {
           <motion.ul variants={prodVariants}>
             {features &&
               features.map((feature, index) => (
-                <motion.li key={index} variants={prodVariants}>
+                <motion.li
+                  key={index}
+                  className={` ${
+                    visibleIndexes.includes(index) ? "animate" : ""
+                  }`}
+                  variants={prodVariants}
+                  onAnimationComplete={() => handleAnimationComplete(index)}
+                >
                   <h5>{feature.title}</h5>
                   <h6>{feature.detail}</h6>
                 </motion.li>
@@ -58,14 +72,9 @@ export const PHero = ({ product, theme='light' }) => {
   );
 };
 
-export const PModel = ({ modelTitle, products, 
-  theme = "dark"
-}) => {
-
+export const PModel = ({ modelTitle, products, theme = "dark" }) => {
   return (
-    <motion.section
-      className="pModel"
-    >
+    <motion.section className="pModel">
       <div className="pModelHeader">
         <motion.h1
           className={`pModelTitle ${
@@ -93,9 +102,7 @@ export const PModel2 = ({
   model = true,
 }) => {
   return (
-    <motion.section
-      className="pModel"
-    >
+    <motion.section className="pModel">
       <div className="pModelHeader">
         <motion.h1
           className={`pModelTitle ${
@@ -232,10 +239,7 @@ export const PContact = ({ products, products2, theme }) => {
   );
 };
 
-export const Pwrap = ({  children
-, bgSequence, timeline 
-}) => {
-
+export const Pwrap = ({ children, bgSequence, timeline }) => {
   const ref = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -245,26 +249,19 @@ export const Pwrap = ({  children
 
   // Log for timeline Sequence
 
+  // useEffect(() => {
+  //   // Function to log the rounded scroll progress
+  //   const unsubscribe = scrollYProgress.onChange((latest) => {
+  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+  //     console.log(rounded);
+  //   });
 
-    // useEffect(() => {
-    //   // Function to log the rounded scroll progress
-    //   const unsubscribe = scrollYProgress.onChange((latest) => {
-    //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-    //     console.log(rounded);
-    //   });
-  
-    //   // Clean up the subscription on unmount
-    //   return () => unsubscribe();
-    // }, [scrollYProgress]);
-  
-  
+  //   // Clean up the subscription on unmount
+  //   return () => unsubscribe();
+  // }, [scrollYProgress]);
 
-  const bg = useTransform(
-    scrollYProgress,
-    timeline,
-    bgSequence
-    );
-    
+  const bg = useTransform(scrollYProgress, timeline, bgSequence);
+
   return (
     <motion.section
       ref={ref}
@@ -274,12 +271,14 @@ export const Pwrap = ({  children
         "--bg-variable": bg,
       }}
     >
-            {React.Children.map(children, (child, index) => {
+      {React.Children.map(children, (child, index) => {
         const isLastChild = index === React.Children.count(children) - 1;
 
         const ChildWrapper = (props) => {
           const childRef = useRef(null);
-          const isInView = useInView(childRef, { margin: isLastChild ? '0% 0px -50% 0px' : '-50% 0px -50% 0px' });
+          const isInView = useInView(childRef, {
+            margin: isLastChild ? "0% 0px -50% 0px" : "-50% 0px -50% 0px",
+          });
 
           // Log for timeline Sequence
           // useEffect(() => {
@@ -303,7 +302,6 @@ export const Pwrap = ({  children
 
         return <ChildWrapper />;
       })}
-
     </motion.section>
   );
 };
