@@ -8,8 +8,6 @@ import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 import logo from "/flogo.svg";
 import "./App.css";
-import Preloader from "./Components/Preloader";
-import LoadingBar from "./Components/Preloader";
 
 //PAGES
 const Home = lazy(() => import("./Pages/Home"));
@@ -106,7 +104,6 @@ function App() {
 
   return (
     <>
-    {/* <LoadingBar /> */}
       <Suspense
         // fallback={
         //   <div
@@ -127,9 +124,7 @@ function App() {
         //   </div>
         // }
         
-        // fallback={<LoadingBar />}
       >
-        {/* <Preloader/> */}
         <Header key="head" />
         <Overlay key="over" />
         <AnimatePresence mode="wait">
