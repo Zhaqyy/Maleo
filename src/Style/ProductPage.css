@@ -60,11 +60,11 @@
 }
 .pFeature li::before {
   background-color: var(--accent);
-  width: 1px;
+  width: 2px;
   content: "";
   position: absolute;
   top: 13px;
-  left: -17px;
+  left: -18px;
   transition: bottom 0.7s ease;
 }
 .pFeature li.animate::before {
@@ -75,7 +75,7 @@
 }
 .pFeature li::marker {
   color: var(--accent);
-  font-size: 25px;
+  font-size: 26px;
 }
 
 @keyframes xtend {
