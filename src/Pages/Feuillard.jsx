@@ -4,6 +4,7 @@ import h1 from "/product/Fh1.png";
 import h2 from "/product/Fh2.png";
 import h3 from "/product/Fh3.png";
 import h4 from "/product/Fh4.png";
+import { Swiper } from "../Components/swiper";
 
 const productData = {
   title: "Feuillard",
@@ -106,6 +107,7 @@ const Feuillard = () => {
         }}
       />
       <PContact products={products} />
+      <Swiper products={products} />
       </Pwrap>
     </>
   );
