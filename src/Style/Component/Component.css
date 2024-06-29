@@ -202,17 +202,22 @@ aside p {
 .wipe {
   --wipe-position: 100%;
   --gradient-length: 20%;
-  mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
-  -webkit-mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
+  mask-image: linear-gradient(to right, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
+  -webkit-mask-image: linear-gradient(to right, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
   transition: --wipe-position 4250ms linear;
-  width: 100%;
+  width: 98vw;
+  translate: -2vw;
   text-align: center;
   text-align: -webkit-center;
   z-index: -1;
 }
 .wipe img {
-  width: calc(100% - 1.5vw);
+  width: 98vw;
   margin: auto;
+}
+
+.var2 .listItem {
+  gap: 0;
 }
 
 .list {
@@ -220,30 +225,29 @@ aside p {
   display: flex;
   justify-content: space-evenly;
   align-items: stretch;
-  gap: 1rem;
+  gap: 2vw;
   top: 50%;
   translate: 0 calc(-50% + 25px);
 }
 .list .listItem2 {
   height: auto;
-  width: 250px;
+  width: 100%;
   text-align: center;
   text-transform: uppercase;
   text-wrap: pretty;
   white-space-collapse: preserve;
   border: 2px solid var(--accent);
   border-radius: 50px 0;
-  padding: 1em;
+  padding-bottom: 1rem;
   background: radial-gradient(rgba(165, 24, 83, 0.4), transparent);
 }
 .list .listItem2 img {
-  width: 250px;
+  width: 100%;
 }
 .list .listItem2 h5 {
   background: transparent !important;
 }
 .list .listItem {
-  width: 33.3333333333vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -254,6 +258,7 @@ aside p {
 }
 .list .listItem h5 {
   font-size: 1.3em;
+  text-align: -webkit-center;
 }
 .list .listItem:hover .imgWrap {
   outline: 2px solid var(--accent);
@@ -268,6 +273,7 @@ aside p {
   animation: rot 10s linear infinite 0.5s both;
 }
 .list .listItem .imgWrap {
+  width: 100%;
   aspect-ratio: 1;
   position: relative;
   border-radius: 50%;
@@ -281,10 +287,11 @@ aside p {
   left: 50%;
   translate: -50% 0;
   scale: 0;
+  -webkit-user-drag: none;
   transition: all 0.5s ease;
 }
 .list .listItem img {
-  width: 300px;
+  width: 100%;
   -o-object-fit: scale-down;
   object-fit: scale-down;
   aspect-ratio: 1/1;
@@ -466,9 +473,9 @@ th {
   align-content: center;
   justify-content: center;
   align-items: stretch;
+  overflow-x: visible;
   position: relative;
   min-height: 600px;
-  overflow: hidden;
   background-color: transparent; /* bg-neutral-950 */
   padding: 2rem 0; /* py-8 */
 }
@@ -480,18 +487,10 @@ th {
 .swiperNoswiping .motionDiv.active {
   cursor: grabbing; /* active:cursor-grabbing */
 }
-.swiperNoswiping .images {
-  aspect-ratio: 1;
-  width: 33.3333333333vw;
-  flex-shrink: 0; /* shrink-0 */
-  border-radius: 50%; /* rounded-xl */
-  background-size: cover;
-  background-position: center;
-}
 .swiperNoswiping .dots {
   position: absolute;
   bottom: 0;
-  margin-block: 3rem;
+  margin-top: 3rem;
   display: flex;
   width: 100%;
   justify-content: center;
@@ -512,25 +511,6 @@ th {
 .swiperNoswiping .dot.inactive {
   background-color: #ffffff; /* bg-neutral-500 */
 }
-.swiperNoswiping .gradientLeft,
-.swiperNoswiping .gradientRight {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  pointer-events: none;
-  width: 10vw;
-  max-width: 100px;
-}
-.swiperNoswiping .gradientLeft.left,
-.swiperNoswiping .gradientRight.left {
-  left: 0;
-  background: linear-gradient(to right, rgba(28, 28, 30, 0.5), rgba(28, 28, 30, 0));
-}
-.swiperNoswiping .gradientLeft.right,
-.swiperNoswiping .gradientRight.right {
-  right: 0;
-  background: linear-gradient(to left, rgba(28, 28, 30, 0.5), rgba(28, 28, 30, 0));
-}
 
 @media (max-width: 770px) {
   .over-scroll {
@@ -541,17 +521,25 @@ th {
   }
   .wipe {
     width: auto;
+    translate: -10px 0;
   }
   .wipe img {
     width: 199vw;
     margin: auto;
   }
   .swiperNoswiping {
-    min-height: 500px;
+    min-height: 400px;
+  }
+  .var2 .listItem h4 {
+    line-break: anywhere;
+  }
+  .list {
+    gap: 5vw;
+    overflow-x: visible;
   }
   .list .listItem img,
   .list .listItem2 img {
-    width: 200px;
+    width: 100% !important;
   }
   .list h5 {
     z-index: 1;
@@ -628,10 +616,6 @@ th {
   button,
   .nav__cta {
     min-height: 70px;
-  }
-  .list span,
-  .pModel .pModelContent .list span {
-    transform: scale(1.7);
   }
   .hero {
     padding-inline: clamp(5%, 5vw, 10%);
@@ -751,10 +735,25 @@ th {
     font-size: 1.6rem !important;
   }
   .pModel .listItem2 {
-    width: 350px;
+    width: 100%;
   }
-  .pModel img {
-    width: 300px;
+  .pModel img:not(.wipe img) {
+    width: 100%;
+  }
+  .wipe img {
+    width: 94vw;
+  }
+  .swiperNoswiping .motionDiv:has(.var2) {
+    min-height: 600px;
+    margin-bottom: 5vh;
+  }
+  .swiperNoswiping .dots {
+    bottom: -45px;
+  }
+  .swiperNoswiping .dots .dot {
+    min-height: unset;
+    height: 1.35rem;
+    width: 1.35rem;
   }
   .prodHero {
     justify-content: space-around !important;
@@ -762,6 +761,7 @@ th {
   .prodHero .pInfo {
     padding-inline: 20%;
     align-items: start;
+    grid-gap: 20%;
   }
   .prodHero .pFeature h3 {
     font-size: clamp(3.5rem, 10vw, 4.3rem) !important;
@@ -772,12 +772,8 @@ th {
   }
 }
 @media (min-width: 2000px) {
-  .list span {
-    top: -300px;
-    transform: scale(2.1);
-  }
   .list .listItem img {
-    width: 400px;
+    width: 100%;
   }
   .list .listItem .imgWrap .button {
     top: 35%;
@@ -785,12 +781,8 @@ th {
   .list .listItem h5 {
     font-size: 1.8em;
   }
-  .pModel .pModelContent .list span {
-    top: -300px;
-    transform: scale(2.1);
-  }
   .pModel .pModelContent .list .listItem .imgWrap img {
-    width: 400px;
+    width: 100%;
   }
   .pModel .pModelContent .list .listItem .imgWrap .button {
     top: 35%;
@@ -799,7 +791,18 @@ th {
     font-size: 1.8em;
   }
   .pModel .pModelContent.light .list .listItem .imgWrap img, .pModel .pModelContent.light .list .listItem .imgWrap2 img {
-    width: 500px !important;
+    width: 100% !important;
+  }
+  .wipe {
+    width: 95vw;
+    translate: -5vw;
+  }
+  .wipe img {
+    width: 90vw;
+  }
+  .swiperNoswiping .motionDiv:has(.var2) {
+    min-height: 750px;
+    margin-bottom: 5vh;
   }
   .hero {
     padding-inline: clamp(12%, 5vw, 18%);

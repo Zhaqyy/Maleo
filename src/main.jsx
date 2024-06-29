@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "pace-js";
+// import "pace-js";
 import "./Components/preloader.css";
 
 ReactDOM.createRoot(document.getElementById("root")).render(

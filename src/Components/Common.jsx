@@ -3,177 +3,31 @@
 import { useInView, motion } from "framer-motion";
 import "../Style/Component/Component.css";
 import { useRef } from "react";
+import { Swiper } from "./swiper";
 
 const isMobile = window.innerWidth < 770;
 
 export const ProductList = ({ products }) => {
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
-  };
 
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  const prodVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible,
-  };
   return (
-    <motion.ul className="list" variants={prodVariants}>
-      <motion.span
-        ref={ref}
-        className="wipe"
-        style={{
-          "--wipe-position": isInView
-            ? "100%"
-            : "calc(-1 * var(--gradient-length))",
-        }}
-      >
-        <svg
-          width="16"
-          height="1009"
-          viewBox="0 0 16 1009"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="8" cy="8" r="8" transform="rotate(90 8 8)" fill="black" />
-          <rect
-            x="9"
-            y="8"
-            width="1992"
-            height="2"
-            transform="rotate(90 9 8)"
-            fill="black"
-          />
-          <circle
-            cx="8"
-            cy="1001"
-            r="8"
-            transform="rotate(90 8 1001)"
-            fill="black"
-          />
-        </svg>
-        {/* <img src="/line.png"/> */}
-      </motion.span>
-      {products.map((product, index) => (
-        <motion.li
-          className="listItem"
-          initial={{
-            opacity: 0.25,
-          }}
-          whileInView={{
-            opacity: 1,
-            transition: {
-              duration: 0.5,
-              delay: isMobile ? index / 6 : index / 1.1,
-              easings: "easeIn",
-            },
-          }}
-          viewport={{ once: true }}
-          key={index}
-        >
-          <div className="imgWrap">
-            <img loading="lazy" src={product.imageSrc} alt={product.title} />
-            <a href={product.link || "#contact-form"} className="button">
-              {product.linktext}
-            </a>
-          </div>
-          <h5>{product.title}</h5>
-        </motion.li>
-      ))}
-    </motion.ul>
+    <Swiper products={products} variant={1} />
   );
 };
+
+
 export const ProductList2 = ({ products }) => {
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
-  };
-
-  const prodVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible,
-  };
+ 
   return (
-    <motion.ul className="list" variants={prodVariants}>
-      {products.map((product, index) => (
-        <motion.li
-          className="listItem"
-          initial={{
-            opacity: 0,
-            y: isMobile ? 50 : 150,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 1,
-              delay: isMobile ? index / 6 : index / 1.1,
-              easings: "easeIn",
-            },
-          }}
-          viewport={{ once: true }}
-          key={index}
-        >
-          <div className="imgWrap2">
-            <img loading="lazy" src={product.imageSrc} alt={product.title} />
-            {/* <a href={product.link} className="button">
-              {product.linktext}
-            </a> */}
-          </div>
-          <h4>{product.title}</h4>
-        </motion.li>
-      ))}
-    </motion.ul>
+    <Swiper products={products} variant={2} />
+
   );
 };
-export const ProductList3 = ({ products }) => {
-  const visible = {
-    opacity: 1,
-    x: 0,
-    y: 0,
-    scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
-  };
 
-  const prodVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible,
-  };
+
+export const ProductList3 = ({ products }) => {
+ 
   return (
-    <motion.ul className="list" variants={prodVariants}>
-      {products.map((product, index) => (
-        <motion.li
-          className="listItem2"
-          initial={{
-            opacity: 0,
-            y: 50,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              duration: 0.5,
-              delay: index / 10,
-              easings: "easeIn",
-            },
-          }}
-          viewport={{ once: true }}
-          key={index}
-        >
-          <div className="imgWrap2">
-            <img loading="lazy" src={product.imageSrc} alt={product.title} />
-          </div>
-          <h5>{product.title}</h5>
-        </motion.li>
-      ))}
-    </motion.ul>
+    <Swiper products={products} variant={3} />
+
   );
 };

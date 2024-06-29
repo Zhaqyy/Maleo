@@ -33,10 +33,10 @@ const visible = {
     };
   
     const products = [
-      { imageSrc: h1, title: "Ruban Adhésif", link: "/Tape", linktext: "View More" },
-      { imageSrc: h2, title: "Film Etirable", link: "/Sfilm", linktext: "View More" },
-      { imageSrc: h3, title: "Carton", link: "/Cardboard", linktext: "View More" },
-      { imageSrc: h4, title: "Feuillard", link: "/feuillard", linktext: "View More" },
+      { imageSrc: h1, title: "Ruban Adhésif", link: "/Tape", linktext: "Voir Plus" },
+      { imageSrc: h2, title: "Film Etirable", link: "/Sfilm", linktext: "Voir Plus" },
+      { imageSrc: h3, title: "Carton", link: "/Cardboard", linktext: "Voir Plus" },
+      { imageSrc: h4, title: "Feuillard", link: "/feuillard", linktext: "Voir Plus" },
     ];
     const isMobile = window.innerWidth < 768;
     return (

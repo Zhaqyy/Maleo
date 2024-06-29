@@ -68,6 +68,7 @@ a {
   color: inherit;
   text-decoration: none;
   transition: all 0.5s ease;
+  -webkit-user-drag: none;
 }
 
 
@@ -136,6 +137,7 @@ img {
   -moz-user-select: none;
   -webkit-user-select: none;
   user-select: none;
+  -webkit-user-drag: none;
 }
 
 ::selection {
@@ -179,49 +181,6 @@ html.lenis {
   pointer-events: none
 }
 
-/* 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: var(--text-dark);
-    background-color: var(--bg-color);
-  }
-
-  a:hover {
-    color: var(--accent);
-  }
-
-  .hollow {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--text-dark);
-  }
-
-  svg {
-    fill: var(--text-dark);
-  }
-
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    color: var(--text-color);
-    background-color: var(--bg-dark);
-  }
-
-  a:hover {
-    color: var(--accent);
-  }
-
-  .hollow {
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1px;
-    -webkit-text-stroke-color: var(--text-color);
-  }
-
-  svg {
-    fill: var(--text-color);
-  }
-} */
 
 @media (max-width: 770px) {
   html {

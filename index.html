@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <link rel="icon" type="image/svg+xml" href="/mal.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Maleo Emballage</title>
   <script>
@@ -16,43 +16,14 @@
     document.getElementsByTagName('head')[0].appendChild(script);
   </script>
 
-  <script src="https://unpkg.com/pace-js@1.0.2/pace.min.js"></script>
+  <!-- <script src="https://unpkg.com/pace-js@1.0.2/pace.min.js"></script> -->
   <!-- <script data-pace-options='{ghostTime = 7000}' src="/pace-js/pace.js"></script> -->
   <link rel="stylesheet" href="./Components/preloader.css">
 </head>
 
 <body>
   <div id="root"></div>
-  <script>
-
-    Pace.on('progress', function(progress) {
-      const paceProgressInner = document.querySelector('.pace-progress-inner');
-      if (paceProgressInner) {
-        paceProgressInner.style.width = `${progress}%`;
-      }
-    });
-
-
-    Pace.on('done', function () {
-      setTimeout(function() {
-        const paceProgress = document.querySelector('.pace-progress');
-  
-        // Modify styles of the parent element which affects the pseudo-elements
-        if (paceProgress) {
-          paceProgress.style.setProperty('--progress-top', '-13px');
-          paceProgress.style.setProperty('--progress-opacity', '0');
-        }
-  
-        setTimeout(function() {
-  
-          paceProgress.style.top = '-100%';
-  
-   
-        }, 1500);
-      }, 500);
-    });
-
-  </script>
+ 
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

@@ -21,9 +21,10 @@
   overflow: visible;
 
   img {
+    aspect-ratio: 1;
     inline-size: -webkit-fill-available;
     animation: rot 10s linear infinite both;
-    max-width: 80%;
+    max-width: 100%;
     object-fit: scale-down;
   }
 }
@@ -113,6 +114,14 @@
   transition: all 0.5s ease;
   isolation: isolate;
 
+  .wipe{
+    filter: invert(1);
+  }
+
+  img{
+    -webkit-user-drag: none;
+  }
+
   .pModelContent.light {
     .list {
       h4 {
@@ -130,13 +139,14 @@
       .listItem .imgWrap,
       .listItem .imgWrap2 {
         position: relative;
+        width: 100%;
         border-radius: 50%;
         // outline: 2px solid rgb(255, 255, 255);
         // background-color: rgb(255, 255, 255);
         transition: all 0.5s ease;
 
         img {
-          width: 400px;
+          width: 100%;
         }
       }
     }
@@ -145,21 +155,14 @@
   .list .listItem:hover .imgWrap {
     outline: 2px solid var(--accent);
   }
-  .list span {
-    z-index: 0;
-    top: -350px;
-    transform: scale(1.5);
 
-    svg * {
-      fill: white;
-    }
-  }
   .list .listItem {
     height: unset;
     gap: 30px;
   }
 
   .list .listItem .imgWrap {
+    width: 100%;
     position: relative;
     border-radius: 50%;
     outline: 2px solid rgb(255, 255, 255);
@@ -167,10 +170,11 @@
     transition: all 0.5s ease;
 
     img {
-      width: 300px;
+      width: 100%;
     }
   }
   .list .listItem .imgWrap2 {
+    width: 100%;
     position: relative;
     border-radius: 50%;
     // outline: 2px solid rgb(255, 255, 255);
@@ -178,7 +182,7 @@
     transition: all 0.5s ease;
 
     img {
-      width: 400px;
+      width: 100%;
     }
   }
 
@@ -513,35 +517,36 @@
   .pModel {
     height: unset;
     padding-block: 10vh;
+    justify-content: center;
 
     .list:has(.imgWrap2) {
-      gap: 50px;
+      // gap: 50px;
       margin-top: unset;
-      align-items: center;
+      align-items: stretch;
     }
     .list {
-      flex-direction: column;
-      gap: 20px;
-      margin-block: 5em;
+      // flex-direction: column;
+      // gap: 20px;
+      // margin-block: 5em;
 
       h5 {
         background: black;
         color: white;
         z-index: 1;
       }
-      span {
-        position: absolute;
-        top: 15px;
-        left: 50%;
-        translate: -50%;
-        rotate: 0deg;
-        transform: scale(1.15);
-        z-index: 0;
-      }
+      // span {
+      //   position: absolute;
+      //   top: 15px;
+      //   left: 50%;
+      //   translate: -50%;
+      //   rotate: 0deg;
+      //   transform: scale(1.15);
+      //   z-index: 0;
+      // }
     }
 
     & > img {
-      width: 200px;
+      width: 100%;
       /* position: sticky; */
       bottom: 0px;
     }
@@ -564,6 +569,6 @@
     }
   }
   .pModel .list .listItem .imgWrap img {
-    width: 200px;
+    width: 100%;
   }
 }

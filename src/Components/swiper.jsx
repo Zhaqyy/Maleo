@@ -1,5 +1,6 @@
- /* eslint-disable react/prop-types */
- import { useEffect, useRef, useState } from "react";
+/* eslint-disable react/prop-types */
+
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useInView } from "framer-motion";
 import "../Style/Component/Component.css";
 
@@ -14,12 +15,16 @@ const SPRING_OPTIONS = {
   damping: 50,
 };
 
-export const Swiper = ({ products }) => {
-  const [imgIndex, setImgIndex] = useState(0);
+export const Swiper = ({ products, variant }) => {
+    const [imgIndex, setImgIndex] = useState(0);
   const dragX = useMotionValue(0);
   const isMobile = window.innerWidth < 770;
+  const swiperRef = useRef(null);
+  const isInView = useInView(swiperRef, { once: false, margin: "-50% 0px -50% 0px" });
 
   useEffect(() => {
+    if (!isInView) return;
+
     const intervalRef = setInterval(() => {
       const x = dragX.get();
       if (x === 0) {
@@ -28,7 +33,7 @@ export const Swiper = ({ products }) => {
     }, AUTO_DELAY);
 
     return () => clearInterval(intervalRef);
-  }, [dragX, products.length]);
+  }, [dragX, products.length, isInView]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -43,6 +48,17 @@ export const Swiper = ({ products }) => {
 
   const itemsToShow = isMobile ? 2 : products.length;
 
+  const renderProductList = () => {
+    switch (variant) {
+      case 2:
+        return <ProductList2 products={products} itemsToShow={itemsToShow} />;
+      case 3:
+        return <ProductList3 products={products} itemsToShow={itemsToShow} />;
+      default:
+        return <ProductList products={products} itemsToShow={itemsToShow} />;
+    }
+  };
+
   return (
     <div className="swiperNoswiping">
       <motion.div
@@ -50,13 +66,16 @@ export const Swiper = ({ products }) => {
         dragConstraints={{ left: 0, right: 0 }}
         style={{ x: dragX }}
         animate={{
-          translateX: `-${Math.min(imgIndex, products.length - itemsToShow) * (100 / itemsToShow)}%`,
+          translateX: `-${
+            Math.min(imgIndex, products.length - itemsToShow) *
+            (100 / itemsToShow)
+          }%`,
         }}
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
       >
-        <ProductList imgIndex={imgIndex} products={products} itemsToShow={itemsToShow} />
+        {renderProductList()}
       </motion.div>
 
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} products={products} />
@@ -64,7 +83,7 @@ export const Swiper = ({ products }) => {
   );
 };
 
-const ProductList = ({ imgIndex, products, itemsToShow }) => {
+const ProductList = ({products, itemsToShow }) => {
   const isMobile = window.innerWidth < 770;
 
   const visible = {
@@ -85,36 +104,41 @@ const ProductList = ({ imgIndex, products, itemsToShow }) => {
 
   return (
     <>
-    <motion.ul className="list" variants={prodVariants} style={{ width: `${products.length * (100 / itemsToShow)}%` }}>
-      {products.map((product, index) => (
-        <motion.li
-          className="listItem"
-          initial={{
-            opacity: 0.25,
-          }}
-          whileInView={{
-            opacity: 1,
-            transition: {
-              duration: 0.5,
-              delay: isMobile ? index / 6 : index / 1.1,
-              easings: "easeIn",
-            },
-          }}
-          viewport={{ once: true }}
-          key={index}
-          style={{ width: `${100 / itemsToShow}%` }}
-        >
-          <div className="imgWrap">
-            <img loading="lazy" src={product.imageSrc} alt={product.title} />
-            <a href={product.link || "#contact-form"} className="button">
-              {product.linktext}
-            </a>
-          </div>
-          <h5>{product.title}</h5>
-        </motion.li>
-      ))}
-    </motion.ul>
-    <motion.span
+      <motion.ul
+        className="list"
+        variants={prodVariants}
+        style={{ width: `${products.length * (100 / itemsToShow)}%` }}
+      >
+        {products.map((product, index) => (
+          <motion.li
+            className="listItem"
+            initial={{
+              opacity: 0.25,
+            }}
+           
+            whileInView={{
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+                delay: isMobile ? index / 6 : index / 1.1,
+                easings: "easeIn",
+              },
+            }}
+            viewport={{ once: true }}
+            key={index}
+            style={{ width: `${100 / itemsToShow}%` }}
+          >
+            <div className="imgWrap">
+              <img loading="lazy" src={product.imageSrc} alt={product.title} />
+              <a href={product.link || "#contact-form"} className="button">
+                {product.linktext}
+              </a>
+            </div>
+            <h5>{product.title}</h5>
+          </motion.li>
+        ))}
+      </motion.ul>
+      <motion.span
         ref={ref}
         className="wipe"
         style={{
@@ -123,11 +147,111 @@ const ProductList = ({ imgIndex, products, itemsToShow }) => {
             : "calc(-1 * var(--gradient-length))",
         }}
       >
-       
-        <img src="/line.png"/>
-       
+        <img src="/line.png" />
       </motion.span>
     </>
+  );
+};
+
+export const ProductList2 = ({ products, itemsToShow }) => {
+  const isMobile = window.innerWidth < 770;
+
+  const visible = {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { staggerChildren: 0.5, duration: 0.6 },
+  };
+
+  const prodVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
+
+  return (
+    <motion.ul
+      className="list var2"
+      variants={prodVariants}
+      style={{ width: `${products.length * (100 / itemsToShow)}%` }}
+    >
+      {products.map((product, index) => (
+        <motion.li
+          className="listItem"
+          initial={{
+            opacity: 0,
+            y: isMobile ? 50 : 150,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 1,
+              delay: isMobile ? index / 6 : index / 1.1,
+              easings: "easeIn",
+            },
+          }}
+          viewport={{ once: true }}
+          key={index}
+          style={{ width: `${100 / itemsToShow}%` }}
+        >
+          <div className="imgWrap2">
+            <img loading="lazy" src={product.imageSrc} alt={product.title} />
+          </div>
+          <h4>{product.title}</h4>
+        </motion.li>
+      ))}
+    </motion.ul>
+  );
+};
+
+export const ProductList3 = ({ products, itemsToShow }) => {
+  const visible = {
+    opacity: 1,
+    x: 0,
+    y: 0,
+    scale: 1,
+    transition: { staggerChildren: 0.5, duration: 0.6 },
+  };
+
+  const prodVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible,
+  };
+
+  return (
+    <motion.ul
+      className="list"
+      variants={prodVariants}
+      style={{ width: `${products.length * (100 / itemsToShow)}%` }}
+    >
+      {products.map((product, index) => (
+        <motion.li
+          className="listItem2"
+          initial={{
+            opacity: 0,
+            y: 50,
+          }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              duration: 0.5,
+              delay: index / 10,
+              easings: "easeIn",
+            },
+          }}
+          viewport={{ once: true }}
+          key={index}
+          style={{ width: `${100 / itemsToShow}%` }}
+        >
+          <div className="imgWrap2">
+            <img loading="lazy" src={product.imageSrc} alt={product.title} />
+          </div>
+          <h5>{product.title}</h5>
+        </motion.li>
+      ))}
+    </motion.ul>
   );
 };
 
