@@ -76,19 +76,19 @@ const isMobile = window.innerWidth < 770;
 
 const order = {
   PHeros: 0,
-  PHeroe: 0.065,
+  PHeroe: 0.1,
 
-  PModel1s: 0.07,
-  PModel1e: 0.23,
+  PModel1s: 0.2,
+  PModel1e: 0.25,
 
-  PModel2s: 0.24,
+  PModel2s: 0.26,
   PModel2e: 0.39,
 
   PModel3s: 0.46,
 
-  PContacte: 0.79,
+  PContacte: 0.77,
 
-  end: 1,
+  end: 0.78,
 };
 
 const timeline = [
@@ -106,17 +106,17 @@ const timeline = [
 
 const Morder = {
   PHeros: 0,
-  PHeroe: 0.09,
+  PHeroe: 0.145,
 
-  PModel1s: 0.1,
-  PModel1e: 0.24,
+  PModel1s: 0.16,
+  PModel1e: 0.26,
 
-  PModel2s: 0.25,
-  PModel2e: 0.445,
+  PModel2s: 0.27,
+  PModel2e: 0.345,
 
   PModel3s: 0.51,
 
-  PContacte: 0.84,
+  PContacte: 0.76,
 
   end: 1,
 };

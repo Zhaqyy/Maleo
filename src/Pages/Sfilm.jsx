@@ -57,7 +57,7 @@ const isMobile = window.innerWidth < 770;
 
 const order = {
   PHeros: 0,
-  PHeroe: 0.099,
+  PHeroe: 0.145,
 
   PModel1s: 0.2,
   // PModel1e: 0.23,
@@ -87,9 +87,9 @@ const timeline = [
 
 const Morder = {
   PHeros: 0,
-  PHeroe: 0.115,
+  PHeroe: 0.21,
 
-  PModel1s: 0.2,
+  PModel1s: 0.25,
   // PModel1e: 0.24,
 
   // PModel2s: 0.25,

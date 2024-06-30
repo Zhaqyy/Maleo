@@ -550,7 +550,7 @@ th {
   }
   .swiperNoswiping:has(.var2) .dots {
     display: flex;
-    bottom: -50px;
+    bottom: -100px;
   }
   .var2 .listItem h4 {
     line-break: anywhere;
@@ -558,6 +558,7 @@ th {
   .list {
     gap: 5vw;
     overflow-x: visible;
+    padding-inline: 0;
   }
   .list .listItem img,
   .list .listItem2 img {
@@ -769,6 +770,10 @@ th {
   }
   .wipe img {
     width: 94vw;
+  }
+  .pInfo img {
+    -o-object-fit: contain !important;
+    object-fit: contain !important;
   }
   .swiperNoswiping .motionDiv:has(.var2) {
     min-height: 450px;

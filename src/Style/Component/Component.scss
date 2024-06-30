@@ -301,8 +301,8 @@ aside p {
   }
 }
 
-.var2 .listItem{
-gap: 0;
+.var2 .listItem {
+  gap: 0;
 }
 .list {
   position: absolute;
@@ -566,7 +566,7 @@ th {
   align-content: center;
   justify-content: center;
   align-items: stretch;
-overflow-x: visible;
+  overflow-x: visible;
   position: relative;
   min-height: 600px;
   // overflow: hidden;
@@ -612,15 +612,14 @@ overflow-x: visible;
   }
 }
 .swiperNoswiping:has(.var2) .dots {
-display: none;
+  display: none;
 }
-.swiperNoswiping:has(.var2) .listItem{
- gap: 0 !important;
- img{
-     object-fit: contain;
- }
+.swiperNoswiping:has(.var2) .listItem {
+  gap: 0 !important;
+  img {
+    object-fit: contain;
+  }
 }
-
 
 @media (max-width: 770px) {
   .over-scroll {
@@ -645,16 +644,18 @@ display: none;
     min-height: 250px;
     .dots {
       display: flex;
-      bottom: -50px;
+      bottom: -100px;
     }
-}
+  }
 
-  .var2 .listItem h4{
+  .var2 .listItem h4 {
     line-break: anywhere;
   }
   .list {
     gap: 5vw;
     overflow-x: visible;
+    padding-inline: 0;
+
     .listItem img,
     .listItem2 img {
       width: 100% !important;
@@ -663,7 +664,6 @@ display: none;
       // background: white;
       z-index: 1;
     }
-
   }
 
   .paragraph {
@@ -858,7 +858,7 @@ display: none;
     .listItem2 {
       width: 100%;
     }
-   .list img:not(.wipe img) {
+    .list img:not(.wipe img) {
       width: 100%;
     }
   }
@@ -869,20 +869,23 @@ display: none;
   }
   .wipe img {
     width: 94vw;
+  }
+  .pInfo img {
+    -o-object-fit: contain !important;
+    object-fit: contain !important;
 }
-
   .swiperNoswiping .motionDiv:has(.var2) {
     min-height: 450px;
     margin-bottom: 5vh;
-}
-.swiperNoswiping .dots {
-  bottom: -45px;
-
-  .dot{
-    min-height: unset;
-    height: 1.35rem;
-    width: 1.35rem;
   }
+  .swiperNoswiping .dots {
+    bottom: -45px;
+
+    .dot {
+      min-height: unset;
+      height: 1.35rem;
+      width: 1.35rem;
+    }
   }
   .prodHero {
     justify-content: space-around !important;
@@ -902,7 +905,6 @@ display: none;
 }
 
 @media (min-width: 2000px) {
-
   .list .listItem img {
     width: 100%;
   }
@@ -913,7 +915,6 @@ display: none;
     font-size: 1.8em;
   }
   .pModel .pModelContent {
-
     .list .listItem .imgWrap img {
       width: 100%;
     }
@@ -928,17 +929,17 @@ display: none;
       width: 100% !important;
     }
   }
-  .wipe{
+  .wipe {
     width: 95vw;
     translate: -5vw;
-  img{
-    width: 90vw;
-  }
+    img {
+      width: 90vw;
+    }
   }
   .swiperNoswiping .motionDiv:has(.var2) {
     min-height: 550px;
     margin-bottom: 5vh;
-}
+  }
   .hero {
     // padding: 0 15%;
     padding-inline: clamp(12%, 5vw, 18%);

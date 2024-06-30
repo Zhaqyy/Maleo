@@ -254,6 +254,9 @@
   border-color: var(--bg-color) !important;
 }
 .pCont .cont-form.dark select {
+  background-color: transparent;
+}
+.pCont .cont-form.dark select option {
   background: var(--bg-dark) !important;
 }
 .pCont .cont-form.dark label {
@@ -286,6 +289,10 @@
   border: none;
   color: var(--text-dark);
   text-transform: uppercase;
+  background-color: transparent;
+}
+.pCont .choice select option {
+  background: var(--bg-color) !important;
 }
 .pCont .choice select:focus, .pCont .choice select:focus-within {
   border: none;
@@ -459,6 +466,7 @@
     background: black;
     color: white;
     z-index: 1;
+    line-break: anywhere;
   }
   .pModel > img {
     width: 100%;
