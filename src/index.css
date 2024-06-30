@@ -63,6 +63,10 @@
   padding-top: 15vh;
 }
 
+.secWrap > section {
+  padding-top: 0vh !important;
+}
+
 a {
   font-weight: 500;
   color: inherit;

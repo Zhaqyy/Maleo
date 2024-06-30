@@ -1,4 +1,5 @@
 .prodHero {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +9,13 @@
 .prodHero h1 {
   font-size: clamp(3.25rem, 10vw, 7.55rem);
   overflow-wrap: anywhere;
+}
+.prodHero > img {
+  width: 450px;
+  position: absolute;
+  bottom: -200px;
+  left: 0;
+  pointer-events: none;
 }
 
 .pInfo {
@@ -50,10 +58,11 @@
   line-break: anywhere;
   z-index: 2;
   margin-top: 0.5em;
-  transform: translateX(-10vw) !important;
+  transform: translateX(-5vw) !important;
 }
 .pFeature ul {
   max-width: 400px;
+  min-height: 30vh;
 }
 .pFeature li {
   list-style: square;
@@ -192,6 +201,7 @@
   position: relative;
   z-index: 1;
   padding: 0 !important;
+  padding-top: 15vh !important;
   margin: 0 !important;
 }
 .Pwrap::before {
@@ -214,11 +224,8 @@
   transition: all 0.5s ease;
   z-index: -1;
 }
-.Pwrap .pFeature.dark * {
+.Pwrap .pFeature.dark h5 {
   color: rgb(241, 241, 241);
-}
-.Pwrap .pFeature.dark h6 {
-  color: rgb(223, 223, 223);
 }
 
 .pCont {
@@ -436,11 +443,13 @@
   }
   .pFeature ul {
     padding-left: 30px;
+    min-height: unset;
   }
   .pModel {
     height: unset;
     padding-block: 10vh;
-    justify-content: center;
+    min-height: unset;
+    justify-content: flex-start;
   }
   .pModel .list:has(.imgWrap2) {
     margin-top: unset;

@@ -68,6 +68,7 @@ export const PHero = ({ product, theme = "light" }) => {
           <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
         </div>
       </div>
+      <motion.img loading="lazy" src={logo} />
     </Section>
   );
 };
@@ -123,6 +124,7 @@ export const PModel2 = ({
           <ProductList3 products={products} />
         )}
       </motion.div>
+      <motion.img loading="lazy" src={logo} />
     </motion.section>
   );
 };
@@ -294,6 +296,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
                 opacity: isInView ? 1 : 0,
                 transition: "opacity 0.5s ease",
               }}
+              className="secWrap"
             >
               {React.cloneElement(child, { ...props })}
             </motion.div>

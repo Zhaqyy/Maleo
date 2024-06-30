@@ -30,6 +30,7 @@
 }
 .cont-form h1 {
   font-size: clamp(2.35rem, 10vw, 5.5rem);
+  line-break: anywhere;
 }
 
 #contact-form {

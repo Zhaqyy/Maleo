@@ -1,4 +1,5 @@
 .prodHero {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,6 +9,13 @@
   h1 {
     font-size: clamp(3.25rem, 10vw, 7.55rem);
     overflow-wrap: anywhere;
+  }
+  & > img {
+    width: 450px;
+    position: absolute;
+    bottom: -200px;
+    left: 0;
+    pointer-events: none;
   }
 }
 
@@ -55,11 +63,12 @@
     line-break: anywhere;
     z-index: 2;
     margin-top: 0.5em;
-    transform: translateX(-10vw) !important;
+    transform: translateX(-5vw) !important;
   }
 
   ul {
     max-width: 400px;
+    min-height: 30vh;
   }
 
   li {
@@ -228,6 +237,7 @@
   position: relative;
   z-index: 1;
   padding: 0 !important;
+  padding-top: 15vh !important;
   margin: 0 !important;
 
   &::before {
@@ -253,12 +263,10 @@
     z-index: -1;
   }
   .pFeature.dark {
-    * {
+    h5 {
       color: rgb(241, 241, 241);
     }
-    h6 {
-      color: rgb(223, 223, 223);
-    }
+   
   }
 }
 
@@ -512,12 +520,14 @@
     }
     ul {
       padding-left: 30px;
+      min-height: unset;
     }
   }
   .pModel {
     height: unset;
     padding-block: 10vh;
-    justify-content: center;
+    min-height: unset;
+    justify-content: flex-start;
 
     .list:has(.imgWrap2) {
       // gap: 50px;

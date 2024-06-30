@@ -297,6 +297,7 @@ aside p {
   img {
     width: calc(100vw - 2vw);
     margin: auto;
+    padding-inline: 7%;
   }
 }
 
@@ -311,6 +312,7 @@ gap: 0;
   gap: 2vw;
   top: 50%;
   translate: 0 calc(-50% + 25px);
+  padding-inline: 10%;
 
   .listItem2 {
     height: auto;
@@ -321,7 +323,7 @@ gap: 0;
     white-space-collapse: preserve;
     border: 2px solid var(--accent);
     border-radius: 50px 0;
-    padding-bottom: 1rem;
+    padding: 1rem;
     background: radial-gradient(#a5185366, transparent);
 
     img {
@@ -609,6 +611,16 @@ overflow-x: visible;
     }
   }
 }
+.swiperNoswiping:has(.var2) .dots {
+display: none;
+}
+.swiperNoswiping:has(.var2) .listItem{
+ gap: 0 !important;
+ img{
+     object-fit: contain;
+ }
+}
+
 
 @media (max-width: 770px) {
   .over-scroll {
@@ -623,11 +635,20 @@ overflow-x: visible;
     img {
       width: calc(200vw - 1vw);
       margin: auto;
+      padding-inline: 0;
     }
   }
   .swiperNoswiping {
     min-height: 400px;
   }
+  .swiperNoswiping:has(.var2) {
+    min-height: 250px;
+    .dots {
+      display: flex;
+      bottom: -50px;
+    }
+}
+
   .var2 .listItem h4{
     line-break: anywhere;
   }
@@ -830,23 +851,28 @@ overflow-x: visible;
       font-size: 1rem !important;
     }
     h4 {
-      font-size: 1.6rem !important;
+      font-size: 2rem !important;
     }
   }
   .pModel {
     .listItem2 {
       width: 100%;
     }
-    img:not(.wipe img) {
+   .list img:not(.wipe img) {
       width: 100%;
     }
+  }
+  .pModel > img {
+    width: 750px;
+    position: absolute;
+    bottom: -350px;
   }
   .wipe img {
     width: 94vw;
 }
 
   .swiperNoswiping .motionDiv:has(.var2) {
-    min-height: 600px;
+    min-height: 450px;
     margin-bottom: 5vh;
 }
 .swiperNoswiping .dots {
@@ -861,7 +887,7 @@ overflow-x: visible;
   .prodHero {
     justify-content: space-around !important;
     .pInfo {
-      padding-inline: 20%;
+      padding-inline: 10%;
       align-items: start;
       grid-gap: 20%;
     }
@@ -910,7 +936,7 @@ overflow-x: visible;
   }
   }
   .swiperNoswiping .motionDiv:has(.var2) {
-    min-height: 750px;
+    min-height: 550px;
     margin-bottom: 5vh;
 }
   .hero {
@@ -968,7 +994,7 @@ overflow-x: visible;
       font-size: 1rem !important;
     }
     h4 {
-      font-size: 2rem !important;
+      font-size: 3rem !important;
     }
   }
   .prodHero .pFeature h3 {
