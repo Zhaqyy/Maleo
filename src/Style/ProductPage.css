@@ -424,6 +424,7 @@
 @media (max-width: 770px) {
   .prodHero {
     gap: 5vh;
+    overflow-x: hidden;
   }
   .prodHero h1 {
     font-size: clamp(4rem, 10vw, 7.55rem);
@@ -434,6 +435,10 @@
     -o-object-fit: unset;
     object-fit: unset;
     aspect-ratio: 1;
+  }
+  .bgLogo {
+    width: 150px;
+    bottom: 100%;
   }
   .pFeature {
     flex-direction: column-reverse;
@@ -460,17 +465,14 @@
   .pModel .list:has(.imgWrap2) {
     margin-top: unset;
     align-items: stretch;
+    height: -moz-max-content;
+    height: max-content;
   }
   .pModel .list h5 {
     background: black;
     color: white;
     z-index: 1;
     line-break: anywhere;
-  }
-  .pModel > img {
-    width: 100%;
-    /* position: sticky; */
-    bottom: 0px;
   }
   .pInfo {
     grid-template-columns: auto;
@@ -481,6 +483,9 @@
   }
 }
 @media (max-width: 500px) {
+  .pFeature li::before {
+    left: -16px;
+  }
   .pInfo {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   }

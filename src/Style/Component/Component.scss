@@ -610,6 +610,7 @@ th {
   justify-content: center;
   align-items: stretch;
   overflow-x: hidden;
+  overflow-y: clip;
   position: relative;
   min-height: 600px;
   // overflow: hidden;
@@ -687,7 +688,7 @@ th {
     min-height: 400px;
   }
   .swiperNoswiping:has(.var2) {
-    min-height: 250px;
+    min-height: 350px;
     .dots {
       display: flex;
       bottom: -100px;

@@ -68,7 +68,7 @@ export const PHero = ({ product, theme = "light" }) => {
           <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
         </div>
       </div>
-      <motion.img loading="lazy" src={logo} />
+      <motion.img loading="lazy" className="bgLogo" src={logo} />
     </Section>
   );
 };
@@ -92,7 +92,7 @@ export const PModel = ({ modelTitle, products, theme = "dark" }) => {
       >
         <ProductList products={products} />
       </motion.div>
-      <motion.img loading="lazy" src={logo} />
+      <motion.img loading="lazy" className="bgLogo" src={logo} />
     </motion.section>
   );
 };
@@ -124,7 +124,7 @@ export const PModel2 = ({
           <ProductList3 products={products} />
         )}
       </motion.div>
-      <motion.img loading="lazy" src={logo} />
+      <motion.img loading="lazy" className="bgLogo" src={logo} />
     </motion.section>
   );
 };

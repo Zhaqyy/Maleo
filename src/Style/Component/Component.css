@@ -441,6 +441,7 @@ th {
   justify-content: center;
   align-items: stretch;
   overflow-x: hidden;
+  overflow-y: clip;
   position: relative;
   min-height: 600px;
   background-color: transparent; /* bg-neutral-950 */
@@ -511,7 +512,7 @@ th {
     min-height: 400px;
   }
   .swiperNoswiping:has(.var2) {
-    min-height: 250px;
+    min-height: 350px;
   }
   .swiperNoswiping:has(.var2) .dots {
     display: flex;
