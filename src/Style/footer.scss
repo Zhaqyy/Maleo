@@ -64,7 +64,8 @@
 .linkItem {
     display: flex;
     margin: auto;
-    column-gap: 150px;
+    -moz-column-gap: 150px;
+         column-gap: 150px;
 }
 
 .footer-text {
@@ -136,7 +137,8 @@
     border: 2px solid var(--accent);
     border-radius: 50px;
     background: transparent;
-    filter: grayscale(1);
+    -webkit-filter: grayscale(1);
+            filter: grayscale(1);
 
     input {
         width: 100%;
@@ -147,6 +149,22 @@
         background: transparent;
         border: none;
         color: black;
+
+        &::-webkit-input-placeholder {
+            font-family: 'Neue', Inter, system-ui, Avenir;
+        }
+
+        &::-moz-placeholder {
+            font-family: 'Neue', Inter, system-ui, Avenir;
+        }
+
+        &:-ms-input-placeholder {
+            font-family: 'Neue', Inter, system-ui, Avenir;
+        }
+
+        &::-ms-input-placeholder {
+            font-family: 'Neue', Inter, system-ui, Avenir;
+        }
 
         &::placeholder {
             font-family: 'Neue', Inter, system-ui, Avenir;
@@ -171,6 +189,8 @@
 @media (max-width: 770px) {
     .footer {
         min-height: unset;
+        height: -webkit-fit-content;
+        height: -moz-fit-content;
         height: fit-content;
     }
     .toTop{
@@ -182,7 +202,8 @@
         gap: 30px;
 
         .linkItem {
-            column-gap: 0;
+            -moz-column-gap: 0;
+                 column-gap: 0;
             margin: 0;
             gap: 40px;
             flex-direction: column;

@@ -136,12 +136,18 @@ ul li {
 } */
 
 img {
-  -khtml-user-select: none;
   -o-user-select: none;
   -moz-user-select: none;
   -webkit-user-select: none;
-  user-select: none;
+  -ms-user-select: none;
+      user-select: none;
   -webkit-user-drag: none;
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 
 ::selection {
@@ -174,7 +180,8 @@ html.lenis {
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain
+  -ms-scroll-chaining: none;
+      overscroll-behavior: contain
 }
 
 .lenis.lenis-stopped {
@@ -188,7 +195,8 @@ html.lenis {
 
 @media (max-width: 770px) {
   html {
-    scroll-snap-type: none;
+    -ms-scroll-snap-type: none;
+        scroll-snap-type: none;
   }
 
   h1 {

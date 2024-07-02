@@ -34,7 +34,8 @@
     color: white;
     text-transform: uppercase;
     background: #a61853ba;
-    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
     padding: 1.5em 2.5em;
     border-radius: 15px;
 

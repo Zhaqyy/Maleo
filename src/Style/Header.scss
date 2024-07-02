@@ -8,22 +8,26 @@
     padding-top: 10px;
     // background-color: var(--bg-color);
     background-color: hsl(0deg 0% 91% / 85%);
-    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+            backdrop-filter: blur(7px);
     // mix-blend-mode: difference;
     z-index: 15;
 }
 .headerWhite{
-    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
 
     .nav__link{
         color: white;
     }
     .nav__logo{
-        filter: invert(1);
+        -webkit-filter: invert(1);
+                filter: invert(1);
     }
 }
 .headerBlack{
-    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+            backdrop-filter: blur(0px);
 
     .nav__link{
         color: rgb(0, 0, 0);
@@ -196,7 +200,8 @@
 .nav__listt {
     display: flex;
     flex-direction: row;
-    column-gap: 2.5rem;
+    -moz-column-gap: 2.5rem;
+         column-gap: 2.5rem;
 }
 
 .nav__menu_mobile {
@@ -225,7 +230,8 @@
 
     .nav__list {
         flex-direction: row;
-        column-gap: 2.5rem;
+        -moz-column-gap: 2.5rem;
+             column-gap: 2.5rem;
     }
 }
 

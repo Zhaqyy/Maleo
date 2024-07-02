@@ -31,9 +31,11 @@
   img {
     aspect-ratio: 1;
     inline-size: -webkit-fill-available;
-    animation: rot 10s linear infinite both;
+    -webkit-animation: rot 10s linear infinite both;
+            animation: rot 10s linear infinite both;
     max-width: 100%;
-    object-fit: scale-down;
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
   }
 }
 
@@ -87,7 +89,8 @@
       // animation: xtend 0.7s forwards;
     }
     &.animate::before {
-      animation: xtend 0.7s forwards; /* Trigger animation */
+      -webkit-animation: xtend 0.7s forwards;
+              animation: xtend 0.7s forwards; /* Trigger animation */
     }
 
     &:last-child {
@@ -100,6 +103,14 @@
       color: var(--accent);
       font-size: 26px;
     }
+  }
+}
+@-webkit-keyframes xtend {
+  0% {
+    bottom: 45px;
+  }
+  100% {
+    bottom: -25px;
   }
 }
 @keyframes xtend {
@@ -124,7 +135,8 @@
   isolation: isolate;
 
   .wipe{
-    filter: invert(1);
+    -webkit-filter: invert(1);
+            filter: invert(1);
   }
 
   img{
@@ -510,7 +522,8 @@
   .pInfo{
     img {
       max-width: 100%;
-      object-fit: unset;
+      -o-object-fit: unset;
+         object-fit: unset;
       aspect-ratio: 1;
     }
   }
@@ -518,6 +531,8 @@
   .pFeature {
     flex-direction: column-reverse;
     gap: 2em;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
     width: fit-content;
     h3 {
       position: relative;

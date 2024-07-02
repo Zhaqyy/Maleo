@@ -8,7 +8,7 @@
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-template-rows: 1fr;
   -moz-column-gap: 3vw;
-       column-gap: 3vw;
+  column-gap: 3vw;
 }
 
 .cont-map {

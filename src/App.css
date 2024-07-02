@@ -118,6 +118,16 @@ a.button:focus-visible {
     z-index: -1;
   }
 
+@-webkit-keyframes rot {
+  0% {
+    rotate: 0deg;
+  }
+
+  100% {
+    rotate: 360deg;
+  }
+}
+
 @keyframes rot {
   0% {
     rotate: 0deg;

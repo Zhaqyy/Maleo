@@ -33,7 +33,7 @@
   animation: rot 10s linear infinite both;
   max-width: 100%;
   -o-object-fit: scale-down;
-     object-fit: scale-down;
+  object-fit: scale-down;
 }
 
 .pFeature {
@@ -87,7 +87,6 @@
   color: var(--accent);
   font-size: 26px;
 }
-
 @keyframes xtend {
   0% {
     bottom: 45px;
@@ -433,7 +432,7 @@
   .prodHero .pInfo img {
     max-width: 100%;
     -o-object-fit: unset;
-       object-fit: unset;
+    object-fit: unset;
     aspect-ratio: 1;
   }
   .pFeature {
