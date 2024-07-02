@@ -48,7 +48,9 @@ export const Tape = React.forwardRef((props, Tref) => {
   //   const time = state.clock.elapsedTime;
   //   if (scrollYProgress.get() < order.tapecenter) {
   //     isRotating.current = true; // Reset isRotating when scrolling back up
-  //     Tref.current.rotation.x = time;
+  //     // Tref.current.rotation.x = time;
+  //     Tref.current.rotation.x = Math.sin(time);
+  //     Tref.current.rotation.y = Math.cos(time);
   //   } else {
   //     if (isRotating.current) {
   //       isRotating.current = false;
@@ -59,42 +61,141 @@ export const Tape = React.forwardRef((props, Tref) => {
   //   }
   // });
 
-  const shortestAngle = (from, to) => {
-    const delta = (to - from) % (2 * Math.PI);
-    return delta - Math.floor(delta / Math.PI + 0.5) * 2 * Math.PI;
-  };
+  //   const shortestAngle = (from, to) => {
+  //     const delta = (to - from) % (2 * Math.PI);
+  //     return delta - Math.floor(delta / Math.PI + 0.5) * 2 * Math.PI;
+  //   };
 
-  useFrame((state, delta) => {
-    const time = state.clock.elapsedTime;
-    if (scrollYProgress.get() < order.tapecenter) {
-      isRotating.current = true; // Reset isRotating when scrolling back up
-      Tref.current.rotation.x = time;
-    } else {
-      if (isRotating.current) {
-        isRotating.current = false;
-      }
-      // Smoothly interpolate to the nearest equivalent target rotation
-      Tref.current.rotation.x = THREE.MathUtils.lerp(
+  //   useFrame((state, delta) => {
+  //     const time = state.clock.elapsedTime;
+  //     console.log(Tref.current.rotation);
+  //     if (scrollYProgress.get() < order.tapecenter) {
+  //       isRotating.current = true; // Reset isRotating when scrolling back up
+  //       // Tref.current.rotation.x = time;
+  //       Tref.current.rotation.x = Math.sin(time);
+  // Tref.current.rotation.y = Math.cos(time);
+  //     } else {
+  //       if (isRotating.current) {
+  //         isRotating.current = false;
+  //       }
+  //       // Smoothly interpolate to the nearest equivalent target rotation
+  //       Tref.current.rotation.x = THREE.MathUtils.lerp(
+  //         Tref.current.rotation.x,
+  //         Tref.current.rotation.x +
+  //           shortestAngle(Tref.current.rotation.x, targetRotation.current[0]),
+  //         0.08
+  //       );
+  //       Tref.current.rotation.y = THREE.MathUtils.lerp(
+  //         Tref.current.rotation.y,
+  //         Tref.current.rotation.y +
+  //           shortestAngle(Tref.current.rotation.y, targetRotation.current[1]),
+  //         0.08
+  //       );
+  //       Tref.current.rotation.z = THREE.MathUtils.lerp(
+  //         Tref.current.rotation.z,
+  //         Tref.current.rotation.z +
+  //           shortestAngle(Tref.current.rotation.z, targetRotation.current[2]),
+  //         0.08
+  //       );
+  //     }
+  //   });
+
+  const capturedRotation = useRef([0, 0]);
+
+  // useFrame((state, delta) => {
+  //   const time = state.clock.elapsedTime;
+  //   if (scrollYProgress.get() < order.tapecenter) {
+  //     if (isRotating.current) {
+  //       // Continue the time-based rotation before reaching tapecenter
+  //       Tref.current.rotation.x = Math.sin(time);
+  //       Tref.current.rotation.y = Math.cos(time);
+  //     } else {
+  //       // Damp the rotation back to captured values when scrolling back up
+  //       Tref.current.rotation.x = THREE.MathUtils.damp(
+  //         Tref.current.rotation.x,
+  //         capturedRotation.current[0],
+  //         2,
+  //         delta
+  //       );
+  //       Tref.current.rotation.y = THREE.MathUtils.damp(
+  //         Tref.current.rotation.y,
+  //         capturedRotation.current[1],
+  //         2,
+  //         delta
+  //       );
+  //     }
+  //     // console.log('rotation:', Tref.current.rotation);
+  //     console.log("curent stop 1:", capturedRotation.current);
+  //   } else {
+  //     if (isRotating.current) {
+  //       isRotating.current = false;
+  //       // Capture the current rotation values
+  //       capturedRotation.current = [
+  //         Tref.current.rotation.x,
+  //         Tref.current.rotation.y,
+  //         // Tref.current.rotation.z,
+  //       ];
+  //       console.log("curent stop:", capturedRotation.current);
+  //     }
+  //   }
+  // });
+
+const interpolationFactor = useRef(1);
+
+useFrame((state, delta) => {
+  const time = state.clock.elapsedTime;
+
+  if (scrollYProgress.get() > order.tapecenter) {
+    isRotating.current = true; // Reset isRotating when scrolling back up
+
+    Tref.current.rotation.x = THREE.MathUtils.damp(
+      Tref.current.rotation.x,
+      capturedRotation.current[0],
+      2,
+      delta
+    );
+    Tref.current.rotation.y = THREE.MathUtils.damp(
+      Tref.current.rotation.y,
+      capturedRotation.current[1],
+      2,
+      delta
+    );
+
+    // console.log('rotation:', Tref.current.rotation);
+    console.log("curent stop 1:", capturedRotation.current);
+  } else {
+    if (isRotating.current) {
+      isRotating.current = false;
+      // Capture the current rotation values
+      capturedRotation.current = [
         Tref.current.rotation.x,
-        Tref.current.rotation.x +
-          shortestAngle(Tref.current.rotation.x, targetRotation.current[0]),
-        0.08
-      );
-      Tref.current.rotation.y = THREE.MathUtils.lerp(
         Tref.current.rotation.y,
-        Tref.current.rotation.y +
-          shortestAngle(Tref.current.rotation.y, targetRotation.current[1]),
-        0.08
-      );
-      Tref.current.rotation.z = THREE.MathUtils.lerp(
-        Tref.current.rotation.z,
-        Tref.current.rotation.z +
-          shortestAngle(Tref.current.rotation.z, targetRotation.current[2]),
-        0.08
-      );
-    }
-  });
+      ];
+      interpolationFactor.current = 0; // Reset interpolation factor
+      console.log("curent stop:", capturedRotation.current);
+    } else {
+      if (interpolationFactor.current < 1) {
+        // Smoothly transition from captured rotation to new time-based rotation
+        interpolationFactor.current += delta * 0.5; // Adjust the speed of interpolation
 
+        Tref.current.rotation.x = THREE.MathUtils.lerp(
+          capturedRotation.current[0],
+          Math.sin(time),
+          interpolationFactor.current
+        );
+        Tref.current.rotation.y = THREE.MathUtils.lerp(
+          capturedRotation.current[1],
+          Math.cos(time),
+          interpolationFactor.current
+        );
+      } else {
+        // Continue normal time-based rotation
+        Tref.current.rotation.x = Math.sin(time);
+        Tref.current.rotation.y = Math.cos(time);
+      }
+    }
+  }
+});
   const { scrollYProgress } = useScroll();
 
   const isMobile = window.innerWidth < 770;
@@ -134,6 +235,16 @@ export const Tape = React.forwardRef((props, Tref) => {
     scrollYProgress,
     [order.tapecenter, order.tapecenterend],
     [degreesToRadians(45), degreesToRadians(0)]
+  );
+  const rotx = useTransform(
+    scrollYProgress,
+    [order.tapecenter, order.tapecenterend],
+    [capturedRotation.current[0], degreesToRadians(90)]
+  );
+  const roty = useTransform(
+    scrollYProgress,
+    [order.tapecenter, order.tapecenterend],
+    [capturedRotation.current[1], degreesToRadians(0)]
   );
 
   const scaleeX = useTransform(
@@ -181,7 +292,6 @@ export const Tape = React.forwardRef((props, Tref) => {
         2,
         delta
       );
-
       Tref.current.position.y = THREE.MathUtils.damp(
         Tref.current.position.y,
         Ypos.get(),
@@ -197,6 +307,18 @@ export const Tape = React.forwardRef((props, Tref) => {
       Tref.current.rotation.z = THREE.MathUtils.damp(
         Tref.current.rotation.z,
         rot.get(),
+        2,
+        delta
+      );
+      Tref.current.rotation.x = THREE.MathUtils.damp(
+        Tref.current.rotation.x,
+        rotx.get(),
+        2,
+        delta
+      );
+      Tref.current.rotation.y = THREE.MathUtils.damp(
+        Tref.current.rotation.y,
+        roty.get(),
         2,
         delta
       );
