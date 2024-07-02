@@ -9,7 +9,7 @@ const Overlay = () => {
   // Function to handle scrolling and trigger animations
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
-    console.log("Scroll Position:", scrollPosition);
+    // console.log("Scroll Position:", scrollPosition);
 
     // Define the scroll threshold where animations should trigger (400px)
     const scrollThreshold = 300;

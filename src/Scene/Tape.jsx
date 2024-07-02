@@ -162,7 +162,7 @@ useFrame((state, delta) => {
     );
 
     // console.log('rotation:', Tref.current.rotation);
-    console.log("curent stop 1:", capturedRotation.current);
+    // console.log("curent stop 1:", capturedRotation.current);
   } else {
     if (isRotating.current) {
       isRotating.current = false;
@@ -172,7 +172,7 @@ useFrame((state, delta) => {
         Tref.current.rotation.y,
       ];
       interpolationFactor.current = 0; // Reset interpolation factor
-      console.log("curent stop:", capturedRotation.current);
+      // console.log("curent stop:", capturedRotation.current);
     } else {
       if (interpolationFactor.current < 1) {
         // Smoothly transition from captured rotation to new time-based rotation

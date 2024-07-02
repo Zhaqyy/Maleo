@@ -440,7 +440,7 @@ th {
   align-content: center;
   justify-content: center;
   align-items: stretch;
-  overflow-x: visible;
+  overflow-x: hidden;
   position: relative;
   min-height: 600px;
   background-color: transparent; /* bg-neutral-950 */
