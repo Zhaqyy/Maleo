@@ -20,9 +20,9 @@ const BlogPost = () => {
         <div className="blogWrap">
           <div className="header-content">
             <div className="header-text">
-              <h5 className="title">
+              <h4 className="title">
                 {data?.title || "10 CONSEILS POUR UN EMBALLAGE SÛR ET EFFICACE"}
-              </h5>
+              </h4>
               <div className="author-details">
                 <img
                   src={data?.client || author}

@@ -342,10 +342,10 @@ export const BlogSwiper = () => {
       </motion.div>
       <div className="arrow-ctrl">
       <button className="prev-arrow" onClick={handlePrevClick}>
-      🡰
+      ←
       </button>
       <button className="next-arrow" onClick={handleNextClick}>
-      🡲
+      →
       </button>
       </div>
     </div>
