@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 // import { IoClose, IoMenu } from "react-icons/io5";
 import "../Style/Header.css";
@@ -9,9 +9,21 @@ import { useMotionValueEvent, motion, useScroll } from "framer-motion";
 
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
+  const navRef = useRef(null);
+
+  // const toggleMenu = () => {
+  //   setShowMenu(!showMenu);
+  // };
+
 
   const toggleMenu = () => {
-    setShowMenu(!showMenu);
+    setShowMenu((prevShowMenu) => {
+      // Add a small delay before toggling the menu
+      setTimeout(() => {
+        setShowMenu(!prevShowMenu);
+      }, 0);
+      return prevShowMenu;
+    });
   };
 
   const closeMenuOnMobile = () => {
@@ -19,7 +31,15 @@ const Header = () => {
       setShowMenu(false);
     }
   };
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
 
+  const handleClickOutside = (event) => {
+    if (navRef.current && !navRef.current.contains(event.target)) {
+      closeMenu();
+    }
+  };
   const parentVariants = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: "-100%" },
@@ -36,8 +56,12 @@ const Header = () => {
   function update(latest, prev) {
     if (latest < prev) {
       setHidden(false);
+   
     } else if (latest > 100 && latest > prev) {
       setHidden(true);
+      if (showMenu) {
+        closeMenu();
+      }
     }
 
     // Update the background color based on scroll position
@@ -56,6 +80,15 @@ const Header = () => {
     update(latest, prevScroll);
     setPrevScroll(latest);
   });
+
+
+  useEffect(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  }, []);
+
 
   const { pathname } = useLocation();
 
@@ -78,13 +111,14 @@ const Header = () => {
       }}
     >
       <motion.nav className="nav container">
-        <NavLink to="/" className="nav__logo">
+        <NavLink to="/" className="nav__logo"  onClick={closeMenuOnMobile} >
           <img src={logoB} alt="Logo" />
         </NavLink>
 
         <div
           className={`nav__menu ${showMenu ? "show-menu" : ""}`}
           id="nav-menu"
+          ref={navRef}
         >
           <ul className="nav__list">
             <li className="nav__item">
@@ -132,7 +166,7 @@ const Header = () => {
             </li>
 
             <li className="nav__item">
-              <NavLink to="/contact" className="nav__link nav__cta">
+              <NavLink to="/contact" className="nav__link nav__cta"  onClick={closeMenuOnMobile}>
                 Contactez-nous
                 <ArrowBtn />
               </NavLink>
