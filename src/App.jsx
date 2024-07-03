@@ -13,6 +13,7 @@ import "./App.css";
 const Home = lazy(() => import("./Pages/Home"));
 const Contact = lazy(() => import("./Pages/Contact"));
 const Who = lazy(() => import("./Pages/Who"));
+const Blog = lazy(() => import("./Pages/Blog/Blog"));
 const Feuillard = lazy(() => import("./Pages/Feuillard"));
 const Cardboard = lazy(() => import("./Pages/Cardboard"));
 const Sfilm = lazy(() => import("./Pages/Sfilm"));
@@ -150,6 +151,7 @@ function App() {
             <Route index exact path="/" element={<Home key="home" />} />
             <Route path="/contact" element={<Contact key="contact" />} />
             <Route path="/who" element={<Who key="who" />} />
+            <Route path="/blog" element={<Blog key="blog" />} />
             <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
             <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
             <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
