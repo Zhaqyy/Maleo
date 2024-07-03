@@ -127,14 +127,6 @@ ul li {
   list-style: none;
 }
 
-/* @media (min-width: 90em) {
-    body            { font-size: 1.125rem; }
-    h1              { font-size: 3.375rem; }
-    h3              { font-size: 1.85472973rem; }
-    h4              { font-size: 1.36824324rem; }
-    h2              { font-size: 2.58445946rem; }
-} */
-
 img {
   -o-user-select: none;
   -moz-user-select: none;
@@ -219,7 +211,4 @@ html.lenis {
     -webkit-text-stroke-width: 1px;
   }
 
-  /* section{
-    min-height: unset;
-  } */
 }

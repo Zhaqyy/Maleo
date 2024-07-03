@@ -307,8 +307,8 @@
 }
 .blog .postImg {
   position: absolute;
-  height: 300px;
-  width: 400px;
+  height: 100%;
+  width: auto;
   border-radius: 20px;
   -o-object-fit: scale-down;
   object-fit: scale-down;
@@ -455,6 +455,9 @@ th {
 .swiperNoswiping .motionDiv.active {
   cursor: grabbing; /* active:cursor-grabbing */
 }
+.swiperNoswiping .chevleft {
+  transform: rotate(180deg);
+}
 .swiperNoswiping .dots {
   position: absolute;
   bottom: 0;
@@ -507,6 +510,9 @@ th {
     width: 199vw;
     margin: auto;
     padding-inline: 0;
+  }
+  .blogswiper .blog-item {
+    width: 100vw !important;
   }
   .swiperNoswiping {
     min-height: 400px;

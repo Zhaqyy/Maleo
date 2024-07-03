@@ -1,8 +1,11 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useInView } from "framer-motion";
 import "../Style/Component/Component.css";
+import { blogData } from "../Pages/Blog/blogData.js";
+import { Link } from "react-router-dom";
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 10;
@@ -16,11 +19,14 @@ const SPRING_OPTIONS = {
 };
 
 export const Swiper = ({ products, variant }) => {
-    const [imgIndex, setImgIndex] = useState(0);
+  const [imgIndex, setImgIndex] = useState(0);
   const dragX = useMotionValue(0);
   const isMobile = window.innerWidth < 770;
   const swiperRef = useRef(null);
-  const isInView = useInView(swiperRef, { once: false, margin: "-50% 0px -50% 0px" });
+  const isInView = useInView(swiperRef, {
+    once: false,
+    margin: "-50% 0px -50% 0px",
+  });
 
   useEffect(() => {
     if (!isInView) return;
@@ -83,7 +89,7 @@ export const Swiper = ({ products, variant }) => {
   );
 };
 
-const ProductList = ({products, itemsToShow }) => {
+const ProductList = ({ products, itemsToShow }) => {
   const isMobile = window.innerWidth < 770;
 
   const visible = {
@@ -115,7 +121,6 @@ const ProductList = ({products, itemsToShow }) => {
             initial={{
               opacity: 0.25,
             }}
-           
             whileInView={{
               opacity: 1,
               transition: {
@@ -252,6 +257,98 @@ export const ProductList3 = ({ products, itemsToShow }) => {
         </motion.li>
       ))}
     </motion.ul>
+  );
+};
+
+export const BlogSwiper = () => {
+  const [blogIndex, setBlogIndex] = useState(0);
+  const dragX = useMotionValue(0);
+  const isMobile = window.innerWidth < 770;
+  // const swiperRef = useRef(null);
+  const { ref, inView: isInView } = useInView({ threshold: 0.5 });
+  const itemsToShow = isMobile ? 1 : 3;
+
+  useEffect(() => {
+    if (!isInView) return;
+
+    const intervalRef = setInterval(() => {
+      const x = dragX.get();
+      if (x === 0) {
+        setBlogIndex((prevIndex) => (prevIndex + 1) % itemsToShow);
+      }
+    }, AUTO_DELAY);
+
+    return () => clearInterval(intervalRef);
+  }, [dragX,itemsToShow, isInView]);
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+    const itemsToShow = isMobile ? 1 : 3;
+
+    if (x <= -DRAG_BUFFER && blogIndex < blogData.length - itemsToShow) {
+      setBlogIndex((prevIndex) => prevIndex + 1);
+    } else if (x >= DRAG_BUFFER && blogIndex > 0) {
+      setBlogIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+
+  const handlePrevClick = () => {
+    if (blogIndex > 0) {
+      setBlogIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (blogIndex < blogData.length - itemsToShow) {
+      setBlogIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  const renderProductList = () => {
+    return blogData.map((item, index) => (
+      <div className="blog-item" key={item.id}>
+        <img src={item.image} alt={item.title} />
+        <div className="blogswipe-info">
+          <p className="swipe-date">{item.date}</p>
+          <Link to={`/post/${item.id}`} className="Blogswiper-link">
+           <h6>{item.title}</h6> 
+          </Link>
+          <Link to={`/post/${item.id}`} className="Blogswiper-link">
+          <p>Read More</p>
+          </Link>
+        </div>
+      </div>
+    ));
+  };
+
+  return (
+    <div className="swiperNoswiping" ref={ref}>
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        style={{ x: dragX }}
+        animate={{
+          translateX: `-${
+            Math.min(blogIndex, blogData.length - itemsToShow) *
+            (100 / itemsToShow)
+          }%`,
+        }}
+        transition={SPRING_OPTIONS}
+        onDragEnd={onDragEnd}
+        className="motionDiv active"
+      >
+        {renderProductList()}
+      </motion.div>
+      <div className="arrow-ctrl">
+      <button className="prev-arrow" onClick={handlePrevClick}>
+      🡰
+      </button>
+      <button className="next-arrow" onClick={handleNextClick}>
+      🡲
+      </button>
+      </div>
+    </div>
   );
 };
 

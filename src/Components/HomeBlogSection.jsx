@@ -6,9 +6,10 @@ import {
     useSpring,
     useTransform,
   } from "framer-motion";
+  // import { useNavigate } from 'react-router-dom';
   import "../Style/Component/Component.css";
   import { useRef } from "react";
-  import { Section } from "./inView";
+  // import { Section } from "./inView";
   import { ArrowBtn } from "./magnetBtn";
 
   
@@ -32,26 +33,32 @@ export const BlogSec = ({ posts }) => {
     const top = useTransform(mouseYSpring, [0.5, -0.5], ["49%", "51%"]);
     const left = useTransform(mouseXSpring, [0.5, -0.5], ["9%", "11%"]);
   
-    const handleMouseMove = (e) => {
-      const rect = ref.current.getBoundingClientRect();
+    // const handleMouseMove = (e) => {
+    //   const rect = ref.current.getBoundingClientRect();
   
-      const width = rect.width;
-      const height = rect.height;
+    //   const width = rect.width;
+    //   const height = rect.height;
   
-      const mouseX = e.clientX - rect.left;
-      const mouseY = e.clientY - rect.top;
+    //   const mouseX = e.clientX - rect.left;
+    //   const mouseY = e.clientY - rect.top;
   
-      const xPct = mouseX / width - 0.5;
-      const yPct = mouseY / height - 0.5;
+    //   const xPct = mouseX / width - 0.5;
+    //   const yPct = mouseY / height - 0.5;
   
-      x.set(xPct);
-      y.set(yPct);
-    };
+    //   x.set(xPct);
+    //   y.set(yPct);
+    // };
   
     const postVariants = {
       hidden: { opacity: 0, y: 50 },
       visible,
     };
+    const limitedPosts = posts.slice(0, 3); // Limit the number of posts to 3
+    // const history = useNavigate();
+
+    // const handleClick = (id) => {
+    //   history.push(`/post/${id}`);
+    // };
   
     return (
       <motion.section
@@ -59,15 +66,19 @@ export const BlogSec = ({ posts }) => {
       >
         <motion.h3 variants={postVariants}>derniers articles</motion.h3>
         <motion.ul className="blogList" variants={postVariants}>
-          {posts.map((post, index) => (
-            <motion.a
-              href={post.link}
-              ref={ref}
-              key={index}
-              onMouseMove={handleMouseMove}
-              initial="initial"
-              whileHover="whileHover"
-              className="postItem"
+          {limitedPosts.map((post, id) => (
+        <motion.a
+          href={`/post/${post.id}`}
+          ref={ref}
+          key={id}
+          // onMouseMove={handleMouseMove}
+          initial="initial"
+          whileHover="whileHover"
+          className="postItem"
+          // onClick={(e) => {
+          //   e.preventDefault();
+          //   handleClick(post.id);
+          // }}
             >
               <motion.li className="post" variants={postVariants}>
                 <div className="metaInfo">
@@ -92,10 +103,10 @@ export const BlogSec = ({ posts }) => {
                     whileHover: { scale: 1, rotate: "12.5deg" },
                   }}
                   transition={{ type: "spring" }}
-                  src={post.imgSrc}
+                  src={post.image}
                   loading="lazy"
                   className="postImg"
-                  alt={`Featured Image for blog post ${post.index}`}
+                  alt={`Featured Image for blog post ${post.id}`}
                 />
               </motion.li>
             </motion.a>
