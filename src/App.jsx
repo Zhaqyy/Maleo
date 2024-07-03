@@ -34,59 +34,41 @@ function debounce(fn, ms) {
   };
 }
 
+const breakpoints = [500 ,770, 900, 1100, 1650, 2000]; // Define your breakpoints here
+
+const useResizeRefresh = () => {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = debounce(() => {
+      const newWidth = window.innerWidth;
+      const crossedBreakpoint = breakpoints.some(
+        (bp) => (windowWidth < bp && newWidth >= bp) || (windowWidth >= bp && newWidth < bp)
+      );
+
+      if (crossedBreakpoint) {
+        window.location.reload();
+      }
+
+      setWindowWidth(newWidth);
+    }, 1000);
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowWidth]);
+
+  return null;
+};
+
 
 function App() {
   const location = useLocation();
-
-  const transitionSpringPhysics = {
-    type: "spring",
-    mass: 0.2,
-    stiffness: 80,
-    damping: 10,
-    duration: 0.5,
-    delay: 1,
-  };
-  const transitionSpringPhysics2 = {
-    type: "spring",
-    mass: 0.5,
-    stiffness: 80,
-    damping: 20,
-    duration: 0.5,
-  };
-  useEffect(() => {
-    const debouncedHandleResize = debounce(function handleResize() {
-      window.location.reload();
-    }, 1000);
-
-    window.addEventListener('resize', debouncedHandleResize);
-
-    return () => {
-      window.removeEventListener('resize', debouncedHandleResize);
-    };
-  }, []);
+  useResizeRefresh();
 
   const isMobile = window.innerWidth < 770;
-  // fallback={
-  //   !isMobile && (
-  //     <div
-  //       style={{
-  //         position: "fixed",
-  //         top: 0,
-  //         left: 0,
-  //         width: "100vw",
-  //         height: "100vh",
-  //         backgroundColor: "black",
-  //         display: "flex",
-  //         justifyContent: "center",
-  //         alignItems: "center",
-  //         zIndex: 9999,
-  //       }}
-  //     >
-  //       <img src={logo} loading="eager" alt="Loading..." />
-  //     </div>
-  //   )
-  // }
-
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -107,46 +89,10 @@ function App() {
   return (
     <>
       <Suspense
-        // fallback={
-        //   <div
-        //     style={{
-        //       position: "fixed",
-        //       top: 0,
-        //       left: 0,
-        //       width: "100vw",
-        //       height: "100vh",
-        //       backgroundColor: "black",
-        //       display: "flex",
-        //       justifyContent: "center",
-        //       alignItems: "center",
-        //       zIndex: 9999,
-        //     }}
-        //   >
-        //     <img src={logo} loading="eager" alt="Loading..." />
-        //   </div>
-        // }
-        
       >
         <Header key="head" />
         <Overlay key="over" />
         <AnimatePresence mode="wait">
-          {/* <motion.div
-            key="slideIn"
-            className="slideIn"
-            initial={{ scaleX: 1 }}
-            animate={{ scaleX: 0 }}
-            exit={{ scaleX: 0 }}
-            transition={transitionSpringPhysics}
-          ></motion.div>
-
-          <motion.div
-            key="slideout"
-            className="slideOut"
-            initial={{ scaleX: 1 }}
-            animate={{ scaleX: 0 }}
-            exit={{ scaleX: 1 }}
-            transition={transitionSpringPhysics2}
-          /> */}
 
           <Routes location={location} key={location.pathname}>
             <Route index exact path="/" element={<Home key="home" />} />

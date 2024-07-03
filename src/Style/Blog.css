@@ -2,7 +2,7 @@
   position: relative;
   padding: 16px;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-section {
     padding: 24px;
   }
@@ -18,7 +18,7 @@
   grid-template-columns: repeat(1, minmax(0, 1fr));
   gap: 1rem;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -229,9 +229,9 @@
     padding-left: 1rem;
   }
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blogWrap {
-    max-width: 768px;
+    max-width: 770px;
   }
 }
 @media (min-width: 1024px) {
@@ -260,7 +260,7 @@
   padding-top: 36px;
   min-height: unset;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-details-header {
     padding-top: 44px;
   }
@@ -276,7 +276,7 @@
   width: 100%;
   text-transform: uppercase;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-details-header .header-text {
     width: 80%;
   }
@@ -301,7 +301,7 @@
   margin-top: 12px;
   line-height: normal;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-details-header .header-text .title {
     font-size: 36px;
     line-height: normal;
@@ -357,7 +357,7 @@
   padding-bottom: 16px;
   padding-top: 28px;
 }
-@media (min-width: 768px) {
+@media (min-width: 770px) {
   .blog-details-content {
     padding-bottom: 24px;
   }
