@@ -49,32 +49,14 @@ const Blog = () => {
                 </Link>
               </li>
               <li>
-                <Link to="#" className="pagination-item">
+                <Link to="#"  aria-current="page"
+                  className="pagination-item active">
                   1
                 </Link>
               </li>
               <li>
                 <Link to="#" className="pagination-item">
                   2
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="#"
-                  aria-current="page"
-                  className="pagination-item active"
-                >
-                  3
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="pagination-item">
-                  4
-                </Link>
-              </li>
-              <li>
-                <Link to="#" className="pagination-item">
-                  5
                 </Link>
               </li>
               <li>
