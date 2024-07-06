@@ -1,16 +1,19 @@
 @font-face {
   font-family: 'MonumentUltrabold';
   src: url(/MonumentUltrabold.woff2) format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'MonumentRegular';
   src: url(/MonumentRegular.woff2) format('woff2');
+  font-display: swap;
 }
 
 @font-face {
   font-family: 'Neue';
   src: url(/neue.woff2) format('woff2');
+  font-display: swap;
 }
 
 :root {
