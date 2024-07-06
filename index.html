@@ -42,8 +42,8 @@
 
 <body>
   <div id="root"></div>
+  <!-- //Preloader Animation -->
   <script>
-
     Pace.on('progress', function(progress) {
       const paceProgressInner = document.querySelector('.pace-progress-inner');
       if (paceProgressInner) {
@@ -63,9 +63,9 @@
         }
   
         setTimeout(function() {
-  
-          paceProgress.style.top = '-110vh';
-  
+          if (paceProgress) {
+            paceProgress.classList.add('translate-up');
+          }
    
         }, 1500);
       }, 500);
