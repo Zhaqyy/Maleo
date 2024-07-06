@@ -45,6 +45,7 @@
   z-index: 16;
 }
 .nav__logo img {
+  aspect-ratio: 1;
   transition: all 0.4s ease;
 }
 

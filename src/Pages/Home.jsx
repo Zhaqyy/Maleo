@@ -6,9 +6,7 @@ import React, { lazy, useLayoutEffect } from "react";
 import "../Style/Component/Component.css";
 import { BlogSec } from "../Components/HomeBlogSection.jsx";
 import { blogData } from "../Pages/Blog/blogData.js";
-import h1 from "/h1.png";
-import h2 from "/h2.png";
-import h3 from "/h3.png";
+
 
 const Hero = lazy(() => import("../HomeComponents/Hero.jsx"));
 

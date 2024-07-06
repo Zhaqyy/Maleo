@@ -28,6 +28,7 @@ const BlogPost = () => {
                   src={data?.client || author}
                   className="author-image"
                   alt=""
+                  loading="lazy"
                 />
                 <div className="author-info">
                   <h6 className="author-name">

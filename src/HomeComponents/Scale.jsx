@@ -44,8 +44,8 @@ export const ScaleSection = () => {
   //   return () => unsubscribe();
   // }, [scrollYProgress]);
 
-  const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  // const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
+  // const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200], {
     ease: smooth,
   });
@@ -147,8 +147,8 @@ export const Vid = () => {
     easeInOut
   );
   // const bdr = useTransform(scrollYProgress, [0, 0.3], [10, 50]);
-  const wide = useTransform(scrollYProgress, [0, 0.3], ["40%", "80%"]);
-  const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
+  // const wide = useTransform(scrollYProgress, [0, 0.3], ["40%", "80%"]);
+  // const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
 
   const isInView = useInView(vRef);
 
@@ -176,6 +176,10 @@ export const Vid = () => {
           scale: isMobile ? 1 : scalee,
           // borderRadius: bdr,
         }}
+        preload="none"
+        poster="/who.webp"
+        disableremoteplayback
+        x-webkit-airplay="deny"
       >
         {/* <source src="maleo.webm" type="video/webm" /> */}
         <source src="maleo.mp4" type="video/mp4" />

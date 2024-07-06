@@ -2,18 +2,15 @@
 /* eslint-disable no-unused-vars */
 
 import React, { Suspense, useRef } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas } from "@react-three/fiber";
 import {
   Environment,
-  OrbitControls,
   Preload,
-  Scroll,
-  ScrollControls,
-  Stage,
+
 } from "@react-three/drei";
-import { Perf } from "r3f-perf";
-import Tape, { TapeScroll } from "./Tape";
-import { useScroll, useTransform } from "framer-motion";
+// import { Perf } from "r3f-perf";
+import { TapeScroll } from "./Tape";
+// import { useScroll, useTransform } from "framer-motion";
 
 export default function Scene() {
   const ref = useRef();
@@ -30,7 +27,6 @@ export default function Scene() {
       </Suspense>
       <ambientLight intensity={1} />
       <Environment files={"./city.hdr"} background={null} />
-      {/* <OrbitControls ref={ref}  /> */}
       <Preload />
     </Canvas>
   );

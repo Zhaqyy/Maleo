@@ -54,6 +54,7 @@
 	content: attr(data-progress-text);
 	font-weight: 100;
 	font-size: 1rem;
+	font-family: "MonumentRegular", 'MonumentUltrabold', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	line-height: 1;
 	text-align: center;
 	color: rgb(255, 255, 255);

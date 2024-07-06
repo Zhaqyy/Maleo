@@ -5,13 +5,6 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useScroll, useTransform } from "framer-motion";
 import { useFrame } from "@react-three/fiber";
-import {
-  Environment,
-  OrbitControls,
-  Scroll,
-  ScrollControls,
-  Stage,
-} from "@react-three/drei";
 
 export const TapeScroll = (props) => {
   const Tref = useRef();

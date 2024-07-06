@@ -6,7 +6,7 @@ import Lenis from "lenis";
 import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import logo from "/flogo.svg";
+// import logo from "/flogo.svg";
 import "./App.css";
 
 //PAGES

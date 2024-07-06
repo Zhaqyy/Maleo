@@ -51,7 +51,7 @@ const visible = {
                 <SpotBtn text={"DEVISER MAINTENANT"} />
               </motion.div>
               <motion.h1 variants={hprodVariants}>NOS PRODUITS
-              <motion.img variants={imgVariants} src="/mal.svg" />
+              <motion.img variants={imgVariants} src="/mal.svg" loading="lazy" />
               </motion.h1>
               <motion.h2 className="hollow" variants={hprodVariants}>
                 sont les meilleurs
@@ -81,7 +81,8 @@ const visible = {
             opacity: isInView ? 1 : 0,
             scale: isInView ? 1 : 0.5,
             y: isInView ? 0 : 200,
-            transitionDuration:'0.5s'
+            transitionDuration:'0.5s',
+            aspectRatio: 1
           }}
         />
       </Section>

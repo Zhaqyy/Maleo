@@ -34,17 +34,13 @@ export default function Hero() {
   const bg = useTransform(scrollYProgress, (bg) => {
     return bg === 1 ? "#ffffff" : "#000000";
   });
-  // const bg1 = useTransform(scrollYProgress, (bg) => {
-  //   return bg === 0.9 ? "#dcdcdc" : "#000000";
-  // });
+
   const bg1 = useTransform(
     scrollYProgress,
     [0, 0.8, 1],
     ["#000000", "#000000", "#dcdcdc"]
   );
-  // const bg = useTransform(scrollYProgress, (bg) => {
-  //   return bg === 1 ? `var(--bg-white)` : `var(--bg-black)`;
-  // });
+
   const z = useTransform(scrollYProgress, (z) => {
     return z === 1 ? 2 : 0;
   });

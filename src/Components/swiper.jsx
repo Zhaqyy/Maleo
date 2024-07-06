@@ -152,7 +152,7 @@ const ProductList = ({ products, itemsToShow }) => {
             : "calc(-1 * var(--gradient-length))",
         }}
       >
-        <img src="/line.png" />
+        <img loading="lazy" src="/line.png" />
       </motion.span>
     </>
   );
@@ -308,7 +308,7 @@ export const BlogSwiper = () => {
   const renderProductList = () => {
     return blogData.map((item, index) => (
       <div className="blog-item" key={item.id}>
-        <img src={item.image} alt={item.title} />
+        <img src={item.image} alt={item.title} loading="lazy" />
         <div className="blogswipe-info">
           <p className="swipe-date">{item.date}</p>
           <Link to={`/post/${item.id}`} className="Blogswiper-link">

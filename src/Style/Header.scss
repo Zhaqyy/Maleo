@@ -48,6 +48,7 @@
 .nav__logo {
     z-index: 16;
     img {
+        aspect-ratio: 1;
         transition: all 0.4s ease;
         // filter: contrast(0) brightness(10) grayscale(1);
     }
