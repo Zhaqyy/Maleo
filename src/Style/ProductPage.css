@@ -194,6 +194,7 @@
   width: 100%;
   background-color: white;
   border-radius: 15px;
+  touch-action: pan-x;
 }
 
 .Pwrap {
@@ -469,7 +470,6 @@
     height: max-content;
   }
   .pModel .list h5 {
-    background: black;
     color: white;
     z-index: 1;
     line-break: anywhere;

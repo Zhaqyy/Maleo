@@ -90,7 +90,7 @@ const Footer = () => {
             © Maleo Emballage {new Date().getFullYear()}
           </p>
           <p>
-            Site web développé par <a href="/">MdX</a>
+            Site web développé par <Link to="/">MdX</Link>
           </p>
         </Row>
       </Container>

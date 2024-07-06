@@ -152,7 +152,7 @@ export default function Hero() {
             <br />
             PRODUITS
           </h3>
-          <SpotBtn text={"QUOTE NOW"} />
+          <SpotBtn text={"QUOTE NOW"} url={'/Contact'} />
         </motion.div>
         <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
       </motion.section>

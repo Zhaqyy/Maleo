@@ -4,6 +4,7 @@ import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import "../Style/Component/Component.css";
 import arrow from "/arrow.webp";
+import { Link } from "react-router-dom";
 
 export default function MagneticBtn({ children }) {
   const ref = useRef(null);
@@ -36,7 +37,7 @@ export default function MagneticBtn({ children }) {
   );
 }
 
-export const SpotBtn = ({ text, variant, submit }) => {
+export const SpotBtn = ({ text, variant, submit, url }) => {
   const divRef = useRef(null);
   const [isFocused, setIsFocused] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -87,6 +88,7 @@ export const SpotBtn = ({ text, variant, submit }) => {
   };
 
   return (
+    <Link to={`${url}`}>
     <motion.button
       className="primary-btn base-input"
       variants={variant}
@@ -96,6 +98,7 @@ export const SpotBtn = ({ text, variant, submit }) => {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onClick={submit}
+      
     >
       <span
         className="overlay-input"
@@ -108,6 +111,7 @@ export const SpotBtn = ({ text, variant, submit }) => {
       ></span>
       {text}
     </motion.button>
+    </Link>
   );
 };
 

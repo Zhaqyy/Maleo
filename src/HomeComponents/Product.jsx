@@ -41,7 +41,6 @@ const visible = {
     const isMobile = window.innerWidth < 768;
     return (
       <>
-        (
           <motion.section
             className="product"
             id="product"
@@ -63,7 +62,6 @@ const visible = {
             </motion.div>
             <ProductList products={products} />
           </motion.section>
-        )
       </>
     );
   };

@@ -36,7 +36,7 @@ button:hover {
 
 button:focus,
 button:focus-visible {
-  outline: 1px auto var(--accent);
+  outline: 1px solid  var(--accent);
 }
 
 a.button {
@@ -65,7 +65,7 @@ a.button:hover {
 
 a.button:focus,
 a.button:focus-visible {
-  outline: 1px auto var(--accent);
+  outline: 1px solid var(--accent);
 }
 
 .slideIn {

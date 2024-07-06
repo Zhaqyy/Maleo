@@ -1,6 +1,7 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import "../Style/Component/Component.css";
+import { Link } from "react-router-dom";
 
 const Overlay = () => {
   const controlsLeft = useAnimation();
@@ -50,7 +51,7 @@ const Overlay = () => {
   return (
     <aside className="fixed-aside">
       <motion.span className="over-cont" animate={controlsRight}>
-        <p><span><a href="/Contact">Instagram</a></span> X <span><a href="/Contact">Contact</a></span></p>
+        <p><span><Link to="https://www.linkedin.com/company/maleo-emballage/">Linkedin</Link></span> X <span><Link to="/Contact">Contact</Link></span></p>
       </motion.span>
       <motion.span className="over-scroll" animate={controlsLeft}>
         <p><a href={'#footer'}>descendre</a></p>

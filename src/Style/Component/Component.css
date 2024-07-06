@@ -195,6 +195,7 @@
   top: 50%;
   translate: 0 calc(-50% + 25px);
   padding-inline: 10%;
+  touch-action: pan-x;
 }
 .list .listItem2 {
   height: auto;
@@ -215,6 +216,7 @@
   background: transparent !important;
 }
 .list .listItem {
+  height: unset;
   display: flex;
   flex-direction: column;
   align-items: center;

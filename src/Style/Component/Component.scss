@@ -231,6 +231,7 @@
   top: 50%;
   translate: 0 calc(-50% + 25px);
   padding-inline: 10%;
+  touch-action: pan-x;
 
   .listItem2 {
     height: auto;
@@ -253,6 +254,7 @@
   }
   .listItem {
     // width: calc(100vw / 3);
+    height: unset;
     display: flex;
     flex-direction: column;
     align-items: center;
