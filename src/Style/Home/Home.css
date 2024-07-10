@@ -61,11 +61,12 @@
 }
 
 .vid {
-  height: 100vh;
+  height: 50vh;
+  min-height: 0;
 }
 
 .vid2 {
-  height: 50vh;
+  height: 0vh;
   min-height: unset;
 }
 
@@ -141,13 +142,43 @@
   height: 200vh;
   text-align: -webkit-center;
   text-align: center;
+  position: relative;
+}
+.videoSec .control {
+  position: sticky;
+  top: 10%;
+  z-index: 2;
 }
 .videoSec .mainVid {
-  position: sticky;
-  top: 5%;
-  z-index: 2;
+  position: relative;
   border-radius: 50px;
   width: 85%;
+}
+.videoSec #circle-play-b {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+  pointer-events: none;
+  z-index: 2;
+  cursor: pointer;
+  pointer-events: auto;
+}
+.videoSec #circle-play-b svg {
+  width: 80px;
+  height: 80px;
+  fill: var(--accent);
+  stroke: var(--accent);
+  cursor: pointer;
+  background-color: var(--text-color);
+  border-radius: 50%;
+  opacity: 0.9;
 }
 
 .product {

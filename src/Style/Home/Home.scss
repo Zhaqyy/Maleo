@@ -22,10 +22,10 @@
   top: 10%;
   left: 50%;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 40px;
   -webkit-filter: grayscale(0.9) brightness(0.5);
-          filter: grayscale(0.9) brightness(0.5);
+  filter: grayscale(0.9) brightness(0.5);
   transition: all 0.3s ease-out;
   transform: translate(-50%, 0);
   z-index: 0;
@@ -62,10 +62,11 @@
 }
 
 .vid {
-  height: 100vh;
+  height: 50vh;
+  min-height: 0;
 }
 .vid2 {
-  height: 50vh;
+  height: 0vh;
   min-height: unset;
 }
 
@@ -90,7 +91,7 @@
     line-height: 1;
     flex-wrap: wrap;
     -webkit-filter: invert(1);
-            filter: invert(1);
+    filter: invert(1);
     z-index: 2;
 
     .word {
@@ -128,7 +129,7 @@
 
 .redText {
   -ms-scroll-snap-type: block;
-      scroll-snap-type: block;
+  scroll-snap-type: block;
   overflow-x: hidden;
   .text {
     position: relative;
@@ -155,20 +156,47 @@
   height: 200vh;
   text-align: -webkit-center;
   text-align: center;
-  .mainVid {
+  position: relative;
+  .control {
     position: -webkit-sticky;
     position: sticky;
     // left: 50%;
-    top: 5%;
-
+    top: 10%;
     z-index: 2;
-    // position: relative;
+  }
+
+  .mainVid {
+    position: relative;
     border-radius: 50px;
-    // inset: 0 50%;
-    // translate: -50% 0;
-    // transform-origin: bottom center;
-    // scale: 1;
     width: 85%;
+  }
+
+  #circle-play-b {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+    cursor: pointer;
+    pointer-events: auto;
+
+    svg {
+      width: 80px;
+      height: 80px;
+      fill: var(--accent);
+      stroke: var(--accent);
+      cursor: pointer;
+      background-color: var(--text-color);
+      border-radius: 50%;
+      opacity: 0.9;
+    }
   }
 }
 
@@ -312,12 +340,10 @@
     }
 
     .list {
-
       h5 {
         background: white;
         z-index: 1;
       }
-
     }
   }
   .LogoDisp {

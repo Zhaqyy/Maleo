@@ -13,7 +13,7 @@ const Overlay = () => {
     // console.log("Scroll Position:", scrollPosition);
 
     // Define the scroll threshold where animations should trigger (400px)
-    const scrollThreshold = 300;
+    const scrollThreshold = 100;
 
     // Trigger fade-out-left animation
     if (scrollPosition >= scrollThreshold) {

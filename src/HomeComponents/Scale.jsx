@@ -3,13 +3,14 @@
 import {
   easeInOut,
   motion,
+  useAnimation,
   useInView,
   useScroll,
   useTransform,
 } from "framer-motion";
 
 import "../Style/Home/Home.css";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../Style/Component/Component.css";
 import Paragraph from "../Components/Character";
 
@@ -33,16 +34,16 @@ export const ScaleSection = () => {
 
   // Log for timeline Sequence
 
-  // useEffect(() => {
-  //   // Function to log the rounded scroll progress
-  //   const unsubscribe = scrollYProgress.onChange((latest) => {
-  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-  //     console.log(rounded);
-  //   });
+  useEffect(() => {
+    // Function to log the rounded scroll progress
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+      console.log(rounded);
+    });
 
-  //   // Clean up the subscription on unmount
-  //   return () => unsubscribe();
-  // }, [scrollYProgress]);
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
   // const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   // const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
@@ -51,7 +52,7 @@ export const ScaleSection = () => {
   });
   const bgg = useTransform(
     scrollYProgress,
-    isMobile ? [0, 0.2, 0.4, 0.95, 1] : [0, 0.2, 0.4, 0.89, 0.93],
+    isMobile ? [0, 0.2, 0.4, 0.95, 1] : [0, 0.2, 0.4, 0.825, 0.9],
     ["#dcdcdc", "#dcdcdc", "#000000", "#000000", "#ffffff"]
   );
   const position = useTransform(scrollYProgress, (pos) => {
@@ -67,10 +68,13 @@ export const ScaleSection = () => {
         // ref={scaleRef}
         style={{ position: position, background: bgg }}
       ></motion.section>
-      <section></section>
+      <section
+        style={{
+          backgroundColor: "#dcdcdc",
+        }}
+      ></section>
       <RedText shift={shift} />
       <Vid />
-      {/* <section style={{ height: "10vh" }}></section> */}
     </motion.section>
   );
 };
@@ -142,7 +146,7 @@ export const Vid = () => {
 
   const scalee = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.65, 0.8],
+    [0, 0.1, 0.45, 0.55],
     [0.6, 0.8, 0.8, 1],
     easeInOut
   );
@@ -152,18 +156,46 @@ export const Vid = () => {
 
   const isInView = useInView(vRef);
 
-  useEffect(() => {
-    const video = vRef.current;
+  // useEffect(() => {
+  //   const video = vRef.current;
 
-    if (isInView) {
-      video.play();
-    } else {
-      video.pause();
+  //   if (isInView) {
+  //     video.play();
+  //   } else {
+  //     video.pause();
+  //   }
+  // }, [isInView]);
+  const controls = useAnimation();
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  useEffect(() => {
+    if (!isInView) {
+      vRef.current.pause();
     }
   }, [isInView]);
 
+  const togglePlay = () => {
+    if (vRef.current.paused || vRef.current.ended) {
+      vRef.current.play();
+    } else {
+      vRef.current.pause();
+    }
+  };
+
+  const handlePlay = () => {
+    setIsPlaying(true);
+    controls.start({ opacity: 0 });
+  };
+
+  const handlePause = () => {
+    setIsPlaying(false);
+    controls.start({ opacity: 1 });
+  };
+
+  
   return (
     <motion.section className="videoSec" ref={vidRef}>
+      <div className="control">
       <motion.video
         ref={vRef}
         {...(!isInView && { muted: true })}
@@ -178,13 +210,35 @@ export const Vid = () => {
         }}
         preload="none"
         poster="/who.webp"
-        controls
+        // controls
         disableRemotePlayback
         x-webkit-airplay="deny"
+        onPlay={handlePlay}
+        onPause={handlePause}
       >
         {/* <source src="maleo.webm" type="video/webm" /> */}
         <source src="maleo.mp4" type="video/mp4" />
       </motion.video>
+      <motion.div
+        title="Play video"
+        id="circle-play-b"
+        onClick={togglePlay}
+        initial={{ opacity: 1 }}
+        animate={controls}
+        transition={{ duration: 0.3 }}
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          cursor: 'pointer',
+        }}
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">
+          <path d="M40 0a40 40 0 1040 40A40 40 0 0040 0zM26 61.56V18.44L64 40z" />
+        </svg>
+      </motion.div>
+      </div>
     </motion.section>
   );
 };

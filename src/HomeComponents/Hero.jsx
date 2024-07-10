@@ -4,7 +4,7 @@ import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { SpotBtn } from "../Components/magnetBtn";
 import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
-import { lazy, useRef } from "react";
+import { lazy, useEffect, useRef } from "react";
 import "../Style/Component/Component.css";
 
 import logo from "/logobig.png";
@@ -23,7 +23,18 @@ export default function Hero() {
     target: TargetRef,
     offset: ["end end", "end start"],
   });
+  // Log for timeline Sequence
 
+  // useEffect(() => {
+  //   // Function to log the rounded scroll progress
+  //   const unsubscribe = scrollYProgress.on("change", (latest) => {
+  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+  //     console.log(rounded);
+  //   });
+
+  //   // Clean up the subscription on unmount
+  //   return () => unsubscribe();
+  // }, [scrollYProgress]);
 
   const smooth = easeInOut;
 
@@ -37,7 +48,7 @@ export default function Hero() {
 
   const bg1 = useTransform(
     scrollYProgress,
-    [0, 0.8, 1],
+    [0, 0.45, 0.5],
     ["#000000", "#000000", "#dcdcdc"]
   );
 
@@ -47,28 +58,28 @@ export default function Hero() {
   // Define transformations for desktop
   const MoveVidYDesktop = useTransform(
     scrollYProgress,
-    [0.1, 0.11, 0.99, 1],
+    [0, 0.1, 0.15, 0.25],
     ["10%", "0%", "0%", "5%"],
     { ease: smooth }
   );
 
   const wideDesktop = useTransform(
     scrollYProgress,
-    [0.1, 0.11, 0.9, 1],
-    ["20%", "100%", "100%", "40%"],
+    [0, 0.08, 0.15, 0.2, 0.25],
+    ["20%", "100%", "100%", "100%", "40%"],
     { ease: smooth }
   );
 
   const xDesktop = useTransform(
     scrollYProgress,
-    [0.1, 0.2, 0.9, 1],
-    ["50%", "50%", "50%", "25%"],
+    [0, 0.1, 0.15, 0.2, 0.25],
+    ["50%", "50%", "50%", "50%", "25%"],
     { ease: smooth }
   );
 
   const tallDesktop = useTransform(
     scrollYProgress,
-    [0.1, 0.11, 0.9, 1],
+    [0, 0.1, 0.15, 0.25],
     ["40vh", "70vh", "70vh", "90vh"],
     { ease: smooth }
   );
@@ -109,12 +120,20 @@ export default function Hero() {
     <motion.section
       className="wrapper"
       ref={scrollRef}
-      style={{ padding: "0", 
-      backgroundColor: bg, 
-      // '--bg-variable': bg
-     }}
+      style={{
+        padding: "0",
+        backgroundColor: bg,
+        // '--bg-variable': bg
+      }}
     >
-      <motion.section id="hero" className="hero" ref={TargetRef}>
+      <motion.section
+        id="hero"
+        className="hero"
+        ref={TargetRef}
+        style={{
+          backgroundColor: bg1,
+        }}
+      >
         <motion.div className="hero-head" style={{ y: MoveY }}>
           <h1 className="hollowdark">
             QUALITÉ
@@ -148,13 +167,16 @@ export default function Hero() {
             <br />
             PRODUITS
           </h3>
-          <SpotBtn text={"QUOTE NOW"} url={'/Contact'} />
+          <SpotBtn text={"QUOTE NOW"} url={"/Contact"} />
         </motion.div>
         <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
       </motion.section>
-      <motion.section className="vid" style={{
-      backgroundColor: bg1
-     }}></motion.section>
+      <motion.section
+        className="vid"
+        style={{
+          backgroundColor: bg1,
+        }}
+      ></motion.section>
 
       <motion.section id="canvasWrapper" style={{ zIndex: z }}>
         <Scene />

@@ -135,9 +135,9 @@ const ProductList = ({ products, itemsToShow }) => {
           >
             <div className="imgWrap">
               <img loading="lazy" src={product.imageSrc} alt={product.title} />
-              <Link to={product.link || "#contact-form"} className="button">
+              <a href={product.link || "#contact-form"} className="button">
                 {product.linktext}
-              </Link>
+              </a>
             </div>
             <h5>{product.title}</h5>
           </motion.li>
