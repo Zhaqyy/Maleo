@@ -29,6 +29,7 @@
     justify-content: start;
     border-block: 2px solid rgba(128, 128, 128, 0.35);
     padding-block: 10vh;
+    gap: 1rem;
 }
 
 .lowerFoot {
@@ -59,7 +60,7 @@
 }
 
 .footer-logo img {
-    height: 30px;
+    max-height: 75px;
 }
 
 .linkItem {

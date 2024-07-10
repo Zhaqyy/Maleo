@@ -200,10 +200,11 @@
   position: relative;
   z-index: 1;
   text-align: -webkit-center;
+  min-height: 0;
 }
 .LogoDisp img {
-  width: 60%;
-  transition: all 2s ease;
+  width: 20%;
+  transition: all 1s ease;
 }
 
 @media (max-width: 800px) {
@@ -271,7 +272,11 @@
     z-index: 1;
   }
   .LogoDisp {
+    display: block;
     min-height: unset;
     padding-top: 10vh;
+  }
+  .LogoDisp img {
+    width: 50%;
   }
 }/*# sourceMappingURL=Home.css.map */

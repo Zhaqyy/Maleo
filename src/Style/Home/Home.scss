@@ -233,10 +233,12 @@
   position: relative;
   z-index: 1;
   text-align: -webkit-center;
+  min-height: 0;
+  // display: none;
 
   img {
-    width: 60%;
-    transition: all 2s ease;
+    width: 20%;
+    transition: all 1s ease;
   }
 }
 
@@ -319,7 +321,11 @@
     }
   }
   .LogoDisp {
+    display: block;
     min-height: unset;
     padding-top: 10vh;
+    img {
+      width: 50%;
+    }
   }
 }

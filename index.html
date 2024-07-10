@@ -15,7 +15,7 @@
     script.src = 'https://widget.usersnap.com/global/load/1d718cef-f8f4-4a4e-b2bb-94e43ce01c0f?onload=onUsersnapLoad';
     document.getElementsByTagName('head')[0].appendChild(script);
   </script> -->
-  <link rel="preload" href="https://unpkg.com/pace-js@1.0.2/pace.min.js" as="script" />
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js" as="script" />
 
   <link
   rel="preload"
@@ -35,7 +35,14 @@
   as="font"
   type="font/woff2"
   crossorigin />
-  <script src="https://unpkg.com/pace-js@1.0.2/pace.min.js"></script>
+  <script>
+    paceOptions = {
+      startOnPageLoad: false,
+      restartOnRequestAfter: false,
+      ghostTime: 7000,
+  }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
   <!-- <script src="/pace.js"></script> -->
   <link rel="stylesheet" href="src/Components/preloader.css" />
 </head>
@@ -43,7 +50,9 @@
 <body>
   <div id="root"></div>
   <!-- //Preloader Animation -->
+
   <script>
+
     Pace.on('progress', function(progress) {
       const paceProgressInner = document.querySelector('.pace-progress-inner');
       if (paceProgressInner) {

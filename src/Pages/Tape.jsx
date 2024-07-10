@@ -178,7 +178,7 @@ const Tape = () => {
           theme="dark"
         />
         <PContact products={products3} products2={products2} theme="dark" />
-        <PTable product={productData} />
+        <PTable product={productData} set="tape" />
       </Pwrap>
     </>
   );

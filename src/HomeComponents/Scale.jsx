@@ -178,7 +178,8 @@ export const Vid = () => {
         }}
         preload="none"
         poster="/who.webp"
-        disableremoteplayback
+        controls
+        disableRemotePlayback
         x-webkit-airplay="deny"
       >
         {/* <source src="maleo.webm" type="video/webm" /> */}

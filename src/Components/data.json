@@ -1,106 +1,152 @@
-[
-  {
-    "type": "pouvoir adhésif",
-    "pvc": "❌",
-    "acrylique": "",
-    "solvant": "❌",
-    "hotmelt": "❌",
-    "papier": ""
-  },
-  {
-    "type": "colis lourd",
-    "pvc": "",
-    "acrylique": "",
-    "solvant": "❌",
-    "hotmelt": "❌",
-    "papier": ""
-  },
-  {
-    "type": "déroulement silencieux",
-    "pvc": "❌❌",
-    "acrylique": "❌❌",
-    "solvant": "",
-    "hotmelt": "",
-    "papier": "❌"
-  },
-  {
-    "type": "déchirable à la main",
-    "pvc": "❌",
-    "acrylique": "",
-    "solvant": "",
-    "hotmelt": "",
-    "papier": "❌"
-  },
-  {
-    "type": "brillance",
-    "pvc": "",
-    "acrylique": "❌",
-    "solvant": "❌",
-    "hotmelt": "❌",
-    "papier": ""
-  },
-  {
-    "type": "basse température",
-    "pvc": "",
-    "acrylique": "❌",
-    "solvant": "❌❌",
-    "hotmelt": "❌",
-    "papier": ""
-  },
-  {
-    "type": "haute température",
-    "pvc": "❌",
-    "acrylique": "",
-    "solvant": "",
-    "hotmelt": "",
-    "papier": ""
-  },
-  {
-    "type": "uv",
-    "pvc": "❌",
-    "acrylique": "❌",
-    "solvant": "",
-    "hotmelt": "",
-    "papier": ""
-  },
-  {
-    "type": "ecologique",
-    "pvc": "",
-    "acrylique": "❌",
-    "solvant": "",
-    "hotmelt": "❌",
-    "papier": "❌❌"
-  },
-  {
-    "type": "humidité",
-    "pvc": "❌",
-    "acrylique": "",
-    "solvant": "",
-    "hotmelt": "❌",
-    "papier": ""
-  },
-  {
-    "type": "Longue durée",
-    "pvc": "",
-    "acrylique": "❌",
-    "solvant": "❌",
-    "hotmelt": "",
-    "papier": ""
-  },
-  {
-    "type": "déroulement manuel",
-    "pvc": "❌",
-    "acrylique": "❌",
-    "solvant": "❌",
-    "hotmelt": "❌",
-    "papier": "❌"
-  },
-  {
-    "type": "machine (déroulement accéléré)",
-    "pvc": "❌",
-    "acrylique": "❌",
-    "solvant": "❌",
-    "hotmelt": "❌",
-    "papier": ""
-  }
-]
+{
+  "Tape": [
+    {
+      "type": "pouvoir adhésif",
+      "pvc": "❌",
+      "acrylique": "",
+      "solvant": "❌",
+      "hotmelt": "❌",
+      "papier": ""
+    },
+    {
+      "type": "colis lourd",
+      "pvc": "",
+      "acrylique": "",
+      "solvant": "❌",
+      "hotmelt": "❌",
+      "papier": ""
+    },
+    {
+      "type": "déroulement silencieux",
+      "pvc": "❌❌",
+      "acrylique": "❌❌",
+      "solvant": "",
+      "hotmelt": "",
+      "papier": "❌"
+    },
+    {
+      "type": "déchirable à la main",
+      "pvc": "❌",
+      "acrylique": "",
+      "solvant": "",
+      "hotmelt": "",
+      "papier": "❌"
+    },
+    {
+      "type": "brillance",
+      "pvc": "",
+      "acrylique": "❌",
+      "solvant": "❌",
+      "hotmelt": "❌",
+      "papier": ""
+    },
+    {
+      "type": "basse température",
+      "pvc": "",
+      "acrylique": "❌",
+      "solvant": "❌❌",
+      "hotmelt": "❌",
+      "papier": ""
+    },
+    {
+      "type": "haute température",
+      "pvc": "❌",
+      "acrylique": "",
+      "solvant": "",
+      "hotmelt": "",
+      "papier": ""
+    },
+    {
+      "type": "uv",
+      "pvc": "❌",
+      "acrylique": "❌",
+      "solvant": "",
+      "hotmelt": "",
+      "papier": ""
+    },
+    {
+      "type": "ecologique",
+      "pvc": "",
+      "acrylique": "❌",
+      "solvant": "",
+      "hotmelt": "❌",
+      "papier": "❌❌"
+    },
+    {
+      "type": "humidité",
+      "pvc": "❌",
+      "acrylique": "",
+      "solvant": "",
+      "hotmelt": "❌",
+      "papier": ""
+    },
+    {
+      "type": "Longue durée",
+      "pvc": "",
+      "acrylique": "❌",
+      "solvant": "❌",
+      "hotmelt": "",
+      "papier": ""
+    },
+    {
+      "type": "déroulement manuel",
+      "pvc": "❌",
+      "acrylique": "❌",
+      "solvant": "❌",
+      "hotmelt": "❌",
+      "papier": "❌"
+    },
+    {
+      "type": "machine (déroulement accéléré)",
+      "pvc": "❌",
+      "acrylique": "❌",
+      "solvant": "❌",
+      "hotmelt": "❌",
+      "papier": ""
+    }
+  ],
+  "feuillard": [
+    {
+      "type": "Légères",
+      "Polypropylène": "❌",
+      "Textile": "",
+      "Acier": "",
+      "Polyester": ""
+    },
+    {
+      "type": "Tassement naturel",
+      "Polypropylène": "",
+      "Textile": "❌",
+      "Acier": "",
+      "Polyester": ""
+    },
+    {
+      "type": "Comprimées",
+      "Polypropylène": "",
+      "Textile": "❌",
+      "Acier": "",
+      "Polyester": "❌"
+    },
+    {
+      "type": "Basses",
+      "Polypropylène": "",
+      "Textile": "❌",
+      "Acier": "❌",
+      "Polyester": "❌"
+    },
+    {
+      "type": "Arrimage",
+      "Polypropylène": "",
+      "Textile": "❌",
+      "Acier": "❌",
+      "Polyester": "❌"
+    },
+    {
+      "type": "Lourdes / très lourdes",
+      "Polypropylène": "",
+      "Textile": "❌",
+      "Acier": "❌",
+      "Polyester": "❌"
+    }
+  ]
+}

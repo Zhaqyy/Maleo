@@ -31,7 +31,7 @@
 .over-scroll p::before {
   content: "";
   position: absolute;
-  bottom: -150px;
+  bottom: -170px;
   height: 200px;
   width: 15px;
   border-right: 1px solid;
@@ -250,6 +250,7 @@
   outline: 2px solid black;
   background-color: white;
   transition: all 0.5s ease;
+  padding: 2.5rem;
 }
 .list .listItem .imgWrap .button {
   position: absolute;
@@ -262,8 +263,8 @@
 }
 .list .listItem img {
   width: 100%;
-  -o-object-fit: scale-down;
-  object-fit: scale-down;
+  -o-object-fit: contain;
+  object-fit: contain;
   aspect-ratio: 1/1;
   transition: all 0.8s ease;
 }
@@ -462,10 +463,10 @@ th {
   transform: rotate(180deg);
 }
 .swiperNoswiping .dots {
+  display: none;
   position: absolute;
   bottom: 0;
   margin-top: 3rem;
-  display: flex;
   width: 100%;
   justify-content: center;
   gap: 0.5rem; /* gap-2 */
@@ -496,6 +497,7 @@ th {
 .swiperNoswiping:has(.var2) .listItem img {
   -o-object-fit: contain;
   object-fit: contain;
+  max-width: 450px;
 }
 
 @media (max-width: 770px) {
@@ -518,7 +520,10 @@ th {
     width: 100vw !important;
   }
   .swiperNoswiping {
-    min-height: 400px;
+    min-height: 500px;
+  }
+  .swiperNoswiping .dots {
+    display: flex;
   }
   .swiperNoswiping:has(.var2) {
     min-height: 350px;
@@ -526,6 +531,13 @@ th {
   .swiperNoswiping:has(.var2) .dots {
     display: flex;
     bottom: -100px;
+  }
+  .imgWrap, .imgWrap2 {
+    padding: 0;
+  }
+  .imgWrap img, .imgWrap2 img {
+    -o-object-fit: scale-down;
+       object-fit: scale-down;
   }
   .var2 .listItem h4 {
     line-break: anywhere;
@@ -644,6 +656,9 @@ th {
   }
   .product h2 {
     font-size: clamp(3.5rem, 10vw, 4.6rem);
+  }
+  .product .prodHead h1 img {
+    height: clamp(4.44rem, 10vw, 7rem) !important;
   }
   .blog {
     min-height: 70vh;
@@ -832,6 +847,9 @@ th {
   }
   .product h2 {
     font-size: clamp(3.5rem, 10vw, 6.6rem);
+  }
+  .product .prodHead h1 img {
+    height: clamp(5.44rem, 10vw, 8.25rem) !important;
   }
   .blog {
     padding-inline: clamp(10%, 5vw, 18%);

@@ -7,7 +7,7 @@ import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
 import { SpotBtn } from "./magnetBtn";
-import Table from "./Table";
+import Table, { Table2 } from "./Table";
 import data from "./data.json";
 
 import "../Style/ProductPage.css";
@@ -129,12 +129,16 @@ export const PModel2 = ({
   );
 };
 
-export const PTable = ({ product }) => {
+export const PTable = ({ product, set }) => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
-    setTableData(data);
-  }, []);
+    if (set === "tape") {
+      setTableData(data.Tape);
+    } else if (set === "feuillard") {
+      setTableData(data.feuillard);
+    }
+  }, [set]);
 
   return (
     <Section className="pTable">
@@ -142,7 +146,7 @@ export const PTable = ({ product }) => {
         FEUILLE À PROPOS DE {product.title}
       </motion.h3>
       <div className="table">
-        <Table data={tableData} />
+      {set === "tape" ? <Table data={tableData} /> : <Table2 data={tableData} />}
       </div>
     </Section>
   );
@@ -157,7 +161,7 @@ export const PContact = ({ products, products2, theme }) => {
       >
         PARLONS-EN
       </motion.h1>
-      <div className={`cont-form ${theme === "dark" ? "dark" : ""}`}>
+      <div id="citation" className={`cont-form ${theme === "dark" ? "dark" : ""}`}>
         <motion.div id="contact-form">
           <motion.div className="inp-field" variants={prodVariants}>
             <input

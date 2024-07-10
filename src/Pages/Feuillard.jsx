@@ -97,7 +97,7 @@ const Feuillard = () => {
 
       <PHero product={productData} />
       <PModel modelTitle={pageTitle} products={products} />
-      <PTable product={productData} />
+      <PTable product={productData}  set="feuillard" />
       <PHero
         product={{
           ...productData,

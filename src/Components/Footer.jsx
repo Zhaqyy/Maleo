@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
-// import logo from "/logodark.png";
+// import flogo from "/flogo.svg";
 import "../Style/footer.css"; // Import the CSS file
 import { ArrowBtn } from "./magnetBtn";
 
@@ -13,9 +13,7 @@ const Footer = () => {
       <Container>
         <Row className="rowMain">
           <Col xl={4} className="logoInfo">
-            {/* <Link className="footer-logo" to="#">
-              <img src={logo} alt="Logo" />
-            </Link> */}
+           
             <h4>s'inscrire à notre lettre d'information</h4>
             <p className="footer-text">
               Découvrez nos dernières actualités en matière d'emballage
@@ -26,6 +24,9 @@ const Footer = () => {
                 <ArrowBtn />
               </button>
             </form>
+            {/* <Link className="footer-logo" to="#">
+              <img src={flogo} alt="Logo" />
+            </Link> */}
           </Col>
           <div className="linkItem">
             <Col xl="auto" lg={3} xs={6} className="footer-column">
@@ -55,6 +56,33 @@ const Footer = () => {
                   <li className="footer-list-item">
                     <Link to="/Contact" className="footer-link">
                       Contact
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+            <Col xl="auto" lg={3} xs={6} className="footer-column">
+              <div>
+                <h6 className="footer-heading">Produits</h6>
+                <ul className="footer-list">
+                  <li className="footer-list-item">
+                    <Link to="/Tape" className="footer-link">
+                      Bande
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="/Sfilm" className="footer-link">
+                      Film Etirable
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="/Cardboard" className="footer-link">
+                      Carton
+                    </Link>
+                  </li>
+                  <li className="footer-list-item">
+                    <Link to="/feuillard" className="footer-link">
+                      Feuillard
                     </Link>
                   </li>
                 </ul>
