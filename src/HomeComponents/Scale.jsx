@@ -34,19 +34,17 @@ export const ScaleSection = () => {
 
   // Log for timeline Sequence
 
-  useEffect(() => {
-    // Function to log the rounded scroll progress
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-      console.log(rounded);
-    });
+  // useEffect(() => {
+  //   // Function to log the rounded scroll progress
+  //   const unsubscribe = scrollYProgress.onChange((latest) => {
+  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+  //     console.log(rounded);
+  //   });
 
-    // Clean up the subscription on unmount
-    return () => unsubscribe();
-  }, [scrollYProgress]);
+  //   // Clean up the subscription on unmount
+  //   return () => unsubscribe();
+  // }, [scrollYProgress]);
 
-  // const scalee = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
-  // const opacity = useTransform(scrollYProgress, [0, 0.1], [0, 1]);
   const shift = useTransform(scrollYProgress, [0.6, 1], [0, 1200], {
     ease: smooth,
   });
@@ -156,6 +154,8 @@ export const Vid = () => {
 
   const isInView = useInView(vRef);
 
+  //autoplay logic
+
   // useEffect(() => {
   //   const video = vRef.current;
 
@@ -165,6 +165,7 @@ export const Vid = () => {
   //     video.pause();
   //   }
   // }, [isInView]);
+
   const controls = useAnimation();
   const [isPlaying, setIsPlaying] = useState(false);
 

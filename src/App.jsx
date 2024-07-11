@@ -88,28 +88,27 @@ function App() {
 
   return (
     <>
-      <Suspense
-      >
-        <Header key="head" />
-        <Overlay key="over" />
+        <Header/>
+        <Overlay/>
         <AnimatePresence mode="wait">
 
-          <Routes location={location} key={location.pathname}>
-            <Route index exact path="/" element={<Home key="home" />} />
-            <Route path="/contact" element={<Contact key="contact" />} />
-            <Route path="/who" element={<Who key="who" />} />
-            <Route path="/blog" element={<Blog key="blog" />} />
-            <Route path="/post/:id" element={<BlogPost key="blog Post" />} />
-            <Route path="/feuillard" element={<Feuillard key="feuillard" />} />
-            <Route path="/cardboard" element={<Cardboard key="cardboard" />} />
-            <Route path="/sfilm" element={<Sfilm key="stretch film" />} />
-            <Route path="/tape" element={<Tape key="Tape" />} />
-            <Route path="/privacy" element={<Privacy key="Privacy" />} />
-            <Route path="/terms" element={<Terms key="Terms" />} />
+      <Suspense>
+          <Routes location={location}>
+            <Route index exact path="/" element={<Home />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/who" element={<Who />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/post/:id" element={<BlogPost />} />
+            <Route path="/feuillard" element={<Feuillard />} />
+            <Route path="/cardboard" element={<Cardboard />} />
+            <Route path="/sfilm" element={<Sfilm />} />
+            <Route path="/tape" element={<Tape />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
           </Routes>
+      </Suspense>
         </AnimatePresence>
         <Footer key="foot" />
-      </Suspense>
     </>
   );
 }

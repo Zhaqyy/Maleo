@@ -255,16 +255,16 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
 
   // Log for timeline Sequence
 
-  // useEffect(() => {
-  //   // Function to log the rounded scroll progress
-  //   const unsubscribe = scrollYProgress.onChange((latest) => {
-  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-  //     console.log(rounded);
-  //   });
+  useEffect(() => {
+    // Function to log the rounded scroll progress
+    const unsubscribe = scrollYProgress.onChange((latest) => {
+      const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+      console.log(rounded);
+    });
 
-  //   // Clean up the subscription on unmount
-  //   return () => unsubscribe();
-  // }, [scrollYProgress]);
+    // Clean up the subscription on unmount
+    return () => unsubscribe();
+  }, [scrollYProgress]);
 
   const bg = useTransform(scrollYProgress, timeline, bgSequence);
 

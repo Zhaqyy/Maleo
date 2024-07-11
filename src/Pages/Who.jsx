@@ -153,7 +153,7 @@ export const Value = () => {
     target: ref,
     offset: ["start end", "end 0.15"],
   });
-  const bg = useTransform(scrollYProgress, [0, 0.1, 0.5, 0.9, 1], dark);
+  const bg = useTransform(scrollYProgress, [0, 0.1, 0.5, 0.85, 1], dark);
   // console.log(scrollYProgress.get());
 
   return (

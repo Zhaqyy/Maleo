@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import { motion } from "framer-motion";
+import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { Section } from "./inView";
 
 import logo from "/logobig.png";
 import "../Style/Contact/contact.css";
 import "../Style/Component/Component.css";
+import { useRef } from "react";
 
 const visible = {
   opacity: 1,
@@ -21,17 +22,77 @@ const LVariants = {
   visible,
 };
 
-const Legal = ({content}) => {
-    const { title, titleText, subtitleText, subtitle,listTitle,listSubTitle, Linfo } = content;
+const Legal = ({ content }) => {
+  const {
+    title,
+    titleText,
+    subtitleText,
+    subtitle,
+    listTitle,
+    listSubTitle,
+    Linfo,
+  } = content;
+
+  const ref = useRef(null);
+
+  const light = [
+    `var(--bg-dark)`,
+    `var(--bg-dark)`,
+    `var(--bg-color)`,
+    `var(--bg-color)`,
+    `var(--bg-color)`,
+  ];
+
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end 0.15"],
+  });
+  const bg = useTransform(
+    scrollYProgress,
+    [0, 0.1, 0.5, 0.85, 1],
+    light,
+    easeInOut
+  );
+  const op = useTransform(scrollYProgress, [0, 0.1], [0, 1], easeInOut);
+  // Log for timeline Sequence
+
+  // useEffect(() => {
+  //   // Function to log the rounded scroll progress
+  //   const unsubscribe = scrollYProgress.onChange((latest) => {
+  //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+  //     console.log(rounded);
+  //   });
+
+  //   // Clean up the subscription on unmount
+  //   return () => unsubscribe();
+  // }, [scrollYProgress]);
+
   return (
     <>
-      <Section className='legalHead'>
-        <motion.h1 className="hollowdark" variants={LVariants}>{title}</motion.h1>
+      <Section className="legalHead">
+        <motion.h1 className="hollowdark" variants={LVariants}>
+          {title}
+        </motion.h1>
         <motion.p variants={LVariants}>{titleText}</motion.p>
         <motion.img loading="lazy" src={logo} />
       </Section>
-      <motion.section className='flexy' variants={LVariants}>
-        <motion.h3 variants={LVariants}>{subtitle}</motion.h3>
+      <motion.section
+        ref={ref}
+        style={{
+          backgroundColor: bg,
+          // "--bg-variable": bg,
+        }}
+        className="flexy"
+        variants={LVariants}
+      >
+        <motion.h3
+          style={{
+            opacity: op,
+          }}
+          variants={LVariants}
+        >
+          {subtitle}
+        </motion.h3>
         <motion.p variants={LVariants}>{subtitleText}</motion.p>
         <div className="cont-detail">
           <ul>
@@ -121,9 +182,6 @@ const Legal = ({content}) => {
         </div>
         <motion.p variants={LVariants}>{Linfo}</motion.p>
       </motion.section>
-      {/* <Section className={'flexy'}>
-        
-      </Section> */}
     </>
   );
 };

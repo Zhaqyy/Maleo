@@ -13,6 +13,7 @@
     justify-items: end;
     justify-content: end;
     will-change: contents;
+    transition: all 0.5s ease 0s;
 }
 
 .who h1 {
@@ -24,6 +25,7 @@
     max-width: 100%;
     height: 500px;
     border-radius: 30px;
+    transition: all 0.5s ease 0s;
 }
 
 .who h5 {
@@ -35,7 +37,7 @@
     text-transform: uppercase;
     background: #a61853ba;
     -webkit-backdrop-filter: blur(5px);
-            backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
     padding: 1.5em 2.5em;
     border-radius: 15px;
 
@@ -57,9 +59,10 @@
     align-items: stretch;
     justify-content: space-evenly;
     padding-block: 20vh;
-  isolation: isolate;
-  color: white;
+    isolation: isolate;
+    color: white;
 }
+
 .value::before {
     content: "";
     width: 100%;
@@ -69,8 +72,9 @@
     background: url(/bg.webp);
     background-size: cover;
     z-index: -2;
-  }
-  .value::after {
+}
+
+.value::after {
     content: "";
     width: 100%;
     height: 100%;
@@ -80,7 +84,7 @@
     background-color: var(--bg-variable);
     transition: all 0.5s ease;
     z-index: -1;
-  }
+}
 
 .value h3 {
     text-transform: uppercase;
@@ -165,7 +169,7 @@
     min-height: 60vh;
 }
 
-.surpass{
+.surpass {
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -179,6 +183,7 @@
     border-radius: 20px;
     max-height: 500px;
 }
+
 .surpass p {
     max-width: 500px;
     text-align: center;
@@ -186,20 +191,24 @@
 
 
 @media (max-width: 770px) {
-    .value{
+    .value {
         padding-block: 10vh;
         text-align: center;
     }
+
     .value p {
         justify-self: center;
     }
+
     .value li.care img {
         order: 1;
     }
+
     .who img {
-       
+
         height: unset;
     }
+
     .whoImg {
         justify-items: center;
         justify-content: center;
@@ -208,6 +217,7 @@
         align-items: center;
         text-align: center;
     }
+
     .who h5 {
         position: relative;
         bottom: 0;
@@ -215,29 +225,79 @@
         max-width: unset;
         font-size: 13px;
     }
+
     .who p {
         position: relative;
         bottom: 0;
         right: 0;
         float: none;
     }
-    
+
     .value li.care>div {
         justify-self: center;
     }
-    .who{
+
+    .who {
         min-height: unset;
     }
 
-    .collab{
+    .collab {
         min-height: unset;
         padding-block: 10vh;
         text-align: center;
     }
 
-    .surpass{
+    .surpass {
         min-height: unset;
         padding-block: 10vh;
         text-align: center;
+    }
+}
+
+@media (min-width: 1650px) {
+
+    .who p {
+        max-width: 500px;
+    }
+
+    .who .value {
+        padding-inline: clamp(5%, 5vw, 10%) !important;
+    }
+
+    .who h3 {
+        font-size: clamp(3.5rem, 10vw, 4.6rem) !important;
+    }
+
+    .who h1 {
+        font-size: clamp(4.44rem, 10vw, 7rem) !important;
+    }
+
+    .value img {
+        max-height: 500px;
+    }
+
+    .value p {
+        max-width: 500px;
+    }
+
+    .collabInfo>div {
+        max-width: 80%;
+    }
+
+    .collab img {
+        max-height: 500px;
+    }
+
+    .surpass p {
+        max-width: 700px;
+    }
+
+    .surpass {
+        max-height: 70vh;
+        min-height: unset;
+    }
+    
+    .surpass img {
+        max-height: 700px;
     }
 }

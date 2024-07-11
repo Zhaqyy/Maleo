@@ -380,8 +380,8 @@
   justify-content: space-evenly;
   padding-inline: 10vw;
   gap: 3em;
-  margin-block: 5vh;
   scroll-snap-align: none !important;
+  transition: all 0.5s ease;
 }
 .flexy h3 {
   text-transform: uppercase;

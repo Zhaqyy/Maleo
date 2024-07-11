@@ -86,9 +86,9 @@ const order = {
 
   PModel3s: 0.46,
 
-  PContacte: 0.77,
+  PContacte: 0.825,
 
-  end: 0.78,
+  end: 0.9,
 };
 
 const timeline = [

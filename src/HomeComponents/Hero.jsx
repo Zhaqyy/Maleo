@@ -2,13 +2,14 @@
 /* eslint-disable no-unused-vars */
 import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
 import { SpotBtn } from "../Components/magnetBtn";
-import Scene from "../Scene/Scene";
+// import Scene from "../Scene/Scene";
 import "../Style/Home/Home.css";
 import { lazy, useEffect, useRef } from "react";
 import "../Style/Component/Component.css";
 
 import logo from "/logobig.png";
 
+const Scene = lazy(() => import("../Scene/Scene"));
 const HeroText = lazy(() =>
   import("../HomeComponents/Scale.jsx").then((module) => ({
     default: module.HeroText,

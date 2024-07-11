@@ -15,11 +15,11 @@ const ScaleSection = lazy(() =>
     default: module.ScaleSection,
   }))
 );
-const Vid = lazy(() =>
-  import("../HomeComponents/Scale.jsx").then((module) => ({
-    default: module.Vid,
-  }))
-);
+// const Vid = lazy(() =>
+//   import("../HomeComponents/Scale.jsx").then((module) => ({
+//     default: module.Vid,
+//   }))
+// );
 const Product = lazy(() =>
   import("../HomeComponents/Product.jsx").then((module) => ({
     default: module.Product,
