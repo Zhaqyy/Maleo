@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unknown-property */
 /* eslint-disable no-unused-vars */
 
-import React, { Suspense, useRef } from "react";
+import React, { Suspense, lazy, useRef } from "react";
 import { Canvas } from "@react-three/fiber";
 import {
   Environment,
@@ -9,8 +9,9 @@ import {
 
 } from "@react-three/drei";
 // import { Perf } from "r3f-perf";
-import { TapeScroll } from "./Tape";
-// import { useScroll, useTransform } from "framer-motion";
+const TapeScroll = lazy(() => import("./Tape"));
+// import { TapeScroll } from "./Tape";
+
 
 export default function Scene() {
   const ref = useRef();

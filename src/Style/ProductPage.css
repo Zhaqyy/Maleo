@@ -228,6 +228,21 @@
   color: rgb(241, 241, 241);
 }
 
+.fade {
+  opacity: var(--op-variable);
+  transition: all 0.5s ease-in-out;
+}
+
+.titleLight {
+  -webkit-text-stroke-color: var(--text-color);
+  color: var(--text-color);
+}
+
+.titleDark {
+  -webkit-text-stroke-color: var(--text-dark);
+  color: var(--text-dark);
+}
+
 .pCont {
   position: relative;
   min-height: auto;

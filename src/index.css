@@ -33,6 +33,7 @@
   --bg-black: hsla(0, 0%, 0%, 0.85);
   /* Dark background color */
   --bg-variable: var(--bg-variable);
+  --op-variable: var(--op-variable);
 
   color-scheme: light dark;
   color: var(--text-color);

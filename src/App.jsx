@@ -22,10 +22,9 @@ const Tape = lazy(() => import("./Pages/Tape"));
 const Privacy = lazy(() => import("./Pages/Privacy"));
 const Terms = lazy(() => import("./Pages/Terms"));
 
-
 function debounce(fn, ms) {
   let timer;
-  return function() {
+  return function () {
     clearTimeout(timer);
     timer = setTimeout(() => {
       timer = null;
@@ -34,7 +33,7 @@ function debounce(fn, ms) {
   };
 }
 
-const breakpoints = [500 ,770, 900, 1100, 1650, 2000]; // Define your breakpoints here
+const breakpoints = [500, 770, 900, 1100, 1650, 2000]; // Define your breakpoints here
 
 const useResizeRefresh = () => {
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
@@ -43,7 +42,9 @@ const useResizeRefresh = () => {
     const handleResize = debounce(() => {
       const newWidth = window.innerWidth;
       const crossedBreakpoint = breakpoints.some(
-        (bp) => (windowWidth < bp && newWidth >= bp) || (windowWidth >= bp && newWidth < bp)
+        (bp) =>
+          (windowWidth < bp && newWidth >= bp) ||
+          (windowWidth >= bp && newWidth < bp)
       );
 
       if (crossedBreakpoint) {
@@ -53,10 +54,10 @@ const useResizeRefresh = () => {
       setWindowWidth(newWidth);
     }, 1000);
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [windowWidth]);
 
@@ -74,25 +75,22 @@ function App() {
     const lenis = new Lenis({
       duration: 1.8,
       syncTouch: true,
+    });
 
-    })
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
 
-  function raf(time) {
-    lenis.raf(time)
-    requestAnimationFrame(raf)
-  }
-
-  requestAnimationFrame(raf)
-
-  }, [])
+    requestAnimationFrame(raf);
+  }, []);
 
   return (
     <>
-        <Header/>
-        <Overlay/>
-        <AnimatePresence mode="wait">
-
-      <Suspense>
+      <AnimatePresence mode="wait">
+        <Suspense>
+          <Header />
+          <Overlay />
           <Routes location={location}>
             <Route index exact path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
@@ -106,9 +104,9 @@ function App() {
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
           </Routes>
-      </Suspense>
-        </AnimatePresence>
-        <Footer key="foot" />
+          <Footer />
+        </Suspense>
+      </AnimatePresence>
     </>
   );
 }

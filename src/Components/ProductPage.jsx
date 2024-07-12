@@ -40,11 +40,11 @@ export const PHero = ({ product, theme = "light" }) => {
     <Section className="prodHero">
       <motion.h1
         className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
-        variants={prodVariants}
+        // variants={prodVariants}
       >
         {title}
       </motion.h1>
-      <div className="pInfo">
+      <div className="fade pInfo">
         <motion.div variants={prodVariants}>
           <img src={imageUrl} alt={title} loading="lazy" />
         </motion.div>
@@ -68,7 +68,7 @@ export const PHero = ({ product, theme = "light" }) => {
           <motion.h3 variants={prodVariants}>{subtitle}</motion.h3>
         </div>
       </div>
-      <motion.img loading="lazy" className="bgLogo" src={logo} />
+      <motion.img loading="lazy" className="fade bgLogo" src={logo} />
     </Section>
   );
 };
@@ -81,18 +81,18 @@ export const PModel = ({ modelTitle, products, theme = "dark" }) => {
           className={`pModelTitle ${
             theme === "dark" ? "hollowdark" : "hollow"
           }`}
-          variants={prodVariants}
+          // variants={prodVariants}
         >
           {modelTitle}
         </motion.h1>
       </div>
       <motion.div
-        className={`pModelContent ${theme === "light" ? "light" : ""}`}
+        className={`fade pModelContent ${theme === "light" ? "light" : ""}`}
         variants={prodVariants}
       >
         <ProductList products={products} />
       </motion.div>
-      <motion.img loading="lazy" className="bgLogo" src={logo} />
+      <motion.img loading="lazy" className="fade bgLogo" src={logo} />
     </motion.section>
   );
 };
@@ -109,13 +109,13 @@ export const PModel2 = ({
           className={`pModelTitle ${
             theme === "dark" ? "hollowdark" : "hollow"
           }`}
-          variants={prodVariants}
+          // variants={prodVariants}
         >
           {modelTitle}
         </motion.h1>
       </div>
       <motion.div
-        className={`pModelContent ${theme === "light" ? "light" : ""}`}
+        className={`fade pModelContent ${theme === "light" ? "light" : ""}`}
         variants={prodVariants}
       >
         {model ? (
@@ -124,7 +124,7 @@ export const PModel2 = ({
           <ProductList3 products={products} />
         )}
       </motion.div>
-      <motion.img loading="lazy" className="bgLogo" src={logo} />
+      <motion.img loading="lazy" className="fade bgLogo" src={logo} />
     </motion.section>
   );
 };
@@ -142,12 +142,18 @@ export const PTable = ({ product, set }) => {
 
   return (
     <Section className="pTable">
-      <motion.h3 variants={prodVariants}>
+      <motion.h3
+      // variants={prodVariants}
+      >
         FEUILLE À PROPOS DE {product.title}
       </motion.h3>
-      <div className="table">
-      {set === "tape" ? <Table data={tableData} /> : <Table2 data={tableData} />}
-      </div>
+      <motion.div className="fade table">
+        {set === "tape" ? (
+          <Table data={tableData} />
+        ) : (
+          <Table2 data={tableData} />
+        )}
+      </motion.div>
     </Section>
   );
 };
@@ -157,11 +163,14 @@ export const PContact = ({ products, products2, theme }) => {
     <Section className="pCont">
       <motion.h1
         className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
-        variants={prodVariants}
+        // variants={prodVariants}
       >
         PARLONS-EN
       </motion.h1>
-      <div id="citation" className={`cont-form ${theme === "dark" ? "dark" : ""}`}>
+      <motion.div
+        id="citation"
+        className={`fade cont-form ${theme === "dark" ? "dark" : ""}`}
+      >
         <motion.div id="contact-form">
           <motion.div className="inp-field" variants={prodVariants}>
             <input
@@ -240,33 +249,143 @@ export const PContact = ({ products, products2, theme }) => {
             <p>Please Fill in all Fields</p>
           </span> */}
         </motion.div>
-      </div>
+      </motion.div>
     </Section>
   );
 };
 
+// export const Pwrap = ({ children, bgSequence, timeline }) => {
+//   const ref = useRef(null);
+
+//   const { scrollYProgress } = useScroll({
+//     target: ref,
+//     offset: ["start start", "end start"],
+//   });
+
+//   // Log for timeline Sequence
+
+//   // useEffect(() => {
+//   //   // Function to log the rounded scroll progress
+//   //   const unsubscribe = scrollYProgress.onChange((latest) => {
+//   //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+//   //     console.log(rounded);
+//   //   });
+
+//   //   // Clean up the subscription on unmount
+//   //   return () => unsubscribe();
+//   // }, [scrollYProgress]);
+
+//   const bg = useTransform(scrollYProgress, timeline, bgSequence);
+
+//   return (
+//     <motion.section
+//       ref={ref}
+//       className="Pwrap"
+//       style={{
+//         backgroundColor: bg,
+//         "--bg-variable": bg,
+//       }}
+//     >
+//       {React.Children.map(children, (child, index) => {
+//         const isLastChild = index === React.Children.count(children) - 1;
+
+//         const ChildWrapper = (props) => {
+//           const childRef = useRef(null);
+//           const isInView = useInView(childRef, {
+//             margin: isLastChild ? "0% 0px -50% 0px" : "-50% 0px -50% 0px",
+//           });
+
+//           useEffect(() => {
+//             console.log("ChildWrapper mounted");
+//             return () => {
+//               console.log("ChildWrapper unmounted");
+//             };
+//           }, []);
+        
+//           const addTestingClassToFade = (element) => {
+//             // console.log("Checking element:", element);
+            
+//             if (React.isValidElement(element)) {
+//               // console.log("Valid element found:", element);
+        
+//               // Check if the element has a className containing "fade"
+//               const { className } = element.props;
+//               if (className) {
+                
+//                 console.log(className);
+//               }
+//               if (className && className.includes("fade")) {
+//                 console.log("Found element with className 'fade':", element);
+//                 return React.cloneElement(element, {
+//                   className: `${className} testing`
+//                 });
+//               } else {
+//                 // Recursively process children of elements without "fade" className
+//                 const { children } = element.props;
+//                 if (children) {
+//                   return React.cloneElement(element, {
+//                     ...element.props,
+//                     children: React.Children.map(children, child => 
+//                       addTestingClassToFade(child))
+//                   });
+//                 }
+//               }
+//             }
+//             return element;
+//           };
+//           return (
+//             <motion.div
+//               ref={childRef}
+//               style={{
+//                 // opacity: isInView ? 1 : 0,
+//                 // transition: "opacity 0.5s ease",
+//                 "--op-variable": isInView ? 1 : 0,
+//               }}
+//               className="secWrap"
+//             >
+//         {React.Children.map(children, (child, index) => {
+//           if (child.props) {
+//             console.log(child.props.section)
+//         }
+//           return addTestingClassToFade(child);
+//         })}
+//             </motion.div>
+//           );
+//         };
+//         return <ChildWrapper />;
+//       })}
+//     </motion.section>
+//   );
+// };
+
 export const Pwrap = ({ children, bgSequence, timeline }) => {
   const ref = useRef(null);
-
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   });
 
-  // Log for timeline Sequence
-
-  useEffect(() => {
-    // Function to log the rounded scroll progress
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-      console.log(rounded);
-    });
-
-    // Clean up the subscription on unmount
-    return () => unsubscribe();
-  }, [scrollYProgress]);
-
   const bg = useTransform(scrollYProgress, timeline, bgSequence);
+  // const bgVariable = `var(--bg-${bg})`;
+  // const titleClass = bg === 'var(--bg-white)' ? 'titleDark' : bg === 'var(--bg-black)' ? 'titleLight' : '';
+
+  // const addClassToH1 = (element) => {
+  //   if (React.isValidElement(element)) {
+  //     if (element.type === 'div') {
+  //       console.log("h1 seen");
+  //       return React.cloneElement(element, {
+  //         className: `${element.props.className || ''} test`,
+  //       });
+  //     }
+  //     if (element.props && element.props.children) {
+  //       console.log("h1 class added");
+  //       return React.cloneElement(element, {
+  //         children: React.Children.map(element.props.children, addClassToH1),
+  //       });
+  //     }
+  //   }
+  //   return element;
+  // };
 
   return (
     <motion.section
@@ -283,22 +402,14 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
         const ChildWrapper = (props) => {
           const childRef = useRef(null);
           const isInView = useInView(childRef, {
-            margin: isLastChild ? "0% 0px -50% 0px" : "-50% 0px -50% 0px",
+            margin: isLastChild ? '0% 0px -50% 0px' : '-50% 0px -50% 0px',
           });
-
-          // Log for timeline Sequence
-          // useEffect(() => {
-          //   if (isInView) {
-          //     console.log(`Child ${index} is in view`);
-          //   }
-          // }, [isInView, index]);
 
           return (
             <motion.div
               ref={childRef}
               style={{
-                opacity: isInView ? 1 : 0,
-                transition: "opacity 0.5s ease",
+                '--op-variable': isInView ? 1 : 0,
               }}
               className="secWrap"
             >
@@ -306,8 +417,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
             </motion.div>
           );
         };
-
-        return <ChildWrapper />;
+        return <ChildWrapper key={index} />;
       })}
     </motion.section>
   );

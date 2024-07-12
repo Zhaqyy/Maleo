@@ -21,25 +21,74 @@
   <link rel="preload" href="/MonumentRegular.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/neue.woff2" as="font" type="font/woff2" crossorigin />
 
-  <script>
-    paceOptions = {
-      startOnPageLoad: false,
-      restartOnRequestAfter: false,
-      ghostTime: 7000,
-    }
-  </script>
 
-  <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script> -->
   
-  <!-- <script src="/pace.js"></script> -->
   <link rel="stylesheet" href="src/Components/preloader.css" />
 </head>
 
 <body>
   <div id="root"></div>
+  <script>
+    // Check if the homepage has been loaded before in this localStorage
+    const isFirstLoad = localStorage.getItem('isFirstLoad_homepage');
+  
+    if (!isFirstLoad) {
+      // Set localStorage storage to indicate that the homepage has been loaded
+      localStorage.setItem('isFirstLoad_homepage', 'true');
+  
+      // Define paceOptions
+      window.paceOptions = {
+        startOnPageLoad: false,
+        restartOnRequestAfter: false,
+      };
+  
+      // Load Pace.js
+      const paceScript = document.createElement('script');
+      paceScript.src = 'https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js';
+      document.head.appendChild(paceScript);
+  
+      paceScript.onload = () => {
+        // Pace event listeners
+        Pace.on('progress', function (progress) {
+          const paceProgressInner = document.querySelector('.pace-progress-inner');
+          if (paceProgressInner) {
+            paceProgressInner.style.width = `${progress}%`;
+          }
+        });
+  
+        Pace.on('done', function () {
+          setTimeout(function () {
+            const paceProgress = document.querySelector('.pace-progress');
+  
+            // Modify styles of the parent element which affects the pseudo-elements
+            if (paceProgress) {
+              paceProgress.style.setProperty('--progress-top', '-13px');
+              paceProgress.style.setProperty('--progress-opacity', '0');
+            }
+  
+            setTimeout(function () {
+              if (paceProgress) {
+                paceProgress.classList.add('translate-up');
+              }
+              // Secretly refresh the page
+              //setTimeout(function () {
+               // window.location.reload();
+              //}, 1000);
+            }, 1500);
+          }, 500);
+        });
+  
+        // Start Pace manually
+        Pace.start();
+      };
+    }
+  </script>
+  
+  
   <!-- //Preloader Animation -->
 
-  <script>
+  <!-- <script>
 
     Pace.on('progress', function (progress) {
       const paceProgressInner = document.querySelector('.pace-progress-inner');
@@ -68,7 +117,7 @@
       }, 500);
     });
 
-  </script>
+  </script> -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
