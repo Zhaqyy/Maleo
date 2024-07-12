@@ -58,11 +58,12 @@
   }
 
   h3 {
-    // position: absolute;
-    // bottom: -10%;
-    // left: 0%;
+
     width: calc(100% + 10vw);
-    line-break: anywhere;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: anywhere;
+    // line-break: anywhere;
     z-index: 2;
     margin-top: 0.5em;
     transform: translateX(-5vw) !important;
@@ -83,10 +84,8 @@
       content: "";
       position: absolute;
       top: 13px;
-      // bottom: -25px;
       left: -18px;
       transition: bottom 0.7s ease;
-      // animation: xtend 0.7s forwards;
     }
     &.animate::before {
       -webkit-animation: xtend 0.7s forwards;
@@ -125,7 +124,6 @@
 .pModel {
   height: 130vh;
   padding-block: 30vh;
-  // margin-block: 10vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -253,6 +251,16 @@
   padding-top: 15vh !important;
   margin: 0 !important;
 
+  &[data-bg-variable='var(--bg-white)'] h1,[data-bg-variable='var(--bg-white)'] h2 {
+    -webkit-text-stroke-color: var(--text-dark) !important;
+  color: var(--text-dark) !important;
+  }
+
+  &[data-bg-variable='var(--bg-black)'] h1,&[data-bg-variable='var(--bg-black)'] h2 {
+    -webkit-text-stroke-color: var(--text-color) !important;
+  color: var(--text-color) !important;
+  }
+
   &::before {
     content: "";
     width: 100%;
@@ -285,14 +293,6 @@
 .fade{
   opacity: var(--op-variable);
   transition: all 0.5s ease-in-out;
-}
-.titleLight{
-  -webkit-text-stroke-color: var(--text-color);
-  color: var(--text-color);
-}
-.titleDark{
-  -webkit-text-stroke-color: var(--text-dark);
-  color: var(--text-dark);
 }
 
 .pCont {
@@ -530,7 +530,9 @@
 
     h1 {
       font-size: clamp(4rem, 10vw, 7.55rem);
-      overflow-wrap: anywhere;
+      // overflow-wrap: anywhere;
+      word-break: break-word;
+      hyphens: auto;
       // line-break: anywhere;
     }
     .pInfo {
@@ -555,6 +557,8 @@
     h3 {
       position: relative;
       width: 100%;
+      word-break: break-word;
+      hyphens: auto;
       overflow-wrap: anywhere;
       transform: none !important;
     }

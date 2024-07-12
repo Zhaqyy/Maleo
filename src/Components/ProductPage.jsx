@@ -142,11 +142,11 @@ export const PTable = ({ product, set }) => {
 
   return (
     <Section className="pTable">
-      <motion.h3
+      <motion.h2
       // variants={prodVariants}
       >
         FEUILLE À PROPOS DE {product.title}
-      </motion.h3>
+      </motion.h2>
       <motion.div className="fade table">
         {set === "tape" ? (
           <Table data={tableData} />
@@ -254,110 +254,6 @@ export const PContact = ({ products, products2, theme }) => {
   );
 };
 
-// export const Pwrap = ({ children, bgSequence, timeline }) => {
-//   const ref = useRef(null);
-
-//   const { scrollYProgress } = useScroll({
-//     target: ref,
-//     offset: ["start start", "end start"],
-//   });
-
-//   // Log for timeline Sequence
-
-//   // useEffect(() => {
-//   //   // Function to log the rounded scroll progress
-//   //   const unsubscribe = scrollYProgress.onChange((latest) => {
-//   //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
-//   //     console.log(rounded);
-//   //   });
-
-//   //   // Clean up the subscription on unmount
-//   //   return () => unsubscribe();
-//   // }, [scrollYProgress]);
-
-//   const bg = useTransform(scrollYProgress, timeline, bgSequence);
-
-//   return (
-//     <motion.section
-//       ref={ref}
-//       className="Pwrap"
-//       style={{
-//         backgroundColor: bg,
-//         "--bg-variable": bg,
-//       }}
-//     >
-//       {React.Children.map(children, (child, index) => {
-//         const isLastChild = index === React.Children.count(children) - 1;
-
-//         const ChildWrapper = (props) => {
-//           const childRef = useRef(null);
-//           const isInView = useInView(childRef, {
-//             margin: isLastChild ? "0% 0px -50% 0px" : "-50% 0px -50% 0px",
-//           });
-
-//           useEffect(() => {
-//             console.log("ChildWrapper mounted");
-//             return () => {
-//               console.log("ChildWrapper unmounted");
-//             };
-//           }, []);
-        
-//           const addTestingClassToFade = (element) => {
-//             // console.log("Checking element:", element);
-            
-//             if (React.isValidElement(element)) {
-//               // console.log("Valid element found:", element);
-        
-//               // Check if the element has a className containing "fade"
-//               const { className } = element.props;
-//               if (className) {
-                
-//                 console.log(className);
-//               }
-//               if (className && className.includes("fade")) {
-//                 console.log("Found element with className 'fade':", element);
-//                 return React.cloneElement(element, {
-//                   className: `${className} testing`
-//                 });
-//               } else {
-//                 // Recursively process children of elements without "fade" className
-//                 const { children } = element.props;
-//                 if (children) {
-//                   return React.cloneElement(element, {
-//                     ...element.props,
-//                     children: React.Children.map(children, child => 
-//                       addTestingClassToFade(child))
-//                   });
-//                 }
-//               }
-//             }
-//             return element;
-//           };
-//           return (
-//             <motion.div
-//               ref={childRef}
-//               style={{
-//                 // opacity: isInView ? 1 : 0,
-//                 // transition: "opacity 0.5s ease",
-//                 "--op-variable": isInView ? 1 : 0,
-//               }}
-//               className="secWrap"
-//             >
-//         {React.Children.map(children, (child, index) => {
-//           if (child.props) {
-//             console.log(child.props.section)
-//         }
-//           return addTestingClassToFade(child);
-//         })}
-//             </motion.div>
-//           );
-//         };
-//         return <ChildWrapper />;
-//       })}
-//     </motion.section>
-//   );
-// };
-
 export const Pwrap = ({ children, bgSequence, timeline }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
@@ -366,31 +262,27 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
   });
 
   const bg = useTransform(scrollYProgress, timeline, bgSequence);
-  // const bgVariable = `var(--bg-${bg})`;
-  // const titleClass = bg === 'var(--bg-white)' ? 'titleDark' : bg === 'var(--bg-black)' ? 'titleLight' : '';
 
-  // const addClassToH1 = (element) => {
-  //   if (React.isValidElement(element)) {
-  //     if (element.type === 'div') {
-  //       console.log("h1 seen");
-  //       return React.cloneElement(element, {
-  //         className: `${element.props.className || ''} test`,
-  //       });
-  //     }
-  //     if (element.props && element.props.children) {
-  //       console.log("h1 class added");
-  //       return React.cloneElement(element, {
-  //         children: React.Children.map(element.props.children, addClassToH1),
-  //       });
-  //     }
-  //   }
-  //   return element;
-  // };
+
+  const bgRef = useRef('var(--bg-white)');
+
+  useEffect(() => {
+    const handleChange = (latest) => {
+      bgRef.current = latest.toString();
+      if (ref.current) {
+        ref.current.setAttribute('data-bg-variable', bgRef.current);
+      }
+    };
+
+    bg.on('change', handleChange);
+
+  }, [bg]);
 
   return (
     <motion.section
       ref={ref}
       className="Pwrap"
+      // data-bg-variable={bgString}
       style={{
         backgroundColor: bg,
         "--bg-variable": bg,

@@ -72,9 +72,9 @@
                 paceProgress.classList.add('translate-up');
               }
               // Secretly refresh the page
-              //setTimeout(function () {
-               // window.location.reload();
-              //}, 1000);
+              setTimeout(function () {
+               window.location.reload();
+              }, 1000);
             }, 1500);
           }, 500);
         });
@@ -85,39 +85,6 @@
     }
   </script>
   
-  
-  <!-- //Preloader Animation -->
-
-  <!-- <script>
-
-    Pace.on('progress', function (progress) {
-      const paceProgressInner = document.querySelector('.pace-progress-inner');
-      if (paceProgressInner) {
-        paceProgressInner.style.width = `${progress}%`;
-      }
-    });
-
-
-    Pace.on('done', function () {
-      setTimeout(function () {
-        const paceProgress = document.querySelector('.pace-progress');
-
-        // Modify styles of the parent element which affects the pseudo-elements
-        if (paceProgress) {
-          paceProgress.style.setProperty('--progress-top', '-13px');
-          paceProgress.style.setProperty('--progress-opacity', '0');
-        }
-
-        setTimeout(function () {
-          if (paceProgress) {
-            paceProgress.classList.add('translate-up');
-          }
-
-        }, 1500);
-      }, 500);
-    });
-
-  </script> -->
   <script type="module" src="/src/main.jsx"></script>
 </body>
 

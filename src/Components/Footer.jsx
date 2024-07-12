@@ -13,7 +13,6 @@ const Footer = () => {
       <Container>
         <Row className="rowMain">
           <Col xl={4} className="logoInfo">
-           
             <h4>s'inscrire à notre lettre d'information</h4>
             <p className="footer-text">
               Découvrez nos dernières actualités en matière d'emballage
@@ -33,11 +32,6 @@ const Footer = () => {
               <div>
                 <h6 className="footer-heading">SOCIÉTÉ</h6>
                 <ul className="footer-list">
-                  <li className="footer-list-item">
-                    <Link to="/Tape" className="footer-link">
-                      Produits
-                    </Link>
-                  </li>
                   <li className="footer-list-item">
                     <Link to="/Who" className="footer-link">
                       A propos de nous

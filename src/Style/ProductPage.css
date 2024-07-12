@@ -55,7 +55,10 @@
 }
 .pFeature h3 {
   width: calc(100% + 10vw);
-  line-break: anywhere;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  overflow-wrap: anywhere;
   z-index: 2;
   margin-top: 0.5em;
   transform: translateX(-5vw) !important;
@@ -204,6 +207,14 @@
   padding-top: 15vh !important;
   margin: 0 !important;
 }
+.Pwrap[data-bg-variable="var(--bg-white)"] h1, .Pwrap [data-bg-variable="var(--bg-white)"] h2 {
+  -webkit-text-stroke-color: var(--text-dark) !important;
+  color: var(--text-dark) !important;
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] h1, .Pwrap[data-bg-variable="var(--bg-black)"] h2 {
+  -webkit-text-stroke-color: var(--text-color) !important;
+  color: var(--text-color) !important;
+}
 .Pwrap::before {
   content: "";
   width: 100%;
@@ -231,16 +242,6 @@
 .fade {
   opacity: var(--op-variable);
   transition: all 0.5s ease-in-out;
-}
-
-.titleLight {
-  -webkit-text-stroke-color: var(--text-color);
-  color: var(--text-color);
-}
-
-.titleDark {
-  -webkit-text-stroke-color: var(--text-dark);
-  color: var(--text-dark);
 }
 
 .pCont {
@@ -444,7 +445,9 @@
   }
   .prodHero h1 {
     font-size: clamp(4rem, 10vw, 7.55rem);
-    overflow-wrap: anywhere;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+            hyphens: auto;
   }
   .prodHero .pInfo img {
     max-width: 100%;
@@ -465,6 +468,9 @@
   .pFeature h3 {
     position: relative;
     width: 100%;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+            hyphens: auto;
     overflow-wrap: anywhere;
     transform: none !important;
   }

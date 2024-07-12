@@ -52,7 +52,8 @@ const productData = {
 };
 
 const pageTitle = "TAILLE DE LA BANDE";
-const pageTitle2 = "MODÈLE DE BANDE";
+const pageTitle2 = "COULEUR DE LA BANDE";
+const pageTitle3 = "MODÈLE DE BANDE";
 const products = [
   { imageSrc: h1, title: "12 mm", linktext: "Citation" },
   { imageSrc: h2, title: "19 mm", linktext: "Citation" },
@@ -163,7 +164,7 @@ const Tape = () => {
         <PModel modelTitle={pageTitle} products={products} theme={"dark"} />
         <PModel2 modelTitle={pageTitle2} products={products2} theme={"light"} />
         <PModel2
-          modelTitle={pageTitle2}
+          modelTitle={pageTitle3}
           products={products3}
           model={false}
           theme={"dark"}

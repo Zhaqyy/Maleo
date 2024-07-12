@@ -587,10 +587,10 @@ th {
     }
   }
   .swiperNoswiping:has(.var2) {
-    min-height: 350px;
+    min-height: 400px;
     .dots {
       display: flex;
-      bottom: -100px;
+      // bottom: -100px;
     }
   }
 .imgWrap, .imgWrap2{
@@ -598,6 +598,7 @@ th {
 
   img{
     object-fit: scale-down;  
+    -webkit-user-drag: none;
   }
 }
   .var2 .listItem h4 {
