@@ -21,6 +21,7 @@ const Sfilm = lazy(() => import("./Pages/Sfilm"));
 const Tape = lazy(() => import("./Pages/Tape"));
 const Privacy = lazy(() => import("./Pages/Privacy"));
 const Terms = lazy(() => import("./Pages/Terms"));
+const Account = lazy(() => import("./Pages/Account"));
 
 function debounce(fn, ms) {
   let timer;
@@ -103,6 +104,7 @@ function App() {
             <Route path="/tape" element={<Tape />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/terms" element={<Terms />} />
+            <Route path="/account" element={<Account />} />
           </Routes>
           <Footer />
         </Suspense>

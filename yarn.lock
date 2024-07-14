@@ -195,6 +195,11 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-2.0.3.tgz#4a2868d75d6d6963e423bcf90b7fd1be343409d3"
   integrity sha512-93zYdMES/c1D69yZiKDBj0V24vqNzB/koF26KPaagAfd3P/4gUlh3Dys5ogAK+Exi9QyzlD8x/08Zt7wIKcDcA==
 
+"@iframe-resizer/child@^5.1.5":
+  version "5.1.5"
+  resolved "https://registry.yarnpkg.com/@iframe-resizer/child/-/child-5.1.5.tgz#2c50d95f1282c16ba045dba7dd8c807bbac923a2"
+  integrity sha512-VtFzsscLORASuWfEFi1jYNh4FES4CfARCtdESaXmR/37CNsfCfvbcW/nOJ+GbySWhYmKwitdYM6g3bWSbCoNlA==
+
 "@mediapipe/tasks-vision@0.10.8":
   version "0.10.8"
   resolved "https://registry.yarnpkg.com/@mediapipe/tasks-vision/-/tasks-vision-0.10.8.tgz#a78e137018a19933b7a1d0e887d553d4ab833d10"
