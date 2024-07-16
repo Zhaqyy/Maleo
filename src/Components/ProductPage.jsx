@@ -282,7 +282,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
     <motion.section
       ref={ref}
       className="Pwrap"
-      // data-bg-variable={bgString}
+      data-bg-variable={'var(--bg-white)'}
       style={{
         backgroundColor: bg,
         "--bg-variable": bg,
