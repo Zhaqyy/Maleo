@@ -213,7 +213,7 @@ export const PContact = ({ products, products2, theme }) => {
 
           {products2 && products2.length > 0 && (
             <motion.div className="inp-field choice" variants={prodVariants}>
-              <label htmlFor="Choice2">Impression</label>
+              <label htmlFor="Choice2">Couleur</label>
               <select name="Choice2" id="Choice2">
                 {products2.map((product2, index) => (
                   <option key={index} value={product2.title}>

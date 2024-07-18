@@ -61,12 +61,12 @@ const Footer = () => {
                 <ul className="footer-list">
                   <li className="footer-list-item">
                     <Link to="/Tape" reloadDocument className="footer-link">
-                      Bande
+                      Adhésif
                     </Link>
                   </li>
                   <li className="footer-list-item">
                     <Link to="/Sfilm" reloadDocument className="footer-link">
-                      Film Etirable
+                      Film Étirable
                     </Link>
                   </li>
                   <li className="footer-list-item">

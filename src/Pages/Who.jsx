@@ -1,5 +1,5 @@
 import { easeInOut, motion, useScroll, useTransform } from "framer-motion";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import { Section } from "../Components/inView";
 import "../Style/who.css";
 import who from "/who.webp";

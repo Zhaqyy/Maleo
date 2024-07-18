@@ -3,7 +3,7 @@ import h1 from "/product/sf1.png";
 import h2 from "/product/sf2.png";
 import h3 from "/product/sf3.png";
 
-import p1 from "/product/sfilm.png";
+import p1 from "/product/sm1.png";
 import p2 from "/product/sm2.png";
 
 const productData = {
@@ -36,7 +36,7 @@ const productData = {
         "6 bobines / carton - palette de 180 bobines",
     },
   ],
-  subtitle: "Film Étirable MANUEL",
+  subtitle: "Film Étirable",
 };
 
 const pageTitle = "COULEUR DU Film étirable";

@@ -4,7 +4,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import "../Style/Header.css";
 // import logoW from "/logowhite.png"
 // import logoB from "/logoB.png";
-import logoP from "/flogo.svg";
+import logoP from "/flogoP.png";
 import { ArrowBtn } from "./magnetBtn";
 import { useMotionValueEvent, motion, useScroll } from "framer-motion";
 
@@ -130,7 +130,7 @@ const Header = () => {
                 reloadDocument
                 onClick={closeMenuOnMobile}
               >
-                BANDE
+                Adhésif
                 {/* <Caret/> */}
               </NavLink>
             </li>

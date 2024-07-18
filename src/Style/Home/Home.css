@@ -170,6 +170,7 @@
   z-index: 2;
   cursor: pointer;
   pointer-events: auto;
+  transition: all 0.25s ease;
 }
 .videoSec #circle-play-b svg {
   width: 80px;

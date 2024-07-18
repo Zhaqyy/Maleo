@@ -6,19 +6,7 @@ import { motion, useAnimation, useInView } from "framer-motion";
 
 export const Section = ({ children, className, ...prop }) => {
 
-    const mainControl = useAnimation();
-
       
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5 });
-
-    useEffect(() => {
-     if (isInView){
-      mainControl.start("visible")
-      // console.log("is in view");
-     }
-    }, [isInView, mainControl]);
-  
     const visible = {
       opacity: 1,
       x: 0,
@@ -26,16 +14,25 @@ export const Section = ({ children, className, ...prop }) => {
       scale: 1,
       transition: { staggerChildren: 0.5, duration: 0.5 },
     };
-  
+    
+  const ref = useRef(null);
+  const isInView = useInView(ref, { amount: 0.5 });
+  const controls = useAnimation();
+  useEffect(() => {
+      if (isInView) {
+        controls.start("visible");
+      }
+    }, [controls, isInView]);
+
+
   return (
 
      <motion.section
      className={`${className}`}
         ref={ref}
+        animate={controls}
         initial="hidden"
-        animate= {mainControl}
-        exit={{ opacity: 0, transition: { duration: 0.15 } }}
-        variants={{ visible }}
+        variants={{visible}}
         {...prop}
       >
        {children}

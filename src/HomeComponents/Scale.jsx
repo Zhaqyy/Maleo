@@ -14,13 +14,12 @@ import { useEffect, useRef, useState } from "react";
 import "../Style/Component/Component.css";
 import Paragraph from "../Components/Character";
 
-const paragraph = `Fournir 
-les 
+const paragraph = `
+Les 
+meilleures 
 solutions 
-d’emballage 
-les 
-plus 
-efficaces`;
+d'emballage
+`;
 const isMobile = window.innerWidth < 770;
 
 export const ScaleSection = () => {
@@ -148,9 +147,6 @@ export const Vid = () => {
     [0.6, 0.8, 0.8, 1],
     easeInOut
   );
-  // const bdr = useTransform(scrollYProgress, [0, 0.3], [10, 50]);
-  // const wide = useTransform(scrollYProgress, [0, 0.3], ["40%", "80%"]);
-  // const MoveY = useTransform(scrollYProgress, [0, 0.5], ["100vh", "0vh"]);
 
   const isInView = useInView(vRef);
 
@@ -166,7 +162,6 @@ export const Vid = () => {
   //   }
   // }, [isInView]);
 
-  const controls = useAnimation();
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -185,12 +180,10 @@ export const Vid = () => {
 
   const handlePlay = () => {
     setIsPlaying(true);
-    controls.start({ opacity: 0 });
   };
 
   const handlePause = () => {
     setIsPlaying(false);
-    controls.start({ opacity: 1 });
   };
 
   
@@ -224,15 +217,13 @@ export const Vid = () => {
         title="Play video"
         id="circle-play-b"
         onClick={togglePlay}
-        initial={{ opacity: 1 }}
-        animate={controls}
-        transition={{ duration: 0.3 }}
         style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
           cursor: 'pointer',
+          opacity: isPlaying ? 0 : 1,
         }}
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80">

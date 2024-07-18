@@ -137,9 +137,9 @@ export default function Hero() {
       >
         <motion.div className="hero-head" style={{ y: MoveY }}>
           <h1 className="hollowdark">
-            QUALITÉ
-            <br />
             EMBALLAGE
+            <br />
+            DE QUALITÉ
             <br />
             POUR
           </h1>
@@ -164,11 +164,11 @@ export default function Hero() {
           <h3>
             PROTÉGER
             <br />
-            VOS
+            ET EXPÉDIER
             <br />
-            PRODUITS
+            VOS PRODUITS
           </h3>
-          <SpotBtn text={"QUOTE NOW"} url={"/Contact"} />
+          <SpotBtn text={"CONTACT"} url={"/Contact"} />
         </motion.div>
         <motion.img loading="lazy" src={logo} style={{ y: MoveY }} />
       </motion.section>

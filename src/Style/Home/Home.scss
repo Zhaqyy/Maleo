@@ -187,6 +187,7 @@
     z-index: 2;
     cursor: pointer;
     pointer-events: auto;
+    transition: all 0.25s ease;
 
     svg {
       width: 80px;

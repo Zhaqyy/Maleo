@@ -50,9 +50,9 @@ const productData = {
   subtitle: "Ruban adhésif neutre & imprimé",
 };
 
-const pageTitle = "TAILLE DE LA Adhésif";
-const pageTitle2 = "COULEUR DU Adhésif";
-const pageTitle3 = "MODÈLE DE Adhésif";
+const pageTitle = "TAILLE DE L'Adhésif";
+const pageTitle2 = "COULEUR DE L'Adhésif";
+const pageTitle3 = "Type  D'Adhésif";
 const products = [
   { imageSrc: h1, title: "12 mm", linktext: "Citation" },
   { imageSrc: h2, title: "19 mm", linktext: "Citation" },

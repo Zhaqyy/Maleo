@@ -19,10 +19,8 @@
   color: white;
 }
 .headerWhite .nav__logo img {
-  aspect-ratio: 1;
   transition: all 0.4s ease;
   height: 100px;
-  padding-top: 10px;
 }
 
 .headerBlack {
@@ -48,8 +46,7 @@
   z-index: 16;
 }
 .nav__logo img {
-  height: var(--header-height);
-  aspect-ratio: unset;
+  height: 100px;
 }
 
 .nav__toggle,

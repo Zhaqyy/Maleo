@@ -20,7 +20,7 @@ const productData = {
 const pageTitle = "Type de feuillard";
 const products = [
   { imageSrc: h1, title: "acier", linktext: "Citation" },
-  { imageSrc: h2, title: "polypropylene", linktext: "Citation" },
+  { imageSrc: h2, title: "Polypropylène", linktext: "Citation" },
   { imageSrc: h3, title: "textile", linktext: "Citation" },
   { imageSrc: h4, title: "Polyester", linktext: "Citation" },
 ];

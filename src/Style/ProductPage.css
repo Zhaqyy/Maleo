@@ -199,6 +199,9 @@
   border-radius: 15px;
   touch-action: pan-x;
 }
+.pTable .table td {
+  filter: invert(1) hue-rotate(180deg);
+}
 .pTable h2 {
   word-break: break-word;
   -webkit-hyphens: auto;
