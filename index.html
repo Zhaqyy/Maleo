@@ -31,6 +31,11 @@
 <body>
   <div id="root"></div>
   <script>
+    if (history.scrollRestoration) {
+      history.scrollRestoration = "manual";
+    }
+  </script>
+  <script>
     // Check if the homepage has been loaded before in this localStorage
     const isFirstLoad = localStorage.getItem('isFirstLoad_homepage');
   
@@ -72,10 +77,6 @@
               if (paceProgress) {
                 paceProgress.classList.add('translate-up');
               }
-              // Secretly refresh the page
-              setTimeout(function () {
-               window.location.reload();
-              }, 1000);
             }, 1500);
           }, 500);
         });

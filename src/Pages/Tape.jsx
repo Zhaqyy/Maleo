@@ -1,4 +1,3 @@
-import { useLayoutEffect } from "react";
 import {
   PContact,
   PHero,
@@ -23,7 +22,7 @@ import m4 from "/product/tm4.png";
 import m5 from "/product/tm5.png";
 
 const productData = {
-  title: "BANDE",
+  title: "Adhésif",
   imageUrl: "/product/tape.png",
   features: [
     {
@@ -51,9 +50,9 @@ const productData = {
   subtitle: "Ruban adhésif neutre & imprimé",
 };
 
-const pageTitle = "TAILLE DE LA BANDE";
-const pageTitle2 = "COULEUR DE LA BANDE";
-const pageTitle3 = "MODÈLE DE BANDE";
+const pageTitle = "TAILLE DE LA Adhésif";
+const pageTitle2 = "COULEUR DU Adhésif";
+const pageTitle3 = "MODÈLE DE Adhésif";
 const products = [
   { imageSrc: h1, title: "12 mm", linktext: "Citation" },
   { imageSrc: h2, title: "19 mm", linktext: "Citation" },
@@ -66,11 +65,11 @@ const products2 = [
   { imageSrc: p3, title: "white", linktext: "Citation" },
 ];
 const products3 = [
-  { imageSrc: m1, title: "PP solvant    25-28-32m", linktext: "Citation" },
-  { imageSrc: m2, title: "PP acrylique 25-28-32-35m", linktext: "Citation" },
-  { imageSrc: m3, title: "PP hot melt 25-28m", linktext: "Citation" },
-  { imageSrc: m4, title: "Pvc 33m", linktext: "Citation" },
-  { imageSrc: m5, title: "papier kraft", linktext: "Citation" },
+  { imageSrc: m1, title: "PP SOLVANT    25-28-32µ", linktext: "Citation" },
+  { imageSrc: m2, title: "PP ACRYLIQUE 25-28-32-35µ", linktext: "Citation" },
+  { imageSrc: m3, title: "PP HOT MELT 25-28µ", linktext: "Citation" },
+  { imageSrc: m4, title: "PVC 33µ", linktext: "Citation" },
+  { imageSrc: m5, title: "PAPIER KRAFT", linktext: "Citation" },
 ];
 
 const isMobile = window.innerWidth < 770;
@@ -153,9 +152,7 @@ const bgSequence = [
 ];
 
 const Tape = () => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
       <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
@@ -172,7 +169,7 @@ const Tape = () => {
         <PHero
           product={{
             ...productData,
-            title: "personnalize BANDE",
+            title: "Adhésifs personnalisés",
             subtitle: null,
             imageUrl: "/product/tape2.png",
           }}

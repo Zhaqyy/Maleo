@@ -32,7 +32,7 @@ const Blog = () => {
                   </span>
                   {/* <span className="author-info"> */}
                     <Link to={`/post/${item.id}`} className="text more">
-                     Read More
+                    Lire +
                     </Link>
                   {/* </span> */}
                 </div>

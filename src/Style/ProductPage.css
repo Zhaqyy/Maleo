@@ -7,7 +7,7 @@
   padding-block: 10vh;
 }
 .prodHero h1 {
-  font-size: clamp(3.25rem, 10vw, 7.55rem);
+  font-size: clamp(3.25rem, 10vw, 6.55rem);
   overflow-wrap: anywhere;
 }
 .prodHero > img {
@@ -199,6 +199,12 @@
   border-radius: 15px;
   touch-action: pan-x;
 }
+.pTable h2 {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+          hyphens: auto;
+  overflow-wrap: anywhere;
+}
 
 .Pwrap {
   position: relative;
@@ -253,7 +259,7 @@
   justify-content: space-around;
   text-align: center;
   gap: 5vh;
-  padding-block: 10vh;
+  padding-block: 30vh;
   z-index: 2;
 }
 .pCont .cont-form {
@@ -304,7 +310,7 @@
   background: none;
   border: none;
   color: var(--text-dark);
-  text-transform: uppercase;
+  text-transform: capitalize;
   background-color: transparent;
 }
 .pCont .choice select option {
@@ -444,7 +450,7 @@
     overflow-x: hidden;
   }
   .prodHero h1 {
-    font-size: clamp(4rem, 10vw, 7.55rem);
+    font-size: clamp(2.5rem, 10vw, 6.55rem);
     word-break: break-word;
     -webkit-hyphens: auto;
             hyphens: auto;

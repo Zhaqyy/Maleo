@@ -1,4 +1,3 @@
-import { useLayoutEffect } from "react";
 import { PContact, PHero, PModel, PTable, Pwrap } from "../Components/ProductPage";
 import h1 from "/product/Fh1.png";
 import h2 from "/product/Fh2.png";
@@ -18,7 +17,7 @@ const productData = {
   subtitle: "Feuillard",
 };
 
-const pageTitle = "MODÈLE DE FEUILLARD";
+const pageTitle = "Type de feuillard";
 const products = [
   { imageSrc: h1, title: "acier", linktext: "Citation" },
   { imageSrc: h2, title: "polypropylene", linktext: "Citation" },
@@ -88,9 +87,7 @@ const bgSequence = [
 
 
 const Feuillard = () => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
     <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
@@ -101,7 +98,7 @@ const Feuillard = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize Feuillard",
+          title: "Feuillards personnalisés",
           subtitle: null,
         }}
       />

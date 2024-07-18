@@ -21,8 +21,16 @@
         color: white;
     }
     .nav__logo{
-        -webkit-filter: invert(1);
-                filter: invert(1);
+        // -webkit-filter: invert(1);
+        //         filter: invert(1);
+        img {
+            aspect-ratio: 1;
+            transition: all 0.4s ease;
+            height: 100px;
+            padding-top: 10px;
+            // filter: contrast(0) brightness(10) grayscale(1);
+        }
+
     }
 }
 .headerBlack{
@@ -48,8 +56,8 @@
 .nav__logo {
     z-index: 16;
     img {
-        aspect-ratio: 1;
-        transition: all 0.4s ease;
+        height: var(--header-height);
+        aspect-ratio: unset;
         // filter: contrast(0) brightness(10) grayscale(1);
     }
 }
@@ -179,9 +187,9 @@
 
 }
 
-/* .nav__link:hover {
+ .nav__link.active {
     color: var(--accent);
-} */
+}
 
 .nav__close {
     position: absolute;

@@ -33,22 +33,22 @@ const Footer = () => {
                 <h6 className="footer-heading">SOCIÉTÉ</h6>
                 <ul className="footer-list">
                   <li className="footer-list-item">
-                    <Link to="/Who" className="footer-link">
+                    <Link to="/Who" reloadDocument className="footer-link">
                       A propos de nous
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/blog" className="footer-link">
+                    <Link to="/blog" reloadDocument className="footer-link">
                       Blogs
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Contact" className="footer-link">
+                    <Link to="/Contact" reloadDocument className="footer-link">
                       Demande de devis
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Contact" className="footer-link">
+                    <Link to="/Contact" reloadDocument className="footer-link">
                       Contact
                     </Link>
                   </li>
@@ -60,22 +60,22 @@ const Footer = () => {
                 <h6 className="footer-heading">Produits</h6>
                 <ul className="footer-list">
                   <li className="footer-list-item">
-                    <Link to="/Tape" className="footer-link">
+                    <Link to="/Tape" reloadDocument className="footer-link">
                       Bande
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Sfilm" className="footer-link">
+                    <Link to="/Sfilm" reloadDocument className="footer-link">
                       Film Etirable
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Cardboard" className="footer-link">
+                    <Link to="/Cardboard" reloadDocument className="footer-link">
                       Carton
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/feuillard" className="footer-link">
+                    <Link to="/feuillard" reloadDocument className="footer-link">
                       Feuillard
                     </Link>
                   </li>
@@ -87,12 +87,12 @@ const Footer = () => {
                 <h6 className="footer-heading">JURIDIQUE</h6>
                 <ul className="footer-list">
                   <li className="footer-list-item">
-                    <Link to="/Terms" className="footer-link">
+                    <Link to="/Terms" reloadDocument className="footer-link">
                       Conditions générales
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Privacy" className="footer-link">
+                    <Link to="/Privacy" reloadDocument className="footer-link">
                       Politique de confidentialité
                     </Link>
                   </li>

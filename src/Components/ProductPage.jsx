@@ -19,7 +19,7 @@ const visible = {
   x: 0,
   y: 0,
   scale: 1,
-  transition: { staggerChildren: 0.6, duration: 0.7 },
+  transition: { staggerChildren: 0.4, duration: 0.7 },
 };
 
 const prodVariants = {
@@ -129,7 +129,7 @@ export const PModel2 = ({
   );
 };
 
-export const PTable = ({ product, set }) => {
+export const PTable = ({ set }) => {
   const [tableData, setTableData] = useState([]);
 
   useEffect(() => {
@@ -145,7 +145,7 @@ export const PTable = ({ product, set }) => {
       <motion.h2
       // variants={prodVariants}
       >
-        FEUILLE À PROPOS DE {product.title}
+        Caractéristiques
       </motion.h2>
       <motion.div className="fade table">
         {set === "tape" ? (
@@ -165,7 +165,7 @@ export const PContact = ({ products, products2, theme }) => {
         className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
         // variants={prodVariants}
       >
-        PARLONS-EN
+        Envoyer une demande
       </motion.h1>
       <motion.div
         id="citation"
@@ -226,7 +226,7 @@ export const PContact = ({ products, products2, theme }) => {
           )}
 
           <motion.textarea
-            placeholder="Montant"
+            placeholder="Description de Votre Demande"
             variants={prodVariants}
             // value={message}
             // onChange={(e) => setMessage(e.target.value)}
@@ -237,7 +237,7 @@ export const PContact = ({ products, products2, theme }) => {
           </button> */}
           <motion.div variants={prodVariants}>
             <SpotBtn
-              text={"DEVISER MAINTENANT"}
+              text={"Envoyer"}
               // submit={submit}
             />
           </motion.div>

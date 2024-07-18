@@ -20,9 +20,7 @@ const isMobile = window.innerWidth < 770;
 
 const Who = () => {
 
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
 
   const TargetRef = useRef();
   const { scrollYProgress } = useScroll({

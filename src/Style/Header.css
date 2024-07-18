@@ -18,8 +18,11 @@
 .headerWhite .nav__link {
   color: white;
 }
-.headerWhite .nav__logo {
-  filter: invert(1);
+.headerWhite .nav__logo img {
+  aspect-ratio: 1;
+  transition: all 0.4s ease;
+  height: 100px;
+  padding-top: 10px;
 }
 
 .headerBlack {
@@ -45,8 +48,8 @@
   z-index: 16;
 }
 .nav__logo img {
-  aspect-ratio: 1;
-  transition: all 0.4s ease;
+  height: var(--header-height);
+  aspect-ratio: unset;
 }
 
 .nav__toggle,
@@ -159,9 +162,10 @@
   transition: translate 0.2s ease;
 }
 
-/* .nav__link:hover {
-    color: var(--accent);
-} */
+.nav__link.active {
+  color: var(--accent);
+}
+
 .nav__close {
   position: absolute;
   top: 1rem;

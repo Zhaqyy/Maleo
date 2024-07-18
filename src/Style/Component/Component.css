@@ -2,6 +2,7 @@
   width: 100%;
   height: 100vh;
   position: absolute;
+  pointer-events: none;
 }
 
 .over-cont {
@@ -41,6 +42,7 @@
   mix-blend-mode: difference;
   filter: grayscale(1) invert(1);
   transition: transform 2s ease-in-out;
+  pointer-events: all;
 }
 
 .fixed-aside a {
@@ -215,6 +217,7 @@
 }
 .list .listItem2 h5 {
   background: transparent !important;
+  text-transform: none;
 }
 .list .listItem {
   height: unset;

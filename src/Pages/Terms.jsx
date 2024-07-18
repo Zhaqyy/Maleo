@@ -1,5 +1,4 @@
 import Legal from '../Components/Legal'
-import { useLayoutEffect } from "react";
 
 // Define the content data structure
 const contentData = {
@@ -35,9 +34,7 @@ const contentData = {
   }
 
 const Terms = () => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <Legal content={contentData}/>
   )

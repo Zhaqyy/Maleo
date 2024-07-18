@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { motion, useAnimation, useInView } from "framer-motion";
 
 
-export const Section = ({ children, className }) => {
+export const Section = ({ children, className, ...prop }) => {
 
     const mainControl = useAnimation();
 
@@ -24,7 +24,7 @@ export const Section = ({ children, className }) => {
       x: 0,
       y: 0,
       scale: 1,
-      transition: { staggerChildren: 0.5, duration: 0.4 },
+      transition: { staggerChildren: 0.5, duration: 0.5 },
     };
   
   return (
@@ -36,6 +36,7 @@ export const Section = ({ children, className }) => {
         animate= {mainControl}
         exit={{ opacity: 0, transition: { duration: 0.15 } }}
         variants={{ visible }}
+        {...prop}
       >
        {children}
       </motion.section>

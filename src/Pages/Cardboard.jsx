@@ -1,4 +1,3 @@
-import { useLayoutEffect } from "react";
 import { PContact, PHero, PModel, Pwrap } from "../Components/ProductPage";
 import h1 from "/product/cb1.png";
 import h2 from "/product/cb2.png";
@@ -17,7 +16,7 @@ const productData = {
   subtitle: "caisses américaines",
 };
 
-const pageTitle = "MODÈLE DE CARTON";
+const pageTitle = "Types de cannelures";
 const products = [
   { imageSrc: h1, title: "simple cannelures", linktext: "Citation" },
   { imageSrc: h2, title: "double cannelures", linktext: "Citation" },
@@ -86,9 +85,7 @@ const bgSequence = [
 
 
 const Cardboard = () => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
     <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
@@ -97,7 +94,7 @@ const Cardboard = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize CARTON",
+          title: "Carton personnalisé et sur mesure",
           subtitle: null,
         }}
       />

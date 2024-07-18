@@ -19,9 +19,7 @@ export default function Contact() {
     hidden: { opacity: 0, y: 50 },
     visible,
   };
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
       <Section className="contact-main">
@@ -89,6 +87,7 @@ export default function Contact() {
             <motion.div variants={contVariants} style={{ textAlign: "center" }}>
               <SpotBtn
                 text={"ENVOYER"}
+                url={"#"}
                 // submit={submit}
               />
             </motion.div>
@@ -127,7 +126,9 @@ export default function Contact() {
 
               <motion.h5 variants={contVariants}>Rendez nous visite</motion.h5>
               <motion.p variants={contVariants}>
-                12 avenue de la Motte Picquet 75007 Paris
+                22 avenue, Gustave Madiot <br /> 91070 BONDOUFLE,
+                <br />
+                France
               </motion.p>
             </motion.li>
             <motion.li>
@@ -143,7 +144,9 @@ export default function Contact() {
               </motion.svg>
 
               <motion.h5 variants={contVariants}>appelle-nous</motion.h5>
+              <a href="tel:01 88 33 85 82">
               <motion.p variants={contVariants}>01 88 33 85 82</motion.p>
+              </a>
             </motion.li>
             <motion.li>
               <motion.svg
@@ -168,9 +171,11 @@ export default function Contact() {
               <motion.h5 variants={contVariants}>
                 Envoyez-nous un e-mail
               </motion.h5>
+                <a href="mailto:contact@maleo-emballage.fr">
               <motion.p variants={contVariants}>
-                contact@maleo-emballage.fr
+                  contact@maleo-emballage.fr
               </motion.p>
+                </a>
             </motion.li>
           </ul>
         </div>

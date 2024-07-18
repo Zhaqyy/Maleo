@@ -19,7 +19,7 @@ const visible = {
     x: 0,
     y: 0,
     scale: 1,
-    transition: { staggerChildren: 0.5, duration: 0.6 },
+    transition: { staggerChildren: 0.5, duration: 0.7 },
   };
   
   export const Product = () => {
@@ -28,7 +28,7 @@ const visible = {
       visible,
     };
     const imgVariants = {
-      hidden: { opacity: 0, x: -200 },
+      hidden: { opacity: 0, x: '-600px' },
       visible,
     };
   
@@ -41,7 +41,7 @@ const visible = {
     const isMobile = window.innerWidth < 768;
     return (
       <>
-          <motion.section
+          <Section
             className="product"
             id="product"
           >
@@ -61,7 +61,7 @@ const visible = {
               </motion.p>
             </motion.div>
             <ProductList products={products} />
-          </motion.section>
+          </Section>
       </>
     );
   };

@@ -3,7 +3,8 @@ import { NavLink, useLocation } from "react-router-dom";
 // import { IoClose, IoMenu } from "react-icons/io5";
 import "../Style/Header.css";
 // import logoW from "/logowhite.png"
-import logoB from "/logoB.png";
+// import logoB from "/logoB.png";
+import logoP from "/flogo.svg";
 import { ArrowBtn } from "./magnetBtn";
 import { useMotionValueEvent, motion, useScroll } from "framer-motion";
 
@@ -14,7 +15,6 @@ const Header = () => {
   // const toggleMenu = () => {
   //   setShowMenu(!showMenu);
   // };
-
 
   const toggleMenu = () => {
     setShowMenu((prevShowMenu) => {
@@ -56,7 +56,6 @@ const Header = () => {
   function update(latest, prev) {
     if (latest < prev) {
       setHidden(false);
-   
     } else if (latest > 100 && latest > prev) {
       setHidden(true);
       if (showMenu) {
@@ -81,14 +80,12 @@ const Header = () => {
     setPrevScroll(latest);
   });
 
-
   useEffect(() => {
-    document.addEventListener('click', handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
     return () => {
-      document.removeEventListener('click', handleClickOutside);
+      document.removeEventListener("click", handleClickOutside);
     };
   }, []);
-
 
   const { pathname } = useLocation();
 
@@ -111,8 +108,13 @@ const Header = () => {
       }}
     >
       <motion.nav className="nav container">
-        <NavLink to="/" className="nav__logo"  onClick={closeMenuOnMobile} >
-          <img src={logoB} alt="Logo" />
+        <NavLink
+          to="/"
+          className="nav__logo"
+          reloadDocument
+          onClick={closeMenuOnMobile}
+        >
+          <img src={logoP} alt="Logo" />
         </NavLink>
 
         <div
@@ -125,6 +127,7 @@ const Header = () => {
               <NavLink
                 to="/tape"
                 className="nav__link"
+                reloadDocument
                 onClick={closeMenuOnMobile}
               >
                 BANDE
@@ -136,6 +139,7 @@ const Header = () => {
               <NavLink
                 to="/cardboard"
                 className="nav__link"
+                reloadDocument
                 onClick={closeMenuOnMobile}
               >
                 CARTON
@@ -147,6 +151,7 @@ const Header = () => {
               <NavLink
                 to="/sfilm"
                 className="nav__link"
+                reloadDocument
                 onClick={closeMenuOnMobile}
               >
                 Film étirable
@@ -158,6 +163,7 @@ const Header = () => {
               <NavLink
                 to="/feuillard"
                 className="nav__link"
+                reloadDocument
                 onClick={closeMenuOnMobile}
               >
                 Feuillard
@@ -166,7 +172,12 @@ const Header = () => {
             </li>
 
             <li className="nav__item">
-              <NavLink to="/contact" className="nav__link nav__cta"  onClick={closeMenuOnMobile}>
+              <NavLink
+                to="/contact"
+                className="nav__link nav__cta"
+                reloadDocument
+                onClick={closeMenuOnMobile}
+              >
                 Contactez-nous
                 <ArrowBtn />
               </NavLink>

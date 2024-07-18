@@ -8,8 +8,8 @@ const mapContainerStyle = {
   // height: isMobile? "500px" : '700px'
 };
 const center = {
-  lat: 48.85721169424876, 
-  lng: 2.308631425743891 
+  lat: 48.6060095254942, 
+  lng: 2.3641222000000006 
 };
 
 const Map = () => {

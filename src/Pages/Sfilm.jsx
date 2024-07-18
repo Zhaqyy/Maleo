@@ -1,4 +1,3 @@
-import { useLayoutEffect } from "react";
 import { PContact, PHero, PModel2, Pwrap } from "../Components/ProductPage";
 import h1 from "/product/sf1.png";
 import h2 from "/product/sf2.png";
@@ -40,8 +39,8 @@ const productData = {
   subtitle: "Film Étirable MANUEL",
 };
 
-const pageTitle = "COULEUR DE LA Film étirable";
-const pageTitle2 = "MODÈLE DE Film étirable";
+const pageTitle = "COULEUR DU Film étirable";
+const pageTitle2 = "Nos types de films";
 const products = [
   { imageSrc: h1, title: "transparent", linktext: "Citation" },
   { imageSrc: h2, title: "noir", linktext: "Citation" },
@@ -134,9 +133,7 @@ const bgSequence = [
 
 
 const Sfilm = () => {
-  useLayoutEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+
   return (
     <>
       <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
@@ -147,7 +144,7 @@ const Sfilm = () => {
       <PHero
         product={{
           ...productData,
-          title: "personnalize Film étirable",
+          title: "Film étirable personnalisé",
           subtitle: null,
           imageUrl: "/product/sfilm2.png",
         }}
