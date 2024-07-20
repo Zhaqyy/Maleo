@@ -18,7 +18,7 @@ const visible = {
   x: 0,
   y: 0,
   scale: 1,
-  transition: { staggerChildren: 0.5, duration: 0.7 },
+  transition: { staggerChildren: 0.15, duration: 0.5 },
 };
 
 export const Product = () => {
@@ -26,16 +26,22 @@ export const Product = () => {
     hidden: { opacity: 0, y: 50 },
     visible,
   };
-  const imgVariants = {
-    hidden: { opacity: 0, x: "-600px" },
-    visible,
-  };
-  const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.5 });
+  // const imgVariants = {
+  //   hidden: { opacity: 0, x: "-600px" },
+  //   visible,
+  // };
+  const pref = useRef(null);
+  const isInView = useInView(pref, { amount: 0.5, once:true});
   const controls = useAnimation();
   useEffect(() => {
       if (isInView) {
-        controls.start("visible");
+        controls.start({
+          opacity: 1,
+          x: 0,
+          y: 0,
+          scale: 1,
+          transition: { staggerChildren: 0.15, duration: 0.5 },
+        });
       }
     }, [controls, isInView]);
 
@@ -71,10 +77,10 @@ export const Product = () => {
       <motion.section
         className="product"
         id="product"
-        ref={ref}
-        animate={controls}
-        initial="hidden"
-        variants={{visible}}
+        // ref={pref}
+        // animate={controls}
+        // initial={{ opacity: 0, y: 50 }}
+        // variants={{visible}}
       >
         <motion.div className="prodHead" variants={hprodVariants}>
           <motion.div className="prodBtn" variants={hprodVariants}>
@@ -83,7 +89,9 @@ export const Product = () => {
           </motion.div>
           <motion.h1 variants={hprodVariants}>
             NOS PRODUITS
-            <motion.img ref={ref} variants={imgVariants} src="/mal.svg" loading="lazy" />
+            <motion.img ref={pref} style={{ opacity: isInView ? 1 : 0,
+          x: isInView ? 0 : -600,
+          transitionDuration: "0.5s",}} src="/mal.svg" loading="lazy" />
           </motion.h1>
           <motion.h2 className="hollow" variants={hprodVariants}>
             sont les meilleurs

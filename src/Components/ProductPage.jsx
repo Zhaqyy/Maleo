@@ -289,12 +289,17 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
       }}
     >
       {React.Children.map(children, (child, index) => {
+        const isFirstChild = index === 0;
         const isLastChild = index === React.Children.count(children) - 1;
 
         const ChildWrapper = (props) => {
           const childRef = useRef(null);
           const isInView = useInView(childRef, {
-            margin: isLastChild ? '0% 0px -50% 0px' : '-50% 0px -50% 0px',
+            margin: isFirstChild
+            ? '-15% 0px -50% 0px'
+            : isLastChild
+            ? '0% 0px -50% 0px'
+            : '-50% 0px -50% 0px',
           });
 
           return (
