@@ -10,8 +10,8 @@ import {
   import "../Style/Component/Component.css";
   import { useRef } from "react";
   // import { Section } from "./inView";
-  import { ArrowBtn } from "./magnetBtn";
-import { Section } from "./inView";
+  import { ArrowBtn } from "../Components/magnetBtn";
+// import { Section } from "./inView";
 
   
 export const BlogSec = ({ posts }) => {
@@ -62,7 +62,7 @@ export const BlogSec = ({ posts }) => {
     // };
   
     return (
-      <Section
+      <motion.section
         className="blog"
       >
         <motion.h3 variants={postVariants}>derniers articles</motion.h3>
@@ -113,7 +113,7 @@ export const BlogSec = ({ posts }) => {
             </motion.a>
           ))}
         </motion.ul>
-      </Section>
+      </motion.section>
     );
   };
   

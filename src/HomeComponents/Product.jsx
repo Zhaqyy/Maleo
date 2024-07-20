@@ -68,13 +68,13 @@ export const Product = () => {
   const isMobile = window.innerWidth < 768;
   return (
     <>
-      <Section
+      <motion.section
         className="product"
         id="product"
-        // ref={ref}
-        // animate={controls}
-        // initial="hidden"
-        // variants={{visible}}
+        ref={ref}
+        animate={controls}
+        initial="hidden"
+        variants={{visible}}
       >
         <motion.div className="prodHead" variants={hprodVariants}>
           <motion.div className="prodBtn" variants={hprodVariants}>
@@ -93,7 +93,7 @@ export const Product = () => {
           </motion.p>
         </motion.div>
         <ProductList products={products} />
-      </Section>
+      </motion.section>
     </>
   );
 };
@@ -114,7 +114,6 @@ export const LogoDisp = () => {
           scale: isInView ? 1 : 0.5,
           y: isInView ? 0 : 200,
           transitionDuration: "0.5s",
-          aspectRatio: 1,
         }}
       />
     </motion.section>

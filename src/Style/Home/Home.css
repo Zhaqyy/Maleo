@@ -167,6 +167,10 @@
   width: 100%;
   height: auto;
   pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
+  -webkit-user-drag: none;
   z-index: 2;
   cursor: pointer;
   pointer-events: auto;
@@ -310,6 +314,6 @@
     padding-top: 10vh;
   }
   .LogoDisp img {
-    width: 50%;
+    width: 80%;
   }
 }/*# sourceMappingURL=Home.css.map */

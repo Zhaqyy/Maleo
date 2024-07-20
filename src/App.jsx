@@ -89,7 +89,7 @@ function App() {
   return (
     <>
       <AnimatePresence mode="wait">
-        <Suspense>
+        {/* <Suspense> */}
           <Header />
           <Overlay />
           <Routes location={location}>
@@ -107,7 +107,7 @@ function App() {
             <Route path="/account" element={<Account />} />
           </Routes>
           <Footer />
-        </Suspense>
+        {/* </Suspense> */}
       </AnimatePresence>
     </>
   );

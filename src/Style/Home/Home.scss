@@ -184,6 +184,8 @@
     width: 100%;
     height: auto;
     pointer-events: none;
+    user-select: none;
+    -webkit-user-drag: none;
     z-index: 2;
     cursor: pointer;
     pointer-events: auto;
@@ -354,7 +356,7 @@
     min-height: unset;
     padding-top: 10vh;
     img {
-      width: 50%;
+      width: 80%;
     }
   }
 }
