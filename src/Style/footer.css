@@ -62,9 +62,9 @@
 
 .linkItem {
   display: flex;
-  margin: auto;
-  -moz-column-gap: 150px;
-  column-gap: 150px;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  width: 100%;
 }
 
 .footer-text {

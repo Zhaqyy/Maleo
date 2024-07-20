@@ -12,7 +12,7 @@ export const Section = ({ children, className, ...prop }) => {
       x: 0,
       y: 0,
       scale: 1,
-      transition: { staggerChildren: 0.5, duration: 0.5 },
+      transition: { staggerChildren: 0.1, duration: 0.5,ease:"easeInOut" },
     };
     
   const ref = useRef(null);

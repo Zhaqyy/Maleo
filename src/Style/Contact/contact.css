@@ -181,11 +181,14 @@
     height: 500px;
   }
   .cont-detail ul {
-    flex-direction: column;
     row-gap: 30px;
     align-items: baseline;
+    flex-wrap: wrap;
+    -moz-column-gap: 30px;
+         column-gap: 30px;
+    flex-direction: row;
+    justify-content: center;
     margin-block: 5vh;
-    /* align-content: flex-start; */
   }
   .cont-info-text h1 {
     text-align: center;
@@ -213,7 +216,12 @@
   .cont-detail ul {
     row-gap: 50px;
     text-align: center;
-    align-items: center;
+    align-items: baseline;
+    flex-wrap: wrap;
+    -moz-column-gap: 50px;
+         column-gap: 50px;
+    flex-direction: row;
+    justify-content: center;
   }
   .cont-info {
     margin-bottom: 0;

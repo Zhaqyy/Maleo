@@ -98,8 +98,8 @@ const BlogPost = () => {
         </div>
       </section>
       <section className="blogswiper">
-        <h3>Tu pourrais <br />
-aussi aimer</h3>
+        <h3>nos autres <br />
+        articles</h3>
         <BlogSwiper/>
       </section>
     </>

@@ -19,7 +19,7 @@ const visible = {
   x: 0,
   y: 0,
   scale: 1,
-  transition: { staggerChildren: 0.4, duration: 0.7 },
+  transition: { staggerChildren: 0.1, duration: 0.5 },
 };
 
 const prodVariants = {

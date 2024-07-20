@@ -209,6 +209,11 @@
         height: unset;
     }
 
+    .value h1,
+    .collab h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
     .whoImg {
         justify-items: center;
         justify-content: center;
@@ -237,6 +242,10 @@
         justify-self: center;
     }
 
+    .value li {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
+    }
+
     .who {
         min-height: unset;
     }
@@ -245,6 +254,10 @@
         min-height: unset;
         padding-block: 10vh;
         text-align: center;
+    }
+
+    .collabInfo {
+        grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
     }
 
     .surpass {
@@ -296,7 +309,7 @@
         max-height: 70vh;
         min-height: unset;
     }
-    
+
     .surpass img {
         max-height: 700px;
     }

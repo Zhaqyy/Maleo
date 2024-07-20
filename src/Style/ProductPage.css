@@ -241,7 +241,7 @@
   position: fixed;
   inset: 0;
   background-color: var(--bg-variable);
-  transition: all 0.5s ease;
+  transition: all 0.25s ease-in-out;
   z-index: -1;
 }
 .Pwrap .pFeature.dark h5 {
@@ -250,7 +250,7 @@
 
 .fade {
   opacity: var(--op-variable);
-  transition: all 0.5s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 
 .pCont {
