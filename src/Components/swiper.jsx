@@ -8,13 +8,13 @@ import { blogData } from "../Pages/Blog/blogData.js";
 import { Link } from "react-router-dom";
 
 const ONE_SECOND = 1000;
-const AUTO_DELAY = ONE_SECOND * 10;
+const AUTO_DELAY = ONE_SECOND * 5;
 const DRAG_BUFFER = 35;
 
 const SPRING_OPTIONS = {
   type: "spring",
-  mass: 3,
-  stiffness: 400,
+  mass: 2,
+  stiffness: 100,
   damping: 50,
 };
 
@@ -28,18 +28,18 @@ export const Swiper = ({ products, variant }) => {
     margin: "-50% 0px -50% 0px",
   });
 
-  useEffect(() => {
-    if (!isInView) return;
+  // useEffect(() => {
+  //   if (!isInView) return;
 
-    const intervalRef = setInterval(() => {
-      const x = dragX.get();
-      if (x === 0) {
-        setImgIndex((prevIndex) => (prevIndex + 1) % products.length);
-      }
-    }, AUTO_DELAY);
+  //   const intervalRef = setInterval(() => {
+  //     const x = dragX.get();
+  //     if (x === 0) {
+  //       setImgIndex((prevIndex) => (prevIndex + 1) % products.length);
+  //     }
+  //   }, AUTO_DELAY);
 
-    return () => clearInterval(intervalRef);
-  }, [dragX, products.length, isInView]);
+  //   return () => clearInterval(intervalRef);
+  // }, [dragX, products.length, isInView]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -70,6 +70,7 @@ export const Swiper = ({ products, variant }) => {
       <motion.div
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
+        // dragDirectionLock
         style={{ x: dragX }}
         animate={{
           translateX: `-${
@@ -80,6 +81,7 @@ export const Swiper = ({ products, variant }) => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
+        data-lenis-prevent
       >
         {renderProductList()}
       </motion.div>
@@ -268,18 +270,18 @@ export const BlogSwiper = () => {
   const { ref, inView: isInView } = useInView({ threshold: 0.5 });
   const itemsToShow = isMobile ? 1 : 3;
 
-  useEffect(() => {
-    if (!isInView) return;
+  // useEffect(() => {
+  //   if (!isInView) return;
 
-    const intervalRef = setInterval(() => {
-      const x = dragX.get();
-      if (x === 0) {
-        setBlogIndex((prevIndex) => (prevIndex + 1) % itemsToShow);
-      }
-    }, AUTO_DELAY);
+  //   const intervalRef = setInterval(() => {
+  //     const x = dragX.get();
+  //     if (x === 0) {
+  //       setBlogIndex((prevIndex) => (prevIndex + 1) % itemsToShow);
+  //     }
+  //   }, AUTO_DELAY);
 
-    return () => clearInterval(intervalRef);
-  }, [dragX,itemsToShow, isInView]);
+  //   return () => clearInterval(intervalRef);
+  // }, [dragX,itemsToShow, isInView]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -337,6 +339,7 @@ export const BlogSwiper = () => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
+        data-lenis-prevent
       >
         {renderProductList()}
       </motion.div>

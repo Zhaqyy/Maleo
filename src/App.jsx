@@ -89,7 +89,7 @@ function App() {
   return (
     <>
       <AnimatePresence mode="wait">
-        <Suspense fallback={null}>
+        <Suspense>
           <Header />
           <Overlay />
           <Routes location={location}>
