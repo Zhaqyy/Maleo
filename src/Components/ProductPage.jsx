@@ -131,6 +131,7 @@ export const PModel2 = ({
 
 export const PTable = ({ set }) => {
   const [tableData, setTableData] = useState([]);
+  const isMobile = window.innerWidth < 770;
 
   useEffect(() => {
     if (set === "tape") {
@@ -147,7 +148,7 @@ export const PTable = ({ set }) => {
       >
         Caractéristiques
       </motion.h2>
-      <motion.div className="fade table">
+      <motion.div className="fade table" {...isMobile ? "data-lenis-prevent" : ""}>
         {set === "tape" ? (
           <Table data={tableData} />
         ) : (
@@ -258,7 +259,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
-    offset: ["start start", "end start"],
+    offset: ["-5vh start", "end start"],
   });
 
   const bg = useTransform(scrollYProgress, timeline, bgSequence);

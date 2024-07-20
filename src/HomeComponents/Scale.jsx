@@ -196,13 +196,14 @@ export const Vid = () => {
         loop
         playsInline
         className="mainVid"
+        autoPlay
         style={{
           // top: MoveY,
           // width: wide,
           scale: isMobile ? 1 : scalee,
           // borderRadius: bdr,
         }}
-        // preload=""
+        // preload="none"
         poster="/who.webp"
         // controls
         disableRemotePlayback
