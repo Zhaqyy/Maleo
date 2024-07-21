@@ -1,10 +1,11 @@
+/* eslint-disable no-useless-escape */
 var CACHE_VERSION = 1;
 var CURRENT_CACHES = {
   prefetch: 'prefetch-cache-v' + CACHE_VERSION
 };
 
 var urlsToPrefetch = [
-  '/assets/video/animation.mp4'    
+  '/maleo.mp4'    
 ];
 
 self.addEventListener('install', function(event) {      
