@@ -192,8 +192,10 @@ export const Vid = () => {
       <div className="control">
       <motion.video
         ref={vRef}
-        {...(!isInView && { muted: true })}
-        loop
+        // {...(!isInView && { muted: true })}
+        muted
+        autoPlay
+        // loop
         playsInline
         className="mainVid"
         style={{
@@ -202,11 +204,11 @@ export const Vid = () => {
           scale: isMobile ? 1 : scalee,
           // borderRadius: bdr,
         }}
-        // preload="none"
+        preload="metadata"
         poster="/who.webp"
-        // controls
+        controls
         disableRemotePlayback
-        x-webkit-airplay="deny"
+        // x-webkit-airplay="deny"
         onPlay={handlePlay}
         onPause={handlePause}
       >
