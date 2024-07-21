@@ -24,34 +24,132 @@
 
 
   <!-- <script src="https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js"></script> -->
-  
+
   <link rel="stylesheet" href="src/Components/preloader.css" />
   <script type="text/javascript">
     function waitUntilInstalled(registration) {
-      return new Promise(function(resolve, reject) {
-        if (registration.installing) {        
-          registration.installing.addEventListener('statechange', function(e) {
+      return new Promise(function (resolve, reject) {
+        if (registration.installing) {
+          registration.installing.addEventListener('statechange', function (e) {
             if (e.target.state === 'installed') {
               resolve();
             } else if (e.target.state === 'redundant') {
               reject();
             }
           });
-        } else {        
+        } else {
           resolve();
         }
       });
     }
-    
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js', { scope: '/' })
-    .then(waitUntilInstalled)    
-      .catch(function(error) {    
-        console.error(error);    
-      });
-  }
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/src/sw.js', { scope: '/' })
+        .then(waitUntilInstalled)
+        .catch(function (error) {
+          console.error(error);
+        });
+    }
   </script>
-  <script type="text/javascript" src="/sw.js"></script>
+  <script  type="text/javascript" src="/src/sw.js"></script>
+  <script type="text/javascript">/* eslint-disable no-useless-escape */
+    var CACHE_VERSION = 1;
+    var CURRENT_CACHES = {
+      prefetch: 'prefetch-cache-v' + CACHE_VERSION
+    };
+
+    var urlsToPrefetch = [
+      '/maleo.mp4'
+    ];
+
+    self.addEventListener('install', function (event) {
+      self.skipWaiting();
+
+      event.waitUntil(
+        caches.open(CURRENT_CACHES.prefetch).then(function (cache) {
+          return cache.addAll(urlsToPrefetch);
+        })
+      );
+    });
+
+    self.addEventListener('activate', function (event) {
+      //delete all caches that aren't named in CURRENT_CACHES  
+      var expectedCacheNames = Object.keys(CURRENT_CACHES).map(function (key) {
+        return CURRENT_CACHES[key];
+      });
+
+      event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+          return Promise.all(
+            cacheNames.map(function (cacheName) {
+              if (expectedCacheNames.indexOf(cacheName) === -1) {
+                return caches.delete(cacheName);
+              }
+            })
+          );
+        })
+      );
+    });
+
+    self.addEventListener('fetch', function (event) {
+      console.log('Handling fetch event for', event.request.url);
+
+      if (event.request.headers.get('range')) {
+        var pos =
+          Number(/^bytes\=(\d+)\-$/g.exec(event.request.headers.get('range'))[1]);
+        console.log('Range request for', event.request.url,
+          ', starting position:', pos);
+        event.respondWith(
+          caches.open(CURRENT_CACHES.prefetch)
+            .then(function (cache) {
+              var internalUrl = ""
+              urlsToPrefetch.forEach(function (item) {
+                if (event.request.url.indexOf(item) > 0) {
+                  internalUrl = item;
+                }
+              });
+              return cache.match(internalUrl);
+            }).then(function (res) {
+              if (!res) {
+                return fetch(event.request)
+                  .then(res => {
+                    return res.arrayBuffer();
+                  });
+              }
+              return res.arrayBuffer();
+            }).then(function (ab) {
+              return new Response(
+                ab.slice(pos),
+                {
+                  status: 206,
+                  statusText: 'Partial Content',
+                  headers: [
+                    // ['Content-Type', 'video/webm'],
+                    ['Content-Range', 'bytes ' + pos + '-' +
+                      (ab.byteLength - 1) + '/' + ab.byteLength]]
+                });
+            }));
+      } else {
+        console.log('Non-range request for', event.request.url);
+        event.respondWith(
+          caches.match(event.request).then(function (response) {
+            if (response) {
+              console.log('Found response in cache:', response);
+              return response;
+            }
+            console.log('No response found in cache. About to fetch from network...');
+            return fetch(event.request).then(function (response) {
+              console.log('Response from network is:', response);
+
+              return response;
+            }).catch(function (error) {
+              console.error('Fetching failed:', error);
+              throw error;
+            });
+          })
+        );
+      }
+    });</script>
 </head>
 
 <body>
@@ -64,22 +162,22 @@
   <script>
     // Check if the homepage has been loaded before in this localStorage
     const isFirstLoad = localStorage.getItem('isFirstLoad_homepage');
-  
+
     if (!isFirstLoad) {
       // Set localStorage storage to indicate that the homepage has been loaded
       localStorage.setItem('isFirstLoad_homepage', 'true');
-  
+
       // Define paceOptions
       window.paceOptions = {
         startOnPageLoad: false,
         restartOnRequestAfter: false,
       };
-  
+
       // Load Pace.js
       const paceScript = document.createElement('script');
       paceScript.src = 'https://cdn.jsdelivr.net/npm/pace-js@latest/pace.min.js';
       document.head.appendChild(paceScript);
-  
+
       paceScript.onload = () => {
         // Pace event listeners
         Pace.on('progress', function (progress) {
@@ -88,17 +186,17 @@
             paceProgressInner.style.width = `${progress}%`;
           }
         });
-  
+
         Pace.on('done', function () {
           setTimeout(function () {
             const paceProgress = document.querySelector('.pace-progress');
-  
+
             // Modify styles of the parent element which affects the pseudo-elements
             if (paceProgress) {
               paceProgress.style.setProperty('--progress-top', '-13px');
               paceProgress.style.setProperty('--progress-opacity', '0');
             }
-  
+
             setTimeout(function () {
               if (paceProgress) {
                 paceProgress.classList.add('translate-up');
@@ -106,13 +204,13 @@
             }, 1500);
           }, 500);
         });
-  
+
         // Start Pace manually
         Pace.start();
       };
     }
   </script>
-  
+
   <script type="module" src="/src/main.jsx"></script>
 </body>
 
