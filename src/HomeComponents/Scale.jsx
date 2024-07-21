@@ -196,7 +196,6 @@ export const Vid = () => {
         loop
         playsInline
         className="mainVid"
-        autoPlay
         style={{
           // top: MoveY,
           // width: wide,
