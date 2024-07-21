@@ -204,7 +204,7 @@ export const Vid = () => {
           scale: isMobile ? 1 : scalee,
           // borderRadius: bdr,
         }}
-        preload="metadata"
+        preload="auto"
         poster="/who.webp"
         controls
         disableRemotePlayback
