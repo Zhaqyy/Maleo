@@ -80,7 +80,7 @@ export const Swiper = ({ products, variant }) => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
-        {...isMobile ? "data-lenis-prevent" : ""}
+        data-lenis-prevent
       >
         {renderProductList()}
       </motion.div>
