@@ -56,7 +56,7 @@ const Overlay = () => {
       <motion.span className="over-cont" animate={controlsRight}>
         <p>
           <span>
-            <Link to="https://www.linkedin.com/company/maleo-emballage/">Linkedin</Link>
+            <Link to="https://www.linkedin.com/company/maleo-emballage/" target="_blank">Linkedin</Link>
           </span> X <span>
             <Link to="/Contact">Contact</Link>
           </span>

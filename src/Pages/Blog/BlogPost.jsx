@@ -38,7 +38,7 @@ const BlogPost = () => {
                   <span className="date-info">
                     {data?.date || "May 25, 2024"} <p>6 min read</p>
                   </span>
-                  <Link to="" className="follow-link">
+                  <Link to="" reloadDocument className="follow-link">
                     🔗
                   </Link>
                 </div>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
@@ -262,29 +263,40 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
 
 
   const bgRef = useRef('var(--bg-white)');
-
-  // const themeRef = useRef('light');
-  const newTheme = useRef('light');
-
   useEffect(() => {
     const handleChange = (latest) => {
-      const latestBg = latest.toString();
-      if (bgRef.current !== latestBg) {
-        bgRef.current = latestBg;
-        newTheme.current = latestBg === 'var(--bg-black)' ? 'dark' : 'light';
-        if (ref.current) {
-          ref.current.setAttribute('data-bg-variable', latestBg);
-        }
-        console.log(newTheme.current);
+      bgRef.current = latest.toString();
+      if (ref.current) {
+        ref.current.setAttribute('data-bg-variable', bgRef.current);
       }
     };
 
-    const unsubscribe = bg.on("change", handleChange);
+    bg.on('change', handleChange);
 
-    return () => {
-      unsubscribe(); // Clean up the subscription
-    };
   }, [bg]);
+
+  // const themeRef = useRef('light');
+  // const newTheme = useRef('light');
+
+  // useEffect(() => {
+  //   const handleChange = (latest) => {
+  //     const latestBg = latest.toString();
+  //     if (bgRef.current !== latestBg) {
+  //       bgRef.current = latestBg;
+  //       newTheme.current = latestBg === 'var(--bg-black)' ? 'dark' : 'light';
+  //       if (ref.current) {
+  //         ref.current.setAttribute('data-bg-variable', latestBg);
+  //       }
+  //       console.log(newTheme.current);
+  //     }
+  //   };
+
+  //   const unsubscribe = bg.on("change", handleChange);
+
+  //   return () => {
+  //     unsubscribe(); // Clean up the subscription
+  //   };
+  // }, [bg]);
   
 
   return (
@@ -295,7 +307,6 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
       style={{
         backgroundColor: bg,
         "--bg-variable": bg,
-        // "--theme": themeRef.current,
       }}
     >
       {React.Children.map(children, (child, index) => {
@@ -311,7 +322,6 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
             ? '0% 0px -50% 0px'
             : '-50% 0px -50% 0px',
           });
-// console.log(themeRef.current);
           return (
             <motion.div
               ref={childRef}
@@ -320,7 +330,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
               }}
               className="secWrap"
             >
-              {React.cloneElement(child, {theme: newTheme.current,  ...props })}
+              {React.cloneElement(child, { ...props })}
             </motion.div>
           );
         };

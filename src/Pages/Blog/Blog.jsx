@@ -15,7 +15,7 @@ const Blog = () => {
               <div className="blog-content">
                
                 <div className="blog-title">
-                  <Link to={`/post/${item.id}`} className="title-link">
+                  <Link to={`/post/${item.id}`} reloadDocument className="title-link">
                     {item.title}
                   </Link>
                 </div>
@@ -31,7 +31,7 @@ const Blog = () => {
                     <p className="text">{item.date}</p>
                   </span>
                   {/* <span className="author-info"> */}
-                    <Link to={`/post/${item.id}`} className="text more">
+                    <Link to={`/post/${item.id}`} reloadDocument className="text more">
                     Lire +
                     </Link>
                   {/* </span> */}

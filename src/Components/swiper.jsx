@@ -70,7 +70,6 @@ export const Swiper = ({ products, variant }) => {
       <motion.div
         drag="x"
         dragConstraints={{ left: 0, right: 0 }}
-        // dragDirectionLock
         style={{ x: dragX }}
         animate={{
           translateX: `-${
@@ -262,6 +261,9 @@ export const ProductList3 = ({ products, itemsToShow }) => {
   );
 };
 
+
+// Animation Logic for Blog slider
+
 export const BlogSwiper = () => {
   const [blogIndex, setBlogIndex] = useState(0);
   const dragX = useMotionValue(0);
@@ -307,16 +309,16 @@ export const BlogSwiper = () => {
     }
   };
 
-  const renderProductList = () => {
+  const renderblogList = () => {
     return blogData.map((item, index) => (
       <div className="blog-item" key={item.id}>
         <img src={item.image} alt={item.title} loading="lazy" />
         <div className="blogswipe-info">
           <p className="swipe-date">{item.date}</p>
-          <Link to={`/post/${item.id}`} className="Blogswiper-link">
+          <Link to={`/post/${item.id}`} reloadDocument className="Blogswiper-link">
            <h6>{item.title}</h6> 
           </Link>
-          <Link to={`/post/${item.id}`} className="Blogswiper-link">
+          <Link to={`/post/${item.id}`} reloadDocument className="Blogswiper-link">
           <p>Read More</p>
           </Link>
         </div>
@@ -341,7 +343,7 @@ export const BlogSwiper = () => {
         className="motionDiv active"
         data-lenis-prevent
       >
-        {renderProductList()}
+        {renderblogList()}
       </motion.div>
       <div className="arrow-ctrl">
       <button className="prev-arrow" onClick={handlePrevClick}>
