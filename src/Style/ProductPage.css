@@ -115,29 +115,6 @@
 .pModel img {
   -webkit-user-drag: none;
 }
-.pModel .pModelContent.light .list h4 {
-  background: transparent;
-  color: rgb(0, 0, 0);
-  z-index: 1;
-  text-align: center;
-}
-.pModel .pModelContent.light .list h5 {
-  background: transparent;
-  color: rgb(0, 0, 0);
-  z-index: 1;
-  text-align: center;
-}
-.pModel .pModelContent.light .list .listItem .imgWrap,
-.pModel .pModelContent.light .list .listItem .imgWrap2 {
-  position: relative;
-  width: 100%;
-  border-radius: 50%;
-  transition: all 0.5s ease;
-}
-.pModel .pModelContent.light .list .listItem .imgWrap img,
-.pModel .pModelContent.light .list .listItem .imgWrap2 img {
-  width: 100%;
-}
 .pModel .list .listItem:hover .imgWrap {
   outline: 2px solid var(--accent);
 }
@@ -216,13 +193,55 @@
   padding-top: 15vh !important;
   margin: 0 !important;
 }
-.Pwrap[data-bg-variable="var(--bg-white)"] h1, .Pwrap [data-bg-variable="var(--bg-white)"] h2 {
+.Pwrap[data-bg-variable="var(--bg-white)"] h1, .Pwrap[data-bg-variable="var(--bg-white)"] h2, .Pwrap[data-bg-variable="var(--bg-white)"] h3, .Pwrap[data-bg-variable="var(--bg-white)"] h4, .Pwrap[data-bg-variable="var(--bg-white)"] h5 {
   -webkit-text-stroke-color: var(--text-dark) !important;
   color: var(--text-dark) !important;
 }
-.Pwrap[data-bg-variable="var(--bg-black)"] h1, .Pwrap[data-bg-variable="var(--bg-black)"] h2 {
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list h4 {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+  text-align: center;
+}
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list h5 {
+  background: transparent;
+  color: rgb(0, 0, 0);
+  z-index: 1;
+  text-align: center;
+}
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list .listItem .imgWrap,
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list .listItem .imgWrap2 {
+  position: relative;
+  width: 100%;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+}
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list .listItem .imgWrap img,
+.Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list .listItem .imgWrap2 img {
+  width: 100%;
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] h1, .Pwrap[data-bg-variable="var(--bg-black)"] h2, .Pwrap[data-bg-variable="var(--bg-black)"] h3, .Pwrap[data-bg-variable="var(--bg-black)"] h4, .Pwrap[data-bg-variable="var(--bg-black)"] h5 {
   -webkit-text-stroke-color: var(--text-color) !important;
   color: var(--text-color) !important;
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form * {
+  /* position: relative; */
+  /* z-index: 1; */
+  color: var(--bg-color);
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form input,
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form textarea,
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form .choice {
+  border-color: var(--bg-color);
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form select {
+  background-color: transparent;
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form select option {
+  background: var(--bg-dark);
+}
+.Pwrap[data-bg-variable="var(--bg-black)"] .cont-form #contact-form label {
+  background: var(--bg-dark);
 }
 .Pwrap::before {
   content: "";
@@ -243,9 +262,6 @@
   background-color: var(--bg-variable);
   transition: all 0.25s ease-in-out;
   z-index: -1;
-}
-.Pwrap .pFeature.dark h5 {
-  color: rgb(241, 241, 241);
 }
 
 .fade {
@@ -268,25 +284,6 @@
 .pCont .cont-form {
   min-width: 35vw;
 }
-.pCont .cont-form.dark * {
-  /* position: relative; */
-  /* z-index: 1; */
-  color: var(--bg-color) !important;
-}
-.pCont .cont-form.dark input,
-.pCont .cont-form.dark textarea,
-.pCont .cont-form.dark .choice {
-  border-color: var(--bg-color) !important;
-}
-.pCont .cont-form.dark select {
-  background-color: transparent;
-}
-.pCont .cont-form.dark select option {
-  background: var(--bg-dark) !important;
-}
-.pCont .cont-form.dark label {
-  background: var(--bg-dark);
-}
 .pCont .choice {
   height: 50px;
   justify-content: center;
@@ -308,6 +305,7 @@
   font-size: 11px;
   text-transform: uppercase;
   background: gainsboro;
+  transition: all 0.45s ease;
 }
 .pCont .choice select {
   background: none;

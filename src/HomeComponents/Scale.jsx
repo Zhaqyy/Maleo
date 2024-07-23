@@ -193,8 +193,8 @@ export const Vid = () => {
       <motion.video
         ref={vRef}
         // {...(!isInView && { muted: true })}
-        muted
-        autoPlay
+        // muted
+        // autoPlay
         // loop
         playsInline
         className="mainVid"
@@ -204,7 +204,7 @@ export const Vid = () => {
           scale: isMobile ? 1 : scalee,
           // borderRadius: bdr,
         }}
-        preload="auto"
+        preload="none"
         poster="/who.webp"
         controls
         disableRemotePlayback

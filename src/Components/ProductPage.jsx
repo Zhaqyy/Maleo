@@ -37,9 +37,9 @@ export const PHero = ({ product, theme = "light" }) => {
   };
 
   return (
-    <Section className="prodHero">
+    <Section className={`prodHero`}>
       <motion.h1
-        className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
+        className={`hollowdark`}
         // variants={prodVariants}
       >
         {title}
@@ -48,7 +48,7 @@ export const PHero = ({ product, theme = "light" }) => {
         <motion.div variants={prodVariants}>
           <img src={imageUrl} alt={title} loading="lazy" />
         </motion.div>
-        <div className={`pFeature ${theme === "dark" ? "dark" : ""}`}>
+        <div className={`pFeature`}>
           <motion.ul variants={prodVariants}>
             {features &&
               features.map((feature, index) => (
@@ -78,16 +78,14 @@ export const PModel = ({ modelTitle, products, theme = "dark" }) => {
     <motion.section className="pModel">
       <div className="pModelHeader">
         <motion.h1
-          className={`pModelTitle ${
-            theme === "dark" ? "hollowdark" : "hollow"
-          }`}
+          className={`pModelTitle hollowdark`}
           // variants={prodVariants}
         >
           {modelTitle}
         </motion.h1>
       </div>
       <motion.div
-        className={`fade pModelContent ${theme === "light" ? "light" : ""}`}
+        className={`fade pModelContent`}
         variants={prodVariants}
       >
         <ProductList products={products} />
@@ -106,16 +104,14 @@ export const PModel2 = ({
     <motion.section className="pModel">
       <div className="pModelHeader">
         <motion.h1
-          className={`pModelTitle ${
-            theme === "dark" ? "hollowdark" : "hollow"
-          }`}
+          className={`pModelTitle hollowdark`}
           // variants={prodVariants}
         >
           {modelTitle}
         </motion.h1>
       </div>
       <motion.div
-        className={`fade pModelContent ${theme === "light" ? "light" : ""}`}
+        className={`fade pModelContent`}
         variants={prodVariants}
       >
         {model ? (
@@ -163,14 +159,14 @@ export const PContact = ({ products, products2, theme }) => {
   return (
     <Section className="pCont">
       <motion.h1
-        className={`${theme === "dark" ? "hollowdark" : "hollow"}`}
+        className={`hollowdark`}
         // variants={prodVariants}
       >
         Envoyer une demande
       </motion.h1>
       <motion.div
         id="citation"
-        className={`fade cont-form ${theme === "dark" ? "dark" : ""}`}
+        className={`fade cont-form }`}
       >
         <motion.div id="contact-form">
           <motion.div className="inp-field" variants={prodVariants}>
@@ -267,68 +263,29 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
 
   const bgRef = useRef('var(--bg-white)');
 
+  // const themeRef = useRef('light');
+  const newTheme = useRef('light');
+
   useEffect(() => {
     const handleChange = (latest) => {
-      bgRef.current = latest.toString();
-      if (ref.current) {
-        ref.current.setAttribute('data-bg-variable', bgRef.current);
+      const latestBg = latest.toString();
+      if (bgRef.current !== latestBg) {
+        bgRef.current = latestBg;
+        newTheme.current = latestBg === 'var(--bg-black)' ? 'dark' : 'light';
+        if (ref.current) {
+          ref.current.setAttribute('data-bg-variable', latestBg);
+        }
+        console.log(newTheme.current);
       }
     };
 
-    bg.on('change', handleChange);
+    const unsubscribe = bg.on("change", handleChange);
 
+    return () => {
+      unsubscribe(); // Clean up the subscription
+    };
   }, [bg]);
-
-  // const [theme, setTheme] = useState("light");
-  // const themeRef = useRef('light');
-
-  // useEffect(() => {
-  //   const handleChange = (latest) => {
-  //     const latestBg = latest.toString();
-  //     if (bgRef.current !== latestBg) {
-  //       bgRef.current = latestBg;
-  //       const newTheme = latestBg === 'var(--bg-black)' ? 'dark' : 'light';
-  //       if (theme !== newTheme) {
-  //         setTheme(newTheme);
-  //         console.log(`Theme changed to: ${newTheme}`);
-  //         if (ref.current) {
-  //           ref.current.setAttribute('data-bg-variable', latestBg);
-  //         }
-  //       }
-  //     }
-  //   };
-
-
-  //   const unsubscribe = bg.on("change",handleChange);
-  //   return () => {
-  //     unsubscribe(); // Clean up the subscription
-  //   };
-  // }, [bg,theme]);
-
-  //usememo
-  // const theme = useMemo(() => {
-  //   return bgRef.current === 'var(--bg-black)' ? 'dark' : 'light';
-  // }, [bgRef.current]);
-
-  // useEffect(() => {
-  //   const handleChange = (latest) => {
-  //     bgRef.current = latest.toString();
-  //     if (ref.current) {
-  //       ref.current.setAttribute('data-bg-variable', bgRef.current);
-  //       console.log(`Theme changed to: ${theme}`);
-  //     }
-  //   };
-
-  //   const unsubscribe = bg.on("change",handleChange);
-
-  //   return () => {
-  //     unsubscribe(); // Clean up the subscription
-  //   };
-  // }, [bg]);
-
-
-  //useref
-  // const themeRef = useRef('light');
+  
 
   return (
     <motion.section
@@ -363,7 +320,7 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
               }}
               className="secWrap"
             >
-              {React.cloneElement(child, {  ...props })}
+              {React.cloneElement(child, {theme: newTheme.current,  ...props })}
             </motion.div>
           );
         };

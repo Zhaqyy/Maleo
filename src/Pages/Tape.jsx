@@ -156,7 +156,7 @@ const Tape = () => {
   return (
     <>
       <Pwrap bgSequence={bgSequence} timeline={isMobile ? Mtimeline : timeline}>
-        <PHero product={productData} theme={"light"} />
+        <PHero product={productData}/>
 
         <PModel modelTitle={pageTitle} products={products} theme={"dark"} />
         <PModel2 modelTitle={pageTitle2} products={products2} theme={"light"} />

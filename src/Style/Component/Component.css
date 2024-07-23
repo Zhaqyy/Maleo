@@ -548,7 +548,7 @@ th {
   .list {
     gap: 5vw;
     overflow-x: visible;
-    padding-inline: 0;
+    padding-inline: 1em;
   }
   .list .listItem img,
   .list .listItem2 img {
