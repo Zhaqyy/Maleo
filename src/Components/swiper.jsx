@@ -28,18 +28,6 @@ export const Swiper = ({ products, variant }) => {
     margin: "-50% 0px -50% 0px",
   });
 
-  // useEffect(() => {
-  //   if (!isInView) return;
-
-  //   const intervalRef = setInterval(() => {
-  //     const x = dragX.get();
-  //     if (x === 0) {
-  //       setImgIndex((prevIndex) => (prevIndex + 1) % products.length);
-  //     }
-  //   }, AUTO_DELAY);
-
-  //   return () => clearInterval(intervalRef);
-  // }, [dragX, products.length, isInView]);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -50,6 +38,7 @@ export const Swiper = ({ products, variant }) => {
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
       setImgIndex((prevIndex) => prevIndex - 1);
     }
+
   };
 
   const itemsToShow = isMobile ? 2 : products.length;
@@ -80,7 +69,7 @@ export const Swiper = ({ products, variant }) => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
-        data-lenis-prevent
+        
       >
         {renderProductList()}
       </motion.div>
@@ -341,7 +330,6 @@ export const BlogSwiper = () => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
-        data-lenis-prevent
       >
         {renderblogList()}
       </motion.div>

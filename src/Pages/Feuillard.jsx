@@ -19,10 +19,10 @@ const productData = {
 
 const pageTitle = "Type de feuillard";
 const products = [
-  { imageSrc: h1, title: "acier", linktext: "Citation" },
-  { imageSrc: h2, title: "Polypropylène", linktext: "Citation" },
-  { imageSrc: h3, title: "textile", linktext: "Citation" },
-  { imageSrc: h4, title: "Polyester", linktext: "Citation" },
+  { imageSrc: h1, title: "acier", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h2, title: "Polypropylène", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h3, title: "textile", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h4, title: "Polyester", linktext: "CONTACTEZ NOUS" },
 ];
 
 

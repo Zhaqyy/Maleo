@@ -143,8 +143,8 @@ export const Vid = () => {
 
   const scalee = useTransform(
     scrollYProgress,
-    [0, 0.1, 0.45, 0.55],
-    [0.6, 0.8, 0.8, 1],
+    [0, 0.1],
+    [0.8, 1],
     easeInOut
   );
 

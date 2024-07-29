@@ -2,7 +2,8 @@
 import React, { Suspense, lazy, useState, useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import Lenis from "lenis";
+// import Lenis from "lenis";
+import { ReactLenis, useLenis } from 'lenis/react'
 import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -71,25 +72,29 @@ function App() {
   useResizeRefresh();
 
   const isMobile = window.innerWidth < 770;
+  const lenis = useLenis(({ scroll, option={ duration: 1.8,
+    syncTouch: true} }) => {
+    // called every scroll
+  })
+  // useEffect(() => {
+  //   const lenis = new Lenis({
+  //     duration: 1.8,
+  //     syncTouch: true,
+  //   });
 
-  useEffect(() => {
-    const lenis = new Lenis({
-      duration: 1.8,
-      syncTouch: true,
-    });
+  //   function raf(time) {
+  //     lenis.raf(time);
+  //     requestAnimationFrame(raf);
+  //   }
 
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
+  //   requestAnimationFrame(raf);
+  // }, []);
 
   return (
     <>
       <AnimatePresence mode="wait">
         <Suspense>
+        <ReactLenis root>
           <Header />
           <Overlay />
           <Routes location={location}>
@@ -107,6 +112,7 @@ function App() {
             <Route path="/account" element={<Account />} />
           </Routes>
           <Footer />
+          </ReactLenis>
         </Suspense>
       </AnimatePresence>
     </>

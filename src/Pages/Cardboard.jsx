@@ -18,9 +18,9 @@ const productData = {
 
 const pageTitle = "Types de cannelures";
 const products = [
-  { imageSrc: h1, title: "simple cannelures", linktext: "Citation" },
-  { imageSrc: h2, title: "double cannelures", linktext: "Citation" },
-  { imageSrc: h3, title: "triple cannelures", linktext: "Citation" }
+  { imageSrc: h1, title: "simple cannelures", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h2, title: "double cannelures", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h3, title: "triple cannelures", linktext: "CONTACTEZ NOUS" }
 ];
 
 

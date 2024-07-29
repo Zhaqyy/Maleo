@@ -54,22 +54,22 @@ const pageTitle = "TAILLE DE L'Adhésif";
 const pageTitle2 = "COULEUR DE L'Adhésif";
 const pageTitle3 = "Type D'Adhésif";
 const products = [
-  { imageSrc: h1, title: "12 mm", linktext: "Citation" },
-  { imageSrc: h2, title: "19 mm", linktext: "Citation" },
-  { imageSrc: h3, title: "50 mm", linktext: "Citation" },
-  { imageSrc: h4, title: "75 mm", linktext: "Citation" },
+  { imageSrc: h1, title: "12 mm", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h2, title: "19 mm", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h3, title: "50 mm", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: h4, title: "75 mm", linktext: "CONTACTEZ NOUS" },
 ];
 const products2 = [
-  { imageSrc: p1, title: "transparent", linktext: "Citation" },
-  { imageSrc: p2, title: "Havane", linktext: "Citation" },
-  { imageSrc: p3, title: "white", linktext: "Citation" },
+  { imageSrc: p1, title: "transparent", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: p2, title: "Havane", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: p3, title: "Blanc", linktext: "CONTACTEZ NOUS" },
 ];
 const products3 = [
-  { imageSrc: m1, title: "PP SOLVANT    25-28-32µ", linktext: "Citation" },
-  { imageSrc: m2, title: "PP ACRYLIQUE 25-28-32-35µ", linktext: "Citation" },
-  { imageSrc: m3, title: "PP HOT MELT 25-28µ", linktext: "Citation" },
-  { imageSrc: m4, title: "PVC 33µ", linktext: "Citation" },
-  { imageSrc: m5, title: "PAPIER KRAFT", linktext: "Citation" },
+  { imageSrc: m1, title: "PP Solvant    25-28-32µ", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: m2, title: "PP Acrylique 25-28-32-35µ", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: m3, title: "PP Hot Melt 25-28µ", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: m4, title: "PVC 33µ", linktext: "CONTACTEZ NOUS" },
+  { imageSrc: m5, title: "Papier Kraft", linktext: "CONTACTEZ NOUS" },
 ];
 
 const isMobile = window.innerWidth < 770;

@@ -86,6 +86,7 @@
       top: 10px;
       left: Calc(-1em - 5px);
       transition: bottom 0.5s ease;
+      translate: 50% 0;
     }
     &.animate::before {
       -webkit-animation: xtend 0.5s forwards;
@@ -109,7 +110,7 @@
     bottom: 45px;
   }
   100% {
-    bottom: -24px;
+    bottom: -25px;
   }
 }
 @keyframes xtend {
@@ -117,7 +118,7 @@
     bottom: 45px;
   }
   100% {
-    bottom: -24px;
+    bottom: -25px;
   }
 }
 
@@ -240,7 +241,6 @@
     // min-height: 90vh;
     background-color: white;
     border-radius: 15px;
-    touch-action: pan-x;
 
     td{
       filter: invert(1) hue-rotate(180deg)
@@ -439,7 +439,7 @@
       text-transform: capitalize;
       background-color: transparent;
       option {
-        background: var(--bg-color) !important;
+        background: var(--bg-color);
       }
 
       &:focus,
