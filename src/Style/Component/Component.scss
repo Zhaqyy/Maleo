@@ -870,9 +870,7 @@ th {
     }
   }
   .prodHero .pFeature {
-    li::before{
-      left: calc(-1em - 0.45em);
-    }
+    --xtendBottom: calc(0% - 1.45rem);
     h3 {
       font-size: clamp(3.5rem, 10vw, 4.3rem) !important;
       bottom: -35%;

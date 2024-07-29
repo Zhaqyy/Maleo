@@ -802,8 +802,8 @@ th {
     align-items: start;
     grid-gap: 20%;
   }
-  .prodHero .pFeature li::before {
-    left: -1.45em;
+  .prodHero .pFeature {
+    --xtendBottom: calc(0% - 1.45rem);
   }
   .prodHero .pFeature h3 {
     font-size: clamp(3.5rem, 10vw, 4.3rem) !important;

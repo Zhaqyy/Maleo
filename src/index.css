@@ -34,7 +34,7 @@
   /* Dark background color */
   --bg-variable: var(--bg-variable);
   --op-variable: var(--op-variable);
-
+  --xtendBottom: calc(0% - 1.25rem);
   color-scheme: light dark;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -67,7 +67,7 @@
   padding-top: 15vh;
 }
 
-.secWrap > section {
+.secWrap>section {
   padding-top: 0vh !important;
 }
 
@@ -136,7 +136,7 @@ img {
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
-      user-select: none;
+  user-select: none;
   -webkit-user-drag: none;
 }
 
@@ -177,7 +177,7 @@ html.lenis {
 
 .lenis.lenis-smooth [data-lenis-prevent] {
   -ms-scroll-chaining: none;
-      overscroll-behavior: contain
+  overscroll-behavior: contain
 }
 
 .lenis.lenis-stopped {
@@ -192,7 +192,7 @@ html.lenis {
 @media (max-width: 770px) {
   html {
     -ms-scroll-snap-type: none;
-        scroll-snap-type: none;
+    scroll-snap-type: none;
   }
 
   h1 {

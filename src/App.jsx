@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { Suspense, lazy, useState, useEffect } from "react";
+import React, { Suspense, lazy, useState, useEffect, useTransition } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 // import Lenis from "lenis";
@@ -70,7 +70,7 @@ const useResizeRefresh = () => {
 function App() {
   const location = useLocation();
   useResizeRefresh();
-
+  const [isPending, startTransition] = useTransition();
   const isMobile = window.innerWidth < 770;
   const lenis = useLenis(({ scroll, option={ duration: 1.8,
     syncTouch: true} }) => {
@@ -97,7 +97,11 @@ function App() {
         <ReactLenis root>
           <Header />
           <Overlay />
-          <Routes location={location}>
+          <Routes location={location} key={location.pathname} onChange={() => {
+                startTransition(() => {
+                  // trigger navigation update
+                });
+              }}>
             <Route index exact path="/" element={<Home />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/who" element={<Who />} />
