@@ -137,3 +137,8 @@ a.button:focus-visible {
     rotate: 360deg;
   }
 }
+@media (max-width: 770px) {
+  a.button{
+    font-size: 0.7rem;
+  }
+}
