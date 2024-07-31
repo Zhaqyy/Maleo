@@ -76,20 +76,7 @@ function App() {
     syncTouch: true} }) => {
     // called every scroll
   })
-  // useEffect(() => {
-  //   const lenis = new Lenis({
-  //     duration: 1.8,
-  //     syncTouch: true,
-  //   });
-
-  //   function raf(time) {
-  //     lenis.raf(time);
-  //     requestAnimationFrame(raf);
-  //   }
-
-  //   requestAnimationFrame(raf);
-  // }, []);
-
+ 
   return (
     <>
       <AnimatePresence mode="wait">

@@ -36,7 +36,7 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const isMobile = useMemo(() => window.innerWidth < 770, []);
   const scaleValues = isMobile
-    ? [0.2, 0.25, 0.2, 0.2, 0.8, 2.5]
+    ? [0.2, 0.25, 0.2, 0.2, 0.8, 5]
     : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5];
 
   const XposValues = isMobile

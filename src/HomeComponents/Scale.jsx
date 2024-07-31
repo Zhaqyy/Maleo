@@ -206,7 +206,7 @@ export const Vid = () => {
         }}
         preload="none"
         poster="/who.webp"
-        controls
+        // controls
         disableRemotePlayback
         // x-webkit-airplay="deny"
         onPlay={handlePlay}

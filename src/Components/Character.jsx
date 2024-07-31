@@ -8,9 +8,10 @@ import "../Style/Component/Component.css";
 export default function Paragraph({paragraph}) {
 
   const container = useRef(null);
+  const isMobile = window.innerWidth < 770;
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 0.75", "start 0.05"]
+    offset: isMobile ? ["start end", "end 0.9"] : ["start 0.75", "start 0.05"]
   })
   const { scrollY } = useScroll();
   const speed = 1 / 1.5;
