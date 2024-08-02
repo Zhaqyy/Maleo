@@ -145,7 +145,7 @@
   text-decoration: underline;
 }
 .blog-footer .more:hover {
-  Transform: Translate(5px 0);
+  translate: 5px 0;
 }
 
 .author-info {

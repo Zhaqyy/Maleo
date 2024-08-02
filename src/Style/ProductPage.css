@@ -59,7 +59,7 @@
   width: calc(100% + 10vw);
   word-break: break-word;
   -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   overflow-wrap: anywhere;
   z-index: 2;
   margin-top: 0.5em;
@@ -112,9 +112,9 @@
   margin: 0;
   padding-inline: 0;
   -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   -o-object-position: top;
-     object-position: top;
+  object-position: top;
 }
 
 .pModel {
@@ -197,7 +197,7 @@
 .pTable h2 {
   word-break: break-word;
   -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   overflow-wrap: anywhere;
 }
 
@@ -477,7 +477,7 @@
     font-size: clamp(2.5rem, 10vw, 6.55rem);
     word-break: break-word;
     -webkit-hyphens: auto;
-            hyphens: auto;
+    hyphens: auto;
   }
   .prodHero .pInfo .pInfoImg {
     max-width: 100%;
@@ -500,7 +500,7 @@
     width: 100%;
     word-break: break-word;
     -webkit-hyphens: auto;
-            hyphens: auto;
+    hyphens: auto;
     overflow-wrap: anywhere;
     transform: none !important;
   }

@@ -99,7 +99,7 @@
     transition: all 0.3s ease;
 }
 .footer-list-item:hover {
-    Transform: Translate(5px 0);
+    translate: 5px 0;
 }
 .footer-link {
     color: #5d5d5d;
@@ -120,7 +120,7 @@
 }
 .toTop{
     position: absolute;
-    Transform: Translate(50%);
+    translate: 50%;
     top: 50%;
     right: 5%;
 

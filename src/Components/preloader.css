@@ -4,7 +4,8 @@
 
 	-webkit-user-select: none;
 	-moz-user-select: none;
-	user-select: none;
+	-ms-user-select: none;
+	    user-select: none;
 	will-change: contents;
 
 }
@@ -17,12 +18,7 @@
 	z-index: 2000;
 	top: 0;
 	right: 0;
-	-webkit-transform: translate3d(0, 0, 0) !important;
-	-ms-transform: translate3d(0, 0, 0) !important;
 	transform: translate3d(0, 0, 0) !important;
-	
-	-webkit-transform-origin: top;
-	-ms-transform-origin: top;
 	transform-origin: top;
 	transition: all 1s ease;
 }

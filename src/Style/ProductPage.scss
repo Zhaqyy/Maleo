@@ -62,7 +62,9 @@
   h3 {
     width: calc(100% + 10vw);
     word-break: break-word;
-    hyphens: auto;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
     overflow-wrap: anywhere;
     // line-break: anywhere;
     z-index: 2;
@@ -151,8 +153,10 @@
         height: 100%;
         margin: 0;
         padding-inline: 0;
-        object-fit: cover;
-        object-position: top;
+        -o-object-fit: cover;
+           object-fit: cover;
+        -o-object-position: top;
+           object-position: top;
       }
     }
   }
@@ -296,7 +300,9 @@
   }
   h2 {
     word-break: break-word;
-    hyphens: auto;
+    -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+            hyphens: auto;
     overflow-wrap: anywhere;
   }
 }
@@ -662,7 +668,9 @@
       font-size: clamp(2.5rem, 10vw, 6.55rem);
       // overflow-wrap: anywhere;
       word-break: break-word;
-      hyphens: auto;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
       // line-break: anywhere;
     }
     .pInfo {
@@ -688,7 +696,9 @@
       position: relative;
       width: 100%;
       word-break: break-word;
-      hyphens: auto;
+      -webkit-hyphens: auto;
+          -ms-hyphens: auto;
+              hyphens: auto;
       overflow-wrap: anywhere;
       transform: none !important;
     }
@@ -710,6 +720,8 @@
       // gap: 50px;
       margin-top: unset;
       align-items: stretch;
+      height: -webkit-max-content;
+      height: -moz-max-content;
       height: max-content;
     }
     .list {

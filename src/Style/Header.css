@@ -140,7 +140,7 @@
   color: var(--accent);
 }
 .nav__item:hover svg {
-  Transform: Translate(0 1px);
+  translate: 0 1px;
 }
 
 .nav__link {
@@ -156,7 +156,7 @@
   width: 15px;
   margin-left: 5px;
   vertical-align: middle;
-  transition: transform 0.2s ease;
+  transition: translate 0.2s ease;
 }
 
 .nav__link.active {

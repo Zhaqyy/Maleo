@@ -28,7 +28,7 @@
   position: absolute;
   bottom: 5%;
   left: 50%;
-  Transform: Translate(-50% 0);
+  translate: -50% 0;
   text-align: center;
   text-transform: uppercase;
   border: 1px solid var(--accent);
@@ -46,7 +46,7 @@
   font-size: clamp(2.35rem, 10vw, 5.5rem);
   word-break: break-word;
   -webkit-hyphens: auto;
-          hyphens: auto;
+  hyphens: auto;
   overflow-wrap: anywhere;
 }
 
@@ -197,7 +197,7 @@
     align-items: baseline;
     flex-wrap: wrap;
     -moz-column-gap: 30px;
-         column-gap: 30px;
+    column-gap: 30px;
     flex-direction: row;
     justify-content: center;
     margin-block: 5vh;
@@ -231,7 +231,7 @@
     align-items: baseline;
     flex-wrap: wrap;
     -moz-column-gap: 50px;
-         column-gap: 50px;
+    column-gap: 50px;
     flex-direction: row;
     justify-content: center;
   }

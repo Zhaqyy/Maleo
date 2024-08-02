@@ -114,7 +114,7 @@ const ProductList = ({ products, itemsToShow }) => {
             whileInView={{
               opacity: 1,
               transition: {
-                duration: 0.3,
+                duration: 0.5,
                 delay: isMobile ? index / 6 : index / 1.1,
                 easings: "easeIn",
               },
