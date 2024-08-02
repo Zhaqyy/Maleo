@@ -8,7 +8,7 @@ import "../Style/Component/Component.css";
 import { Section } from "../Components/inView";
 import { ProductList } from "../Components/Common";
 import flogo from "/fullpink.png";
-import h1 from "/h1.png";
+import h1 from "/product/tape2.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";
 import h4 from "/h4.png";
@@ -26,10 +26,7 @@ export const Product = () => {
     hidden: { opacity: 0, y: 50 },
     visible,
   };
-  // const imgVariants = {
-  //   hidden: { opacity: 0, x: "-600px" },
-  //   visible,
-  // };
+
   const pref = useRef(null);
   const isInView = useInView(pref, { amount: 0.5, once:true});
   const controls = useAnimation();
@@ -85,13 +82,13 @@ export const Product = () => {
         <motion.div className="prodHead" variants={hprodVariants}>
           <motion.div className="prodBtn" variants={hprodVariants}>
             <ArrowBtn />
-            <SpotBtn text={"DEVISER MAINTENANT"} />
+            <SpotBtn text={"CONTACTEZ NOUS"} />
           </motion.div>
-          <motion.h1 variants={hprodVariants}>
+          <motion.h1 ref={pref} variants={hprodVariants}>
             NOS PRODUITS
-            <motion.img ref={pref} style={{ opacity: isInView ? 1 : 0,
-          x: isInView ? 0 : -600,
-          transitionDuration: "0.5s",}} src="/mal.svg" loading="lazy" />
+            <motion.img style={{ opacity: isInView ? 1 : 0,
+          x: isInView ? `0vw` : `-100vw`,
+          transitionDuration: "1s",}} src="/mal.svg" loading="lazy" />
           </motion.h1>
           <motion.h2 className="hollow" variants={hprodVariants}>
             sont les meilleurs

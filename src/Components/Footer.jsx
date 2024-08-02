@@ -2,11 +2,18 @@
 import { Link } from "react-router-dom";
 import { Col, Container, Row } from "react-bootstrap";
 // import flogo from "/flogo.svg";
-import "../Style/footer.css"; // Import the CSS file
+import "../Style/footer.css";
 import { ArrowBtn } from "./magnetBtn";
 
+
 const Footer = () => {
-  const handleScrollToTop = window.scrollTo({ top: 0, behavior: "smooth" });
+  function handleScrollToTop() {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <section className="footer" id="footer">
@@ -70,12 +77,20 @@ const Footer = () => {
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/Cardboard" reloadDocument className="footer-link">
+                    <Link
+                      to="/Cardboard"
+                      reloadDocument
+                      className="footer-link"
+                    >
                       Carton
                     </Link>
                   </li>
                   <li className="footer-list-item">
-                    <Link to="/feuillard" reloadDocument className="footer-link">
+                    <Link
+                      to="/feuillard"
+                      reloadDocument
+                      className="footer-link"
+                    >
                       Feuillard
                     </Link>
                   </li>
@@ -101,10 +116,8 @@ const Footer = () => {
             </Col>
           </div>
         </Row>
-        <div className="toTop">
-          <a href="#" onClick={handleScrollToTop}>
+        <div className="toTop" onClick={handleScrollToTop}>
             <ArrowBtn />
-          </a>
         </div>
         {/* <hr /> */}
         <Row className="lowerFoot">

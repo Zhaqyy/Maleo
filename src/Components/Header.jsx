@@ -56,7 +56,7 @@ const Header = () => {
   function update(latest, prev) {
     if (latest < prev) {
       setHidden(false);
-    } else if (latest > 100 && latest > prev) {
+    } else if (latest > 50 && latest > prev) {
       setHidden(true);
       if (showMenu) {
         closeMenu();
@@ -64,7 +64,7 @@ const Header = () => {
     }
 
     // Update the background color based on scroll position
-    if (latest > 150) {
+    if (latest > 100) {
       // Adjust the scroll position threshold as needed
       setBgColor("hsla(0, 0%, 91%, 0.85)");
       setisWhite(true);

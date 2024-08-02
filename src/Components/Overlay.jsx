@@ -50,6 +50,14 @@ const Overlay = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []); // Empty dependency array ensures this effect runs only on mount and unmount
+  
+  function handleScrollDown() {
+    window.scrollTo({
+      top: document.body.scrollHeight,
+      left: 0,
+      behavior: "smooth",
+    });
+  }
 
   return (
     <aside className="fixed-aside">
@@ -62,9 +70,9 @@ const Overlay = () => {
           </span>
         </p>
       </motion.span>
-      <motion.span className="over-scroll" animate={controlsLeft}>
+      <motion.span className="over-scroll" onClick={handleScrollDown} animate={controlsLeft}>
         <p>
-          <a href={'#footer'}>descendre</a>
+          <a>descendre</a>
         </p>
       </motion.span>
     </aside>

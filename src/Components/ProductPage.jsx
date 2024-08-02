@@ -2,8 +2,8 @@
 /* eslint-disable react/no-unescaped-entities */
 /* eslint-disable react/prop-types */
 
-import React, { useEffect,  useRef, useState } from "react";
-import { motion, useInView, useScroll, useTransform } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, stagger, useInView, useScroll, useTransform } from "framer-motion";
 import { ProductList, ProductList2, ProductList3 } from "./Common";
 import { Section } from "./inView";
 import logo from "/logobig.png";
@@ -20,7 +20,7 @@ const visible = {
   x: 0,
   y: 0,
   scale: 1,
-  transition: { staggerChildren: 0.1, duration: 0.5 },
+  transition: { staggerChildren: 0.15, duration: 0.5 },
 };
 
 const prodVariants = {
@@ -37,6 +37,8 @@ export const PHero = ({ product, theme = "light" }) => {
     setVisibleIndexes((prev) => [...prev, index]);
   };
 
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
     <Section className={`prodHero`}>
       <motion.h1
@@ -47,14 +49,16 @@ export const PHero = ({ product, theme = "light" }) => {
       </motion.h1>
       <div className="fade pInfo">
         <motion.div variants={prodVariants}>
-          <img src={imageUrl} alt={title} loading="lazy" />
+          <img className="pInfoImg" src={imageUrl} alt={title} loading="lazy" />
         </motion.div>
         <div className={`pFeature`}>
-          <motion.ul variants={prodVariants}>
+          <motion.ul variants={prodVariants} >
             {features &&
               features.map((feature, index) => (
                 <motion.li
                   key={index}
+                  ref={ref}
+
                   className={` ${
                     visibleIndexes.includes(index) ? "animate" : ""
                   }`}
@@ -63,6 +67,35 @@ export const PHero = ({ product, theme = "light" }) => {
                 >
                   <h5>{feature.title}</h5>
                   <h6>{feature.detail}</h6>
+                  {/* <motion.span
+                    className="wipe"
+                    style={{
+                      "--wipe-position": visibleIndexes.includes(index)
+                        ? isInView
+                          ? "100%"
+                          : "calc(-1 * var(--gradient-length))"
+                        : "",
+                    }}
+                    onAnimationComplete={() => handleAnimationComplete(index)}
+                  >
+                    <img src="/li.png" />
+                  </motion.span> */}
+                          <motion.span
+                      className="wipe"
+                      style={{
+                        '--wipe-position': visibleIndexes.includes(index) && isInView ? '100%' : 'calc(-1 * var(--gradient-length))'
+                      }}
+                      animate={{
+                        '--wipe-position': visibleIndexes.includes(index) && isInView ? '100%' : 'calc(-1 * var(--gradient-length))'
+                      }}
+                      transition={{
+                        delay: index * 0.15, // Adjust the delay as needed for staggering
+                        duration: 0.5, // Adjust the duration as needed
+                      }}
+                      onAnimationComplete={() => handleAnimationComplete(index)}
+                    >
+                      <img src="/li.png" />
+                    </motion.span>
                 </motion.li>
               ))}
           </motion.ul>
@@ -85,10 +118,7 @@ export const PModel = ({ modelTitle, products, theme = "dark" }) => {
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div
-        className={`fade pModelContent`}
-        variants={prodVariants}
-      >
+      <motion.div className={`fade pModelContent`} variants={prodVariants}>
         <ProductList products={products} />
       </motion.div>
       <motion.img loading="lazy" className="fade bgLogo" src={logo} />
@@ -111,10 +141,7 @@ export const PModel2 = ({
           {modelTitle}
         </motion.h1>
       </div>
-      <motion.div
-        className={`fade pModelContent`}
-        variants={prodVariants}
-      >
+      <motion.div className={`fade pModelContent`} variants={prodVariants}>
         {model ? (
           <ProductList2 products={products} />
         ) : (
@@ -145,7 +172,10 @@ export const PTable = ({ set }) => {
       >
         Caractéristiques
       </motion.h2>
-      <motion.div className="fade table" {...isMobile ? "data-lenis-prevent" : ""}>
+      <motion.div
+        className="fade table"
+        {...(isMobile ? "data-lenis-prevent" : "")}
+      >
         {set === "tape" ? (
           <Table data={tableData} />
         ) : (
@@ -165,10 +195,7 @@ export const PContact = ({ products, products2, theme }) => {
       >
         Envoyer une demande
       </motion.h1>
-      <motion.div
-        id="citation"
-        className={`fade cont-form }`}
-      >
+      <motion.div id="citation" className={`fade cont-form }`}>
         <motion.div id="contact-form">
           <motion.div className="inp-field" variants={prodVariants}>
             <input
@@ -261,18 +288,16 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
 
   const bg = useTransform(scrollYProgress, timeline, bgSequence);
 
-
-  const bgRef = useRef('var(--bg-white)');
+  const bgRef = useRef("var(--bg-white)");
   useEffect(() => {
     const handleChange = (latest) => {
       bgRef.current = latest.toString();
       if (ref.current) {
-        ref.current.setAttribute('data-bg-variable', bgRef.current);
+        ref.current.setAttribute("data-bg-variable", bgRef.current);
       }
     };
 
-    bg.on('change', handleChange);
-
+    bg.on("change", handleChange);
   }, [bg]);
 
   // const themeRef = useRef('light');
@@ -297,13 +322,12 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
   //     unsubscribe(); // Clean up the subscription
   //   };
   // }, [bg]);
-  
 
   return (
     <motion.section
       ref={ref}
       className="Pwrap"
-      data-bg-variable={'var(--bg-white)'}
+      data-bg-variable={"var(--bg-white)"}
       style={{
         backgroundColor: bg,
         "--bg-variable": bg,
@@ -317,16 +341,16 @@ export const Pwrap = ({ children, bgSequence, timeline }) => {
           const childRef = useRef(null);
           const isInView = useInView(childRef, {
             margin: isFirstChild
-            ? '-15% 0px -50% 0px'
-            : isLastChild
-            ? '0% 0px -50% 0px'
-            : '-50% 0px -50% 0px',
+              ? "-15% 0px -50% 0px"
+              : isLastChild
+              ? "0% 0px -50% 0px"
+              : "-50% 0px -50% 0px",
           });
           return (
             <motion.div
               ref={childRef}
               style={{
-                '--op-variable': isInView ? 1 : 0,
+                "--op-variable": isInView ? 1 : 0,
               }}
               className="secWrap"
             >

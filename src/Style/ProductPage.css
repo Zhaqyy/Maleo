@@ -27,7 +27,7 @@
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
   overflow: visible;
 }
-.pInfo img {
+.pInfo .pInfoImg {
   aspect-ratio: 1;
   inline-size: -webkit-fill-available;
   animation: rot 10s linear infinite both;
@@ -49,7 +49,7 @@
 }
 .pFeature h6 {
   color: gray;
-  margin-block: 1em;
+  padding-block: 1em;
   font-size: 12px;
   line-height: 1.2;
 }
@@ -68,28 +68,50 @@
   min-height: 30vh;
 }
 .pFeature li {
-  list-style: square;
+  list-style: none;
   position: relative;
-}
-.pFeature li::before {
-  background-color: var(--accent);
-  width: 2px;
-  content: "";
-  position: absolute;
-  top: 0.45rem;
-  left: -1.05rem;
-  transition: bottom 0.5s ease;
-  translate: 50% 0;
-}
-.pFeature li.animate::before {
-  animation: xtend 0.5s forwards; /* Trigger animation */
 }
 .pFeature li:last-child::before {
   display: none;
 }
-.pFeature li::marker {
-  color: var(--accent);
-  font-size: 1.25rem;
+.pFeature li:last-child .wipe {
+  transform: translate(100%, 0%);
+}
+.pFeature li:last-child .wipe img {
+  height: 8px;
+}
+@property --wipe-position {
+  .pFeature li {
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 100%;
+  }
+}
+.pFeature li .wipe {
+  --wipe-position: 100%;
+  --gradient-length: 20%;
+  mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
+  -webkit-mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
+  transition: --wipe-position 0.5s linear;
+  position: absolute;
+  top: 0%;
+  left: 0;
+  transform: translate(100%, calc(0% + 0.25em));
+  width: 0.5rem;
+  height: 100%;
+  text-align: center;
+  text-align: -webkit-center;
+  z-index: 2;
+}
+.pFeature li .wipe img {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding-inline: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
 }
 @keyframes xtend {
   0% {
@@ -176,9 +198,6 @@
   background-color: white;
   border-radius: 15px;
 }
-.pTable .table td {
-  filter: invert(1) hue-rotate(180deg);
-}
 .pTable h2 {
   word-break: break-word;
   -webkit-hyphens: auto;
@@ -193,7 +212,11 @@
   padding-top: 15vh !important;
   margin: 0 !important;
 }
-.Pwrap[data-bg-variable="var(--bg-white)"] h1, .Pwrap[data-bg-variable="var(--bg-white)"] h2, .Pwrap[data-bg-variable="var(--bg-white)"] h3, .Pwrap[data-bg-variable="var(--bg-white)"] h4, .Pwrap[data-bg-variable="var(--bg-white)"] h5 {
+.Pwrap[data-bg-variable="var(--bg-white)"] h1,
+.Pwrap[data-bg-variable="var(--bg-white)"] h2,
+.Pwrap[data-bg-variable="var(--bg-white)"] h3,
+.Pwrap[data-bg-variable="var(--bg-white)"] h4,
+.Pwrap[data-bg-variable="var(--bg-white)"] h5 {
   -webkit-text-stroke-color: var(--text-dark) !important;
   color: var(--text-dark) !important;
 }
@@ -220,7 +243,11 @@
 .Pwrap[data-bg-variable="var(--bg-white)"] .pModel .pModelContent .list .listItem .imgWrap2 img {
   width: 100%;
 }
-.Pwrap[data-bg-variable="var(--bg-black)"] h1, .Pwrap[data-bg-variable="var(--bg-black)"] h2, .Pwrap[data-bg-variable="var(--bg-black)"] h3, .Pwrap[data-bg-variable="var(--bg-black)"] h4, .Pwrap[data-bg-variable="var(--bg-black)"] h5 {
+.Pwrap[data-bg-variable="var(--bg-black)"] h1,
+.Pwrap[data-bg-variable="var(--bg-black)"] h2,
+.Pwrap[data-bg-variable="var(--bg-black)"] h3,
+.Pwrap[data-bg-variable="var(--bg-black)"] h4,
+.Pwrap[data-bg-variable="var(--bg-black)"] h5 {
   -webkit-text-stroke-color: var(--text-color) !important;
   color: var(--text-color) !important;
 }
