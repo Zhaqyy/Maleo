@@ -10,6 +10,7 @@
 .prodHero h1 {
   font-size: clamp(3.25rem, 10vw, 6.55rem);
   overflow-wrap: anywhere;
+  transform: translateY(1.5rem);
 }
 .prodHero > img {
   width: 450px;

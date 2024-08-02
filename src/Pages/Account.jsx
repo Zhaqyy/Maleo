@@ -1,4 +1,4 @@
-import '@iframe-resizer/child'
+// import '@iframe-resizer/child'
 
 const Account = () => {
   return (
