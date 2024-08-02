@@ -74,6 +74,9 @@
 .pFeature li:last-child::before {
   display: none;
 }
+.pFeature li:last-child .wipe {
+  transform: translate(0, 0%);
+}
 .pFeature li:last-child .wipe img {
   height: 8px;
 }
