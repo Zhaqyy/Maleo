@@ -268,7 +268,7 @@
 .Pwrap::before {
   content: "";
   width: 100%;
-  height: 100%;
+  height: max(100vh, 100%);
   position: fixed;
   inset: 0;
   background: url(/bg.webp);
@@ -278,7 +278,7 @@
 .Pwrap::after {
   content: "";
   width: 100%;
-  height: 100%;
+  height: max(100vh, 100%);
   position: fixed;
   inset: 0;
   background-color: var(--bg-variable);
