@@ -5,6 +5,7 @@
   justify-content: center;
   padding-inline: 10vw;
   padding-block: 10vh;
+  overflow: hidden;
 }
 .prodHero h1 {
   font-size: clamp(3.25rem, 10vw, 6.55rem);
@@ -66,7 +67,6 @@
 .pFeature ul {
   max-width: 400px;
   min-height: 30vh;
-  overflow: hidden;
 }
 .pFeature li {
   list-style: none;
@@ -104,7 +104,6 @@
   text-align: center;
   text-align: -webkit-center;
   z-index: 2;
-  overflow: hidden;
 }
 .pFeature li .wipe img {
   width: 100%;
