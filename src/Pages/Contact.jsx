@@ -35,7 +35,7 @@ export default function Contact() {
 
         <motion.div className="cont-form">
           <motion.h1 className="hollow" variants={contVariants}>
-            Contactez -nous
+            Contactez nous
           </motion.h1>
           <motion.h4 variants={contVariants}>Votre demande</motion.h4>
           <motion.div id="contact-form">

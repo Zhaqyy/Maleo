@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 
 import "../Style/Home/Home.css";
-import React, { lazy, useLayoutEffect } from "react";
+import React, { lazy } from "react";
 import "../Style/Component/Component.css";
 import { BlogSec } from "../HomeComponents/HomeBlogSection.jsx";
 import { blogData } from "../Pages/Blog/blogData.js";
