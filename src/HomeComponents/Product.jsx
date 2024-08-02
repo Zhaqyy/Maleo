@@ -12,6 +12,7 @@ import h1 from "/product/tape2.png";
 import h2 from "/h2.png";
 import h3 from "/h3.png";
 import h4 from "/h4.png";
+import { HomeSwiper } from "../Components/swiper";
 
 const visible = {
   opacity: 1,
@@ -71,7 +72,7 @@ export const Product = () => {
   const isMobile = window.innerWidth < 768;
   return (
     <>
-      <motion.section
+      <section
         className="product"
         id="product"
         // ref={pref}
@@ -82,7 +83,7 @@ export const Product = () => {
         <motion.div className="prodHead" variants={hprodVariants}>
           <motion.div className="prodBtn" variants={hprodVariants}>
             <ArrowBtn />
-            <SpotBtn text={"CONTACTEZ NOUS"} />
+            <SpotBtn text={"CONTACTEZ NOUS"}  url={"/Contact"} />
           </motion.div>
           <motion.h1 ref={pref} variants={hprodVariants}>
             NOS PRODUITS
@@ -97,8 +98,8 @@ export const Product = () => {
             Découvrez tous nos produits de qualité
           </motion.p>
         </motion.div>
-        <ProductList products={products} />
-      </motion.section>
+        <HomeSwiper products={products} />
+      </section>
     </>
   );
 };

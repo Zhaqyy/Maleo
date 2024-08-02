@@ -5,7 +5,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import "../Style/footer.css";
 import { ArrowBtn } from "./magnetBtn";
 
-
 const Footer = () => {
   function handleScrollToTop() {
     window.scrollTo({
@@ -25,7 +24,12 @@ const Footer = () => {
               Découvrez nos dernières actualités en matière d'emballage
             </p>
             <form action="submit" className="newsletter">
-              <input type="text" placeholder="Email Address" />
+              <input
+                name="email"
+                autoComplete="email"
+                type="email"
+                placeholder="Email Address"
+              />
               <button className="footerBtn" type="submit">
                 <ArrowBtn />
               </button>
@@ -117,7 +121,7 @@ const Footer = () => {
           </div>
         </Row>
         <div className="toTop" onClick={handleScrollToTop}>
-            <ArrowBtn />
+          <ArrowBtn />
         </div>
         {/* <hr /> */}
         <Row className="lowerFoot">

@@ -102,7 +102,7 @@ const ProductList = ({ products, itemsToShow }) => {
     <>
       <motion.ul
         className="list"
-        variants={prodVariants}
+        // variants={prodVariants}
         style={{ width: `${products.length * (100 / itemsToShow)}%` }}
       >
         {products.map((product, index) => (
@@ -114,7 +114,7 @@ const ProductList = ({ products, itemsToShow }) => {
             whileInView={{
               opacity: 1,
               transition: {
-                duration: 0.5,
+                duration: 0.3,
                 delay: isMobile ? index / 6 : index / 1.1,
                 easings: "easeIn",
               },
@@ -125,7 +125,7 @@ const ProductList = ({ products, itemsToShow }) => {
           >
             <div className="imgWrap">
               <img loading="lazy" src={product.imageSrc} alt={product.title} />
-              <a href={product.link || "#citation"} className="button">
+              <a href={product.link || "/Contact"} className="button">
                 {product.linktext}
               </a>
             </div>
@@ -250,6 +250,75 @@ export const ProductList3 = ({ products, itemsToShow }) => {
   );
 };
 
+
+// Animation Logic for Home product slider
+export const HomeSwiper = ({ products }) => {
+  const [imgIndex, setImgIndex] = useState(0);
+  const dragX = useMotionValue(0);
+  const isMobile = window.innerWidth < 770;
+  // const swiperRef = useRef(null);
+  // const isInView = useInView(swiperRef, {
+  //   once: false,
+  //   margin: "-50% 0px -50% 0px",
+  // });
+
+
+  const onDragEnd = () => {
+    const x = dragX.get();
+    const itemsToShow = isMobile ? 2 : products.length;
+
+    if (x <= -DRAG_BUFFER && imgIndex < products.length - itemsToShow) {
+      setImgIndex((prevIndex) => prevIndex + 1);
+    } else if (x >= DRAG_BUFFER && imgIndex > 0) {
+      setImgIndex((prevIndex) => prevIndex - 1);
+    }
+
+  };
+
+  const itemsToShow = isMobile ? 2 : products.length;
+  const handlePrevClick = () => {
+    if (imgIndex > 0) {
+      setImgIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+
+  const handleNextClick = () => {
+    if (imgIndex < products.length - itemsToShow) {
+      setImgIndex((prevIndex) => prevIndex + 1);
+    }
+  };
+
+  return (
+    <div className="swiperNoswiping">
+      <motion.div
+        drag="x"
+        dragConstraints={{ left: 0, right: 0 }}
+        style={{ x: dragX }}
+        animate={{
+          translateX: `-${
+            Math.min(imgIndex, products.length - itemsToShow) *
+            (100 / itemsToShow)
+          }%`,
+        }}
+        transition={SPRING_OPTIONS}
+        onDragEnd={onDragEnd}
+        className="motionDiv active"
+        
+      >
+        <ProductList products={products} itemsToShow={itemsToShow}/>
+      </motion.div>
+
+      <div className="arrow-ctrl">
+      <button className="prev-arrow" onClick={handlePrevClick}>
+      ←
+      </button>
+      <button className="next-arrow" onClick={handleNextClick}>
+      →
+      </button>
+      </div>
+    </div>
+  );
+};
 
 // Animation Logic for Blog slider
 
