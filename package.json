@@ -11,8 +11,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@iframe-resizer/child": "^5.1.5",
-    "@react-google-maps/api": "^2.19.3",
     "@react-three/drei": "^9.105.5",
     "@react-three/fiber": "^8.16.3",
     "@tanstack/react-table": "^8.17.3",
