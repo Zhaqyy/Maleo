@@ -97,7 +97,7 @@
 }
 
 .footer-list-item:hover {
-  translate: 5px 0;
+  Transform: Translate(5px 0);
 }
 
 .footer-link {
@@ -119,7 +119,7 @@
 
 .toTop {
   position: absolute;
-  translate: 50%;
+  Transform: Translate(50%);
   top: 50%;
   right: 5%;
 }

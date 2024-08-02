@@ -174,7 +174,7 @@
   -webkit-mask-image: linear-gradient(to right, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
   transition: --wipe-position 4250ms linear;
   width: 98vw;
-  translate: -2vw;
+  Transform: Translate(-2vw);
   text-align: center;
   text-align: -webkit-center;
   z-index: -1;
@@ -196,7 +196,7 @@
   align-items: stretch;
   gap: 2vw;
   top: 50%;
-  translate: 0 calc(-50% + 25px);
+  Transform: Translate(0 calc(-50% + 25px));
   padding-inline: 10%;
 }
 .list .listItem2 {
@@ -258,7 +258,7 @@
   position: absolute;
   top: calc(50% - 40px);
   left: 50%;
-  translate: -50% 0;
+  Transform: Translate(-50% 0);
   scale: 0;
   -webkit-user-drag: none;
   transition: all 0.5s ease;
@@ -541,7 +541,7 @@ th {
   }
   .wipe {
     width: auto;
-    translate: -10px 0;
+    Transform: Translate(-10px 0);
   }
   .wipe img {
     width: 199vw;
@@ -867,7 +867,7 @@ th {
   }
   .wipe {
     width: 95vw;
-    translate: -5vw;
+    Transform: Translate(-5vw);
   }
   .wipe img {
     width: 90vw;

@@ -162,7 +162,7 @@
         }
 
         svg {
-            translate: 0 1px;
+            Transform: Translate(0 1px);
         }
     }
 }
@@ -181,7 +181,7 @@
         width: 15px;
         margin-left: 5px;
         vertical-align: middle;
-        transition: translate 0.2s ease;
+        transition: transform 0.2s ease;
     }
 
 }
