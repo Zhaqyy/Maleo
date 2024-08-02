@@ -9,7 +9,7 @@ import {
   Preload,
 
 } from "@react-three/drei";
-import { Perf } from "r3f-perf";
+// import { Perf } from "r3f-perf";
 const TapeScroll = lazy(() => import("./Tape"));
 
 export default function Scene() {
@@ -22,7 +22,7 @@ export default function Scene() {
       camera={{ near: 0.1, far: 50, position: [0, 0, 5], fov: 30 }}
     >
       <PerformanceMonitor onIncline={() => setDpr(2)} onDecline={() => setDpr(1)} flipflops={3} onFallback={() => setDpr(1)} />
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
 
       <Suspense fallback={null}>
         <TapeScroll TRef={ref} />
