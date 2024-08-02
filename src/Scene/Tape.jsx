@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/no-unknown-property */
 import * as THREE from "three";
-import React, { useRef, useMemo } from "react";
+import React, { useRef, useMemo, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { useScroll, useTransform } from "framer-motion";
 import { useFrame } from "@react-three/fiber";
@@ -35,35 +35,23 @@ export const Tape = React.forwardRef((props, Tref) => {
   const { scrollYProgress } = useScroll();
 
   const isMobile = useMemo(() => window.innerWidth < 770, []);
-  const scaleValues = isMobile
-    ? [0.2, 0.25, 0.2, 0.2, 0.8, 5]
-    : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5];
-
-  const XposValues = isMobile
-    ? [0, 0, 0, 0, 0]
-    : [0, 0, -0.75, -0.75, 0];
+  const scaleValues = useMemo(
+    () => (isMobile ? [0.2, 0.25, 0.2, 0.2, 0.8, 5] : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5]),
+    [isMobile]
+  );
+  const XposValues = useMemo(
+    () => (isMobile ? [0, 0, 0, 0, 0] : [0, 0, -0.75, -0.75, 0]),
+    [isMobile]
+  );
 
   const Ypos = useTransform(
     scrollYProgress,
-    [
-      order.init,
-      order.tapeup,
-      order.tapeleft,
-      order.tapeleftend,
-      order.tapecenter,
-      order.tapecenterend,
-    ],
+    [order.init, order.tapeup, order.tapeleft, order.tapeleftend, order.tapecenter, order.tapecenterend],
     [0, 0.5, 0, 0, -0.75, -0.85]
   );
   const Xpos = useTransform(
     scrollYProgress,
-    [
-      order.init,
-      order.tapeup,
-      order.tapeleft,
-      order.tapeleftend,
-      order.tapecenter,
-    ],
+    [order.init, order.tapeup, order.tapeleft, order.tapeleftend, order.tapecenter],
     XposValues
   );
   const rot = useTransform(
@@ -83,26 +71,12 @@ export const Tape = React.forwardRef((props, Tref) => {
   );
   const scaleeX = useTransform(
     scrollYProgress,
-    [
-      order.init,
-      order.tapeup,
-      order.tapeleft,
-      order.tapecenterend,
-      order.tapescaleup,
-      order.tapescaleupend,
-    ],
+    [order.init, order.tapeup, order.tapeleft, order.tapecenterend, order.tapescaleup, order.tapescaleupend],
     scaleValues
   );
   const scaleeY = useTransform(
     scrollYProgress,
-    [
-      order.init,
-      order.tapeup,
-      order.tapeleft,
-      order.tapecenterend,
-      order.tapescaleup,
-      order.tapescaleupend,
-    ],
+    [order.init, order.tapeup, order.tapeleft, order.tapecenterend, order.tapescaleup, order.tapescaleupend],
     scaleValues
   );
 
@@ -204,6 +178,13 @@ export const Tape = React.forwardRef((props, Tref) => {
       );
     }
   });
+var trefCurrent = Tref.current;
+  useEffect(() => {
+    return () => {
+      // Clean up any resources when the component unmounts
+      trefCurrent?.dispose();
+    };
+  }, [trefCurrent]);
 
   return (
     <group

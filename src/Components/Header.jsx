@@ -35,11 +35,7 @@ const Header = () => {
     setShowMenu(false);
   };
 
-  const handleClickOutside = (event) => {
-    if (navRef.current && !navRef.current.contains(event.target)) {
-      closeMenu();
-    }
-  };
+
   const parentVariants = {
     visible: { opacity: 1, y: 0 },
     hidden: { opacity: 0, y: "-100%" },
@@ -81,6 +77,12 @@ const Header = () => {
   });
 
   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        closeMenu();
+      }
+    }; 
+
     document.addEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
