@@ -74,9 +74,6 @@
 .pFeature li:last-child::before {
   display: none;
 }
-.pFeature li:last-child .wipe {
-  transform: translate(100%, 0%);
-}
 .pFeature li:last-child .wipe img {
   height: 8px;
 }
@@ -94,9 +91,10 @@
   -webkit-mask-image: linear-gradient(to bottom, black var(--wipe-position), transparent calc(var(--wipe-position) + var(--gradient-length)), transparent);
   transition: --wipe-position 0.5s linear;
   position: absolute;
+  translate: 0;
   top: 0%;
-  left: 0;
-  transform: translate(100%, calc(0% + 0.25em));
+  left: -2rem;
+  transform: translate(0, calc(0% + 0.25em));
   width: 0.5rem;
   height: 100%;
   text-align: center;
@@ -113,14 +111,7 @@
   -o-object-position: top;
      object-position: top;
 }
-@keyframes xtend {
-  0% {
-    bottom: 100%;
-  }
-  100% {
-    bottom: var(--xtendBottom);
-  }
-}
+
 .pModel {
   height: 130vh;
   padding-block: 30vh;
@@ -483,7 +474,7 @@
     -webkit-hyphens: auto;
             hyphens: auto;
   }
-  .prodHero .pInfo img {
+  .prodHero .pInfo .pInfoImg {
     max-width: 100%;
     -o-object-fit: unset;
     object-fit: unset;
@@ -511,6 +502,9 @@
   .pFeature ul {
     padding-left: 30px;
     min-height: unset;
+  }
+  .pFeature li .wipe {
+    left: -1.5rem;
   }
   .pModel {
     height: unset;
