@@ -28,7 +28,6 @@ export const Swiper = ({ products, variant }) => {
     margin: "-50% 0px -50% 0px",
   });
 
-
   const onDragEnd = () => {
     const x = dragX.get();
     const itemsToShow = isMobile ? 2 : products.length;
@@ -38,7 +37,6 @@ export const Swiper = ({ products, variant }) => {
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
       setImgIndex((prevIndex) => prevIndex - 1);
     }
-
   };
 
   const itemsToShow = isMobile ? 2 : products.length;
@@ -69,7 +67,6 @@ export const Swiper = ({ products, variant }) => {
         transition={SPRING_OPTIONS}
         onDragEnd={onDragEnd}
         className="motionDiv active"
-        
       >
         {renderProductList()}
       </motion.div>
@@ -109,7 +106,7 @@ const ProductList = ({ products, itemsToShow }) => {
           <motion.li
             className="listItem"
             initial={{
-              opacity: 0.25,
+              opacity: 0.45,
             }}
             whileInView={{
               opacity: 1,
@@ -250,18 +247,23 @@ export const ProductList3 = ({ products, itemsToShow }) => {
   );
 };
 
-
 // Animation Logic for Home product slider
 export const HomeSwiper = ({ products }) => {
   const [imgIndex, setImgIndex] = useState(0);
   const dragX = useMotionValue(0);
-  const isMobile = window.innerWidth < 770;
-  // const swiperRef = useRef(null);
+  // const isMobile = window.innerWidth < 770;
+  const swiperRef = useRef(null);
   // const isInView = useInView(swiperRef, {
   //   once: false,
   //   margin: "-50% 0px -50% 0px",
   // });
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 770);
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 770);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const onDragEnd = () => {
     const x = dragX.get();
@@ -272,13 +274,19 @@ export const HomeSwiper = ({ products }) => {
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
       setImgIndex((prevIndex) => prevIndex - 1);
     }
-
   };
 
   const itemsToShow = isMobile ? 2 : products.length;
+
   const handlePrevClick = () => {
     if (imgIndex > 0) {
       setImgIndex((prevIndex) => prevIndex - 1);
+    }
+    if (isMobile) {
+      swiperRef.current.scrollBy({
+        left: -250,
+        behavior: "smooth",
+      });
     }
   };
 
@@ -286,35 +294,43 @@ export const HomeSwiper = ({ products }) => {
     if (imgIndex < products.length - itemsToShow) {
       setImgIndex((prevIndex) => prevIndex + 1);
     }
+    if (isMobile) {
+      swiperRef.current.scrollBy({
+        left: 250,
+        behavior: "smooth",
+      });
+    }
   };
 
-  return (
-    <div className="swiperNoswiping">
-      <motion.div
-        drag="x"
-        dragConstraints={{ left: 0, right: 0 }}
-        style={{ x: dragX }}
-        animate={{
+  const commonProps = isMobile
+    ? {} : {
+        drag: "x",
+        dragConstraints: { left: 0, right: 0 },
+        style: { x: dragX },
+        animate: {
           translateX: `-${
             Math.min(imgIndex, products.length - itemsToShow) *
             (100 / itemsToShow)
           }%`,
-        }}
-        transition={SPRING_OPTIONS}
-        onDragEnd={onDragEnd}
-        className="motionDiv active"
-        
-      >
-        <ProductList products={products} itemsToShow={itemsToShow}/>
+        },
+        transition: SPRING_OPTIONS,
+        onDragEnd: onDragEnd,
+      }
+    ;
+
+  return (
+    <div className="swiperNoswiping" >
+      <motion.div {...commonProps} className="motionDiv active" ref={swiperRef}>
+        <ProductList products={products} itemsToShow={itemsToShow} />
       </motion.div>
 
       <div className="arrow-ctrl">
-      <button className="prev-arrow" onClick={handlePrevClick}>
-      ←
-      </button>
-      <button className="next-arrow" onClick={handleNextClick}>
-      →
-      </button>
+        <button className="prev-arrow" onClick={handlePrevClick}>
+          ←
+        </button>
+        <button className="next-arrow" onClick={handleNextClick}>
+          →
+        </button>
       </div>
     </div>
   );
@@ -354,7 +370,6 @@ export const BlogSwiper = () => {
     }
   };
 
-
   const handlePrevClick = () => {
     if (blogIndex > 0) {
       setBlogIndex((prevIndex) => prevIndex - 1);
@@ -373,11 +388,19 @@ export const BlogSwiper = () => {
         <img src={item.image} alt={item.title} loading="lazy" />
         <div className="blogswipe-info">
           <p className="swipe-date">{item.date}</p>
-          <Link to={`/post/${item.id}`} reloadDocument className="Blogswiper-link">
-           <h6>{item.title}</h6> 
+          <Link
+            to={`/post/${item.id}`}
+            reloadDocument
+            className="Blogswiper-link"
+          >
+            <h6>{item.title}</h6>
           </Link>
-          <Link to={`/post/${item.id}`} reloadDocument className="Blogswiper-link">
-          <p>Read More</p>
+          <Link
+            to={`/post/${item.id}`}
+            reloadDocument
+            className="Blogswiper-link"
+          >
+            <p>Read More</p>
           </Link>
         </div>
       </div>
@@ -403,12 +426,12 @@ export const BlogSwiper = () => {
         {renderblogList()}
       </motion.div>
       <div className="arrow-ctrl">
-      <button className="prev-arrow" onClick={handlePrevClick}>
-      ←
-      </button>
-      <button className="next-arrow" onClick={handleNextClick}>
-      →
-      </button>
+        <button className="prev-arrow" onClick={handlePrevClick}>
+          ←
+        </button>
+        <button className="next-arrow" onClick={handleNextClick}>
+          →
+        </button>
       </div>
     </div>
   );

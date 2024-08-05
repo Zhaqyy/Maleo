@@ -186,9 +186,9 @@
     height: auto;
     pointer-events: none;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     -webkit-user-drag: none;
     z-index: 2;
     cursor: pointer;
@@ -217,7 +217,6 @@
   margin-block: 10vh;
   z-index: 3;
   gap: 5vh;
-
   .prodHead {
     text-transform: uppercase;
     color: black;
@@ -352,6 +351,46 @@
       h5 {
         background: white;
         z-index: 1;
+      }
+    }
+  }
+  .product {
+    margin-block: 0;
+    gap: 3vh;
+    min-height: unset;
+    
+    .swiperNoswiping {
+      overflow: visible;
+      position: relative;
+      min-height: 0;
+      z-index: 5;
+      .motionDiv {
+        height: 100%;
+        padding: 1rem;
+        align-items: center;
+        overflow-x: scroll;
+        overflow-y: visible;
+        position: relative;
+        scrollbar-width: none;
+        overscroll-behavior-x: contain;
+        &::-webkit-scrollbar { 
+          display: none;  /* Safari and Chrome */
+      }
+        .list {
+          position: relative;
+          translate: unset;
+          .listItem {
+            min-width: 250px;
+          }
+        }
+        .wipe {
+          position: absolute;
+          top: calc(50% - 10%);
+          translate: 0 50%;
+        }
+      }
+      .arrow-ctrl {
+        position: relative;
       }
     }
   }

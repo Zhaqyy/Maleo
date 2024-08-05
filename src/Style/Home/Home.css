@@ -309,6 +309,45 @@
     background: white;
     z-index: 1;
   }
+  .product {
+    margin-block: 0;
+    gap: 3vh;
+    min-height: unset;
+  }
+  .product .swiperNoswiping {
+    overflow: visible;
+    position: relative;
+    min-height: 0;
+    z-index: 5;
+  }
+  .product .swiperNoswiping .motionDiv {
+    height: 100%;
+    padding: 1rem;
+    align-items: center;
+    overflow-x: scroll;
+    overflow-y: visible;
+    position: relative;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .product .swiperNoswiping .motionDiv::-webkit-scrollbar {
+    display: none; /* Safari and Chrome */
+  }
+  .product .swiperNoswiping .motionDiv .list {
+    position: relative;
+    translate: unset;
+  }
+  .product .swiperNoswiping .motionDiv .list .listItem {
+    min-width: 250px;
+  }
+  .product .swiperNoswiping .motionDiv .wipe {
+    position: absolute;
+    top: 40%;
+    translate: 0 50%;
+  }
+  .product .swiperNoswiping .arrow-ctrl {
+    position: relative;
+  }
   .LogoDisp {
     display: block;
     min-height: unset;
