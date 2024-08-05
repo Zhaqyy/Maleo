@@ -132,6 +132,8 @@
   -ms-scroll-snap-type: block;
   scroll-snap-type: block;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
   .text {
     position: relative;
     width: calc(60% + 1.5rem);
@@ -314,8 +316,16 @@
       font-size: clamp(2rem, 10vw, 3.6rem);
     }
   }
-
+  .textline{
+    min-height: 50vh;
+  }
+  .scaleSec .scaleExt {
+    min-height: 30vh;
+    position: relative;
+  z-index: 1;
+  }
   .redText {
+    min-height: unset;
     .text {
       width: calc(80% + 1.5rem);
       // padding: 0;
@@ -358,7 +368,7 @@
     margin-block: 0;
     gap: 3vh;
     min-height: unset;
-    
+
     .swiperNoswiping {
       overflow: visible;
       position: relative;
@@ -373,9 +383,9 @@
         position: relative;
         scrollbar-width: none;
         overscroll-behavior-x: contain;
-        &::-webkit-scrollbar { 
-          display: none;  /* Safari and Chrome */
-      }
+        &::-webkit-scrollbar {
+          display: none; /* Safari and Chrome */
+        }
         .list {
           position: relative;
           translate: unset;

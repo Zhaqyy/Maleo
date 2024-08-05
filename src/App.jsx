@@ -75,12 +75,12 @@ function App() {
     syncTouch: true} }) => {
     // called every scroll
   })
-  useLayoutEffect(() => {
-    // Check if the current page is the homepage
-    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
-      loadPreloader();
-    }
-  }, []);
+  // useLayoutEffect(() => {
+  //   // Check if the current page is the homepage
+  //   if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+  //     loadPreloader();
+  //   }
+  // }, []);
   return (
     <>
       <AnimatePresence mode="wait">

@@ -14,17 +14,19 @@ const Overlay = () => {
 
   function update(latest) {
 
-    if (latest > 100) {
+    if (latest >= 100) {
       setHidden(true);
+      // console.log('over');
     } else {
       setHidden(false)
+      // console.log('before');
     }
   }
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     update(latest);
+    // console.log(latest);
   });
-
   useEffect(() => {
     const animate = async () => {
       if (hidden) {

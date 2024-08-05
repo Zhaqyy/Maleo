@@ -119,6 +119,8 @@
 .redText {
   scroll-snap-type: block;
   overflow-x: hidden;
+  position: relative;
+  z-index: 1;
 }
 .redText .text {
   position: relative;
@@ -278,6 +280,17 @@
   }
   .hero h3 {
     font-size: clamp(2rem, 10vw, 3.6rem);
+  }
+  .textline {
+    min-height: 50vh;
+  }
+  .scaleSec .scaleExt {
+    min-height: 30vh;
+    position: relative;
+    z-index: 1;
+  }
+  .redText {
+    min-height: unset;
   }
   .redText .text {
     width: calc(80% + 1.5rem);

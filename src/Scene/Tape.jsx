@@ -108,13 +108,26 @@ export const Tape = React.forwardRef((props, Tref) => {
     scaleValues
   );
 
-  let rotlerp = 0.1;
-  if (scrollYProgress.get() > order.tapecenter) {
-    rotlerp = 2;
-  }
+  let rotlerp = 0.05;
+
+    // Log for timeline Sequence
+
+    // useEffect(() => {
+    //   // Function to log the rounded scroll progress
+    //   const unsubscribe = scrollYProgress.on("change", (latest) => {
+    //     const rounded = Math.round(latest * 1000) / 1000; // Round to three decimal places
+    //     console.log(rounded,rotlerp);
+    //   });
+  
+    //   // Clean up the subscription on unmount
+    //   return () => unsubscribe();
+    // }, [scrollYProgress,rotlerp]);
+  
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
-
+    if (scrollYProgress.get() >= order.tapecenter) {
+      rotlerp = 2;
+    }
     if (Tref.current) {
       if (scrollYProgress.get() > order.tapecenter) {
         isRotating.current = true;
