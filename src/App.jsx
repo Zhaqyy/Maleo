@@ -1,13 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { Suspense, lazy, useState, useEffect, useTransition } from "react";
+import React, { Suspense, lazy, useState, useEffect, useTransition, useLayoutEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence, motion } from "framer-motion";
-// import Lenis from "lenis";
+import { AnimatePresence } from "framer-motion";
 import { ReactLenis, useLenis } from 'lenis/react'
 import Overlay from "./Components/Overlay";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-// import logo from "/flogo.svg";
+import { loadPreloader } from "./Components/preloader";
 import "./App.css";
 
 //PAGES
@@ -76,7 +75,12 @@ function App() {
     syncTouch: true} }) => {
     // called every scroll
   })
- 
+  useLayoutEffect(() => {
+    // Check if the current page is the homepage
+    if (window.location.pathname === '/' || window.location.pathname === '/index.html') {
+      loadPreloader();
+    }
+  }, []);
   return (
     <>
       <AnimatePresence mode="wait">

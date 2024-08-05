@@ -36,7 +36,8 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const isMobile = useMemo(() => window.innerWidth < 770, []);
   const scaleValues = useMemo(
-    () => (isMobile ? [0.2, 0.25, 0.2, 0.2, 0.8, 5] : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5]),
+    () =>
+      isMobile ? [0.2, 0.25, 0.2, 0.2, 0.8, 5] : [0.3, 0.4, 0.3, 0.3, 0.9, 5.5],
     [isMobile]
   );
   const XposValues = useMemo(
@@ -46,12 +47,25 @@ export const Tape = React.forwardRef((props, Tref) => {
 
   const Ypos = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup, order.tapeleft, order.tapeleftend, order.tapecenter, order.tapecenterend],
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapeleftend,
+      order.tapecenter,
+      order.tapecenterend,
+    ],
     [0, 0.5, 0, 0, -0.75, -0.85]
   );
   const Xpos = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup, order.tapeleft, order.tapeleftend, order.tapecenter],
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapeleftend,
+      order.tapecenter,
+    ],
     XposValues
   );
   const rot = useTransform(
@@ -71,15 +85,33 @@ export const Tape = React.forwardRef((props, Tref) => {
   );
   const scaleeX = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup, order.tapeleft, order.tapecenterend, order.tapescaleup, order.tapescaleupend],
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapecenterend,
+      order.tapescaleup,
+      order.tapescaleupend,
+    ],
     scaleValues
   );
   const scaleeY = useTransform(
     scrollYProgress,
-    [order.init, order.tapeup, order.tapeleft, order.tapecenterend, order.tapescaleup, order.tapescaleupend],
+    [
+      order.init,
+      order.tapeup,
+      order.tapeleft,
+      order.tapecenterend,
+      order.tapescaleup,
+      order.tapescaleupend,
+    ],
     scaleValues
   );
 
+  let rotlerp = 0.1;
+  if (scrollYProgress.get() > order.tapecenter) {
+    rotlerp = 2;
+  }
   useFrame((state, delta) => {
     const time = state.clock.elapsedTime;
 
@@ -87,16 +119,18 @@ export const Tape = React.forwardRef((props, Tref) => {
       if (scrollYProgress.get() > order.tapecenter) {
         isRotating.current = true;
 
+        
+
         Tref.current.rotation.x = THREE.MathUtils.damp(
           Tref.current.rotation.x,
           capturedRotation.current[0],
-          2,
+          rotlerp,
           delta
         );
         Tref.current.rotation.y = THREE.MathUtils.damp(
           Tref.current.rotation.y,
           capturedRotation.current[1],
-          2,
+          rotlerp,
           delta
         );
       } else {
@@ -161,30 +195,23 @@ export const Tape = React.forwardRef((props, Tref) => {
       Tref.current.rotation.z = THREE.MathUtils.damp(
         Tref.current.rotation.z,
         rot.get(),
-        2,
+        rotlerp,
         delta
       );
       Tref.current.rotation.x = THREE.MathUtils.damp(
         Tref.current.rotation.x,
         rotx.get(),
-        2,
+        rotlerp,
         delta
       );
       Tref.current.rotation.y = THREE.MathUtils.damp(
         Tref.current.rotation.y,
         roty.get(),
-        2,
+        rotlerp,
         delta
       );
     }
   });
-var trefCurrent = Tref.current;
-  useEffect(() => {
-    return () => {
-      // Clean up any resources when the component unmounts
-      trefCurrent?.dispose();
-    };
-  }, [trefCurrent]);
 
   return (
     <group
@@ -194,11 +221,9 @@ var trefCurrent = Tref.current;
       {...props}
       dispose={null}
     >
-      <mesh geometry={nodes.cinta.geometry} material={materials.Cinta01} />
-      <mesh geometry={nodes.cinta3.geometry} material={materials.Cinta03} />
-      <mesh geometry={nodes.cinta4.geometry} material={materials.Cinta03} />
-      <mesh geometry={nodes.Cylinder001.geometry} material={materials.cinta02} />
-      <mesh geometry={nodes.Cylinder001_1.geometry} material={materials.Cinta03} />
+      <mesh geometry={nodes.Cylinder.geometry} material={materials.Cinta01} />
+      <mesh geometry={nodes.Cylinder_1.geometry} material={materials.cinta02} />
+      <mesh geometry={nodes.Cylinder_2.geometry} material={materials.Cinta03} />
     </group>
   );
 });
